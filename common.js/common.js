@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 // card
+=======
+
+
+>>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
 const observerOptions = {
   root: null,
   rootMargin: '0px',
@@ -25,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// text-show
 	const textShows = document.querySelectorAll('.txt-show');
 	textShows.forEach(textShow => cardObserver.observe(textShow));
+<<<<<<< HEAD
 });
 
 // sticky
@@ -74,3 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // });
 
 
+=======
+});
+>>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
