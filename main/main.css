@@ -339,7 +339,6 @@ header .btn-icon {
   justify-content: flex-end;
   gap: 35px;
   z-index: 5;
-<<<<<<< HEAD
 }
 .hero .thumbnail {
   display: flex;
@@ -353,16 +352,6 @@ header .btn-icon {
   scale: 1;
 }
 
-=======
-}
-.hero .thumbnail {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-}
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
 .hero .thumbnail .item {
   position: relative;
   width: 230px;
@@ -375,7 +364,6 @@ header .btn-icon {
   background-position: top;
   cursor: pointer;
   transition: all 0.3s ease;
-<<<<<<< HEAD
   border: 2px solid transparent; 
 }
 
@@ -394,25 +382,6 @@ header .btn-icon {
 .hero .thumbnail .item:nth-child(4) {
   background-image: url("../assets/img/main/bg-main-04.png");
 }
-=======
-}
-.hero .thumbnail .item:hover {
-  transform: scale(1.05);
-}
-.hero .thumbnail .item:nth-child(1) {
-  background-image: url("../assets/img/main/bg-main-01.png");
-}
-.hero .thumbnail .item:nth-child(2) {
-  background-image: url("../assets/img/main/bg-main-02.png");
-}
-.hero .thumbnail .item:nth-child(3) {
-  background-image: url("../assets/img/main/bg-main-03.png");
-}
-.hero .thumbnail .item:nth-child(4) {
-  background-image: url("../assets/img/main/bg-main-04.png");
-}
-
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
 
 .hero .thumbnail .item .subtit {
   position: absolute;

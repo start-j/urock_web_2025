@@ -798,7 +798,7 @@ header nav .focusbar {
   height: 1080px;
   overflow: hidden;
   background-image: url('../assets/img/company/bg-location.png');
-  background-size: cover;  /* 이미지 원본 크기로 설정 */
+  background-size: cover; 
   background-repeat: no-repeat;
   background-position: center;
   text-align: center;
@@ -894,6 +894,8 @@ header nav .focusbar {
   max-height: none;
   object-fit: cover;
   pointer-events: none;  /* 이미지가 드래그를 방해하지 않도록 */
+  /* -ms-overflow-style: none;
+  scrollbar-width: none; */
 }
 
 .location .bseadressbbb {
