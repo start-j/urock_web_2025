@@ -1,0 +1,61 @@
+:root {
+    color-scheme: light dark;
+    /* primary */
+    --color-dark-primary-01-light: #628cf5;
+    --color-dark-primary-02: #201d30;
+    /* secondary */
+    --color-dark-secondary-01: #93b0f8;
+    --color-dark-secondary-02: #6de7ef;
+    --color-dark-secondary-03: #11bcc7;
+    --color-dark-secondary-04: #d9dfee;
+    /* text */
+    --color-dark-text-00: rgba(252, 252, 252, 0.1);
+    --color-dark-text-01-disable: rgba(252, 252, 252, 0.5);
+    --color-dark-text-02-row: rgba(252, 252, 252, 0.8);
+    --color-dark-text-03-high: rgba(252, 252, 252, 1) /*#FCFCFC*/;
+    --color-dark-text-04-primary: #4978eb;
+    --color-dark-text-05-dark: #91b1ff;
+    --color-dark-text-success: #0fb1bc;
+    --color-dark-text-error: #f86d6d;
+    /* bg */
+    --color-dark-bg-00: #201d30;
+    --color-dark-bg-01: #1d1b2b;
+    --color-dark-bg-02: #171624;
+    --color-dark-bg-03: rgb(255, 255, 255, 0.05);
+    --color-dark-bg-04: rgb(255, 255, 255, 0.1);
+    --color-dark-bg-success: #aef2f6;
+    --color-dark-bg-error: #ffb9b9;
+    /* line */
+    --color-dark-line-00: #f5f5f5;
+    --color-dark-line-01: #ededed;
+    --color-dark-line-02: #e9ebf8;
+    --color-dark-line-03: #93b0f8;
+    --color-dark-line-04-dark: #494b4d;
+    --color-dark-line-05-focus: #050506;
+    --color-dark-line-06-card: linear-gradient(
+        to right,
+        rgba(98, 140, 245, 0.42),
+        rgba(241, 239, 250, 0.03),
+        rgba(241, 239, 250, 0),
+        rgba(98, 140, 245, 0.42)
+      )
+      1;
+    /* blue */
+    --color-dark-blue-01: #f9fbff;
+    --color-dark-blue-02: #eff4fe;
+    --color-dark-blue-03: #cedbfc;
+    --color-dark-blue-04: #b7cafa;
+    --color-dark-blue-05-icon-sub: #96b2f8;
+    --color-dark-blue-06: #81a3f7;
+    --color-dark-blue-08: #597fdf;
+    --color-dark-blue-09: #4663ae;
+    --color-dark-blue-10: #364d87;
+    --color-dark-blue-11: #293b67;
+    --color-dark-blue-12: #1c2846;
+  
+    /* state */
+    --color-dark-state-success: #32d8e3;
+    --color-dark-state-error: #ff8484;
+    --color-dark-state-warning: #ffc60a;
+  }
+  
