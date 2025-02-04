@@ -30,11 +30,8 @@
   border: none;
 }
 
-<<<<<<< HEAD
 
 /* card */
-=======
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
 .card {
   width: 100%;
   position: relative;
@@ -54,13 +51,6 @@
   box-sizing: border-box;
   height: 498px;
   overflow: hidden;
-<<<<<<< HEAD
-=======
-}
-
-/* card */
-.card {
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease-out;
@@ -88,7 +78,6 @@
 }
 
 
-<<<<<<< HEAD
 /* 
 .tit-group {
   position: absolute;
@@ -130,8 +119,6 @@
 
 
 
-=======
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
 /* text-show */
 .txt-show {
   opacity: 0;
@@ -171,7 +158,4 @@
 .txt-show:nth-child(7) {
   transition-delay: 0.6s;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
