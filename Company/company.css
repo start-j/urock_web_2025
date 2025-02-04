@@ -1,6 +1,5 @@
 /* header */
 header {
-<<<<<<< HEAD
   position: fixed;
   width: 100%;
   z-index: 100; /* 최상단 유지 */
@@ -16,22 +15,6 @@ header .gnb {
 }
 
 header .gnb .inner {
-=======
-  width: 100%;
-  margin: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-}
-
-header nav {
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-}
-
-header nav .inner {
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
   width: 1520px;
   margin: 0 auto;
   height: 86px;
@@ -40,16 +23,11 @@ header nav .inner {
   align-items: center;
 }
 
-<<<<<<< HEAD
 header .gnb .logo {
-=======
-header nav .logo {
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
   width: 114px;
   height: 37px;
 }
 
-<<<<<<< HEAD
 header .gnb .menu {
   display: flex;
   align-items: center;
@@ -68,24 +46,10 @@ header .gnb .menu li:nth-child(1) a {
 }
 
 header .gnb .menu a {
-=======
-header nav .focusbar {
-  width: 80px;
-  height: 4px;
-  position: absolute;
-  left: calc(50% - 156px);
-  bottom: 0;
-  border-radius: 20px 20px 0px 0px;
-  background-color: #628cf5;
-}
-
-header nav .menu a {
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
   margin-right: 40px;
   font-size: 18px;
 }
 
-<<<<<<< HEAD
 header .gnb .menu a:last-child {
   margin-right: 0;
 }
@@ -160,24 +124,6 @@ header nav .focusbar {
 }
 
 
-=======
-header nav .menu a:last-child {
-  margin-right: 0;
-}
-
-header nav .menu a:hover {
-  color: #628cf5;
-}
-
-header nav .language {
-  display: flex;
-}
-
-header .menu a:nth-child(1) {
-  color: #628cf5;
-}
-
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
 /* intro */
 .intro {
   width: 100%;
@@ -365,24 +311,15 @@ header .menu a:nth-child(1) {
 }
 
 .business .business-body .container {
-<<<<<<< HEAD
   position: absolute;
   width: 1520px;
   top: calc(50% - 310px);
-=======
-  position: relative;
-  width: 1520px;
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
   max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 60px;
-<<<<<<< HEAD
-=======
-  padding: 40px 0;
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
 }
 
 .business .business-body .tit-group {
@@ -419,12 +356,7 @@ header .menu a:nth-child(1) {
 .business .business-body .cards {
   align-self: stretch;
   display: flex;
-<<<<<<< HEAD
   align-items: flex-end;
-=======
-  flex-direction: row;
-  align-items: flex-start;
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
   justify-content: center;
   gap: 24px;
   text-align: left;
@@ -551,11 +483,7 @@ header .menu a:nth-child(1) {
   left: calc(50% - 38.5px);
   display: flex;
   flex-direction: row;
-<<<<<<< HEAD
   align-items: flex-end;
-=======
-  align-items: flex-start;
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
   justify-content: center;
   gap: 4px;
   text-align: center;
@@ -761,7 +689,6 @@ header .menu a:nth-child(1) {
 
 
 
-<<<<<<< HEAD
 
 /* partner */
 .partner {
@@ -1059,8 +986,6 @@ header .menu a:nth-child(1) {
 
 
 
-=======
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
 /* footer */
 footer {
   position: relative;
@@ -1298,11 +1223,8 @@ footer .divider-row-full {
     display: none;
   }
 }
-<<<<<<< HEAD
 
 /* 부모 요소에 overflow 처리 */
 body {
     overflow-x: hidden;  /* 가로 스크롤 방지 */
 }
-=======
->>>>>>> 08db9efe9ea409186561e5b82d0036ba5903decc
