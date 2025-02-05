@@ -2,7 +2,7 @@
 header {
   position: fixed;
   width: 100%;
-  z-index: 100; /* 최상단 유지 */
+  z-index: 100;
 }
 
 /* GNB */
@@ -322,7 +322,6 @@ header .btn-icon {
   background-color: #201d30e7;
   border: 0.5px solid #628cf5;
   color: #729aff;
-  /* stroke: #628cf5; */
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
@@ -426,7 +425,6 @@ header .btn-icon {
   content: url(../assets/icon/icon-expansion-hover.svg);
 }
 
-/* 썸네일 클릭 시 확장 아이콘 효과 */
 .hero .thumbnail .item.active .icon-expansion {
   transform: rotate(360deg);
   transition: transform 0.3s ease;
@@ -439,7 +437,7 @@ header .btn-icon {
   left: 48.5%;
   transform: translate(-50%, -50%);
   top: 165px;
-  z-index: 5; /* 에셋 컨테이너 */
+  z-index: 5;
 }
 
 .hero .assets .asset-top-gif {
@@ -522,9 +520,9 @@ header .btn-icon {
   justify-content: center;
   align-items: center;
   background-image: url("../assets/img/main/bg-solution-header.png");
-  background-size: 100% 498px; /* 너비는 100%, 높이는 고정값으로 설정 */
+  background-size: 100% 498px; 
   background-repeat: no-repeat;
-  background-position: center; /* 배경 이미지 중앙 정렬 */
+  background-position: center; 
 }
 .solution .head-tit {
   letter-spacing: -0.04em;
@@ -536,14 +534,14 @@ header .btn-icon {
 /* solution body */
 .solution .solution-body {
   position: absolute;
-  width: 100vw; /* 뷰포트 전체 너비로 설정 */
+  width: 100vw; 
   height: 2686px;
   top: 498px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: url("../assets/img/main/bg-solution-body.png");
-  background-size: cover; /* 너비는 100%, 높이는 고정값으로 설정 */
+  background-size: cover; 
   background-repeat: no-repeat;
   background-position: top;
 }
@@ -706,7 +704,6 @@ header .btn-icon {
   background-image: url("../assets/img/main/bg-service.png");
   background-size: cover;
   background-repeat: no-repeat;
-  /* text-align: center; */
   font-size: 40px;
   display: flex;
   align-items: center;
@@ -807,7 +804,6 @@ header .btn-icon {
   font-weight: 600;
   display: flex;
   align-items: center;
-  /* width: 220px; */
 }
 
 .service .des {
@@ -820,7 +816,6 @@ header .btn-icon {
   font-weight: 300;
   display: flex;
   align-items: center;
-  /* width: 220px; */
 }
 
 .service .title:hover,
@@ -998,14 +993,6 @@ header .btn-icon {
   text-align: left;
   font-size: 40px;
 }
-/* 
-.news .bg-color-icon {
-  position: absolute;
-  top: -14px;
-  left: 0px;
-  width: 100%;
-  object-fit: cover;
-} */
 
 /* new__contents */
 .news .contents {
@@ -1075,9 +1062,9 @@ header .btn-icon {
   line-height: 150%;
   font-weight: 300;
   text-align: left;
-  white-space: nowrap; /* 텍스트를 한 줄로 유지 */
-  overflow: hidden; /* 넘치는 텍스트를 숨김 */
-  text-overflow: ellipsis; /* 말줄임표(...) 표시 */
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
 }
 
 .news .subtit {
@@ -1288,8 +1275,6 @@ footer .menu-group .divider-row-menu {
   position: relative;
   background-color: rgba(255, 255, 255, 0.19);
   box-sizing: border-box;
-  /* border: 3px solid rgba(255, 255, 255, 0.19); */
-  /* transform: rotate(-90deg); */
   transform-origin: 0 0;
 }
 

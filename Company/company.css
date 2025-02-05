@@ -2,7 +2,7 @@
 header {
   position: fixed;
   width: 100%;
-  z-index: 100; /* 최상단 유지 */
+  z-index: 100;
 }
 
 /* GNB */
@@ -798,7 +798,7 @@ header nav .focusbar {
   height: 1080px;
   overflow: hidden;
   background-image: url('../assets/img/company/bg-location.png');
-  background-size: cover; 
+  background-size: cover;  
   background-repeat: no-repeat;
   background-position: center;
   text-align: center;
@@ -819,18 +819,36 @@ header nav .focusbar {
   gap: 68px;
 }
 
-.location .bse-bbb {
+.location .map-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 48px;
+}
+
+.location .top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.location .tit-group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+}
+
+.location .tit {
   position: relative;
   letter-spacing: -4px;
   font-weight: 600;
 }
-.location .dot-child {
-  width: 8px;
-  position: relative;
-  border-radius: 50%;
-  background-color: #628cf5;
-  height: 8px;
-}
+
 .location .dot {
   display: flex;
   flex-direction: row;
@@ -838,27 +856,22 @@ header nav .focusbar {
   justify-content: flex-start;
   padding: 0px 0px 12px;
 }
-.location .tit {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 4px;
+
+.location .dot-child {
+  width: 8px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #628cf5;
+  height: 8px;
 }
-.location .bsedesbbb {
+
+.location .des {
   position: relative;
   font-size: 18px;
   letter-spacing: -1.8px;
   line-height: 150%;
   font-weight: 300;
   white-space: pre-wrap;
-}
-.location .txt-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 4px;
 }
 
 .location .map-area {
@@ -867,18 +880,30 @@ header nav .focusbar {
   border-radius: 80px;
   background-color: #fff;
   height: 640px;
-  overflow: auto;
+  overflow: hidden;
   flex-shrink: 0;
   font-size: 16px;
   color: #f1f1f1;
-  cursor: grab;
+  cursor: default;
   user-select: none;
-  touch-action: none;
-  scroll-behavior: smooth;  /* 부드러운 스크롤 */
 }
 
-.location .map-area:active {
-  cursor: grabbing;
+.location .map-area iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: auto;
+}
+
+.location .location-group .txt-group {
+  position: absolute;
+  top: 51px;
+  left: 106px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
 }
 
 .location .map-icon {
@@ -893,66 +918,41 @@ header nav .focusbar {
   overflow: hidden;
   max-height: none;
   object-fit: cover;
-  pointer-events: none;  /* 이미지가 드래그를 방해하지 않도록 */
-  /* -ms-overflow-style: none;
-  scrollbar-width: none; */
+  pointer-events: none; 
 }
 
-.location .bseadressbbb {
+.location .address {
   position: relative;
   letter-spacing: -2px;
   line-height: 150%;
   font-weight: 500;
 }
-.location .icon-arrow {
-  width: 16px;
-  position: relative;
-  height: 16px;
-}
-.location .txt-group1 {
+
+.location a.location-group {
   position: absolute;
-  top: 51px;
-  left: 113px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 4px;
-}
-.location .location-group {
-  position: absolute;
-  top: 225.5px;
-  left: 761px;
+  top: 225px;
+  left: 700px;
   width: 390px;
   height: 162px;
   background-image: url('../assets/img/company/location-group.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;
 }
 
-.location .map-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 48px;
-}
-.location .bsebuttonbbb {
+
+.location a.location-group .icon-arrow {
+  width: 16px;
   position: relative;
-  letter-spacing: -0.5px;
-  line-height: 136%;
-  font-weight: 600;
-  text-shadow: 0px 0px 0.9px #628cf5, 0px 0px 12.6px #264deb;
+  height: 16px;
 }
-.location .icon-arrow1 {
-  width: 24px;
-  position: relative;
-  height: 24px;
-}
-.location .btn {
+
+.location button.btn-blue {
   width: 489px;
-  box-shadow: -1px 3px 4px rgba(98, 140, 245, 0.05), -1px 4px 8px rgba(98, 140, 245, 0.08), -1px 4px 16px rgba(98, 140, 245, 0.12);
+  box-shadow: 0px 4px 12px rgba(98, 140, 245, 0.1), 0px 6px 12px rgba(32, 29, 48, 0.15), 0px 8px 16px rgba(32, 29, 48, 0.2), 0px 20px 20px rgba(32, 29, 48, 0.3), 0px 20px 60px rgba(32, 29, 48, 0.4);
   border-radius: 20px;
   background-color: #628cf5;
   border: 2px solid #628cf5;
@@ -968,16 +968,23 @@ header nav .focusbar {
   gap: 4px;
   text-align: left;
   font-size: 18px;
+  cursor: pointer;
+  color: #fff;
 }
 
-.location .btn:hover {
-  background-color: #93B0F8;
+.location button.btn-blue .btn {
+  position: relative;
+  letter-spacing: -0.5px;
+  line-height: 136%;
+  font-weight: 600;
+  text-shadow: 0px 0px 0.9px #628cf5, 0px 0px 12.6px #264deb;
 }
 
-.location .btn:active {
-  background-color: #4663ae;
+.location button.btn-blue .icon-arrow {
+  width: 24px;
+  position: relative;
+  height: 24px;
 }
-
 
 
 
@@ -1052,8 +1059,6 @@ footer .menu-group .divider-row-menu {
   position: relative;
   background-color: rgba(255, 255, 255, 0.19);
   box-sizing: border-box;
-  /* border: 3px solid rgba(255, 255, 255, 0.19); */
-  /* transform: rotate(-90deg); */
   transform-origin: 0 0;
 }
 
@@ -1089,7 +1094,6 @@ footer .phone-number-group {
   align-items: center;
   justify-content: flex-end;
   gap: 3px;
-  /* text-align: left; */
   font-size: 40px;
   color: #91b1ff;
 }
@@ -1226,7 +1230,3 @@ footer .divider-row-full {
   }
 }
 
-/* 부모 요소에 overflow 처리 */
-body {
-    overflow-x: hidden;  /* 가로 스크롤 방지 */
-}
