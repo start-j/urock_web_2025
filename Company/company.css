@@ -550,6 +550,7 @@ header nav .focusbar {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .history .p {
   margin: 0;
 }
@@ -574,6 +575,7 @@ header nav .focusbar {
   font-size: 18px;
   color: #f5f5f5;
 }
+
 .history .ul1 {
   align-self: stretch;
   display: flex;
@@ -586,27 +588,6 @@ header nav .focusbar {
   font-size: 18px;
   color: #f5f5f5;
 }
-.history .ul3 {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 10px 0px 0px;
-  text-align: left;
-  font-size: 18px;
-  color: #f5f5f5;
-}
-.history .ul6 {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 10px 0px 0px;
-  font-size: 18px;
-  color: #f5f5f5;
-}
 
 .history .li {
   align-self: stretch;
@@ -616,7 +597,8 @@ header nav .focusbar {
   justify-content: flex-start;
   gap: 12px;
 }
-.history .li17 {
+
+.history .list-left {
   align-self: stretch;
   display: flex;
   flex-direction: row;
@@ -928,7 +910,7 @@ header nav .focusbar {
   font-weight: 500;
 }
 
-.location a.location-group {
+.location .location-group {
   position: absolute;
   top: 225px;
   left: 700px;
@@ -944,7 +926,7 @@ header nav .focusbar {
 }
 
 
-.location a.location-group .icon-arrow {
+.location .location-group .icon-arrow {
   width: 16px;
   position: relative;
   height: 16px;

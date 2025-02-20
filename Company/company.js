@@ -18,4 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	// 주기적으로 위치 체크
 	setInterval(resetPosition, 50);
+	
+	// Google Maps 관련 인터랙션
+	const location = document.querySelector('.location-group');
+	const mapArea = document.querySelector('.map-area iframe');
+	
+	// 맵 영역 마우스 이벤트
+	mapArea.addEventListener('mousedown', () => {
+			location.style.opacity = '0';
+	});
+
+	// 페이지 로드/새로고침 시 location-group 활성화
+	window.addEventListener('load', () => {
+			location.style.opacity = '1';
+	});
 });
