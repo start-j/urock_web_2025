@@ -26,3 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const textShows = document.querySelectorAll('.txt-show');
 	textShows.forEach(textShow => cardObserver.observe(textShow));
 });
+
+
+
+

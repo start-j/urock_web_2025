@@ -1,12 +1,16 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; 박스 크기 고정
+  box-sizing: border-box;
+  /* 박스 크기 고정 */
 }
+
 /* link reset */
 a {
-  text-decoration: none; /* 링크 밑줄 제거 */
-  color: inherit; /* 링크 색상 상속 */
+  text-decoration: none;
+  /* 링크 밑줄 제거 */
+  color: inherit;
+  /* 링크 색상 상속 */
   color: #eee;
 }
 
@@ -18,12 +22,15 @@ li {
 
 /* table reset */
 table {
-  border-collapse: collapse; /* 테이블 셀 경계 합치기 */
-  border-spacing: 0; /* 테이블 셀 간격 제거 */
+  border-collapse: collapse;
+  /* 테이블 셀 경계 합치기 */
+  border-spacing: 0;
+  /* 테이블 셀 간격 제거 */
 }
 
 /*font*/
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
 body {
   font-family: "Pretendard-Family", sans-serif;
   color: #eee;
@@ -38,9 +45,16 @@ img {
   width: 100%;
 }
 
+/* input reset */
+input {
+  border: none;
+  outline: none;
+}
+
 /* inner */
 .inner {
   position: relative;
   margin: 0 auto;
-  width: 1520px; /*스크린 사이즈 지정*/
+  width: 1440px;
+  /*스크린 사이즈 지정*/
 }
