@@ -80,6 +80,7 @@
   font-family: Inter;
   font-size: 64px;
   font-weight: 700;
+  text-align: center;
 }
 
 --font-h3: {
@@ -125,9 +126,10 @@ h1 {
 
 h2 {
   /* font: var(--font-h2); */
-  font-family: 'Gmarket Sans';
+  text-align: center;
   font-size: 64px;
   font-weight: 700;
+  font-family: Inter;
 }
 
 h3 {
@@ -149,15 +151,15 @@ h4 {
 h5 {
   /* font: var(--font-h5); */
   font-size: 18px;
-  letter-spacing: -0.3px;
-  line-height: 148%;
+  letter-spacing: -1.5px;
+  line-height: 150%;
   font-weight: 600;
 }
 
 h6 {
   /* font: var(--font-h6); */
   font-size: 18px;
-  letter-spacing: -0.3px;
-  line-height: 148%;
+  letter-spacing: -1.5px;
+  line-height: 150%;
   font-weight: 300;
 }

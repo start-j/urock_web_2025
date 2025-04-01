@@ -38,12 +38,12 @@ header .inner {
 }
 
 header .logo-icon {
-  width: 186px;
+  width: 160px;
   position: relative;
-  height: 56px;
+  height: 48px;
 }
 
-header  a:first-child {
+header a:first-child {
   position: relative;
   letter-spacing: -0.5px;
   line-height: 136%;
@@ -68,7 +68,7 @@ header .menu li {
   padding: 16px;
 }
 
-header .menu li:hover a{
+header .menu li:hover a {
   position: relative;
   font-size: 18px;
   letter-spacing: -0.5px;
