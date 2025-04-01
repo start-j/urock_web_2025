@@ -107,11 +107,11 @@ footer .li:hover {
 
 footer .phone-number-group {
   position: absolute;
-  bottom: 220px;
+  bottom: 240px;
   left: -8px;
   display: flex;
   align-items: center;
-  /* gap: 2px; */
+  gap: 2px;
   font-size: 40px;
   color: #f1f1f1cc;
 }
@@ -132,16 +132,6 @@ footer .contact-group {
   flex-direction: column;
   gap: 24px;
 }
-
-/* footer .contact-group {
-  position: absolute;
-  width: 50%;
-  left: 0;
-  bottom: 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-} */
 
 footer .contact-group .logo-icon {
   height: 33px;
