@@ -101,53 +101,33 @@ header .languege {
   padding: 16px;
 }
 
-
-
 /* FAB */
 header .fab-btn {
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  bottom: 148px;
-  right: 66px;
-  gap: 22px;
-}
-
-header .fab-btn .btn-top,
-header .fab-btn .btn-customer {
-  position: relative;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.21), 0px 20px 40px rgba(32, 29, 48, 0.46);
+  backdrop-filter: blur(20px);
+  background: linear-gradient(157.44deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0) 30.54%), rgba(255, 255, 255, 0);
+  bottom: 6%;
+  right: 3%;
   width: 80px;
   height: 80px;
-  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.21),
-    0px 20px 40px rgba(32, 29, 48, 0.46);
-  backdrop-filter: blur(12px);
   border-radius: 50%;
-  background: linear-gradient(157.44deg,
-      rgba(255, 255, 255, 0.05),
-      rgba(255, 255, 255, 0) 30.54%),
-    rgba(255, 255, 255, 0);
-  border: 1px solid #628cf5;
+  box-sizing: border-box;
+  z-index: 100;
+  border: none;
+  display: none;
+  transition: all 0.3s ease;
 }
 
-header .fab-btn .btn-top:hover,
-header .fab-btn .btn-customer:hover {
-  border: 1px solid #ffffff9d;
-  background-color: #00000075;
+header .fab-btn:hover img {
+  content: url(./assets/img/common/fab-hover.png);
 }
 
-header .fab-btn .btn-top:hover {
-  content: url(../assets/img/header/fab-top-hover.svg);
+header .fab-btn:active img {
+  content: url(./assets/img/common/fab-active.png);
 }
 
-header .fab-btn .btn-customer:hover {
-  content: url(../assets/img/header/fab-customer-hover.svg);
-}
 
-header .btn-icon {
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
 
 
 
@@ -706,6 +686,7 @@ header .btn-icon {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: 48px 40px;
   gap: 8px;
 }
@@ -744,6 +725,8 @@ header .btn-icon {
 
 .solution .p {
   margin: 0;
+  /* display: flex;
+  justify-content: flex-start; */
 }
 
 /* service */

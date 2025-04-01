@@ -1,17 +1,25 @@
-// document.addEventListener('DOMContentLoaded', function() {
-//   const tabContainer = document.querySelector('.intro .tab-container');
-//   const intro = document.querySelector('.intro');
+
+// FAB 버튼 스크롤 동작
+document.addEventListener('DOMContentLoaded', function() {
+  const fabBtn = document.querySelector('.fab-btn');
   
-//   window.addEventListener('scroll', function() {
-//       // intro 섹션의 bottom 위치 계산
-//       const introBottom = intro.getBoundingClientRect().bottom;
-      
-//       // 스크롤이 intro 섹션을 벗어났는지 확인
-//       if (introBottom <= window.innerHeight) {
-//           tabContainer.classList.remove('scrolled');
-//       } else {
-//           tabContainer.classList.add('scrolled');
-//       }
-//   });
-// });
+  // 스크롤 위치에 따라 버튼 표시/숨김
+  window.addEventListener('scroll', function() {
+    // 사용자가 상단에서 300px 이상 스크롤하면 버튼 표시
+    if (window.scrollY > 300) {
+      fabBtn.style.display = 'block';
+    } else {
+      fabBtn.style.display = 'none';
+    }
+  });
+  
+  // 버튼 클릭 시 최상단으로 스크롤
+  fabBtn.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // 부드러운 스크롤 애니메이션
+    });
+  });
+});
+
 

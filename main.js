@@ -104,4 +104,3 @@ window.onload = function() {
     document.querySelector('.carousel .list .item').classList.add('active');
     document.querySelector('.thumbnail .item').classList.add('active');
 }
-
