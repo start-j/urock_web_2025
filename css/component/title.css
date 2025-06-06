@@ -1,0 +1,47 @@
+.title-component {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0px 0px 48px 0px;
+}
+
+.title-component .tit-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+}
+
+.title-component .tit {
+  color: #FFF;
+  text-align: center;
+}
+
+.title-component .dot {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 8px;
+}
+
+.title-component .dot-child {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #628cf5;
+}
+
+.title-component .tit-desc {
+  color: rgba(241, 241, 241, 0.70);
+  text-align: center;
+}
+
+
+/* certificate 인증서 */
+.section-certificate .title-component {
+  padding: 0px 0px 0px 0px;
+}

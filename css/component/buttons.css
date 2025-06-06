@@ -1,0 +1,31 @@
+/* button filled */
+.btn--filled {
+  background-color: var(--color-primary-01);
+  color: var(--color-text-03-high);
+  width: 489px;
+  height: 67px;
+  padding: 16px 28px;
+  gap: 4px;
+  border-radius: 20px;
+  border: 2px solid #628cf5;
+  background: var(--Color-primary-01);
+  box-shadow: 0px 4px 12px 0px rgba(98, 140, 245, 0.1),
+    0px 6px 12px 0px rgba(32, 29, 48, 0.15),
+    0px 8px 16px 0px rgba(32, 29, 48, 0.2),
+    0px 20px 20px 0px rgba(32, 29, 48, 0.3),
+    0px 20px 60px 0px rgba(32, 29, 48, 0.4);
+}
+
+.btn--filled:hover {
+  background-color: var(--color-dark-secondary-01);
+}
+
+.btn--filled:active {
+  background-color: var(--color-dark-blue-09);
+}
+
+.btn--disabled {
+  background-color: var(--color-dark-bg-02);
+  color: var(--color-dark-text-01-disable);
+  border: none;
+}

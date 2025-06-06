@@ -1,0 +1,187 @@
+
+/* 페이지별 특화 스타일 */
+
+/* 서비스 페이지 제목 */
+.ad .tit-group {
+    position: absolute;
+    top: 167px;
+    left: calc(50% - 249.5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    text-align: center;
+    font-size: 36px;
+  }
+  
+  .ad .tit-group .tit-main .tit {
+    letter-spacing: -1.5px;
+    line-height: 128%;
+    font-weight: 600;
+  }
+  
+  .ad .tit-group .des {
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    line-height: 150%;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.86);
+    opacity: 0.75;
+  }
+  
+  /* 솔루션 페이지 제목 */
+  .solution .tit {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .solution .dot {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px 0px 12px;
+  }
+  
+  .solution .dot-child {
+    width: 8px;
+    border-radius: 50%;
+    background-color: #628cf5;
+    height: 8px;
+  }
+  
+  /* 메인 페이지 서비스 섹션 */
+  .service .tit-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .service .tit {
+    letter-spacing: -0.06em;
+    line-height: 140%;
+    font-weight: 600;
+  }
+  
+  /* 메인 페이지 클라이언트 섹션 */
+  .client .tit-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    padding-top: 200px;
+  }
+  
+  .client .tit {
+    font-size: 40px;
+    letter-spacing: -0.06em;
+    line-height: 140%;
+    font-weight: 600;
+  }
+  
+  /* 메인 페이지 뉴스 섹션 */
+  .news .contents .txt-group .tit-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .news .contents .txt-group .tit-group .tit {
+    letter-spacing: -0.06em;
+    line-height: 140%;
+    font-weight: 500;
+  }
+  
+  /* 회사 페이지 */
+  .business .business-body .tit-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .business .business-body .tit-group>.tit {
+    letter-spacing: -0.06em;
+    line-height: 140%;
+    font-weight: 600;
+  }
+  
+  .partner .tit-group {
+    position: absolute;
+    top: 132px;
+    left: calc(50% - 55px);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .partner .tit-group .tit {
+    letter-spacing: -0.06em;
+    line-height: 140%;
+    font-weight: 600;
+  }
+  
+  /* 히스토리 섹션 */
+  .history .tit {
+    position: absolute;
+    top: 180px;
+    left: calc(50% - 38.5px);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  /* 인증서 섹션 */
+  .certificate .tit {
+    position: absolute;
+    top: 174px;
+    left: calc(50% - 94.5px);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  /* 문의 페이지 */
+  .contents .tit-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 48px;
+  }
+  
+  .contents .tit-group>.tit {
+    letter-spacing: -0.06em;
+    line-height: 140%;
+    font-weight: 600;
+    text-align: center;
+    font-size: 40px;
+  }
+  
+  /* 인트로 섹션 */
+  .intro .tit {
+    letter-spacing: -0.06em;
+    line-height: 140%;
+    font-weight: 600;
+    text-align: center;
+    font-size: 40px;
+  }

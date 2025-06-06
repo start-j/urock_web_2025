@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/page/solution-01-dfas-pro.css" />
+  <script defer src="/js/include.js"></script>
+  <script defer src="/js/section/header.js"></script>
+  <script type="module" src="/js/index.js"></script>
+  <script defer src="/js/page/solution.js"></script>
+  <title>DFAS Pro | 유락</title>
+</head>
+
+
+<body>
+  <!-- header -->
+  <div data-include-path="/html/section/header.html"></div>
+
+  <!-- intro -->
+  <div data-include-path="/html/section/intro.html" data-title="솔루션" data-desc="DFAS Pro"></div>
+
+
+  <!-- tab-container -->
+  <div data-include-path="/html/component/tab.html"></div>
+
+
+  <!-- footer -->
+  <div data-include-path="/html/section/footer.html"></div>
+
+  <!-- 메뉴 초기화를 위한 스크립트 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // include.js가 완료된 후 메뉴 초기화
+      const checkIncludeComplete = setInterval(function () {
+        if (window.reInitHeaderComponent) {
+          clearInterval(checkIncludeComplete);
+          window.reInitHeaderComponent();
+        }
+      }, 100);
+    });
+  </script>
+</body>
+
+</html>

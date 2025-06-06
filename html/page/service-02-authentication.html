@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/page/service-02-authentication.css" />
+  <link rel="stylesheet" href="/css/component/breadcrumb.css" />
+  <script defer src="/js/include.js"></script>
+  <script defer src="/js/section/header.js"></script>
+  <script type="module" src="/js/index.js"></script>
+  <script defer src="/js/page/service.js"></script>
+  <script defer src="/js/component/tab-config.js"></script>
+  <script defer src="/js/component/tab.js"></script>
+  <title>국제 표준화 인증 | 유락</title>
+</head>
+
+
+<body>
+  <!-- header -->
+  <div data-include-path="/html/section/header.html"></div>
+
+  <!-- intro -->
+  <div data-include-path="/html/section/intro.html" data-title="서비스" data-desc="국제 표준화 인증"></div>
+
+  <!-- tab-container -->
+  <div data-include-path="/html/component/tab.html"></div>
+
+  <!-- footer -->
+  <div data-include-path="/html/section/footer.html"></div>
+
+  <!-- 메뉴 초기화를 위한 스크립트 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // include.js가 완료된 후 메뉴 초기화
+      const checkIncludeComplete = setInterval(function () {
+        if (document.querySelector('.mobile-nav-panel')) {
+          clearInterval(checkIncludeComplete);
+          if (window.reInitHeaderComponent) {
+            window.reInitHeaderComponent();
+          }
+        }
+      }, 100);
+    });
+  </script>
+</body>
+
+</html>

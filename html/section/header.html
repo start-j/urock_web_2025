@@ -1,0 +1,43 @@
+<header>
+  <nav>
+    <div class="inner">
+      <a href="/">
+        <img class="logo-icon" alt="" src="/public/logo/urock-white.svg">
+      </a>
+      <ul class="menu">
+        <li class="menu-item" data-page="company"><a href="/html/page/company.html">회사소개</a></li>
+        <li class="menu-item" data-page="solution"><a href="/html/page/solution-01-dfas-pro.html">솔루션소개</a></li>
+        <li class="menu-item" data-page="service"><a href="/html/page/service-01-analysis.html">서비스</a></li>
+        <li class="menu-item" data-page="support"><a href="/html/page/support-01-inquiry.html">고객지원</a></li>
+      </ul>
+      <div class="header-actions">
+        <div class="language">
+          <img class="icon-language" alt="" src="/public/icons/icon-language.svg">
+          <img class="icon-dropdown" alt="" src="/public/icons/icon-dropdown.svg">
+        </div>
+        <div class="mobile-menu-btn">
+          <img src="/public/icons/icon-menu.svg" alt="메뉴 아이콘">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <button class="fab-btn">
+    <img src="/public/images/common/fab-default.png" alt="top-move-button">
+  </button>
+
+  <!-- JavaScript -->
+  <script src="/js/section/header.js"></script>
+  <script src="/js/component/tab-config.js"></script>
+  <script src="/js/component/tab.js"></script>
+  <script>
+    function initTabAfterInclude() {
+      const tabEl = document.getElementById('tab-container');
+      if (tabEl && typeof createTabComponent === 'function') {
+        createTabComponent('tab-container', window.solutionTabConfig);
+      } else {
+        setTimeout(initTabAfterInclude, 100);
+      }
+    }
+    initTabAfterInclude();
+  </script>
+</header>

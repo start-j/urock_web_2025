@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* 박스 크기 고정 */
+}
+
+/*font*/
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+body {
+  font-family: "Pretendard-Family", sans-serif;
+  color: #eee;
+  background-color: #201D30;
+  margin: 0;
+  font-size: 16px;
+  /* min-height: 100vh; 페이지의 최소 높이를 100vh로 설정하여 화면 전체를 채우도록 함 */
+  transform: none;
+  transform-origin: initial;
+  min-width: 360px;
+}
+
+/* link reset */
+a {
+  text-decoration: none;
+  /* 링크 밑줄 제거 */
+  color: inherit;
+  /* 링크 색상 상속 */
+  color: #eee;
+}
+
+/* ul, li reset */
+ul,
+li {
+  list-style: none;
+}
+
+/* table reset */
+table {
+  border-collapse: collapse;
+  /* 테이블 셀 경계 합치기 */
+  border-spacing: 0;
+  /* 테이블 셀 간격 제거 */
+}
+
+
+/* img (인라인 요소) */
+img {
+  display: block;
+  width: 100%;
+}
+
+/* input reset */
+input {
+  border: none;
+  outline: none;
+}
+
+/* inner */
+.inner {
+  position: relative;
+  width: 1440px;
+  margin: 0 auto;
+  /*스크린 사이즈 지정*/
+}

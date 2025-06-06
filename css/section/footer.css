@@ -1,0 +1,285 @@
+footer {
+  position: relative;
+  margin: 0 40px;
+  background-image: url(../../public/images/footer/bg-footer.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: plus-darker, normal;
+  border-radius: 48px 48px 0 0;
+}
+
+footer .inner {
+  width: 1440px;
+  position: relative;
+  box-sizing: border-box;
+  height: 620px;
+  padding: 120px 56px 120px 56px;
+  font-size: 16px;
+  color: rgba(190, 192, 194, 0.6);
+  flex: 1;
+}
+
+
+footer .menu-container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 18px;
+  color: #fefefe;
+}
+
+
+footer .menu {
+  /* width: 100%;
+  position: absolute; */
+  display: flex;
+  justify-content: space-between;
+}
+
+
+footer .menu-group {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+footer .menu-group:nth-child(1) {
+  margin-right: -29px;
+}
+
+footer .menu-group:nth-child(2) {
+  margin-right: 22px;
+}
+
+footer .menu-group:nth-child(3) {
+  margin-right: 48px;
+}
+
+footer .menu-group:nth-child(4) {
+  width: 88px;
+}
+
+
+footer .menu-group .menu-tit {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: -0.5px;
+  color: #A7A7A7;
+}
+
+
+footer .menu-group .divider-row-menu {
+  width: 18px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.19);
+  box-sizing: border-box;
+  transform-origin: 0 0;
+}
+
+footer ul {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: 16px;
+  color: #bec0c2;
+}
+
+footer .li {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 148%;
+  letter-spacing: -0.5px;
+  color: #F1F1F1;
+}
+
+footer .li:hover {
+  color: #628cf5;
+}
+
+
+/* 연락처 그룹 */
+
+footer .contact-group {
+  /* box-sizing: border-box; */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+footer .contact-group .logo-icon {
+  height: 33px;
+  width: 103px;
+  opacity: 0.8;
+}
+
+footer .contact-group .contacts {
+  width: 100%;
+}
+
+footer .contact-group .representative-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+footer .contact-group .txt {
+  margin-bottom: 4px;
+}
+
+footer .contact-group .txt,
+footer .contact-group .txt-address {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 140%;
+  color: #bec0c2f9;
+}
+
+footer .contact-group .txt-address {
+  margin-top: 6px;
+}
+
+footer .contact-group .divider-column {
+  width: 3px;
+  background-color: rgba(255, 255, 255, 0.4);
+  height: 14px;
+  opacity: 0.3;
+}
+
+footer.contact-group .address {
+  letter-spacing: -1.5px;
+  line-height: 140%;
+}
+
+footer .contact-group .info-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 18px;
+}
+
+footer .contact-group .info {
+  display: flex;
+  gap: 6px;
+  font-size: 18px;
+}
+
+footer .contact-group .info .txt {
+  margin-top: 4px;
+}
+
+
+footer .phone-number-group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-size: 40px;
+  color: #f1f1f1cc;
+}
+
+
+footer .phone-number-group .img-call {
+  width: 40px;
+  height: 40px;
+  margin-top: 8px;
+}
+
+
+footer .divider-row-full {
+  width: 100%;
+  height: 2px;
+  margin-top: 36px;
+  background-color: #eeeff013;
+}
+
+footer .copyright-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+footer .copyright {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  letter-spacing: -0.2px;
+  line-height: 140%;
+  font-weight: 300;
+}
+
+
+@media (max-width: 1440px) {
+  footer .inner {
+    width: 100%;
+    height: 620px;
+    padding: 120px 56px 120px 56px;
+  }
+
+  footer .menu-container {
+    display: none;
+}
+
+footer .divider-row-full {
+  width: 100%;
+}
+
+footer .phone-number-group {
+  margin-top: 20px;
+}
+}
+
+
+@media (max-width: 1200px) {
+  footer .copyright-container {
+    justify-content: flex-start;
+  }
+}
+
+
+@media (max-width: 768px) {
+  footer {
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+
+@media (max-width: 560px) {
+
+
+  footer .contact-group .info-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin-top: 16px;
+  }
+
+  
+
+footer .phone-number-group .img-call {
+  width: 32px;
+  height: 32px;
+}
+
+
+  footer .phone-number-group {
+    font-size: 24px;
+  }
+  
+  footer .copyright-container {
+  font-size: 12px;
+  }
+
+}

@@ -1,0 +1,606 @@
+/* 카드 section 구조 */
+.section-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  gap: 140px;
+  padding: 148px 0px;
+}
+
+
+.section-cards .cards-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.cards-container {
+  width: 100%;
+  padding: 0 16vw;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cards {
+  /* width: 1440px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+
+
+/* ===== 카드/프레임 공통 스타일 ===== */
+.card-frame,
+.card {
+  display: flex;
+  flex-direction: column;
+  /* background-color: rgba(255, 255, 255, 0.05); */
+  box-sizing: border-box;
+  box-shadow: 0px 26px 40px rgba(22, 20, 33, 0.5);
+  border-radius: 48px;
+  outline: 1px solid rgba(180, 199, 246, 0.17);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+  transition: box-shadow 0.3s, border 0.3s, transform 0.25s;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-wrap: nowrap;
+  /* flex-grow: 1; */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.card-frame:hover,
+.card:hover {
+  outline: 1px solid rgba(180, 199, 246, 0.781);
+  transform: translateY(-8px) scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.card-main-solution,
+.card-main-service,
+.card-main-news,
+.card-company,
+.card-solution-contents,
+.card-solution-number,
+.card-solution-feature,
+.card-solution-series,
+.card-certificate {
+  flex: 1 1 0;
+  min-width: 220px;
+  max-width: 1440px;
+  width: 100%;
+}
+
+
+
+
+/* ===== 카드 텍스트 그룹 개별 ===== */
+
+/* 배경색 있는 카드 텍스트 그룹 */
+.card-main-solution .card-txt-group,
+.card-main-news .card-txt-group,
+.card-certificate .card-txt-group {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+}
+
+.card-txt-group {
+  width: 100%;
+  gap: 8px;
+  padding: 40px 24px;
+}
+
+.card-txt-group .subtit {
+  border-radius: 12px;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), rgba(32, 29, 48, 0.74);
+  border: 0.7px solid rgba(180, 199, 246, 0.17);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  width: fit-content;
+}
+
+
+.card-txt-group .product-name {
+  margin: 2px 0;
+}
+
+.card-main-service .card-txt-group,
+.card-solution-number .card-txt-group,
+.card-solution-feature .card-txt-group {
+  padding: 24px 40px 48px;
+}
+
+.card-company .card-txt-group,
+.card-solution-series .card-txt-group {
+  padding: 48px 40px 24px;
+}
+
+.card-solution-series .card-txt-group {
+  padding: 48px 40px 24px;
+}
+
+.card-solution-series .card-txt-group .des {
+  margin-top: 24px;
+}
+
+
+.card-company .des,
+.card-solution-feature .des {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card h6.des {
+  text-align: left;
+}
+
+.card.card-main-solution h6.des {
+  text-align: center;
+}
+
+
+/* ===== 카드 아이콘 공통 ===== */
+.card-asset-area {
+  /* width: 184px; */
+  height: 184px;
+  padding: 40px 38px 48px 48px;
+}
+
+.card-company .card-asset-area {
+  padding: 16px;
+}
+
+.card-asset-area .icon-ellipse {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 999px;
+  outline: 1px solid rgba(180, 199, 246, 0.233);
+  max-width: 100%;
+  overflow: hidden;
+  background-color: rgba(32, 29, 48, 0.74);
+  backdrop-filter: blur(4px);
+}
+
+.card-asset-area .icon-ellipse:hover {
+  outline: 1px solid rgba(180, 199, 246, 0.315);
+  background-color: rgba(62, 58, 88, 0.74);
+}
+
+
+.card-asset-area .icon-ellipse .card-asset-area-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.card-company .card-asset-area-icon,
+.card-solution-series .card-asset-area-icon {
+  object-fit: cover;
+}
+
+
+
+
+
+
+/* ===== 카드별 개별 스타일 ===== */
+
+/* card-solution-contents */
+
+
+/* .card.card-solution-contents {
+  width: 952px;
+  height: 467px;
+  background-color: #161421;
+} */
+
+
+.card.card-solution-contents {
+  width: 952px;
+  /* background-color: transparent; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card.card-solution-contents img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+/* card-main-solution */
+.card.card-main-solution {
+  width: 708px;
+  height: 480px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0px;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* card-main-service */
+.card.card-main-service {
+  width: 464px;
+  height: 480px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0px;
+  text-align: left;
+  font-size: 24px;
+}
+
+/* card-main-news */
+.card.card-main-news {
+  width: 464px;
+  height: 480px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0px;
+  text-align: left;
+  font-size: 16px;
+}
+
+
+.card-main-news .top {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+}
+
+
+/* card-company */
+.card.card-company {
+  width: 342px;
+  height: 400px;
+  box-shadow: 0px 26px 40px rgba(22, 20, 33, 0.48);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(180, 199, 246, 0.17);
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0px;
+  text-align: left;
+}
+
+.card.card-company .des ul>li>h6 {
+  text-align: left;
+}
+
+
+
+
+/* card-solution-number */
+.card.card-solution-number {
+  width: 342px;
+  height: 320px;
+  box-shadow: 0px 26px 40px rgba(22, 20, 33, 0.48);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(180, 199, 246, 0.17);
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0px;
+  text-align: left;
+}
+
+
+.card-solution-number .card-number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.card-solution-number .aseet-contents img {
+  width: 27px;
+  height: 18px;
+  position: relative;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.card-solution-number .aseet-contents {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+
+
+/* card-solution-feature */
+.card.card-solution-feature {
+  width: 420px;
+  height: 320px;
+  box-shadow: 0px 26px 40px rgba(22, 20, 33, 0.48);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(180, 199, 246, 0.17);
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  text-align: left;
+  font-size: 24px;
+}
+
+
+
+/* card-solution-series */
+.card.card-solution-series {
+  width: 708px;
+  height: 480px;
+  box-shadow: 0px 26px 40px rgba(22, 20, 33, 0.48);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(180, 199, 246, 0.17);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0px;
+  text-align: left;
+  font-size: 16px;
+  align-self: stretch;
+}
+
+.card-solution-series .left-area .logo-area {
+  height: 2.5rem;
+  width: 17.125rem;
+  margin-top: 1rem;
+}
+
+.card-solution-series .left-area {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0px;
+  flex-grow: 1;
+}
+
+.card-solution-series .right-area {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.card-solution-series .right-area img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+
+
+.card.card-certificate {
+  position: relative;
+  width: 29rem;
+  height: 37.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.card.card-certificate .card-txt-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 8px 16px 8px;
+}
+
+
+
+.card.card-certificate .card-txt-group .top {
+  display: flex;
+  justify-content: center;
+}
+
+.card.card-certificate .card-txt-group .subtit,
+.card.card-certificate .card-txt-group .product-name,
+.card.card-certificate .card-txt-group .des {
+  align-self: center;
+}
+
+
+.card.card-certificate .card-certificate-img {
+  position: absolute;
+  top: 1.75rem;
+  width: 16.25rem;
+  height: 23rem;
+  object-fit: cover;
+}
+
+
+.card.card-certificate .card-certificate-icon {
+  width: 8rem;
+  height: 8rem;
+  z-index: 1;
+}
+
+
+
+/* 버튼 아이콘 */
+.card.card-certificate .prev-area-icon {
+  width: 88px;
+  height: 88px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.card.card-certificate .btn {
+  top: 818px;
+  left: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+
+
+
+
+
+
+
+
+/* ===== 반응형 스타일 ===== */
+@media (max-width: 1200px) {
+  .cards {
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .card-main-solution,
+  .card-main-service,
+  .card-main-news,
+  .card-company,
+  .card-solution-contents,
+  .card-solution-number,
+  .card-solution-feature,
+  .card-solution-series,
+  .card-certificate {
+    flex: 1 1 312px;
+    min-width: 180px;
+    max-width: 1440px;
+    width: 100%;
+    /* margin-bottom: 24px; */
+  }
+}
+
+/*
+@media (max-width: 1024px) {
+  .support-news .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .support-news .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .card,
+  .frame {
+    width: 100%;
+    max-width: 400px;
+  }
+} */
+
+
+/* ===== 기존 CARD COMPONENT 스타일 주석처리 ===== */
+/*
+.card { ... }
+.cards { ... }
+.card-content { ... }
+... (기존 카드 관련 모든 스타일 주석처리)
+*/
+
+
+/* ===== 카드 및 프레임 공통 효과/애니메이션 유지 ===== */
+.card.show,
+.frame.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 순차 애니메이션 */
+.card:nth-child(1),
+.frame:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.card:nth-child(2),
+.frame:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.card:nth-child(3),
+.frame:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+.card:nth-child(4),
+.frame:nth-child(4) {
+  transition-delay: 0.7s;
+}
+
+.card:nth-child(5),
+.frame:nth-child(5) {
+  transition-delay: 0.9s;
+}
+
+.card:nth-child(6),
+.frame:nth-child(6) {
+  transition-delay: 1.1s;
+}
+
+.card:nth-child(7),
+.frame:nth-child(7) {
+  transition-delay: 1.3s;
+}
+
+.card:nth-child(8),
+.frame:nth-child(8) {
+  transition-delay: 1.5s;
+}
+
+.card:nth-child(9),
+.frame:nth-child(9) {
+  transition-delay: 1.7s;
+}
+
+.card:nth-child(10),
+.frame:nth-child(10) {
+  transition-delay: 1.9s;
+}

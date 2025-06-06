@@ -1,0 +1,60 @@
+.button01 {
+  background-color: blue;
+  /* 여기 아래부터 스타일입니다. */
+  display: inline-block;
+  width: 300px;
+  max-width: 100%;
+  padding: 20px 10px;
+  border: 2px solid transparent;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  transition: .25s;
+  /* 여기까지가 스타일입니다. */
+}
+
+.button02 {
+  background-color: gray;
+  /* 여기 아래부터 스타일입니다. */
+  display: inline-block;
+  width: 300px;
+  max-width: 100%;
+  padding: 20px 10px;
+  border: 2px solid transparent;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  transition: .25s;
+  /* 여기까지가 스타일입니다. */
+}
+
+/* 버튼 스타일 정의 */
+@mixin button {
+  display: inline-block;
+  width: 300px;
+  max-width: 100%;
+  padding: 20px 10px;
+  border: 2px solid transparent;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  transition: .25s;
+}
+
+.button01 {
+  background-color: $main-color;
+  @include button;
+  /* @include로 버튼의 스타일을 불러옵니다. */
+}
+
+.button01 {
+  background-color: $sub-color;
+  @include button;
+  /* @include로 버튼의 스타일을 불러옵니다. */
+}
