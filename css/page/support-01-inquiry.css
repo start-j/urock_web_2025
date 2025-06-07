@@ -1,5 +1,7 @@
-/* Form Styling with States */
-/* .contents {
+/* ========== 개선된 Form Styling ========== */
+
+/* 기본 컨테이너 스타일 */
+.contents {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +9,7 @@
   padding: 88px 0 120px 0;
 }
 
-
+/* 제목 그룹 스타일 */
 .contents .tit-group {
   display: flex;
   flex-direction: row;
@@ -17,7 +19,7 @@
   margin-bottom: 48px;
 }
 
-.contents .tit-group>.tit {
+.contents .tit-group > .tit {
   position: relative;
   letter-spacing: -0.06em;
   line-height: 140%;
@@ -40,9 +42,9 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0px 0px 12px;
-} */
+}
 
-/* Form Layout */
+/* 폼 레이아웃 */
 form {
   display: flex;
   flex-direction: column;
@@ -51,117 +53,234 @@ form {
   max-width: 1006px;
 }
 
-
-.form-row {
+.contents .form-row {
   display: flex;
-  gap: 24px;
-  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-.form-group {
+/* 기존 .input 클래스를 .form-group으로 매핑 */
+.contents form .input,
+.contents form .form-group {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 8px;
+  margin-bottom: 1rem;
+  width: 491px;
   flex: 1;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.form-group label {
+/* 텍스트 영역 특별 처리 */
+.contents form .input-memo {
+  width: 100%;
+  max-width: 100%;
+  flex: 1 1 100%;
+}
+
+.contents form .input-memo #details,
+.contents form #details {
+  width: 100%;
+  height: 300px;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
+/* 라벨 스타일 */
+.contents form .input label,
+.contents form .form-group label {
+  margin-left: 16px;
+  color: #ffffffab;
   display: block;
   padding: 0px 0px 0px 8px;
   letter-spacing: -0.5px;
   line-height: 140%;
   font-weight: 500;
-  color: #f1f1f1;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+/* 입력 필드 공통 스타일 */
+.contents form input,
+.contents form select,
+.contents form textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 56px;
   backdrop-filter: blur(20px);
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.05);
   border: 1.2px solid rgba(255, 255, 255, 0.07);
+  padding: 16px 48px 16px 16px;
   box-sizing: border-box;
-  height: 56px;
-  padding: 16px;
+  text-align: left;
   font-size: 16px;
   color: rgba(136, 134, 145, 0.64);
   font-family: Pretendard;
+  transition: all 0.3s ease;
 }
 
-.form-group textarea {
+/* 셀렉트는 패딩 다르게 적용 (화살표 공간 확보) */
+.contents form select {
+  padding: 16px 50px 16px 16px;
+}
+
+/* X 클리어 버튼 스타일 - inputs.js와 통합 */
+.contents form .input-clear,
+.contents form .clear-button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.contents form .input-clear:before,
+.contents form .clear-button:before {
+  content: '✕';
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.contents form .input-clear:hover,
+.contents form .clear-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.contents form .input-clear:active,
+.contents form .clear-button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* 텍스트 영역용 X 버튼 위치 조정 */
+.contents form .input-memo .input-clear,
+.contents form .input-memo .clear-button {
+  top: 24px;
+  transform: none;
+}
+
+.contents form .input-memo .input-clear:hover,
+.contents form .input-memo .clear-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.contents form .input-memo .input-clear:active,
+.contents form .input-memo .clear-button:active {
+  transform: scale(0.95);
+}
+
+/* inputs.js 상태와 연동 */
+.contents form .input-has-value .input-clear,
+.contents form .input-has-value .clear-button {
+  display: flex;
+}
+
+.contents form textarea {
   height: 300px;
   resize: vertical;
 }
 
-/* Input States */
-.form-group input::placeholder,
-.form-group textarea::placeholder {
+/* 셀렉트 특별 스타일 */
+.contents form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M1 4l5 5 5-5' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  padding-right: 50px;
+}
+
+.contents form select option {
+  background-color: #2B293B;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 플레이스홀더 스타일 */
+.contents form input::placeholder,
+.contents form textarea::placeholder {
   color: #767380;
 }
 
-.form-group input:hover,
-.form-group select:hover,
-.form-group textarea:hover {
+/* 입력 상태별 스타일 */
+.contents form input:hover,
+.contents form select:hover,
+.contents form textarea:hover {
   border: 1.2px solid #93b0f8e1;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.contents form input:focus,
+.contents form select:focus,
+.contents form textarea:focus {
   border: 1.2px solid #628CF5;
   background-color: rgba(230, 237, 255, 0.05);
-  outline: none;
+  color: #f1f1f1;
 }
 
-.form-group input:valid {
+/* 개선된 유효성 검사 스타일 - 포커스 해제 후에만 적용 */
+.contents form input:not(:focus):valid {
   border: 1.2px solid #32D8E3;
 }
 
-.form-group input:invalid {
+.contents form input:not(:focus):not(:placeholder-shown):invalid {
   border: 1.2px solid #FF8484;
 }
 
-.form-group input:disabled,
-.form-group select:disabled,
-.form-group textarea:disabled {
+.contents form input:disabled,
+.contents form select:disabled,
+.contents form textarea:disabled {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1.2px solid rgba(255, 255, 255, 0.07);
+  cursor: not-allowed;
 }
 
-/* Checkbox Styling */
-.checkbox-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 24px 0;
-}
-
-.checkbox-wrapper input[type="checkbox"] {
-  display: none;
-}
-
-.checkbox-wrapper label {
+/* 체크박스 개선된 스타일 */
+.contents form .checkbox-wrapper {
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-size: 16px;
-  color: #f1f1f1;
-  font-weight: 500;
+  user-select: none;
+  gap: 12px;
+  color: #ffffffab;
+  margin: 24px 0;
 }
 
-.checkbox-wrapper label::before {
-  content: '';
+.contents form .checkbox-wrapper input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
   width: 28px;
   height: 28px;
   border: 4px solid rgba(255, 255, 255, 0.08);
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
-  margin-right: 12px;
+  margin: 0;
+  cursor: pointer;
   transition: all 0.3s;
+  display: block;
 }
 
-.checkbox-wrapper input[type="checkbox"]:checked+label::before {
+.contents form .checkbox-wrapper input[type="checkbox"]:checked {
   background-color: #628cf5;
   border-color: #628cf5;
   background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3E%3Cpath fill="white" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/%3E%3C/svg%3E');
@@ -169,17 +288,25 @@ form {
   background-position: center;
 }
 
+.contents form .checkbox-wrapper label {
+  flex-grow: 1;
+  cursor: pointer;
+  color: #ffffffca;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 0;
+}
 
-/* Divider */
-.divider {
+/* 구분선 */
+.contents .divider {
   width: 100%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.2);
   margin: 24px 0;
 }
 
-/* Info Table */
-.info-table {
+/* 정보 테이블 */
+.contents .info-table {
   width: 100%;
   backdrop-filter: blur(20px);
   border-radius: 12px;
@@ -189,14 +316,14 @@ form {
   margin-bottom: 24px;
 }
 
-.info-table th,
-.info-table td {
+.contents .info-table th,
+.contents .info-table td {
   padding: 16px 32px;
   text-align: left;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.info-table th {
+.contents .info-table th {
   width: 150px;
   font-size: 16px;
   letter-spacing: -0.5px;
@@ -205,40 +332,39 @@ form {
   color: #888691;
 }
 
-.info-table td {
+.contents .info-table td {
   font-size: 16px;
   letter-spacing: -0.5px;
   line-height: 150%;
   font-weight: 500;
-  color: #fff;
+  color: #ffffffe8;
 }
 
-.info-table tr:last-child th,
-.info-table tr:last-child td {
+.contents .info-table tr:last-child th,
+.contents .info-table tr:last-child td {
   border-bottom: none;
 }
 
-
-/* Description */
-.des {
+/* 설명 텍스트 */
+.contents .des {
   text-align: center;
   color: #a7a7a7;
   font-size: 16px;
   letter-spacing: -0.5px;
   line-height: 150%;
   font-weight: 500;
-  margin-bottom: 24px;
+  margin: 16px 48px 24px;
 }
 
-.des span {
+.contents .des span {
   color: #f86d6d;
 }
 
-/* Submit Button */
-.submit-button {
+/* 제출 버튼 */
+.contents form .submit-button {
   width: 100%;
-  box-shadow: -1px 3px 4px rgba(98, 140, 245, 0.05), -1px 4px 8px rgba(98, 140, 245, 0.08), -1px 4px 16px rgba(98, 140, 245, 0.12);
   border-radius: 12px;
+  box-shadow: -1px 3px 4px rgba(98, 140, 245, 0.05), -1px 4px 8px rgba(98, 140, 245, 0.08), -1px 4px 16px rgba(98, 140, 245, 0.12);
   background-color: #628cf5;
   height: 56px;
   border: none;
@@ -255,12 +381,75 @@ form {
   line-height: 136%;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 48px;
 }
 
-.submit-button:hover {
+.contents form .submit-button:hover:not(:disabled) {
   background-color: #5a7de8;
 }
 
-.submit-button:active {
+.contents form .submit-button:active {
   background-color: #4e6dd1;
+}
+
+.contents form .submit-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* 에러 메시지 */
+.contents form .error-message {
+  color: #FF8484;
+  font-size: 14px;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .contents {
+    padding: 48px 16px 80px;
+  }
+  
+  .contents .tit-group > .tit {
+    font-size: 28px;
+  }
+  
+  .contents .form-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .contents form .input,
+  .contents form .form-group {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  
+  .contents .info-table th,
+  .contents .info-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .contents .des {
+    margin: 16px 16px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contents {
+    padding: 32px 12px 60px;
+  }
+  
+  .contents .tit-group > .tit {
+    font-size: 24px;
+  }
+  
+  .contents .submit-button {
+    font-size: 16px;
+    height: 48px;
+  }
 }

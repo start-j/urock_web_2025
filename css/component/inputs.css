@@ -1,4 +1,10 @@
-/* 공통 input 스타일 */
+/* 
+===== 기존 input 스타일 전체 주석처리 =====
+support-01-inquiry.css의 새로운 스타일과 충돌 방지
+*/
+
+/*
+// 공통 input 스타일
 .input {
   display: flex;
   flex-direction: column;
@@ -32,7 +38,7 @@
   background: #fafbfc url('/public/icons/icon_dropdown.svg') no-repeat right 12px center/18px 18px;
 }
 
-/* 상태별 스타일 */
+// 상태별 스타일
 .input-text-hover input,
 .input-search-hover input,
 .input-memo-hover textarea,
@@ -80,14 +86,14 @@
   cursor: not-allowed;
 }
 
-/* 아이콘 스타일 */
+// 아이콘 스타일
 .icon-search {
   position: absolute;
   right: 16px;
   top: 38px;
   width: 18px;
   height: 18px;
-  background: url('/public/icons/icon_search.svg') no-repeat center/contain;
+  background: url('/public/icons/icon-search.svg') no-repeat center/contain;
   pointer-events: none;
 }
 .icon-dropdown {
@@ -100,13 +106,13 @@
   pointer-events: none;
 }
 
-/* input, search, dropdown 아이콘 위치 조정 */
+// input, search, dropdown 아이콘 위치 조정
 .input-search,
 .input-dropdown {
   position: relative;
 }
 
-/* 클린(X) 버튼 스타일 */
+// 클린(X) 버튼 스타일
 .input-clear {
   position: absolute;
   right: 12px;
@@ -132,14 +138,14 @@
 .input-clear:focus {
   opacity: 1;
 }
-/* textarea(메모)용: 오른쪽 상단 */
+// textarea(메모)용: 오른쪽 상단
 .input-memo .input-clear {
   top: 10px;
   right: 12px;
   transform: none;
 }
 .input-search .input-clear {
-  right: 36px; /* 검색 아이콘과 겹치지 않게 */
+  right: 36px; // 검색 아이콘과 겹치지 않게
 }
 .input-search .icon-search {
   right: 12px;
@@ -152,14 +158,14 @@
   padding-right: 38px;
 }
 
-/* 메모 인풋 스크롤바 */
+// 메모 인풋 스크롤바
 .input-memo textarea {
   overflow-y: auto;
   max-height: 300px;
-  /* 필요시 max-height 조정 */
+  // 필요시 max-height 조정
   resize: vertical;
 }
-/* 최신 모던 스크롤바 디자인 */
+// 최신 모던 스크롤바 디자인
 .input-memo textarea::-webkit-scrollbar {
   width: 8px;
   background: transparent;
@@ -176,11 +182,12 @@
   background: #f5f7ff;
   border-radius: 8px;
 }
-/* 파이어폭스 */
+// 파이어폭스
 .input-memo textarea {
   scrollbar-width: thin;
   scrollbar-color: #c7dbff #f5f7ff;
 }
 .input-memo textarea:focus::-webkit-scrollbar-thumb {
   background: #628cf5;
-} 
+}
+*/ 
