@@ -30,21 +30,7 @@
     <img src="/public/images/common/fab-default.png" alt="top-move-button">
   </button>
   
-  <!-- JavaScript -->
-  <script src="/js/section/header.js"></script>
-  <script src="/js/component/tab-config.js"></script>
-  <script src="/js/component/tab.js"></script>
-  <script>
-    function initTabAfterInclude() {
-      const tabEl = document.getElementById('tab-container');
-      if (tabEl && typeof createTabComponent === 'function') {
-        createTabComponent('tab-container', window.solutionTabConfig);
-      } else {
-        setTimeout(initTabAfterInclude, 100);
-      }
-    }
-    initTabAfterInclude();
-  </script>
+  <!-- JavaScript는 각 페이지의 index.js에서 모듈로 로드됨 -->
   <!-- 오버레이 -->
   <div class="mobile-drawer-overlay" id="overlay"></div>
 

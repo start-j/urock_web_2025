@@ -518,20 +518,16 @@
     <footer data-include-path="/html/section/footer.html"></footer>
   </div>
 
-
-
-
-
+  <!-- 기존 SNB 스크립트 유지 -->
+  <script>
+    document.addEventListener('click', function (e) {
+      if (e.target.matches('.snb .depth1 > a')) {
+        e.preventDefault();
+        const parent = e.target.closest('.depth1');
+        parent.classList.toggle('open');
+      }
+    });
+  </script>
 </body>
 
 </html>
-
-<script>
-  document.addEventListener('click', function (e) {
-    if (e.target.matches('.snb .depth1 > a')) {
-      e.preventDefault();
-      const parent = e.target.closest('.depth1');
-      parent.classList.toggle('open');
-    }
-  });
-</script>

@@ -377,7 +377,16 @@ window.reInitHeaderComponent = initHeaderComponent;
 // 모바일 메뉴 강제 재초기화 함수 (include.js 완료 후 사용)
 window.reInitMobileMenu = function() {
   console.log('모바일 메뉴 강제 재초기화');
-  // 기존 이벤트 리스너들을 정리하고 다시 설정
+  
+  // 기존 이벤트 리스너 정리
+  const existingMenuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
+  existingMenuLinks.forEach(link => {
+    // 기존 이벤트 리스너 제거를 위해 클론 방식 사용
+    const newLink = link.cloneNode(true);
+    link.parentNode.replaceChild(newLink, link);
+  });
+  
+  // 새로운 이벤트 리스너 설정
   setTimeout(() => {
     const drawer = document.querySelector('.mobile-drawer');
     const menuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');

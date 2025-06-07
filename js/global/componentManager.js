@@ -141,8 +141,15 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('allComponentsLoaded', function () {
     console.log('[ComponentManager] 모든 컴포넌트 로드 완료 이벤트 감지');
 
-    // 모든 컴포넌트 초기화 (필요한 경우)
-    // window.ComponentManager.initAll();
+    // 헤더 컴포넌트가 있는 경우 강제 초기화
+    if (document.querySelector('.mobile-drawer-menu')) {
+      console.log('[ComponentManager] 헤더 컴포넌트 강제 초기화 시작');
+      setTimeout(() => {
+        if (typeof window.reInitHeaderComponent === 'function') {
+          window.reInitHeaderComponent();
+        }
+      }, 100);
+    }
 
     // 페이지 특정 초기화 이벤트 발생
     document.dispatchEvent(new CustomEvent('pageReady'));
