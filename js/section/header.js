@@ -98,8 +98,9 @@ function setActiveMenuByCurrentPage() {
 // 언어 선택 드롭다운 설정 (네이밍 일치 및 위치 보장)
 function setupLanguageDropdown() {
   const languageSelector = document.querySelector('header .language') || document.querySelector('.language');
+  const tooltipGlobal = document.querySelector('header > .language-tooltip-global');
 
-  if (!languageSelector) return;
+  if (!languageSelector || !tooltipGlobal) return;
 
   // SNB가 없으면 생성
   let snbMenu = languageSelector.querySelector('.language-snb');
@@ -114,10 +115,31 @@ function setupLanguageDropdown() {
     languageSelector.appendChild(snbMenu);
   }
 
+  // 자동 닫힘 타이머 변수
+  let tooltipTimer = null;
+
   // 언어 선택 토글 이벤트
   languageSelector.addEventListener('click', function (event) {
     event.stopPropagation();
-    this.classList.toggle('active');
+    const isTooltipVisible = tooltipGlobal.classList.contains('show-tooltip');
+    // 토글
+    if (isTooltipVisible) {
+      tooltipGlobal.classList.remove('show-tooltip');
+      if (tooltipTimer) {
+        clearTimeout(tooltipTimer);
+        tooltipTimer = null;
+      }
+    } else {
+      tooltipGlobal.classList.add('show-tooltip');
+      if (tooltipTimer) {
+        clearTimeout(tooltipTimer);
+        tooltipTimer = null;
+      }
+      tooltipTimer = setTimeout(() => {
+        tooltipGlobal.classList.remove('show-tooltip');
+        tooltipTimer = null;
+      }, 3000);
+    }
   });
 
   // 언어 선택 항목 클릭 이벤트
@@ -127,14 +149,22 @@ function setupLanguageDropdown() {
       event.stopPropagation();
       langItems.forEach(li => li.classList.remove('active'));
       this.classList.add('active');
-      languageSelector.classList.remove('active');
+      tooltipGlobal.classList.remove('show-tooltip');
+      if (tooltipTimer) {
+        clearTimeout(tooltipTimer);
+        tooltipTimer = null;
+      }
     });
   });
 
-  // 외부 클릭 시 드롭다운 닫기
+  // 외부 클릭 시 드롭다운/툴팁 닫기
   document.addEventListener('click', function (event) {
     if (!languageSelector.contains(event.target)) {
-      languageSelector.classList.remove('active');
+      tooltipGlobal.classList.remove('show-tooltip');
+      if (tooltipTimer) {
+        clearTimeout(tooltipTimer);
+        tooltipTimer = null;
+      }
     }
   });
 }
@@ -252,7 +282,7 @@ function setupLanguageDropdown() {
 //             } else {
 //               break;
 //             }
-//           }
+//           });
 //         }
 //       });
 //     });
@@ -336,22 +366,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
-
-// 모바일 메뉴 버튼 토글 (header.js에서 이동)
-function toggleMobileMenuBtn() {
-  const menu = document.querySelector('.menu');
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  if (!menu || !mobileMenuBtn) return;
-  const menuDisplay = window.getComputedStyle(menu).display;
-  if (menuDisplay === 'none') {
-    mobileMenuBtn.style.display = 'flex';
-  } else {
-    mobileMenuBtn.style.display = 'none';
-  }
-}
-
-window.addEventListener('DOMContentLoaded', toggleMobileMenuBtn);
-window.addEventListener('resize', toggleMobileMenuBtn);
 
 // 헤더가 완전히 삽입된 후에만 언어 드롭다운 JS 실행
 function waitAndSetupLanguageDropdown() {
