@@ -4,7 +4,6 @@
  * @param {string} containerId - 탭을 생성할 컨테이너의 ID
  * @param {object} config - 탭 구성 설정 (옵션)
  */
-export { createTabComponent };
 
 function createTabComponent(containerId, config) {
   if (!config || !Array.isArray(config.mainTabs)) {
@@ -25,6 +24,13 @@ function createTabComponent(containerId, config) {
     return;
   }
   container.dataset.tabInitialized = 'true';
+  
+  // 컨테이너가 비어있거나 필수 구조가 없는 경우 기본 구조 확인
+  if (!container.querySelector('.tab-main') || container.innerHTML.trim() === '') {
+    console.log('[Tab] 기본 구조가 없어서 임시 구조 생성');
+    // 최소한의 임시 구조만 생성 (initializeTabHTML에서 완전한 구조로 교체됨)
+    container.innerHTML = '<div class="tab-placeholder">탭 로딩 중...</div>';
+  }
 
   // 기본 설정 사용 (config가 없을 경우)
   config = config || (typeof solutionTabConfig !== 'undefined' ? solutionTabConfig : {
@@ -162,44 +168,28 @@ function createTabComponent(containerId, config) {
     console.log(`[Tab] 컨텐츠 높이 조정: ${finalHeight}px (실제 컨텐츠: ${contentHeight}px, 최소: ${minHeight}px)`);
   }
 
-  // ResizeObserver 설정 (개선된 버전)
+  // ResizeObserver 설정 (컨텐츠 크기 변화 감지)
   function setupResizeObserver() {
-    if (!selectedTabContent || !window.ResizeObserver) return;
+    if (!selectedTabContent || typeof ResizeObserver === 'undefined') return;
 
-    // 기존 observer가 있다면 정리
-    if (container._resizeObserver) {
-      container._resizeObserver.disconnect();
+    // 기존 observer가 있으면 해제
+    if (container.resizeObserver) {
+      container.resizeObserver.disconnect();
     }
 
-    const resizeObserver = new ResizeObserver((entries) => {
+    // 새로운 ResizeObserver 생성
+    container.resizeObserver = new ResizeObserver(entries => {
       for (let entry of entries) {
         // 디바운싱을 위한 타이머
-        clearTimeout(container._resizeTimer);
-        container._resizeTimer = setTimeout(() => {
+        clearTimeout(container.resizeTimeout);
+        container.resizeTimeout = setTimeout(() => {
           adjustTabContentHeight();
         }, 100);
       }
     });
 
-    // 컨텐츠 영역과 이미지들을 관찰
-    resizeObserver.observe(selectedTabContent);
-
-    // 이미지 로드 완료 시에도 높이 재조정
-    const images = selectedTabContent.querySelectorAll('img');
-    images.forEach(img => {
-      if (img.complete) {
-        setTimeout(adjustTabContentHeight, 50);
-      } else {
-        img.addEventListener('load', () => {
-          setTimeout(adjustTabContentHeight, 50);
-        });
-        img.addEventListener('error', () => {
-          setTimeout(adjustTabContentHeight, 50);
-        });
-      }
-    });
-
-    container._resizeObserver = resizeObserver;
+    // 컨텐츠 영역 관찰 시작
+    container.resizeObserver.observe(selectedTabContent);
   }
 
   // 컨텐츠 경로 매핑
@@ -262,7 +252,18 @@ function createTabComponent(containerId, config) {
 
   // 컨텐츠 업데이트 함수
   function updateContent() {
-    const mainTabText = container.querySelector(`.tab-main a[data-tab="${activeMainTab}"]`).querySelector('.tab-text').textContent;
+    if (!selectedTabContent) {
+      console.error('[Tab] selectedTabContent가 없습니다');
+      return;
+    }
+
+    const mainTabElement = container.querySelector(`.tab-main a[data-tab="${activeMainTab}"]`);
+    if (!mainTabElement) {
+      console.error(`[Tab] 메인 탭 요소를 찾을 수 없습니다: ${activeMainTab}`);
+      return;
+    }
+
+    const mainTabText = mainTabElement.querySelector('.tab-text').textContent;
 
     // 로딩 표시
     selectedTabContent.innerHTML = '<div class="loading">컨텐츠 로딩 중...</div>';
@@ -274,6 +275,7 @@ function createTabComponent(containerId, config) {
       selectedTabContent.innerHTML = `
         <div class="tab-content-body">
           <p>선택한 탭에 해당하는 컨텐츠를 찾을 수 없습니다.</p>
+          <p>현재 탭: ${activeMainTab} ${activeSubTab ? '/ ' + activeSubTab : ''}</p>
         </div>
       `;
       adjustTabContentHeight();
@@ -283,7 +285,9 @@ function createTabComponent(containerId, config) {
     // 컨텐츠 로드
     fetch(contentPath)
       .then(response => {
-        if (!response.ok) throw new Error('페이지를 불러올 수 없습니다');
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
         return response.text();
       })
       .then(html => {
@@ -333,6 +337,8 @@ function createTabComponent(containerId, config) {
         selectedTabContent.innerHTML = `
           <div class="tab-content-body">
             <p>컨텐츠를 불러오는 중 오류가 발생했습니다.</p>
+            <p>경로: ${contentPath}</p>
+            <p>오류: ${error.message}</p>
           </div>
         `;
         setTimeout(adjustTabContentHeight, 100);
@@ -406,8 +412,6 @@ function createTabComponent(containerId, config) {
 
   console.log('createTabComponent is defined:', typeof createTabComponent);
 
-
-
   // 초기화
   initializeTabHTML();
   setupEventListeners();
@@ -426,11 +430,170 @@ window.reInitTabComponent = function(containerId = 'tab-container', config = nul
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('tab-container')) {
-    const config = window.solutionTabConfig || window.supportTabConfig;
-    if (config) {
+// 초기화는 componentManager에서 통합 관리하므로 개별 이벤트 리스너 제거
+console.log('[Tab] 탭 컴포넌트 스크립트 로드 완료');
+
+// 즉시 실행 탭 초기화 함수 (개선된 버전)
+function immediateTabInit() {
+  console.log('[Tab] 즉시 실행 탭 초기화 시작');
+  
+  const tabContainer = document.getElementById('tab-container');
+  if (!tabContainer) {
+    console.log('[Tab] tab-container가 아직 없음, 지연 실행 대기');
+    return false;
+  }
+  
+  // 이미 초기화되었는지 확인
+  if (tabContainer.dataset.tabInitialized === 'true') {
+    console.log('[Tab] 이미 초기화된 탭 컨테이너, 건너뛰기');
+    return true;
+  }
+  
+  const currentPath = window.location.pathname;
+  let config = null;
+  
+  // 페이지별 설정 결정
+  if (currentPath.includes('support')) {
+    const activeMainTab = currentPath.includes('support-02-news') ? 'news' : 'inquiry';
+    config = {
+      mainTabs: [
+        { id: 'inquiry', text: '문의하기', isActive: activeMainTab === 'inquiry' },
+        { id: 'news', text: '유락소식', isActive: activeMainTab === 'news' }
+      ],
+      subTabs: {}
+    };
+    window.supportTabConfig = config;
+  } else if (currentPath.includes('solution')) {
+    let activeMainTab = 'dfas';
+    let activeSubTab = 'dfas-pro';
+    
+    if (currentPath.includes('dfas-ent')) {
+      activeMainTab = 'dfas';
+      activeSubTab = 'dfas-enterprise';
+    } else if (currentPath.includes('mcq-p')) {
+      activeMainTab = 'mcq';
+      activeSubTab = 'mcq-p';
+    } else if (currentPath.includes('mcq-s')) {
+      activeMainTab = 'mcq';
+      activeSubTab = 'mcq-s';
+    } else if (currentPath.includes('mcq-g')) {
+      activeMainTab = 'mcq';
+      activeSubTab = 'mcq-g';
+    } else if (currentPath.includes('gm-pro')) {
+      activeMainTab = 'gm';
+      activeSubTab = 'gm-pro';
+    } else if (currentPath.includes('gm')) {
+      activeMainTab = 'gm';
+      activeSubTab = 'gm';
+    }
+    
+    config = {
+      mainTabs: [
+        { id: 'dfas', text: 'DFAS', isActive: activeMainTab === 'dfas' },
+        { id: 'mcq', text: 'MCQ', isActive: activeMainTab === 'mcq' },
+        { id: 'gm', text: 'Gate Manager', isActive: activeMainTab === 'gm' }
+      ],
+      subTabs: {
+        dfas: [
+          { id: 'dfas-pro', text: 'DFAS Pro', isActive: activeSubTab === 'dfas-pro' },
+          { id: 'dfas-enterprise', text: 'DFAS Enterprise', isActive: activeSubTab === 'dfas-enterprise' }
+        ],
+        mcq: [
+          { id: 'mcq-p', text: 'M-SecuManager P', isActive: activeSubTab === 'mcq-p' },
+          { id: 'mcq-s', text: 'M-SecuManager S', isActive: activeSubTab === 'mcq-s' },
+          { id: 'mcq-g', text: 'M-SecuManager G', isActive: activeSubTab === 'mcq-g' }
+        ],
+        gm: [
+          { id: 'gm', text: 'Gate Manager', isActive: activeSubTab === 'gm' },
+          { id: 'gm-pro', text: 'Gate Manager Pro', isActive: activeSubTab === 'gm-pro' }
+        ]
+      }
+    };
+    window.solutionTabConfig = config;
+  } else if (currentPath.includes('service')) {
+    let activeMainTab = 'analysis';
+    if (currentPath.includes('authentication')) activeMainTab = 'authentication';
+    else if (currentPath.includes('education')) activeMainTab = 'education';
+    
+    config = {
+      mainTabs: [
+        { id: 'analysis', text: '포렌식 분석 서비스', isActive: activeMainTab === 'analysis' },
+        { id: 'authentication', text: '국제 표준화 인증', isActive: activeMainTab === 'authentication' },
+        { id: 'education', text: '포렌식 교육', isActive: activeMainTab === 'education' }
+      ],
+      subTabs: {}
+    };
+    window.serviceTabConfig = config;
+  }
+  
+  if (config) {
+    try {
       createTabComponent('tab-container', config);
+      console.log('[Tab] 즉시 실행 탭 컴포넌트 생성 성공');
+      return true;
+    } catch (error) {
+      console.error('[Tab] 즉시 실행 탭 컴포넌트 생성 실패:', error);
+      return false;
     }
   }
+  
+  return false;
+}
+
+// 다중 시도 초기화 함수
+function multipleAttemptInit() {
+  let attempts = 0;
+  const maxAttempts = 10;
+  const baseDelay = 200;
+  
+  const attemptInit = () => {
+    attempts++;
+    console.log(`[Tab] 탭 초기화 시도 ${attempts}/${maxAttempts}`);
+    
+    if (immediateTabInit()) {
+      console.log('[Tab] 탭 초기화 성공!');
+      return;
+    }
+    
+    if (attempts < maxAttempts) {
+      const delay = baseDelay * attempts; // 점진적 지연
+      console.log(`[Tab] ${delay}ms 후 재시도...`);
+      setTimeout(attemptInit, delay);
+    } else {
+      console.error('[Tab] 최대 시도 횟수 초과, 탭 초기화 포기');
+    }
+  };
+  
+  attemptInit();
+}
+
+// 스크립트 로드 즉시 실행
+console.log('[Tab] 탭 스크립트 로드됨, 즉시 초기화 시도');
+if (!immediateTabInit()) {
+  console.log('[Tab] 즉시 초기화 실패, 다중 시도 모드 실행');
+  multipleAttemptInit();
+}
+
+// DOMContentLoaded 백업 초기화
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('[Tab] DOMContentLoaded 백업 초기화');
+  setTimeout(() => {
+    if (!document.getElementById('tab-container') || 
+        document.getElementById('tab-container').dataset.tabInitialized !== 'true') {
+      console.log('[Tab] DOMContentLoaded에서 백업 초기화 실행');
+      multipleAttemptInit();
+    }
+  }, 100);
+});
+
+// 모든 컴포넌트 로드 완료 시 백업 초기화
+document.addEventListener('allComponentsLoaded', function() {
+  console.log('[Tab] allComponentsLoaded 최종 백업 초기화');
+  setTimeout(() => {
+    if (!document.getElementById('tab-container') || 
+        document.getElementById('tab-container').dataset.tabInitialized !== 'true') {
+      console.log('[Tab] allComponentsLoaded에서 최종 백업 초기화 실행');
+      immediateTabInit();
+    }
+  }, 200);
 });

@@ -746,37 +746,7 @@ function initSolutionPage() {
 }
 
 // 컴포넌트 모두 로드 후 실행
-import { createTabComponent } from '../component/tab.js';
-
-document.addEventListener('allComponentsLoaded', () => {
-  const pageInfo = getCurrentPageType();
-  if (!pageInfo) return;
-
-  let config = null;
-
-  if (pageInfo.type === 'solution') {
-    config = createSolutionTabConfig();
-    window.solutionTabConfig = config;
-    window.pageTabConfig = config;
-  } else if (pageInfo.type === 'support') {
-    config = createSupportTabConfig();
-    window.pageTabConfig = config;
-  }
-
-  const tabContainer = document.getElementById('tab-container');
-
-  if (tabContainer && config && config.mainTabs) {
-    createTabComponent('tab-container', config);
-  } else {
-    console.log('[Tab] 탭 컴포넌트 생성 조건 미충족:', {
-      container: !!tabContainer,
-      hasMainTabs: config?.mainTabs?.length
-    });
-  }
-
-  // 페이지 기능 초기화
-  initializePageFeatures(pageInfo.page);
-});
+// allComponentsLoaded 이벤트는 componentManager에서 처리하므로 제거
 
 
 // 페이지 로드 시 초기화

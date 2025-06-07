@@ -151,6 +151,139 @@ document.addEventListener('DOMContentLoaded', function () {
       }, 100);
     }
 
+    // 탭 컴포넌트가 있는 경우 강제 초기화 (개선된 로직)
+    if (document.getElementById('tab-container')) {
+      console.log('[ComponentManager] 탭 컴포넌트 강제 초기화 시작');
+      
+      // 탭 초기화 함수
+      const initializeTabs = () => {
+        console.log('[ComponentManager] 탭 초기화 실행');
+        
+        const currentPath = window.location.pathname;
+        let config = null;
+        
+        // 페이지별 설정 생성
+        if (currentPath.includes('support')) {
+          const activeMainTab = currentPath.includes('support-02-news') ? 'news' : 'inquiry';
+          config = {
+            mainTabs: [
+              { id: 'inquiry', text: '문의하기', isActive: activeMainTab === 'inquiry' },
+              { id: 'news', text: '유락소식', isActive: activeMainTab === 'news' }
+            ],
+            subTabs: {}
+          };
+        } else if (currentPath.includes('solution')) {
+          let activeMainTab = 'dfas';
+          let activeSubTab = 'dfas-pro';
+          
+          // 현재 페이지에 따라 활성 탭 결정
+          if (currentPath.includes('dfas-ent')) {
+            activeMainTab = 'dfas';
+            activeSubTab = 'dfas-enterprise';
+          } else if (currentPath.includes('mcq-p')) {
+            activeMainTab = 'mcq';
+            activeSubTab = 'mcq-p';
+          } else if (currentPath.includes('mcq-s')) {
+            activeMainTab = 'mcq';
+            activeSubTab = 'mcq-s';
+          } else if (currentPath.includes('mcq-g')) {
+            activeMainTab = 'mcq';
+            activeSubTab = 'mcq-g';
+          } else if (currentPath.includes('gm-pro')) {
+            activeMainTab = 'gm';
+            activeSubTab = 'gm-pro';
+          } else if (currentPath.includes('gm')) {
+            activeMainTab = 'gm';
+            activeSubTab = 'gm';
+          }
+          
+          config = {
+            mainTabs: [
+              { id: 'dfas', text: 'DFAS', isActive: activeMainTab === 'dfas' },
+              { id: 'mcq', text: 'MCQ', isActive: activeMainTab === 'mcq' },
+              { id: 'gm', text: 'Gate Manager', isActive: activeMainTab === 'gm' }
+            ],
+            subTabs: {
+              dfas: [
+                { id: 'dfas-pro', text: 'DFAS Pro', isActive: activeSubTab === 'dfas-pro' },
+                { id: 'dfas-enterprise', text: 'DFAS Enterprise', isActive: activeSubTab === 'dfas-enterprise' }
+              ],
+              mcq: [
+                { id: 'mcq-p', text: 'M-SecuManager P', isActive: activeSubTab === 'mcq-p' },
+                { id: 'mcq-s', text: 'M-SecuManager S', isActive: activeSubTab === 'mcq-s' },
+                { id: 'mcq-g', text: 'M-SecuManager G', isActive: activeSubTab === 'mcq-g' }
+              ],
+              gm: [
+                { id: 'gm', text: 'Gate Manager', isActive: activeSubTab === 'gm' },
+                { id: 'gm-pro', text: 'Gate Manager Pro', isActive: activeSubTab === 'gm-pro' }
+              ]
+            }
+          };
+        } else if (currentPath.includes('service')) {
+          let activeMainTab = 'analysis';
+          if (currentPath.includes('authentication')) activeMainTab = 'authentication';
+          else if (currentPath.includes('education')) activeMainTab = 'education';
+          
+          config = {
+            mainTabs: [
+              { id: 'analysis', text: '포렌식 분석 서비스', isActive: activeMainTab === 'analysis' },
+              { id: 'authentication', text: '국제 표준화 인증', isActive: activeMainTab === 'authentication' },
+              { id: 'education', text: '포렌식 교육', isActive: activeMainTab === 'education' }
+            ],
+            subTabs: {}
+          };
+        }
+        
+        // 설정을 전역에 저장
+        if (config) {
+          if (currentPath.includes('support')) window.supportTabConfig = config;
+          else if (currentPath.includes('solution')) window.solutionTabConfig = config;
+          else if (currentPath.includes('service')) window.serviceTabConfig = config;
+        }
+        
+        // 탭 컴포넌트 생성
+        if (config && typeof window.createTabComponent === 'function') {
+          console.log('[ComponentManager] 탭 컴포넌트 생성:', config);
+          try {
+            window.createTabComponent('tab-container', config);
+            console.log('[ComponentManager] 탭 컴포넌트 생성 성공');
+            return true;
+          } catch (error) {
+            console.error('[ComponentManager] 탭 컴포넌트 생성 실패:', error);
+            return false;
+          }
+        } else {
+          console.warn('[ComponentManager] 탭 초기화 실패:', {
+            config: !!config,
+            createTabComponent: typeof window.createTabComponent
+          });
+          return false;
+        }
+      };
+      
+      // 여러 번 시도하여 안정성 확보
+      const maxAttempts = 5;
+      let attempts = 0;
+      
+      const tryInitialize = () => {
+        attempts++;
+        console.log(`[ComponentManager] 탭 초기화 시도 ${attempts}/${maxAttempts}`);
+        
+        if (initializeTabs()) {
+          console.log('[ComponentManager] 탭 초기화 성공');
+          return;
+        }
+        
+        if (attempts < maxAttempts) {
+          setTimeout(tryInitialize, 200 * attempts); // 점진적으로 지연 시간 증가
+        } else {
+          console.error('[ComponentManager] 탭 초기화 최대 시도 횟수 초과');
+        }
+      };
+      
+      setTimeout(tryInitialize, 100);
+    }
+
     // 페이지 특정 초기화 이벤트 발생
     document.dispatchEvent(new CustomEvent('pageReady'));
   });

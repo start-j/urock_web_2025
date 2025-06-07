@@ -210,14 +210,7 @@ function initServiceSection() {
   });
 }
 
-import { createTabComponent } from '../component/tab.js';
-
-document.addEventListener('allComponentsLoaded', () => {
-  const tabContainer = document.getElementById('tab-container');
-  if (tabContainer) {
-    createTabComponent('tab-container', window.serviceTabConfig);
-  }
-});
+// allComponentsLoaded 이벤트는 componentManager에서 처리하므로 제거
 
 
 // 통합 초기화 함수

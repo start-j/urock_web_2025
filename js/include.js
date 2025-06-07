@@ -32,6 +32,35 @@ function loadComponent(el, includePath) {
         if (this.readyState == 4 && this.status == 200) {
             console.log(`[Include] 파일 로드 완료: ${includePath}`);
 
+            // 탭 컴포넌트 특별 처리
+            if (includePath.includes('component/tab.html')) {
+                console.log('[Include] 탭 컴포넌트 특별 처리 시작');
+                
+                // 기존 tab-container가 있는지 확인
+                const existingContainer = document.getElementById('tab-container');
+                if (existingContainer) {
+                    console.log('[Include] 기존 tab-container 발견, 중복 방지를 위해 제거');
+                    existingContainer.remove();
+                }
+                
+                // 새로운 탭 컨테이너 삽입
+                el.outerHTML = this.responseText;
+                
+                // 컴포넌트 로드 이벤트 발생
+                const event = new CustomEvent('componentLoaded', {
+                    detail: {
+                        component: 'tab',
+                        path: includePath,
+                        element: document.getElementById('tab-container')
+                    }
+                });
+                document.dispatchEvent(event);
+
+                loadedComponents++;
+                checkAllComponentsLoaded();
+                return;
+            }
+
             // 카드 컴포넌트만 불러오는 경우
             if (
                 dataSelector &&
