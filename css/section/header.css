@@ -143,6 +143,27 @@ header .mobile-menu-btn img {
   height: 24px;
 }
 
+
+
+
+/* FAB */
+/* header .fab-btn {
+  position: fixed;
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.21), 0 1.25rem 2.5rem rgba(32, 29, 48, 0.46);
+  backdrop-filter: blur(1.25rem);
+  background: linear-gradient(157.44deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0) 30.54%), rgba(255, 255, 255, 0);
+  bottom: 6%;
+  right: 3%;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  box-sizing: border-box;
+  z-index: 100;
+  border: none;
+  display: none;
+  transition: all 0.3s ease;
+} */
+
 header .fab-btn {
   position: fixed;
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.21), 0px 20px 40px rgba(32, 29, 48, 0.46);
@@ -185,12 +206,19 @@ header .mobile-menu-btn {
   display: flex;
 }
 
+
+
+
+
+
+
+/* ===== 반응형 ===== */
+
 @media (max-width: 1600px) {
   header .inner {
     margin: 0 64px;
   }
 }
-
 
 @media (max-width: 1200px) {
   header .menu {
@@ -223,39 +251,12 @@ header .mobile-menu-btn {
     width: 120px;
     height: 36px;
   }
+
+  header .fab-btn {
+    width: 72px;
+    height: 72px;
+  }
 }
-
-
-
-/* FAB */
-header .fab-btn {
-  position: fixed;
-  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.21), 0 1.25rem 2.5rem rgba(32, 29, 48, 0.46);
-  backdrop-filter: blur(1.25rem);
-  background: linear-gradient(157.44deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0) 30.54%), rgba(255, 255, 255, 0);
-  bottom: 6%;
-  right: 3%;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  box-sizing: border-box;
-  z-index: 100;
-  border: none;
-  display: none;
-  transition: all 0.3s ease;
-}
-
-header .fab-btn:hover img {
-  content: url(/public/images/common/fab-hover.png);
-}
-
-header .fab-btn:active img {
-  content: url(/public/images/common/fab-active.png);
-}
-
-
-
-
 
 
 
