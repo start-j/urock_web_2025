@@ -76,6 +76,24 @@ function createSolutionTabConfig() {
       activeSubTab = pageInfo.id;
     }
   });
+  
+  // activeSubTab이 설정되지 않은 경우 각 메인탭의 기본값 설정
+  if (!activeSubTab) {
+    switch (activeMainTab) {
+      case 'dfas':
+        activeSubTab = 'dfas-pro';
+        break;
+      case 'mcq':
+        activeSubTab = 'mcq-p';
+        break;
+      case 'gm':
+        activeSubTab = 'gm';
+        break;
+      default:
+        activeSubTab = 'dfas-pro'; // 전체 기본값
+    }
+    console.log(`[Solution] 기본 서브탭 설정: ${activeMainTab} -> ${activeSubTab}`);
+  }
 
   // 탭 설정 구성
   const mainTabs = [
@@ -90,7 +108,7 @@ function createSolutionTabConfig() {
       { id: 'dfas-enterprise', text: 'DFAS Enterprise', isActive: activeSubTab === 'dfas-enterprise' }
     ],
     mcq: [
-      { id: 'mcq-p', text: 'M-SecuManager P', isActive: activeSubTab === 'mcq-p' },
+      { id: 'mcq-p', text: 'M-SecuManager P', isActive: activeSubTab === 'mcq-p' || (activeMainTab === 'mcq' && !activeSubTab) },
       { id: 'mcq-s', text: 'M-SecuManager S', isActive: activeSubTab === 'mcq-s' },
       { id: 'mcq-g', text: 'M-SecuManager G', isActive: activeSubTab === 'mcq-g' }
     ],

@@ -11,12 +11,20 @@ function createTabComponent(containerId, config) {
     console.error('[Tab] createTabComponent에 유효하지 않은 config가 전달됨:', config);
     return;
   }
+  
   // 컨테이너 요소 가져오기
   const container = document.getElementById(containerId);
   if (!container) {
     console.error(`Element with ID "${containerId}" not found.`);
     return;
   }
+  
+  // 중복 초기화 방지
+  if (container.dataset.tabInitialized === 'true') {
+    console.log(`[Tab] ${containerId}는 이미 초기화됨, 건너뛰기`);
+    return;
+  }
+  container.dataset.tabInitialized = 'true';
 
   // 기본 설정 사용 (config가 없을 경우)
   config = config || (typeof solutionTabConfig !== 'undefined' ? solutionTabConfig : {
@@ -47,7 +55,14 @@ function createTabComponent(containerId, config) {
   let activeSubTab = '';
 
   if (config.subTabs && config.subTabs[activeMainTab] && config.subTabs[activeMainTab].length > 0) {
-    activeSubTab = config.subTabs[activeMainTab].find(tab => tab.isActive).id;
+    const activeSubTabObject = config.subTabs[activeMainTab].find(tab => tab.isActive);
+    if (activeSubTabObject) {
+      activeSubTab = activeSubTabObject.id;
+    } else {
+      // isActive가 true인 서브탭이 없으면 첫 번째 서브탭을 기본값으로 설정
+      activeSubTab = config.subTabs[activeMainTab][0].id;
+      console.log(`[Tab] ${activeMainTab} 탭의 기본 서브탭으로 ${activeSubTab} 설정`);
+    }
   }
 
   // DOM 요소 캐시
@@ -189,26 +204,60 @@ function createTabComponent(containerId, config) {
 
   // 컨텐츠 경로 매핑
   function getContentPath() {
-    const pathMap = {
-      'dfas': activeSubTab === 'dfas-enterprise'
-        ? '/html/detail/detail-solution-02-dfas-ent.html'
-        : '/html/detail/detail-solution-01-dfas-pro.html',
-      'mcq': {
-        'mcq-p': '/html/detail/detail-solution-03-mcq-p.html',
-        'mcq-s': '/html/detail/detail-solution-04-mcq-s.html',
-        'mcq-g': '/html/detail/detail-solution-05-mcq-g.html'
-      }[activeSubTab],
-      'gm': activeSubTab === 'gm-pro'
-        ? '/html/detail/detail-solution-07-gm-pro.html'
-        : '/html/detail/detail-solution-06-gm.html',
-      'analysis': '/html/detail/detail-service-01-analysis.html',
-      'authentication': '/html/detail/detail-service-02-authentication.html',
-      'education': '/html/detail/detail-service-03-education.html',
-      'inquiry': '/html/detail/detail-support-01-inquiry.html',
-      'news': '/html/detail/detail-support-02-news.html'
-    };
-
-    return pathMap[activeMainTab] || '';
+    console.log(`[Tab] 경로 매핑 시도: activeMainTab=${activeMainTab}, activeSubTab=${activeSubTab}`);
+    
+    // 각 메인 탭별 경로 매핑
+    let contentPath = '';
+    
+    switch (activeMainTab) {
+      case 'dfas':
+        contentPath = activeSubTab === 'dfas-enterprise'
+          ? '/html/detail/detail-solution-02-dfas-ent.html'
+          : '/html/detail/detail-solution-01-dfas-pro.html';
+        break;
+        
+      case 'mcq':
+        const mcqPaths = {
+          'mcq-p': '/html/detail/detail-solution-03-mcq-p.html',
+          'mcq-s': '/html/detail/detail-solution-04-mcq-s.html',
+          'mcq-g': '/html/detail/detail-solution-05-mcq-g.html'
+        };
+        contentPath = mcqPaths[activeSubTab] || mcqPaths['mcq-p']; // 기본값: mcq-p
+        break;
+        
+      case 'gm':
+        contentPath = activeSubTab === 'gm-pro'
+          ? '/html/detail/detail-solution-07-gm-pro.html'
+          : '/html/detail/detail-solution-06-gm.html';
+        break;
+        
+      case 'analysis':
+        contentPath = '/html/detail/detail-service-01-analysis.html';
+        break;
+        
+      case 'authentication':
+        contentPath = '/html/detail/detail-service-02-authentication.html';
+        break;
+        
+      case 'education':
+        contentPath = '/html/detail/detail-service-03-education.html';
+        break;
+        
+      case 'inquiry':
+        contentPath = '/html/detail/detail-support-01-inquiry.html';
+        break;
+        
+      case 'news':
+        contentPath = '/html/detail/detail-support-02-news.html';
+        break;
+        
+      default:
+        console.warn(`[Tab] 알 수 없는 메인 탭: ${activeMainTab}`);
+        contentPath = '';
+    }
+    
+    console.log(`[Tab] 매핑된 경로: ${contentPath}`);
+    return contentPath;
   }
 
   // 컨텐츠 업데이트 함수
@@ -308,9 +357,18 @@ function createTabComponent(containerId, config) {
         const activeSubTabGroup = container.querySelector(`#${activeMainTab}-sub`);
         if (activeSubTabGroup) {
           activeSubTabGroup.style.display = 'block';
-          const activeSubTabLink = activeSubTabGroup.querySelector('.tab-menu a.active');
+          let activeSubTabLink = activeSubTabGroup.querySelector('.tab-menu a.active');
+          
           if (activeSubTabLink) {
             activeSubTab = activeSubTabLink.getAttribute('data-subtab');
+          } else {
+            // 활성화된 서브탭이 없으면 첫 번째 서브탭을 활성화
+            const firstSubTabLink = activeSubTabGroup.querySelector('.tab-menu a');
+            if (firstSubTabLink) {
+              firstSubTabLink.classList.add('active');
+              activeSubTab = firstSubTabLink.getAttribute('data-subtab');
+              console.log(`[Tab] ${activeMainTab} 탭의 첫 번째 서브탭 자동 활성화: ${activeSubTab}`);
+            }
           }
         } else {
           activeSubTab = '';
@@ -355,8 +413,24 @@ function createTabComponent(containerId, config) {
   setupEventListeners();
   updateContent();
 }
+// 전역 탭 초기화 함수
+window.createTabComponent = createTabComponent;
+
+// 탭 재초기화 함수
+window.reInitTabComponent = function(containerId = 'tab-container', config = null) {
+  const container = document.getElementById(containerId);
+  if (container) {
+    // 초기화 플래그 리셋
+    container.dataset.tabInitialized = 'false';
+    createTabComponent(containerId, config || window.solutionTabConfig);
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('tab-container')) {
-    createTabComponent('tab-container', window.solutionTabConfig);
+    const config = window.solutionTabConfig || window.supportTabConfig;
+    if (config) {
+      createTabComponent('tab-container', config);
+    }
   }
 });
