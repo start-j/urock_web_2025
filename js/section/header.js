@@ -13,7 +13,7 @@ function initHeaderComponent() {
   setupLanguageDropdown();
 
   // 모바일 메뉴 기능
-  // setupMobileMenu(); // Removed mobile menu setup
+  setupMobileMenu();
 }
 
 // FAB 버튼 설정
@@ -170,124 +170,163 @@ function setupLanguageDropdown() {
 }
 
 // 모바일 메뉴 설정 (중복 제거 및 최적화)
-// function setupMobileMenu() {
-//   // 기존 요소들 찾기
-//   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-//   const overlay = document.querySelector('.mobile-overlay');
+function setupMobileMenu() {
+  const menuBtn = document.querySelector('header .mobile-menu-btn');
+  const drawer = document.querySelector('.mobile-drawer');
+  const overlay = document.querySelector('.mobile-drawer-overlay');
+  const closeBtn = document.querySelector('.mobile-drawer-close');
+  const drawerMenu = document.querySelector('.mobile-drawer-menu');
 
-//   console.log('모바일 메뉴 요소 확인:', {
-//     mobileMenuBtn: !!mobileMenuBtn,
-//     overlay: !!overlay
-//   });
+  if (!menuBtn || !drawer || !overlay || !closeBtn || !drawerMenu) return;
 
-//   // 모바일 메뉴 요소가 없으면 재시도
-//   if (!mobileMenuBtn || !overlay) {
-//     console.warn('모바일 메뉴 요소를 찾을 수 없습니다. 1초 후 재시도...');
-//     setTimeout(() => {
-//       setupMobileMenu();
-//     }, 1000);
-//     return;
-//   }
+  // 드로워 열기/닫기
+  function openDrawer() {
+    drawer.classList.add('active');
+    overlay.classList.add('active');
+    menuBtn.classList.add('hide');
+    document.body.style.overflow = 'hidden';
+    
+    // 드로워가 열릴 때 메뉴 아이템들 순차적으로 나타나는 애니메이션
+    animateMenuItems();
+  }
+  function closeDrawer() {
+    drawer.classList.remove('active');
+    overlay.classList.remove('active');
+    menuBtn.classList.remove('hide');
+    document.body.style.overflow = '';
+    
+    // 모든 서브메뉴 닫기
+    closeAllSubmenus();
+  }
+  
+  // 메뉴 아이템 애니메이션
+  function animateMenuItems() {
+    const menuItems = document.querySelectorAll('.mobile-drawer-menu .menu-item');
+    
+    menuItems.forEach((item, index) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(20px)';
+      
+      setTimeout(() => {
+        item.style.transition = 'all 0.3s ease';
+        item.style.opacity = '1';
+        item.style.transform = 'translateX(0)';
+      }, index * 50);
+    });
+  }
+  
+  // 모든 서브메뉴 닫기
+  function closeAllSubmenus() {
+    const allSubmenus = document.querySelectorAll('.mobile-drawer-menu .submenu');
+    const allLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
+    
+    allSubmenus.forEach(submenu => {
+      submenu.classList.remove('active');
+    });
+    
+    allLinks.forEach(link => {
+      link.classList.remove('active');
+    });
+  }
+  
+  // 서브메뉴 토글
+  function toggleSubmenu(e) {
+    const link = e.currentTarget;
+    const targetId = link.getAttribute('data-target');
+    const submenu = document.getElementById(targetId);
+    
+    // 서브메뉴가 없으면 (마지막 뎁스) 링크 이동 허용
+    if (!submenu) {
+      return; // 기본 링크 동작 허용
+    }
+    
+    // 서브메뉴가 있으면 링크 이동 방지하고 토글
+    e.preventDefault();
+    
+    const isActive = submenu.classList.contains('active');
+    
+    // 같은 레벨의 다른 서브메뉴들 닫기
+    closeSiblingSubmenus(submenu);
+    
+    if (isActive) {
+      // 현재 서브메뉴와 하위 서브메뉴들 닫기
+      closeSubmenuAndChildren(submenu);
+      link.classList.remove('active');
+    } else {
+      // 서브메뉴 열기
+      submenu.classList.add('active');
+      link.classList.add('active');
+    }
+  }
+  
+  // 형제 서브메뉴들 닫기
+  function closeSiblingSubmenus(currentSubmenu) {
+    const parent = currentSubmenu.parentElement.parentElement;
+    const siblings = parent.querySelectorAll(':scope > .menu-item > .submenu');
+    
+    siblings.forEach(sibling => {
+      if (sibling !== currentSubmenu) {
+        closeSubmenuAndChildren(sibling);
+        const siblingLink = sibling.previousElementSibling;
+        if (siblingLink) {
+          siblingLink.classList.remove('active');
+        }
+      }
+    });
+  }
+  
+  // 서브메뉴와 자식들 닫기
+  function closeSubmenuAndChildren(submenu) {
+    submenu.classList.remove('active');
+    
+    // 하위 서브메뉴들도 모두 닫기
+    const childSubmenus = submenu.querySelectorAll('.submenu');
+    childSubmenus.forEach(child => {
+      child.classList.remove('active');
+      const childLink = child.previousElementSibling;
+      if (childLink) {
+        childLink.classList.remove('active');
+      }
+    });
+  }
 
-//   console.log('모바일 메뉴 초기화 시작');
-
-//   // 모바일 메뉴 닫기 함수
-//   function closeMobileMenu() {
-//     overlay.classList.remove('active');
-//     document.body.style.overflow = '';
-//   }
-
-//   // 모바일 메뉴 버튼 클릭 이벤트
-//   mobileMenuBtn.addEventListener('click', function () {
-//     console.log('모바일 메뉴 버튼 클릭됨');
-//     overlay.classList.add('active');
-//     document.body.style.overflow = 'hidden'; // 스크롤 방지
-//   });
-
-//   // 닫기 버튼 이벤트
-//   const closeBtn = mobilePanel.querySelector('.close-btn');
-//   if (closeBtn) {
-//     closeBtn.addEventListener('click', closeMobileMenu);
-//     console.log('닫기 버튼 이벤트 등록 완료');
-//   }
-
-//   // 오버레이 클릭 시 메뉴 닫기
-//   overlay.addEventListener('click', closeMobileMenu);
-//   console.log('오버레이 이벤트 등록 완료');
-
-//   // 서브메뉴 토글 설정
-//   setupSubmenuToggle();
-// }
-
-// 서브메뉴 토글 설정
-// function setupSubmenuToggle() {
-//   console.log('서브메뉴 토글 요소 찾음:', menuToggles.length);
-
-//   menuToggles.forEach(toggle => {
-//     toggle.addEventListener('click', function (e) {
-//       e.preventDefault();
-//       e.stopPropagation();
-
-//       const parentMenuItem = this.closest('.mobile-menu-item.has-submenu');
-//       if (parentMenuItem) {
-//         const submenu = parentMenuItem.querySelector('.submenu');
-//         if (submenu) {
-//           console.log('서브메뉴 토글');
-//           // 다른 열린 서브메뉴 닫기
-//           const otherOpenMenus = document.querySelectorAll('.mobile-menu-item.has-submenu.expanded');
-//           otherOpenMenus.forEach(menu => {
-//             if (menu !== parentMenuItem) {
-//               menu.classList.remove('expanded');
-//               menu.querySelector('.submenu').classList.remove('expanded');
-//             }
-//           });
-
-//           // 현재 서브메뉴 토글
-//           parentMenuItem.classList.toggle('expanded');
-//           submenu.classList.toggle('expanded');
-//         }
-//       }
-//     });
-//   });
-// }
-
-// 현재 페이지에 따른 모바일 메뉴 활성화
-// function setActiveMobileMenu() {
-//   setTimeout(function () {
-//     const currentPath = window.location.pathname;
-
-//     // 모든 active 클래스 제거
-
-//     // 현재 페이지와 매칭되는 메뉴 찾기
-//     allMenuItems.forEach(li => {
-//       const links = li.querySelectorAll('a');
-
-//       links.forEach(link => {
-//         const href = link.getAttribute('href');
-//         if (href && (
-//           currentPath === href ||
-//           currentPath.includes(href.split('/').pop().split('.')[0])
-//         )) {
-//           // 해당 메뉴 활성화
-//           li.classList.add('active');
-
-//           // 부모 메뉴들도 활성화하고 확장
-//           let parent = li.closest('.submenu');
-//           while (parent) {
-//             parent.classList.add('expanded');
-//             const parentLi = parent.closest('li.has-submenu');
-//             if (parentLi) {
-//               parentLi.classList.add('expanded');
-//               parent = parentLi.closest('submenu');
-//             } else {
-//               break;
-//             }
-//           });
-//         }
-//       });
-//     });
-//   }, 100);
-// }
+  // 이벤트 리스너 등록
+  menuBtn.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  
+  // 서브메뉴 토글 이벤트 (has-submenu가 있는 것만)
+  const menuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', toggleSubmenu);
+  });
+  
+  // 마지막 뎁스 링크들 (has-submenu가 없는 것들)
+  const finalLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link:not(.has-submenu)');
+  finalLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      // 실제 링크 주소가 #이 아닌 경우에만 페이지 이동
+      const href = link.getAttribute('href');
+      if (href && href !== '#') {
+        // 실제 페이지로 이동
+        window.location.href = href;
+      } else {
+        // 데모용: 알림으로 어떤 메뉴를 클릭했는지 표시
+        e.preventDefault();
+        const menuText = link.textContent.trim();
+        alert(`"${menuText}" 페이지로 이동합니다!`);
+        closeDrawer();
+      }
+    });
+  });
+  
+  // ESC 키로 닫기
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDrawer();
+    }
+  });
+}
 
 // 초기화 방식 (로딩 상태에 따라)
 function initHeaderSafely() {

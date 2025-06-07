@@ -458,3 +458,201 @@ header .mobile-menu-btn {
 .arrow-icon.up {
   transform: rotate(180deg);
 }
+
+/* ===== 모바일 드로워 & 오버레이 ===== */
+.mobile-drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 199;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.mobile-drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 350px;
+  height: 100vh;
+  background: #201D30;
+  z-index: 200;
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+  border-left: 1px solid rgba(180, 199, 246, 0.17);
+}
+.mobile-drawer.active {
+  right: 0;
+}
+
+/* 드로워 헤더 */
+.mobile-drawer-header {
+  height: 60px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: white;
+}
+
+.mobile-drawer-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mobile-drawer-close {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.mobile-drawer-close::before,
+.mobile-drawer-close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.mobile-drawer-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.mobile-drawer-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.mobile-drawer-close:hover::before,
+.mobile-drawer-close:hover::after {
+  width: 24px;
+  background: #ff6b6b;
+}
+
+/* 메뉴 리스트 */
+.mobile-drawer-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+.mobile-drawer-menu .menu-item {
+  border-bottom: 1px solid rgba(180, 199, 246, 0.1);
+}
+
+.mobile-drawer-menu .menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.mobile-drawer-menu .menu-link:hover {
+  background: rgba(180, 199, 246, 0.1);
+  color: #91b1ff;
+  padding-left: 25px;
+}
+
+.mobile-drawer-menu .menu-link.has-submenu::after {
+  content: '▶';
+  font-size: 12px;
+  color: #999;
+  transition: all 0.3s ease;
+}
+
+.mobile-drawer-menu .menu-link.active::after {
+  transform: rotate(90deg);
+  color: #91b1ff;
+}
+
+/* 서브메뉴 */
+.mobile-drawer-menu .submenu {
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+  transition: max-height 0.4s ease;
+}
+
+.mobile-drawer-menu .submenu.active {
+  max-height: 500px;
+}
+
+.mobile-drawer-menu .submenu .menu-link {
+  padding-left: 40px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.mobile-drawer-menu .submenu .submenu .menu-link {
+  padding-left: 60px;
+  font-size: 13px;
+  color: #bbb;
+}
+
+.mobile-drawer-menu .submenu .menu-link:hover {
+  padding-left: 45px;
+  background: rgba(180, 199, 246, 0.05);
+}
+
+.mobile-drawer-menu .submenu .submenu .menu-link:hover {
+  padding-left: 65px;
+}
+
+/* 스크롤바 스타일링 */
+.mobile-drawer-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.mobile-drawer-menu::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-drawer-menu::-webkit-scrollbar-thumb {
+  background: rgba(180, 199, 246, 0.3);
+  border-radius: 3px;
+}
+
+.mobile-drawer-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 199, 246, 0.5);
+}
+
+/* 모바일 메뉴 버튼(X버튼) 전환 애니메이션 */
+header .mobile-menu-btn {
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+  z-index: 201;
+}
+header .mobile-menu-btn.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8) rotate(-30deg);
+}
+
+@media (min-width: 1201px) {
+  .mobile-drawer, .mobile-drawer-overlay {
+    display: none;
+  }
+}
