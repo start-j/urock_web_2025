@@ -497,12 +497,12 @@ header .mobile-menu-btn {
 /* 드로워 헤더 */
 .mobile-drawer-header {
   height: 60px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #667eea, #93B0F8);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  color: white;
+  color: #201D30;
 }
 
 .mobile-drawer-title {
@@ -528,7 +528,7 @@ header .mobile-menu-btn {
   left: 50%;
   width: 20px;
   height: 2px;
-  background: white;
+  background: #201D30;
   transition: all 0.3s ease;
 }
 
@@ -543,7 +543,7 @@ header .mobile-menu-btn {
 .mobile-drawer-close:hover::before,
 .mobile-drawer-close:hover::after {
   width: 24px;
-  background: #ff6b6b;
+  background: #91b1ff;
 }
 
 /* 메뉴 리스트 */
@@ -578,9 +578,11 @@ header .mobile-menu-btn {
 }
 
 .mobile-drawer-menu .menu-link.has-submenu::after {
-  content: '▶';
-  font-size: 12px;
-  color: #999;
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url('/public/icons/icon-arrow-white.svg') center/contain no-repeat;
   transition: all 0.3s ease;
 }
 
