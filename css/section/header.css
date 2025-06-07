@@ -28,6 +28,7 @@ header .inner {
   align-items: center;
   box-sizing: border-box;
   gap: 0;
+  max-width: 1440px;
 }
 
 header .logo-icon {

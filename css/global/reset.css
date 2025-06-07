@@ -8,6 +8,15 @@
 /*font*/
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 
+
+/* 추가 */
+html,body {
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+
 body {
   font-family: "Pretendard-Family", sans-serif;
   color: #eee;
@@ -56,10 +65,23 @@ input {
   outline: none;
 }
 
-/* inner */
-.inner {
+/* 기존 inner */
+/* .inner {
   position: relative;
   width: 1440px;
   margin: 0 auto;
-  /*스크린 사이즈 지정*/
+} */
+
+/* 추가  */
+.inner {
+  width: 100%;
+  /* max-width: 1440px; */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 780px) {
+  .inner {
+    max-width: 100%;
+  }
 }
