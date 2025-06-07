@@ -276,9 +276,9 @@ form {
   -webkit-appearance: none;
   -moz-appearance: none;
   width: 36px;
-  height: 36px;
-  min-width: 36px;
-  max-width: 36px;
+  height: 40px;
+  min-width: 40px;
+  max-width: 40px;
   border: 2px solid rgba(255, 255, 255, 0.08);
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
@@ -317,12 +317,12 @@ form {
 }
 
 /* 구분선 */
-.contents .divider {
+/* .contents .divider {
   width: 100%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.2);
   margin: 24px 0;
-}
+} */
 
 /* 정보 테이블 */
 .contents .info-table {
@@ -333,17 +333,18 @@ form {
   border-collapse: separate;
   border-spacing: 0;
   margin-bottom: 24px;
+  padding: 30px 28px;
 }
 
 .contents .info-table th,
 .contents .info-table td {
   padding: 16px 32px;
   text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
 .contents .info-table th {
-  width: 150px;
+  width: 180px;
   font-size: 16px;
   letter-spacing: -0.5px;
   line-height: 150%;
@@ -366,13 +367,13 @@ form {
 
 /* 설명 텍스트 */
 .contents .des {
-  text-align: center;
+  text-align: left;
   color: #a7a7a7;
   font-size: 16px;
   letter-spacing: -0.5px;
   line-height: 150%;
   font-weight: 500;
-  margin: 16px 48px 24px;
+  margin-top: 16px;
 }
 
 .contents .des span {
@@ -400,7 +401,7 @@ form {
   line-height: 136%;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 48px;
+  margin-top: 24px;
 }
 
 .contents form .submit-button:hover:not(:disabled) {
@@ -434,10 +435,27 @@ form {
   transform: translateY(0);
 }
 
+
+
 /* 반응형 디자인 */
+@media (max-width: 1200px) {
+  .contents {
+    padding: 48px 40px 80px;
+  }
+
+  form {
+    gap: 24px;
+  }
+}
+
+
 @media (max-width: 768px) {
   .contents {
     padding: 48px 16px 80px;
+  }
+
+  form {
+    gap: 18px;
   }
   
   .contents .tit-group > .tit {
@@ -466,7 +484,22 @@ form {
     margin: 16px 16px 24px;
     font-size: 14px;
   }
+
+  .contents form .submit-button {
+    margin-top: 8px;
+  }
+
+  
+.contents form .input-memo #details,
+.contents form #details {
+  width: 100%;
+  height: 300px;
+  flex-grow: 1;
+  margin-bottom: 0px;
 }
+}
+
+
 
 @media (max-width: 480px) {
   .contents {
@@ -481,4 +514,30 @@ form {
     font-size: 16px;
     height: 48px;
   }
+
+  .contents .info-table {
+    margin-bottom: 16px;
+    padding: 24px 0px 24px 20px;
+  }
+  
+  .contents .info-table th,
+  .contents .info-table td {
+    padding: 12px 0px;
+  }
+  
+  .contents .info-table th {
+    width: 120px;
+    font-size: 14px;
+  }
+  
+  .contents .info-table td {
+    font-size: 14px;
+  }
+
+  .contents .des {
+    margin: 0 16px 0 0;
+    font-size: 12px;
+  }
+  
+
 }
