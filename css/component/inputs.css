@@ -192,7 +192,8 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
   gap: 12px;
 }
 
-.search-container form {
+.search-container form,
+.search-form {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -208,11 +209,13 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
   min-height: 56px;
 }
 
-.search-container form:hover {
+.search-container form:hover,
+.search-form:hover {
   border: 1px solid #93B0F8;
 }
 
-.search-container form:focus-within {
+.search-container form:focus-within,
+.search-form:focus-within {
   border: 1px solid #93B0F8;
 }
 
