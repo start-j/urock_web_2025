@@ -89,7 +89,7 @@
 .card-solution-series,
 .card-main-solution {
   min-width: 312px;
-  max-width: 708px;
+  max-width: 464px;
 }
 
 .card-main-service,
@@ -585,9 +585,10 @@
 /* ===== 반응형 스타일 ===== */
 @media (max-width: 1440px) {
   .cards {
+    align-items: flex-start;
+    justify-content: flex-center;
     flex-wrap: wrap;
-    /* max-width: 100%; */
-    justify-content: center;
+    align-content: flex-start;
   }
 }
 
