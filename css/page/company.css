@@ -829,9 +829,24 @@
 /* 모바일 (860px 이하) */
 @media (max-width: 860px) {
   /* History 섹션 */
+  .history {
+    --txt-show-gap: 68px;
+    --height-1: 820px;
+    --height-2: 380px;
+    --height-3: 400px;
+    --height-4: 200px;
+    --height-5: 180px;
+    --height-6: 120px;
+  }
+
   .history .vertical-line {
     left: 20%;
   }
+
+  .history .list-left {
+    gap: 0px;
+}
+
 
   .history .dot-point-icon-2024,
   .history .dot-point-icon-2023,
@@ -843,27 +858,111 @@
     left: 20%;
   }
 
+
+  .history .dot-point-icon-2024 {
+    top: 285px;
+  }
+  
+  .history .dot-point-icon-2023 {
+    top: 1170px;
+  }
+  
+  .history .dot-point-icon-2022 {
+    top: 1620px;
+  }
+  
+  .history .dot-point-icon-2021 {
+    bottom: 1010px;
+  }
+  
+  .history .dot-point-icon-2020 {
+    bottom: 740px;
+  }
+  
+  .history .dot-point-icon-2019 {
+    bottom: 490px;
+  }
+  
+  .history .dot-point-icon-2018 {
+    bottom: 300px;
+  }
+  
+
+
+
+
+  /* .history {
+    padding: 80px 0;
+    --txt-show-gap: 68px;
+    --start-point: 50px;
+    --height-1: 675px;
+    --height-2: 450px;
+    --height-3: 485px;
+    --height-4: 300px;
+    --height-5: 260px;
+    --height-6: 185px;
+  } */
+
   .history .txt-show:nth-child(odd),
   .history .txt-show:nth-child(even) {
     left: calc(20% + 20px + 30px);
     right: auto;
   }
+
+  
+  .history .year {
+    font-size: 28px;
+    align-self: flex-start;
+  }
+
+  .history .month {
+    font-size: 14px;
+  }
+
+  .history .txt-group {
+    width: 320px;
+    gap: 12px;
+  }
+
+  .history .txt-show {
+    width: 300px;
+    gap: 24px;
+  }
+
+  .history .txt-show:nth-child(odd),
+  .history .txt-show:nth-child(even) {
+    left: calc(20% + 14px + 25px);
+    right: auto;
+  }
+
+  .history .des-group {
+    margin-left: 40px;
+    font-size: 14px;
+  }
+
+  .history .li {
+    gap: 8px;
+  }
+
+  .history .list-left {
+    gap: 8px;
+  }
+
+  /* 짝수 번째 텍스트 그룹의 month와 bsetxt 위치 바꾸기 */
+  .history .txt-show:nth-child(even) .li {
+    flex-direction: row-reverse;
+  }
+
+  .history .txt-show:nth-child(even) .list-left {
+    flex-direction: row-reverse;
+  }
+
 }
 
 /* 모바일 가로 (768px 이하) */
 @media (max-width: 768px) {
   /* History 섹션 */
-  .history {
-    padding: 80px 0;
-    --txt-show-gap: 48px;
-    --start-point: 50px;
-    --height-1: 900px;
-    --height-2: 600px;
-    --height-3: 650px;
-    --height-4: 400px;
-    --height-5: 350px;
-    --height-6: 250px;
-  }
+ 
 
   .history .vertical-line {
     width: 28px;
@@ -950,14 +1049,14 @@
   /* History 섹션 */
   .history {
     padding: 60px 0;
-    --txt-show-gap: 48px;
+    --txt-show-gap: 68px;
     --start-point: 40px;
-    --height-1: 800px;
-    --height-2: 550px;
-    --height-3: 600px;
-    --height-4: 380px;
-    --height-5: 320px;
-    --height-6: 220px;
+    --height-1: 600px;
+    --height-2: 410px;
+    --height-3: 450px;
+    --height-4: 285px;
+    --height-5: 240px;
+    --height-6: 165px;
   }
 
   .history .vertical-line {
@@ -1043,14 +1142,14 @@
   /* History 섹션 */
   .history {
     padding: 40px 0;
-    --txt-show-gap: 48px;
+    --txt-show-gap: 68px;
     --start-point: 35px;
-    --height-1: 700px;
-    --height-2: 500px;
-    --height-3: 550px;
-    --height-4: 350px;
-    --height-5: 280px;
-    --height-6: 180px;
+    --height-1: 525px;
+    --height-2: 375px;
+    --height-3: 410px;
+    --height-4: 260px;
+    --height-5: 210px;
+    --height-6: 135px;
   }
 
   .history .vertical-line {
