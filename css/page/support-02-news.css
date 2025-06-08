@@ -1,3 +1,13 @@
+/* 기본 컨테이너 스타일 */
+.contents-news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0 48px 0;
+}
+
+
 /* Search Container */
 .news-support .search-container {
   display: flex;

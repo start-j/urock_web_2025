@@ -1,141 +1,110 @@
 <!-- news -->
-<section class="news-support">
-  <div class="contents">
-    <h1>소식</h1>
-    <div class="search-container">
-
-      <div class="search-form">
-      <div class="input input-search input-search-default">
-        <input type="search" id="inputSearch" placeholder="검색어 입력" />
-        <span class="icon-search"></span>
+<section class="section-cards-news" style="padding: 88px 0px;">
+  <div class="cards-container">
+      <div class="news-support">
+        <div class="contents-news">
+          <div class="search-container">
+            <div class="search-form">
+            <div class="input input-search input-search-default">
+              <input type="search" id="inputSearch" placeholder="검색어 입력" />
+              <span class="icon-search"></span>
+            </div>
+              <button type="submit" class="search-submit-btn" aria-label="검색 실행">
+                <img src="/public/icons/icon-search.svg" alt="검색 아이콘">
+              </button>
+            </div>
+            <div class="option-container">
+              <ul class="tag-container">
+                <li><a href="#">UROCK소식</a></li>
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">사업</a></li>
+                <li><a href="#">교육</a></li>
+                <li><a href="#">자료원</a></li> 
+              </ul>
+            </div>
+          </div>
+        </div>
+  <div class="cards">
+    <div class="card card-main-news"
+      style="background-image: url('');height: 400px;">
+      <div class="card-asset-area">
+        <div class="icon-ellipse">
+          <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
+        </div>
       </div>
-        <button type="submit" class="search-submit-btn" aria-label="검색 실행">
-          <img src="/public/icons/icon-search.svg" alt="검색 아이콘">
-        </button>
-      </div>
-      <div class="option-container">
-        <ul class="tag-container">
-          <li><a href="#">전체</a></li>
-          <li><a href="#">공지사항</a></li>
-          <li><a href="#">UROCK소식</a></li>
-          <li><a href="#">사업</a></li>
-          <li><a href="#">교육</a></li>
-          <li><a href="#">자료원</a></li>
-        </ul>
+      <div class="card-txt-group">
+        <div class="top">
+          <div class="subtit">
+            <h6 class="div">공지사항</h6>
+          </div>
+          <h6 class="div">2024-12-05</h6>
+        </div>
+        <h4 class="product-name">유락 공지사항</h4>
+        <h6 class="des">본문 내용</h6>
       </div>
     </div>
-  </div>
-
-
-  <main>
-    <section class="content-grid">
-      <div class="cards">
-        <a href="#" aria-label="유락 공지사항 상세보기">
-          <article class="card">
-            <div class="txt-group">
-              <div class="item-details">
-                <h6 class="category">공지사항</h6>
-                <time datetime="2024-12-05">2024-12-05</time>
-              </div>
-              <h4>유락 공지사항</h4>
-              <h6>간단한 설명 텍스트</h6>
-            </div>
-          </article>
-        </a>
-        
-        <a href="#" aria-label="UROCK 소식 상세보기">
-          <article class="card">
-            <div class="txt-group">
-              <div class="item-details">
-                <h6 class="category">UROCK소식</h6>
-                <time datetime="2024-12-04">2024-12-04</time>
-              </div>
-              <h4>UROCK 새로운 업데이트</h4>
-              <h6>최신 기능과 개선사항을 확인하세요</h6>
-            </div>
-          </article>
-        </a>
-        
-        <a href="#" aria-label="사업 관련 소식 상세보기">
-          <article class="card">
-            <div class="txt-group">
-              <div class="item-details">
-                <h6 class="category">사업</h6>
-                <time datetime="2024-12-03">2024-12-03</time>
-              </div>
-              <h4>새로운 사업 파트너십</h4>
-              <h6>혁신적인 협력 관계를 소개합니다</h6>
-            </div>
-          </article>
-        </a>
-        
-        <a href="#" aria-label="교육 프로그램 상세보기">
-          <article class="card">
-            <div class="txt-group">
-              <div class="item-details">
-                <h6 class="category">교육</h6>
-                <time datetime="2024-12-02">2024-12-02</time>
-              </div>
-              <h4>보안 교육 프로그램</h4>
-              <h6>전문가와 함께하는 실무 교육</h6>
-            </div>
-          </article>
-        </a>
-        
-        <a href="#" aria-label="자료원 업데이트 상세보기">
-          <article class="card">
-            <div class="txt-group">
-              <div class="item-details">
-                <h6 class="category">자료원</h6>
-                <time datetime="2024-12-01">2024-12-01</time>
-              </div>
-              <h4>기술 문서 업데이트</h4>
-              <h6>최신 기술 동향과 가이드라인</h6>
-            </div>
-          </article>
-        </a>
-        
-        <a href="#" aria-label="공지사항 상세보기">
-          <article class="card">
-            <div class="txt-group">
-              <div class="item-details">
-                <h6 class="category">공지사항</h6>
-                <time datetime="2024-11-30">2024-11-30</time>
-              </div>
-              <h4>시스템 점검 안내</h4>
-              <h6>정기 점검 일정을 안내드립니다</h6>
-            </div>
-          </article>
-        </a>
-        
-        <a href="#" aria-label="UROCK 소식 상세보기">
-          <article class="card">
-            <div class="txt-group">
-              <div class="item-details">
-                <h6 class="category">UROCK소식</h6>
-                <time datetime="2024-11-29">2024-11-29</time>
-              </div>
-              <h4>월간 보고서 발간</h4>
-              <h6>11월 주요 성과와 향후 계획</h6>
-            </div>
-          </article>
-        </a>
-        
-        <a href="#" aria-label="사업 관련 소식 상세보기">
-          <article class="card">
-            <div class="txt-group">
-              <div class="item-details">
-                <h6 class="category">사업</h6>
-                <time datetime="2024-11-28">2024-11-28</time>
-              </div>
-              <h4>해외 진출 계획</h4>
-              <h6>글로벌 시장 확장 전략을 공개합니다</h6>
-            </div>
-          </article>
-        </a>
+    <div class="card card-main-news"
+    style="background-image: url('');height: 400px;">
+    <div class="card-asset-area">
+      <div class="icon-ellipse">
+        <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
       </div>
+    </div>
+    <div class="card-txt-group">
+      <div class="top">
+        <div class="subtit">
+          <h6 class="div">공지사항</h6>
+        </div>
+        <h6 class="div">2024-12-05</h6>
+      </div>
+      <h4 class="product-name">유락 공지사항</h4>
+      <h6 class="des">본문 내용</h6>
+    </div>
+    </div>
+    <div class="card card-main-news"
+      style="background-image: url('/public/images/common/card-bg-img.png');height: 400px;">
+      <div class="card-asset-area">
+        <div class="icon-ellipse">
+          <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
+        </div>
+      </div>
+      <div class="card-txt-group">
+        <div class="top">
+          <div class="subtit">
+            <h6 class="div">공지사항</h6>
+          </div>
+          <h6 class="div">2024-12-05</h6>
+        </div>
+        <h4 class="product-name">유락 공지사항</h4>
+        <h6 class="des">본문 내용</h6>
+      </div>
+    </div>
+    <div class="card card-main-news"
+    style="background-image: url('/public/images/common/card-bg-img.png');height: 400px;">
+    <div class="card-asset-area">
+      <div class="icon-ellipse">
+        <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
+      </div>
+    </div>
+    <div class="card-txt-group">
+      <div class="top">
+        <div class="subtit">
+          <h6 class="div">공지사항</h6>
+        </div>
+        <h6 class="div">2024-12-05</h6>
+      </div>
+      <h4 class="product-name">유락 공지사항</h4>
+      <h6 class="des">본문 내용</h6>
+    </div>
+  </div>
+  </div>
+</div>
+</section>
+
+
+
       <!-- pagination -->
-      <nav class="pagination" aria-label="페이지 탐색">
+      <!-- <nav class="pagination" aria-label="페이지 탐색">
         <ul class="pagination-container">
           <li>
             <a href="#" aria-label="이전 페이지" class="pagination__prev">
@@ -157,7 +126,4 @@
             </a>
           </li>
         </ul>
-      </nav>
-    </section>
-  </main>
-</section>
+      </nav> -->
