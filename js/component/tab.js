@@ -113,8 +113,10 @@ function createTabComponent(containerId, config) {
   function initializeTabHTML() {
     const tabHTML = `
       <section class="tab">
-        <div class="tab-main">
-          ${generateMainTabsHTML()}
+        <div class="tab-main-bg">
+          <div class="tab-main">
+            ${generateMainTabsHTML()}
+          </div>
         </div>
         ${generateSubTabsHTML()}
         <div class="tab-content">

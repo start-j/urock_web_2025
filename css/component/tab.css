@@ -80,6 +80,17 @@ section.intro .tab-container > *,
 .tab-container > * {
   width: 100%;
   box-sizing: border-box;
+  border-bottom: 2px solid #2b293a;
+}
+
+/* ========== 탭 메인 배경 래퍼 ========== */
+.tab-main-bg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: transparent; 
+  box-sizing: border-box;
+  border-bottom: 2px solid #2b293a;
 }
 
 /* ========== 메인 탭 스타일 ========== */
@@ -94,12 +105,12 @@ section.intro .tab-container .tab-main,
 .tab-container .tab-main,
 .tab-main {
   display: flex;
-  background-color: #292841;
   justify-content: center;
-  width: 100%;
-  margin: 0;
+  width: 556px;
+  margin-top: 8px;
   padding: 0;
   box-sizing: border-box;
+  border-radius: 16px 16px 0 0;
 }
 
 /* 메인 탭 링크 기본 스타일 - 균등한 너비 분배 */
@@ -123,7 +134,7 @@ section.intro .tab-container .tab-main a,
   max-width: none;
   background-color: transparent;
   transition: all 0.3s ease;
-  border-radius: 0;
+  border-radius: 16px 16px 0 0;
   box-sizing: border-box;
 }
 
@@ -153,7 +164,7 @@ section.intro .tab-container .tab-main a.active,
 .intro .tab-container .tab-main a.active,
 .tab-container .tab-main a.active,
 .tab-main a.active {
-  background-color: #36354f;
+  background-color: #36354f62;
   color: white;
 }
 
@@ -173,10 +184,10 @@ section.intro .tab-container .tab-sub,
 .intro .tab-container .tab-sub,
 .tab-container .tab-sub,
 .tab-sub {
-  background-color: #36354f;
+  background-color: #36354f62;
   position: relative;
   width: 100%;
-  padding: 12px 0;
+  padding-top: 6px;
   margin: 0;
   display: flex;
   flex-direction: column;
