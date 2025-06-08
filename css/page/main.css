@@ -1728,12 +1728,20 @@
 
 
 /* solution header */
+.solution-container {
+  background-image: url("../../public/images/main/bg-solution.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+
 .solution-header {
   height: 498px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../public/images/main/bg-solution-header.png");
+  /* background-image: url("../../public/images/main/bg-solution-header.png"); */
   background-repeat: no-repeat;
   background-position: center;
 }
