@@ -1218,6 +1218,260 @@
   }
 }
 
+/* 모바일 중형 (600px 이하) */
+@media (max-width: 600px) {
+  .hero {
+    height: 580px;
+  }
+  
+  .hero .carousel {
+    height: 580px;
+  }
+  
+  .hero .carousel .list {
+    top: 135px;
+    height: 580px;
+    font-size: 30px;
+  }
+  
+  .hero .carousel .list .item>img,
+  .hero .carousel .list .item>video {
+    height: 580px;
+    top: calc(50% - 430px);
+  }
+  
+  .hero .carousel .bg-front {
+    height: 580px;
+    top: calc(50% - 430px);
+  }
+  
+  .hero .carousel .list .item .hero-content {
+    width: 520px;
+    top: 54px;
+  }
+  
+  .hero .carousel .list .item .hero-content .shape {
+    width: 570px;
+    height: 170px;
+    left: 28%;
+  }
+  
+  .hero .carousel .list .item .hero-content .hero-des .tit {
+    font-size: 14px;
+  }
+  
+  .hero .carousel .list .item .hero-content .hero-des .dot-set {
+    left: 110px;
+    width: 35px;
+  }
+  
+  .hero .thumbnail-group {
+    width: 100px;
+    right: calc(50% - 50px);
+    bottom: 30px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 600px 이하에서도 썸네일 완전 숨김 */
+  .hero .thumbnail {
+    display: none;
+  }
+  
+  .hero .thumbnail .item {
+    display: none;
+  }
+  
+  .hero .thumbnail .item .subtit {
+    display: none;
+  }
+  
+  .hero .thumbnail .item .tit {
+    display: none;
+  }
+  
+  .hero .thumbnail .item .icon-expansion {
+    display: none;
+  }
+  
+  .hero .thumbnail-group .arrows #prev,
+  .hero .thumbnail-group .arrows #next {
+    width: 42px;
+    height: 42px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+  }
+  
+  .hero .thumbnail-group .arrows #prev svg,
+  .hero .thumbnail-group .arrows #next svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .hero .assets {
+    width: 520px;
+    top: 95px;
+  }
+  
+  .hero .assets .asset-top-gif {
+    width: 105px;
+    height: 60px;
+  }
+  
+  .hero .assets .asset-top-left {
+    width: 130px;
+    height: 75px;
+    top: 16px;
+  }
+  
+  .hero .assets .asset-top-right {
+    left: 520px;
+    width: 4px;
+    height: 95px;
+  }
+  
+  .hero .assets .asset-bottom-left {
+    top: 315px;
+    width: 4px;
+    height: 95px;
+  }
+  
+  .hero .assets .asset-bottom-right {
+    top: 315px;
+    left: 520px;
+    width: 4px;
+    height: 95px;
+  }
+}
+
+/* 모바일 소형 (550px 이하) */
+@media (max-width: 550px) {
+  .hero {
+    height: 570px;
+  }
+  
+  .hero .carousel {
+    height: 570px;
+  }
+  
+  .hero .carousel .list {
+    top: 130px;
+    height: 570px;
+    font-size: 28px;
+  }
+  
+  .hero .carousel .list .item>img,
+  .hero .carousel .list .item>video {
+    height: 570px;
+    top: calc(50% - 420px);
+  }
+  
+  .hero .carousel .bg-front {
+    height: 570px;
+    top: calc(50% - 420px);
+  }
+  
+  .hero .carousel .list .item .hero-content {
+    width: 480px;
+    top: 52px;
+  }
+  
+  .hero .carousel .list .item .hero-content .shape {
+    width: 520px;
+    height: 160px;
+    left: 26%;
+  }
+  
+  .hero .carousel .list .item .hero-content .hero-des .tit {
+    font-size: 13px;
+  }
+  
+  .hero .carousel .list .item .hero-content .hero-des .dot-set {
+    left: 105px;
+    width: 33px;
+  }
+  
+  .hero .thumbnail-group {
+    width: 95px;
+    right: calc(50% - 47px);
+    bottom: 25px;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 550px 이하에서도 썸네일 완전 숨김 */
+  .hero .thumbnail {
+    display: none;
+  }
+  
+  .hero .thumbnail .item {
+    display: none;
+  }
+  
+  .hero .thumbnail .item .subtit {
+    display: none;
+  }
+  
+  .hero .thumbnail .item .tit {
+    display: none;
+  }
+  
+  .hero .thumbnail .item .icon-expansion {
+    display: none;
+  }
+  
+  .hero .thumbnail-group .arrows #prev,
+  .hero .thumbnail-group .arrows #next {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+  }
+  
+  .hero .thumbnail-group .arrows #prev svg,
+  .hero .thumbnail-group .arrows #next svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .hero .assets {
+    width: 480px;
+    top: 90px;
+  }
+  
+  .hero .assets .asset-top-gif {
+    width: 100px;
+    height: 55px;
+  }
+  
+  .hero .assets .asset-top-left {
+    width: 120px;
+    height: 70px;
+    top: 15px;
+  }
+  
+  .hero .assets .asset-top-right {
+    left: 480px;
+    width: 4px;
+    height: 90px;
+  }
+  
+  .hero .assets .asset-bottom-left {
+    top: 305px;
+    width: 4px;
+    height: 90px;
+  }
+  
+  .hero .assets .asset-bottom-right {
+    top: 305px;
+    left: 480px;
+    width: 4px;
+    height: 90px;
+  }
+}
+
 /* 모바일 세로 (480px 이하) */
 @media (max-width: 480px) {
   .hero {
@@ -1247,7 +1501,7 @@
   
   .hero .carousel .list .item .hero-content {
     width: 420px;
-    top: 30px;
+    top: 46px;
   }
   
   .hero .carousel .list .item .hero-content .shape {
@@ -1313,7 +1567,7 @@
   
   .hero .assets {
     width: 420px;
-    top: 80px;
+    top: 95px;
   }
   
   .hero .assets .asset-top-gif {
@@ -1342,33 +1596,33 @@
 /* 최소 사이즈 (360px) */
 @media (max-width: 360px) {
   .hero {
-    height: 450px;
+    height: 500px;
   }
   
   .hero .carousel {
-    height: 450px;
+    height: 500px;
   }
   
   .hero .carousel .list {
     top: 80px;
-    height: 450px;
+    height: 500px;
     font-size: 24px;
   }
   
   .hero .carousel .list .item>img,
   .hero .carousel .list .item>video {
-    height: 450px;
-    top: calc(50% - 325px);
+    height: 500px;
+    top: calc(50% - 350px);
   }
   
   .hero .carousel .bg-front {
-    height: 450px;
-    top: calc(50% - 325px);
+    height: 500px;
+    top: calc(50% - 350px);
   }
   
   .hero .carousel .list .item .hero-content {
     width: 320px;
-    top: 20px;
+    top: 60px;
   }
   
   .hero .carousel .list .item .hero-content .shape {
@@ -1378,7 +1632,7 @@
   }
   
   .hero .carousel .list .item .hero-content .hero-des .tit {
-    font-size: 12px;
+    font-size: 13px;
   }
   
   .hero .carousel .list .item .hero-content .hero-des .dot-set {
@@ -1412,7 +1666,7 @@
   
   .hero .assets {
     width: 320px;
-    top: 60px;
+    top: 110px;
   }
   
   .hero .assets .asset-top-gif {
@@ -1423,6 +1677,7 @@
   .hero .assets .asset-top-left {
     width: 100px;
     height: 55px;
+    top: 12px;
   }
   
   .hero .assets .asset-top-right {
@@ -1432,7 +1687,14 @@
   }
   
   .hero .assets .asset-bottom-left {
-    top: 200px;
+    top: 240px;
+    width: 5px;
+    height: 80px;
+  }
+  
+  .hero .assets .asset-bottom-right {
+    top: 240px;
+    left: 310px;
     width: 5px;
     height: 80px;
   }
