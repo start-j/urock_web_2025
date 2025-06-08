@@ -140,7 +140,52 @@ function createTabComponent(containerId, config) {
     subTabLinks = container.querySelectorAll('.tab-menu a');
   }
 
-  // 높이 조정 함수 (개선된 유동적 높이)
+  // 반응형 탭 스크롤 설정
+  function setupResponsiveTabScroll() {
+    const mainTabContainer = container.querySelector('.tab-main');
+    const subTabGroups = container.querySelectorAll('.tab-text-group');
+
+    // 모바일에서 탭 스크롤을 부드럽게 하기 위한 설정
+    if (window.innerWidth <= 480) {
+      // 메인 탭 스크롤 설정
+      if (mainTabContainer) {
+        mainTabContainer.style.scrollBehavior = 'smooth';
+        
+        // 활성 탭이 보이도록 스크롤 조정
+        const activeMainTab = mainTabContainer.querySelector('a.active');
+        if (activeMainTab) {
+          setTimeout(() => {
+            activeMainTab.scrollIntoView({ 
+              behavior: 'smooth', 
+              inline: 'center',
+              block: 'nearest'
+            });
+          }, 100);
+        }
+      }
+
+      // 서브 탭 스크롤 설정
+      subTabGroups.forEach(group => {
+        if (group) {
+          group.style.scrollBehavior = 'smooth';
+          
+          // 활성 서브 탭이 보이도록 스크롤 조정
+          const activeSubTab = group.querySelector('a.active');
+          if (activeSubTab) {
+            setTimeout(() => {
+              activeSubTab.scrollIntoView({ 
+                behavior: 'smooth', 
+                inline: 'center',
+                block: 'nearest'
+              });
+            }, 150);
+          }
+        }
+      });
+    }
+  }
+
+  // 높이 조정 함수 (개선된 반응형 유동적 높이)
   function adjustTabContentHeight() {
     if (!tabContentElement || !selectedTabContent) return;
 
@@ -148,12 +193,25 @@ function createTabComponent(containerId, config) {
     tabContentElement.style.height = 'auto';
     selectedTabContent.style.height = 'auto';
 
-    // 최소 높이 설정 (반응형)
-    const minHeight = window.innerWidth <= 480 ? 120 : window.innerWidth <= 768 ? 150 : 200;
+    // 반응형 최소 높이 설정
+    let minHeight;
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth <= 360) {
+      minHeight = 100; // 초소형 모바일
+    } else if (screenWidth <= 480) {
+      minHeight = 120; // 모바일
+    } else if (screenWidth <= 768) {
+      minHeight = 150; // 태블릿
+    } else {
+      minHeight = 200; // 데스크톱
+    }
+
+    // 반응형 패딩 계산
+    const paddingHeight = screenWidth <= 360 ? 40 : screenWidth <= 480 ? 50 : 60;
 
     // 실제 컨텐츠 높이 측정
     const contentHeight = selectedTabContent.scrollHeight;
-    const paddingHeight = 60; // 상하 패딩
 
     // 최종 높이 계산 (최소 높이와 실제 컨텐츠 높이 중 큰 값)
     const finalHeight = Math.max(contentHeight + paddingHeight, minHeight);
@@ -165,7 +223,7 @@ function createTabComponent(containerId, config) {
       tabContentElement.style.minHeight = minHeight + 'px';
     }
 
-    console.log(`[Tab] 컨텐츠 높이 조정: ${finalHeight}px (실제 컨텐츠: ${contentHeight}px, 최소: ${minHeight}px)`);
+    console.log(`[Tab] 반응형 컨텐츠 높이 조정: ${finalHeight}px (화면폭: ${screenWidth}px, 컨텐츠: ${contentHeight}px, 최소: ${minHeight}px)`);
   }
 
   // ResizeObserver 설정 (컨텐츠 크기 변화 감지)
@@ -396,6 +454,7 @@ function createTabComponent(containerId, config) {
         }
 
         updateContent();
+        setupResponsiveTabScroll(); // 탭 변경 시 스크롤 조정
       });
     });
 
@@ -412,6 +471,7 @@ function createTabComponent(containerId, config) {
         activeSubTab = link.getAttribute('data-subtab');
 
         updateContent();
+        setupResponsiveTabScroll(); // 서브 탭 변경 시 스크롤 조정
       });
     });
 
@@ -421,6 +481,7 @@ function createTabComponent(containerId, config) {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
         adjustTabContentHeight();
+        setupResponsiveTabScroll(); // 반응형 탭 스크롤 재설정
       }, 150);
     });
   }
@@ -431,6 +492,11 @@ function createTabComponent(containerId, config) {
   initializeTabHTML();
   setupEventListeners();
   updateContent();
+  
+  // 초기 반응형 설정
+  setTimeout(() => {
+    setupResponsiveTabScroll();
+  }, 300);
 }
 // 전역 탭 초기화 함수
 window.createTabComponent = createTabComponent;

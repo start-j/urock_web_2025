@@ -148,12 +148,15 @@
 
 /* 컨텐츠 영역 */
 #selected-tab-content {
-  width: 100vw;
+  width: 100%;
+  max-width: 100vw;
   font-size: 16px;
   line-height: 1.5;
   /* color: #e0e0e0; */
   height: auto;
   min-height: 360px;
+  overflow-x: auto;
+  word-wrap: break-word;
 }
 
 /* #selected-tab-content h3 {
@@ -256,14 +259,45 @@
   font-size: 16px;
 }
 
-/* 반응형 높이 조정 */
-@media (max-width: 1200px) {}
+/* ========== 반응형 미디어 쿼리 ========== */
 
-@media (max-width: 780px) {}
-
-@media (max-width: 360px) {}
-
+/* 태블릿 (768px 이하) */
 @media (max-width: 768px) {
+  /* 메인 탭 반응형 */
+  .tab-main {
+    padding: 0 10px;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tab-main a {
+    padding: 14px 20px;
+    min-width: 100px;
+    font-size: 15px;
+    flex: 1;
+    max-width: 200px;
+  }
+
+  .tab-text {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  /* 서브 탭 반응형 */
+  .tab-text-group {
+    padding: 0 10px;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .tab-menu a {
+    padding: 10px 18px;
+    min-width: 100px;
+    font-size: 14px;
+  }
+
+  /* 컨텐츠 영역 */
   .tab-content {
     min-height: 150px;
     padding: 20px 0;
@@ -271,6 +305,7 @@
 
   #selected-tab-content {
     min-height: 120px;
+    padding: 0 15px;
   }
 
   .loading {
@@ -279,7 +314,60 @@
   }
 }
 
+/* 모바일 (480px 이하) */
 @media (max-width: 480px) {
+  /* 메인 탭 모바일 */
+  .tab-main {
+    padding: 0 24px;
+    gap: 2px;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tab-main::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-main a {
+    padding: 12px 16px;
+    min-width: 90px;
+    font-size: 14px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .tab-text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* 서브 탭 모바일 */
+  .tab-text-group {
+    padding: 0 8px;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tab-text-group::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-menu {
+    flex-shrink: 0;
+  }
+
+  .tab-menu a {
+    padding: 8px 14px;
+    min-width: 80px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  /* 컨텐츠 영역 모바일 */
   .tab-content {
     min-height: 120px;
     padding: 15px 0;
@@ -287,11 +375,107 @@
 
   #selected-tab-content {
     min-height: 100px;
+    padding: 0 10px;
   }
 
   .loading {
     min-height: 100px;
-    font-size: 12px;
+    font-size: 13px;
+  }
+}
+
+/* 초소형 모바일 (360px 이하) */
+@media (max-width: 360px) {
+  /* 메인 탭 초소형 */
+  .tab-main {
+    padding: 0 16px;
+    gap: 1px;
+  }
+
+  .tab-main a {
+    padding: 10px 12px;
+    min-width: 70px;
+    font-size: 13px;
+    flex: 1;
+  }
+
+  .tab-text {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* 서브 탭 초소형 */
+  .tab-text-group {
+    padding: 0 5px;
+    gap: 5px;
+  }
+
+  .tab-menu a {
+    padding: 6px 10px;
+    min-width: 60px;
+    font-size: 13px;
+  }
+
+  /* 컨텐츠 영역 초소형 */
+  .tab-content {
+    min-height: 100px;
+    padding: 10px 0;
+  }
+
+  #selected-tab-content {
+    min-height: 80px;
+    padding: 0 8px;
+  }
+
+  .loading {
+    min-height: 80px;
+    font-size: 13px;
+  }
+
+  /* 초소형에서 탭 텍스트 줄임 처리 */
+  .tab-main a .tab-text,
+  .tab-menu a .tab-text {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* 컨텐츠 영역 폰트 크기 조정 */
+  #selected-tab-content {
+    font-size: 13px;
+    line-height: 1.4;
+    min-height: 80px;
+  }
+}
+
+/* ========== 반응형 접근성 개선 ========== */
+
+/* 터치 친화적 버튼 크기 (최소 44px) */
+@media (hover: none) and (pointer: coarse) {
+  .tab-main a,
+  .tab-menu a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tab-main a {
+    min-width: 44px;
+  }
+  
+  .tab-menu a {
+    min-width: 44px;
+  }
+}
+
+/* 고밀도 디스플레이 대응 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .tab-main a,
+  .tab-menu a {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
