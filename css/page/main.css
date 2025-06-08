@@ -1789,6 +1789,10 @@
     width: 18px;
     height: 18px;
   }
+
+  .hero .carousel .list .item .hero-content {
+    top: 100px;
+  }
   
   .hero .assets {
     width: 320px;
@@ -1796,14 +1800,15 @@
   }
   
   .hero .assets .asset-top-gif {
+    top: -6px;
     width: 80px;
     height: 45px;
   }
   
   .hero .assets .asset-top-left {
+    top: -10px;
     width: 100px;
     height: 55px;
-    top: 12px;
   }
   
   .hero .assets .asset-top-right {
@@ -1824,6 +1829,10 @@
     width: 5px;
     height: 80px;
   }
+/* 
+  .hero .carousel {
+    height: 600px;
+  } */
 }
 
 /* banner */
