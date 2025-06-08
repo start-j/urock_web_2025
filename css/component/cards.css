@@ -16,14 +16,10 @@
   display: flex;
   flex-direction: column;
   background-color: orange;
-}
-
-
-
-.cards-container {
   width: 100%;
-  padding: 0 16vw;
+  padding: 0 4vw;
 }
+
 
 .card-wrapper {
   display: flex;
@@ -71,6 +67,7 @@
   transition: transform 0.3s ease;
 }
 
+
 .card-main-solution,
 .card-main-service,
 .card-main-news,
@@ -79,12 +76,36 @@
 .card-solution-number,
 .card-solution-feature,
 .card-solution-series,
-.card-certificate {
+.card-certificate{
   flex: 1 1 0;
-  min-width: 220px;
-  max-width: 1440px;
   width: 100%;
 }
+
+
+.card-solution-contents {
+  min-width: 312px;
+  max-width: 1440px;
+}
+
+.card-solution-series,
+.card-main-solution {
+  min-width: 312px;
+  max-width: 708px;
+}
+
+.card-main-service,
+.card-main-news,
+.card-company,
+.card-solution-number,
+.card-solution-feature,
+.card-certificate {
+  min-width: 312px;
+  max-width: 464px;
+}
+
+
+
+
 
 
 
@@ -215,7 +236,7 @@
 
 
 .card.card-solution-contents {
-  width: 952px;
+  /* width: 952px; */
   /* background-color: transparent; */
   display: flex;
   flex-direction: column;
@@ -440,7 +461,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 0 16vw;
 }
 
 .section-certificate .section-cards,
@@ -563,36 +583,12 @@
 
 
 
-
-
-
 /* ===== 반응형 스타일 ===== */
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
   .cards {
     flex-wrap: wrap;
-    max-width: 100%;
+    /* max-width: 100%; */
     justify-content: center;
-  }
-
-  .card-main-solution,
-  .card-main-service,
-  .card-main-news,
-  .card-company,
-  .card-solution-contents,
-  .card-solution-number,
-  .card-solution-feature,
-  .card-solution-series,
-  .card-certificate {
-    flex: 1 1 312px;
-    min-width: 180px;
-    max-width: 100%;
-    width: 100%;
-    /* margin-bottom: 24px; */
-  }
-
-  .cards-container {
-    width: 100%;
-    padding: 0 10vw;
   }
 }
 
@@ -606,7 +602,7 @@
 
   .cards-container {
     width: 100%;
-    padding: 0 10vw;
+    padding: 0 4vw;
   }
 
   .card-asset-area .icon-ellipse {
@@ -821,7 +817,6 @@
 
   .section-certificate .cards-container {
     width: 100%;
-    padding: 0 5vw;
   }
 
   .section-certificate .section-tit {
