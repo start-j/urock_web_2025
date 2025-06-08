@@ -132,17 +132,20 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
   transform: translateY(-50%);
   width: 22px;
   height: 22px;
-  background: url('/public/icons/icon_clear.svg') no-repeat center/contain;
+  background: url('/public/icons/icon-close.svg') no-repeat center/contain;
   border: none;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.8;
   z-index: 2;
   display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
 .input.input-has-value .input-clear,
 .input.input-has-value .clear-button {
-  display: block;
+  display: flex;
 }
 
 .input-clear:hover,
@@ -150,14 +153,20 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
 .clear-button:hover,
 .clear-button:focus {
   opacity: 1;
+  transform: translateY(-50%) scale(1.1);
 }
 
 /* textarea(메모)용: 오른쪽 상단 */
 .input-memo .input-clear,
 .input-memo .clear-button {
-  top: 10px;
+  top: 30px;
   right: 12px;
   transform: none;
+}
+
+.input-memo .input-clear:hover,
+.input-memo .clear-button:hover {
+  transform: scale(1.1);
 }
 
 .input-search .input-clear,

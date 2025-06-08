@@ -129,7 +129,7 @@ form {
   padding: 16px 50px 16px 16px;
 }
 
-/* X 클리어 버튼 스타일 - inputs.js와 통합 */
+/* X 클리어 버튼 스타일 - 개선된 중앙 정렬 */
 .contents form .input-clear,
 .contents form .clear-button {
   position: absolute;
@@ -138,7 +138,7 @@ form {
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
-  background: none;
+  background: url('/public/icons/icon-close.svg') no-repeat center/contain;
   border: none;
   cursor: pointer;
   display: none;
@@ -147,50 +147,51 @@ form {
   border-radius: 50%;
   transition: all 0.2s ease;
   z-index: 10;
-}
-
-.contents form .input-clear:before,
-.contents form .clear-button:before {
-  content: '✕';
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1;
+  opacity: 0.8;
 }
 
 .contents form .input-clear:hover,
 .contents form .clear-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-50%) scale(1.1);
+  opacity: 1;
 }
 
 .contents form .input-clear:active,
 .contents form .clear-button:active {
   transform: translateY(-50%) scale(0.95);
+  opacity: 0.9;
 }
 
 /* 텍스트 영역용 X 버튼 위치 조정 */
 .contents form .input-memo .input-clear,
 .contents form .input-memo .clear-button {
-  top: 24px;
+  top: 34px;
+  right: 12px;
   transform: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .contents form .input-memo .input-clear:hover,
 .contents form .input-memo .clear-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
   transform: scale(1.1);
+  opacity: 1;
 }
 
 .contents form .input-memo .input-clear:active,
 .contents form .input-memo .clear-button:active {
   transform: scale(0.95);
+  opacity: 0.9;
 }
 
 /* inputs.js 상태와 연동 */
 .contents form .input-has-value .input-clear,
 .contents form .input-has-value .clear-button {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contents form textarea {

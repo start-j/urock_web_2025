@@ -314,10 +314,20 @@ function initializeInputFields() {
       setDefault();
     }
   });
+
+  console.log(`[Input] 입력 필드 초기화 완료: ${allInputs.length}개`);
+
+  // 디버깅 정보 출력
+  if (allInputs.length > 0) {
+    console.log('[Input] ✅ 초기화된 입력 필드들:', allInputs.map(el => el.id || el.name || 'unnamed'));
+  }
 }
 
 // DOM 로드 완료 후 초기화
 document.addEventListener('DOMContentLoaded', initializeInputFields);
+
+// DOM Observer 초기화
+document.addEventListener('DOMContentLoaded', setupDOMObserver);
 
 // 탭 컨텐츠 로드 후 재초기화
 document.addEventListener('tabContentLoaded', () => {
@@ -330,6 +340,48 @@ document.addEventListener('allComponentsLoaded', () => {
   console.log('[Input] 모든 컴포넌트 로드됨, 입력 필드 초기화');
   initializeInputFields();
 });
+
+// MutationObserver를 사용하여 DOM 변화 감지 및 자동 초기화
+function setupDOMObserver() {
+  const observer = new MutationObserver((mutations) => {
+    let shouldReinitialize = false;
+    
+    mutations.forEach((mutation) => {
+      // 새로 추가된 노드 검사
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          // 입력 필드나 폼이 추가되었는지 확인
+          const hasInputs = node.querySelector && (
+            node.querySelector('input[type="text"], input[type="email"], input[type="tel"], textarea') ||
+            node.matches('input[type="text"], input[type="email"], input[type="tel"], textarea')
+          );
+          
+          if (hasInputs) {
+            console.log('[Input] 새로운 입력 필드 감지됨, 재초기화 필요');
+            shouldReinitialize = true;
+          }
+        }
+      });
+    });
+    
+    // 디바운싱으로 중복 실행 방지
+    if (shouldReinitialize) {
+      clearTimeout(window.inputReinitTimeout);
+      window.inputReinitTimeout = setTimeout(() => {
+        console.log('[Input] DOM 변화 감지로 입력 필드 재초기화 실행');
+        initializeInputFields();
+      }, 100);
+    }
+  });
+  
+  // body 전체를 관찰하되, 하위 요소 추가만 감지
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+  
+  console.log('[Input] DOM 변화 감지 시작');
+}
 
 // 폼 전체 유효성 검사 함수
 function validateForm(formElement) {
@@ -356,7 +408,7 @@ function validateForm(formElement) {
   return isValid;
 }
 
-// 외부에서 호출할 수 있도록 전역 함수로 등록
+// 전역 접근을 위해 window 객체에 함수 추가
 window.initializeInputFields = initializeInputFields;
 window.validateForm = validateForm;
 

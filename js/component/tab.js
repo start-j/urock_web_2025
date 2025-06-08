@@ -327,6 +327,23 @@ function createTabComponent(containerId, config) {
           // 최종 조정 (모든 리소스 로드 완료 후)
           setTimeout(() => {
             adjustTabContentHeight();
+            
+            // 탭 컨텐츠 로드 완료 이벤트 발생 (입력 필드 초기화용)
+            console.log('[Tab] tabContentLoaded 이벤트 발생');
+            document.dispatchEvent(new CustomEvent('tabContentLoaded', {
+              detail: {
+                contentPath: contentPath,
+                activeMainTab: activeMainTab,
+                activeSubTab: activeSubTab,
+                contentElement: selectedTabContent
+              }
+            }));
+            
+            // 백업: 직접 호출 방식
+            if (typeof window.initializeInputFields === 'function') {
+              console.log('[Tab] 입력 필드 직접 초기화 호출');
+              window.initializeInputFields();
+            }
           }, 500);
         });
 
