@@ -5,12 +5,12 @@ function initializeInputFields() {
 
   // 모든 입력 필드 직접 찾기
   const allInputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="search"], textarea, select');
-  console.log(`[Input] 전체 입력 필드 수:`, allInputs.length);
+  console.log(`[Input] 전체 입력 필드 수: ${allInputs.length}개 초기화 시작`);
 
   allInputs.forEach($el => {
     const $wrap = $el.closest('.input');
     if (!$wrap) {
-      console.log(`[Input] .input 래퍼를 찾을 수 없음 for:`, $el.type, $el.id);
+      console.warn(`[Input] .input 래퍼를 찾을 수 없음:`, $el.type, $el.id);
       return;
     }
 
@@ -20,7 +20,7 @@ function initializeInputFields() {
     else if ($el.tagName.toLowerCase() === 'textarea') base = 'input-memo';
     else if ($el.tagName.toLowerCase() === 'select') base = 'input-dropdown';
     
-    console.log(`[Input] 초기화 중: ${$el.type} type, id: ${$el.id || 'no-id'}, base: ${base}`);
+
 
     // 에러 메시지 요소 생성 (기존 것이 없을 때만)
     let errorMessage = $wrap.querySelector('.error-message');
@@ -63,8 +63,7 @@ function initializeInputFields() {
         clearBtn.style.display = 'none';
         hideError();
         setState('focus');
-        
-        console.log('[Input] 입력 내용이 삭제됨:', $el.id || $el.name || 'unnamed input');
+
       });
 
       // 마우스 이벤트 처리
@@ -102,7 +101,7 @@ function initializeInputFields() {
       if (errorMessage) {
         errorMessage.textContent = message;
         errorMessage.classList.add('show');
-        console.log('[Input] 에러 메시지 표시:', message, 'for element:', $el.id || $el.name);
+
       } else {
         console.error('[Input] 에러 메시지 요소를 찾을 수 없음');
       }
@@ -315,12 +314,7 @@ function initializeInputFields() {
     }
   });
 
-  console.log(`[Input] 입력 필드 초기화 완료: ${allInputs.length}개`);
-
-  // 디버깅 정보 출력
-  if (allInputs.length > 0) {
-    console.log('[Input] ✅ 초기화된 입력 필드들:', allInputs.map(el => el.id || el.name || 'unnamed'));
-  }
+  console.log(`[Input] ✅ 입력 필드 초기화 완료: ${allInputs.length}개`);
 }
 
 // DOM 로드 완료 후 초기화
@@ -331,13 +325,11 @@ document.addEventListener('DOMContentLoaded', setupDOMObserver);
 
 // 탭 컨텐츠 로드 후 재초기화
 document.addEventListener('tabContentLoaded', () => {
-  console.log('[Input] 탭 컨텐츠 로드됨, 입력 필드 재초기화');
   initializeInputFields();
 });
 
 // 모든 컴포넌트 로드 후 재초기화
 document.addEventListener('allComponentsLoaded', () => {
-  console.log('[Input] 모든 컴포넌트 로드됨, 입력 필드 초기화');
   initializeInputFields();
 });
 
@@ -357,7 +349,6 @@ function setupDOMObserver() {
           );
           
           if (hasInputs) {
-            console.log('[Input] 새로운 입력 필드 감지됨, 재초기화 필요');
             shouldReinitialize = true;
           }
         }
@@ -368,7 +359,6 @@ function setupDOMObserver() {
     if (shouldReinitialize) {
       clearTimeout(window.inputReinitTimeout);
       window.inputReinitTimeout = setTimeout(() => {
-        console.log('[Input] DOM 변화 감지로 입력 필드 재초기화 실행');
         initializeInputFields();
       }, 100);
     }
@@ -380,7 +370,7 @@ function setupDOMObserver() {
     subtree: true
   });
   
-  console.log('[Input] DOM 변화 감지 시작');
+
 }
 
 // 폼 전체 유효성 검사 함수

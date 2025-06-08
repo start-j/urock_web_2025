@@ -91,239 +91,9 @@ form {
   margin-bottom: 16px;
 }
 
-/* 라벨 스타일 */
-.contents form .input label,
-.contents form .form-group label {
-  margin-left: 16px;
-  color: #ffffffab;
-  display: block;
-  padding: 0px 0px 0px 8px;
-  letter-spacing: -0.5px;
-  line-height: 140%;
-  font-weight: 500;
-}
 
-/* 입력 필드 공통 스타일 */
-.contents form input,
-.contents form select,
-.contents form textarea {
-  width: 100%;
-  border: none;
-  outline: none;
-  height: 56px;
-  backdrop-filter: blur(20px);
-  border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1.2px solid rgba(255, 255, 255, 0.07);
-  padding: 16px 48px 16px 16px;
-  box-sizing: border-box;
-  text-align: left;
-  font-size: 16px;
-  color: rgba(136, 134, 145, 0.64);
-  font-family: Pretendard;
-  transition: all 0.3s ease;
-}
 
-/* 셀렉트는 패딩 다르게 적용 (화살표 공간 확보) */
-.contents form select {
-  padding: 16px 50px 16px 16px;
-}
 
-/* X 클리어 버튼 스타일 - 개선된 중앙 정렬 */
-.contents form .input-clear,
-.contents form .clear-button {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  background: url('/public/icons/icon-close.svg') no-repeat center/contain;
-  border: none;
-  cursor: pointer;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-  z-index: 10;
-  opacity: 0.8;
-}
-
-.contents form .input-clear:hover,
-.contents form .clear-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-50%) scale(1.1);
-  opacity: 1;
-}
-
-.contents form .input-clear:active,
-.contents form .clear-button:active {
-  transform: translateY(-50%) scale(0.95);
-  opacity: 0.9;
-}
-
-/* 텍스트 영역용 X 버튼 위치 조정 */
-.contents form .input-memo .input-clear,
-.contents form .input-memo .clear-button {
-  top: 34px;
-  right: 12px;
-  transform: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.contents form .input-memo .input-clear:hover,
-.contents form .input-memo .clear-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-.contents form .input-memo .input-clear:active,
-.contents form .input-memo .clear-button:active {
-  transform: scale(0.95);
-  opacity: 0.9;
-}
-
-/* inputs.js 상태와 연동 */
-.contents form .input-has-value .input-clear,
-.contents form .input-has-value .clear-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contents form textarea {
-  height: 300px;
-  resize: vertical;
-}
-
-/* 셀렉트 특별 스타일 */
-.contents form select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M1 4l5 5 5-5' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 20px center;
-  padding-right: 50px;
-}
-
-.contents form select option {
-  background-color: #2B293B;
-  color: white;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* 플레이스홀더 스타일 */
-.contents form input::placeholder,
-.contents form textarea::placeholder {
-  color: #767380;
-}
-
-/* 입력 상태별 스타일 */
-.contents form input:hover,
-.contents form select:hover,
-.contents form textarea:hover {
-  border: 1.2px solid #93b0f8e1;
-}
-
-.contents form input:focus,
-.contents form select:focus,
-.contents form textarea:focus {
-  border: 1.2px solid #628CF5;
-  background-color: rgba(230, 237, 255, 0.05);
-  color: #f1f1f1;
-}
-
-/* 개선된 유효성 검사 스타일 - 포커스 해제 후에만 적용 */
-.contents form input:not(:focus):valid {
-  /* border: 1.2px solid rgba(255, 255, 255, 0.07); */
-  border: 1.2px solid rgba(255, 255, 255, 0.322);
-  color: #ffffffe8;
-}
-
-.contents form input:not(:focus):not(:placeholder-shown):invalid:not([type="checkbox"]) {
-  border: 1.2px solid #FF8484;
-}
-
-.contents form input:disabled,
-.contents form select:disabled,
-.contents form textarea:disabled {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1.2px solid rgba(255, 255, 255, 0.07);
-  cursor: not-allowed;
-}
-
-/* 체크박스 개선된 스타일 */
-.contents form .checkbox-wrapper {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-  gap: 12px;
-  color: #ffffffab;
-  margin: 24px 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* 체크박스 통합 스타일 - 높은 특이성 */
-.contents form div.checkbox-wrapper input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 36px;
-  height: 40px;
-  min-width: 40px;
-  max-width: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.08);
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s;
-  display: block;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  vertical-align: top;
-}
-
-/* 체크박스 validation 상태 - 테두리 색상 고정 */
-.contents form div.checkbox-wrapper input[type="checkbox"]:invalid,
-.contents form div.checkbox-wrapper input[type="checkbox"]:valid {
-  border: 2px solid rgba(255, 255, 255, 0.08);
-}
-
-.contents form .checkbox-wrapper input[type="checkbox"]:checked {
-  background-color: #628cf5;
-  border-color: #628cf5;
-  background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3E%3Cpath fill="white" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/%3E%3C/svg%3E');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.contents form .checkbox-wrapper label {
-  flex-grow: 1;
-  cursor: pointer;
-  color: #ffffffca;
-  font-size: 16px;
-  font-weight: 500;
-  margin-left: 0;
-  text-align: left;
-}
-
-/* 구분선 */
-/* .contents .divider {
-  width: 100%;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin: 24px 0;
-} */
 
 /* 정보 테이블 */
 .contents .info-table {
@@ -418,24 +188,6 @@ form {
   cursor: not-allowed;
 }
 
-/* 에러 메시지 */
-.contents form .error-message {
-  color: #FF8484;
-  font-size: 12px;
-  margin-top: 4px;
-  display: block;
-  font-weight: 400;
-  line-height: 1.3;
-  opacity: 0;
-  transform: translateY(-5px);
-  transition: all 0.2s ease;
-}
-
-.contents form .error-message.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 
 
 /* 반응형 디자인 */
@@ -443,20 +195,11 @@ form {
   .contents {
     padding: 48px 40px 80px;
   }
-
-  form {
-    gap: 24px;
-  }
 }
-
 
 @media (max-width: 768px) {
   .contents {
     padding: 48px 16px 80px;
-  }
-
-  form {
-    gap: 18px;
   }
   
   .contents .tit-group > .tit {
@@ -490,17 +233,12 @@ form {
     margin-top: 8px;
   }
 
-  
-.contents form .input-memo #details,
-.contents form #details {
-  width: 100%;
-  height: 300px;
-  flex-grow: 1;
-  margin-bottom: 0px;
+  .contents form .input-memo #details,
+  .contents form #details {
+    height: 300px;
+    margin-bottom: 0;
+  }
 }
-}
-
-
 
 @media (max-width: 480px) {
   .contents {
@@ -518,27 +256,21 @@ form {
 
   .contents .info-table {
     margin-bottom: 16px;
-    padding: 24px 0px 24px 20px;
+    padding: 24px 0 24px 20px;
   }
   
   .contents .info-table th,
   .contents .info-table td {
-    padding: 12px 0px;
+    padding: 12px 0;
+    font-size: 14px;
   }
   
   .contents .info-table th {
     width: 120px;
-    font-size: 14px;
-  }
-  
-  .contents .info-table td {
-    font-size: 14px;
   }
 
   .contents .des {
     margin: 0 16px 0 0;
     font-size: 12px;
   }
-  
-
 }

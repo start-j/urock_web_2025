@@ -49,7 +49,7 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
 .input-memo-hover textarea,
 .input-dropdown-hover select {
   border-color: #b3b3ff;
-  background: #f5f7ff;
+  background-color: #f5f7ff;
 }
 
 .input-text-focus input,
@@ -57,7 +57,7 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
 .input-memo-focus textarea,
 .input-dropdown-focus select {
   border-color: #628cf5;
-  background: #f0f6ff;
+  background-color: #f0f6ff;
   box-shadow: 0 0 0 2px #c7dbff;
 }
 
@@ -66,7 +66,7 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
 .input-memo-typing textarea,
 .input-dropdown-typing select {
   border-color: #628cf5;
-  background: #f0f6ff;
+  background-color: #f0f6ff;
 }
 
 .input-text-filled input,
@@ -74,7 +74,7 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
 .input-memo-filled textarea,
 .input-dropdown-filled select {
   border-color: #e0e0e0;
-  background: #fafbfc;
+  background-color: #fafbfc;
   color: #222;
 }
 
@@ -83,7 +83,7 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
 .input-memo-disable textarea,
 .input-dropdown-disable select {
   border-color: #e0e0e0;
-  background: #f5f5f5;
+  background-color: #f5f5f5;
   color: #bdbdbd;
   cursor: not-allowed;
 }
@@ -91,7 +91,7 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
 .input input:disabled,
 .input textarea:disabled,
 .input select:disabled {
-  background: #f5f5f5;
+  background-color: #f5f5f5;
   color: #bdbdbd;
   cursor: not-allowed;
 }
@@ -123,13 +123,12 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
   position: relative;
 }
 
-/* 클린(X) 버튼 기본 스타일 */
+/* 클린(X) 버튼 통합 스타일 */
 .input-clear,
 .clear-button {
   position: absolute;
   right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 40px;
   width: 22px;
   height: 22px;
   background: url('/public/icons/icon-close.svg') no-repeat center/contain;
@@ -143,52 +142,107 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
   transition: all 0.2s ease;
 }
 
+/* Support 페이지용 클린 버튼 통합 스타일 */
+.contents form .input .input-clear,
+.contents form .input .clear-button,
+.contents form .form-group .input-clear,
+.contents form .form-group .clear-button {
+  right: 16px;
+  top: 48px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  z-index: 10;
+  background: url('/public/icons/icon-close.svg') no-repeat center/contain;
+}
+
+/* 클린 버튼 상태 표시 - 통합 */
 .input.input-has-value .input-clear,
-.input.input-has-value .clear-button {
+.input.input-has-value .clear-button,
+.contents form .input-has-value .input-clear,
+.contents form .input-has-value .clear-button,
+.contents form .input.input-has-value .input-clear,
+.contents form .input.input-has-value .clear-button {
   display: flex;
 }
 
+/* 클린 버튼 호버 효과 - 통합 */
 .input-clear:hover,
 .input-clear:focus,
 .clear-button:hover,
-.clear-button:focus {
+.clear-button:focus,
+.contents form .input .input-clear:hover,
+.contents form .input .clear-button:hover,
+.contents form .form-group .input-clear:hover,
+.contents form .form-group .clear-button:hover {
   opacity: 1;
-  transform: translateY(-50%) scale(1.1);
-}
-
-/* textarea(메모)용: 오른쪽 상단 */
-.input-memo .input-clear,
-.input-memo .clear-button {
-  top: 30px;
-  right: 12px;
-  transform: none;
-}
-
-.input-memo .input-clear:hover,
-.input-memo .clear-button:hover {
   transform: scale(1.1);
 }
 
-.input-search .input-clear,
-.input-search .clear-button {
-  right: 36px; /* 검색 아이콘과 겹치지 않게 */
+/* Support 페이지용 클린 버튼 호버 배경 추가 */
+.contents form .input .input-clear:hover,
+.contents form .input .clear-button:hover,
+.contents form .form-group .input-clear:hover,
+.contents form .form-group .clear-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.input-search .icon-search {
-  right: 12px;
+/* 클린 버튼 액티브 효과 - 통합 */
+.input-clear:active,
+.clear-button:active,
+.contents form .input .input-clear:active,
+.contents form .input .clear-button:active,
+.contents form .form-group .input-clear:active,
+.contents form .form-group .clear-button:active {
+  transform: scale(0.95);
+  opacity: 0.9;
 }
 
-.input-memo {
-  position: relative;
+/* 텍스트 영역용 클린 버튼 - 통합 */
+.input-memo .input-clear,
+.input-memo .clear-button,
+.contents form .input-memo .input-clear,
+.contents form .input-memo .clear-button {
+  top: 30px;
+  transform: none;
 }
 
-.input input,
-.input textarea {
-  padding-right: 38px;
+/* Support 페이지용 텍스트 영역 클린 버튼 위치 조정 */
+.contents form .input-memo .input-clear,
+.contents form .input-memo .clear-button {
+  right: 16px;
+  top: 50px;
+  width: 24px;
+  height: 24px;
 }
 
-/* 에러 메시지 기본 스타일 */
-.input .error-message {
+/* 텍스트 영역 클린 버튼 호버 - 통합 */
+.input-memo .input-clear:hover,
+.input-memo .clear-button:hover,
+.contents form .input-memo .input-clear:hover,
+.contents form .input-memo .clear-button:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Support 페이지용 텍스트 영역 클린 버튼 호버 배경 추가 */
+.contents form .input-memo .input-clear:hover,
+.contents form .input-memo .clear-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 텍스트 영역 클린 버튼 액티브 - 통합 */
+.input-memo .input-clear:active,
+.input-memo .clear-button:active,
+.contents form .input-memo .input-clear:active,
+.contents form .input-memo .clear-button:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+/* 에러 메시지 통합 스타일 */
+.input .error-message,
+.contents form .error-message {
   color: #FF8484;
   font-size: 12px;
   margin-top: 4px;
@@ -200,7 +254,8 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
   transition: all 0.2s ease;
 }
 
-.input .error-message.show {
+.input .error-message.show,
+.contents form .error-message.show {
   opacity: 1;
   transform: translateY(0);
 }
@@ -241,4 +296,187 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
 
 .input-memo textarea:focus::-webkit-scrollbar-thumb {
   background: #628cf5;
+}
+
+/* ========== Support 페이지 전용 Input 스타일 ========== */
+
+/* 라벨 스타일 - Support 페이지용 */
+.contents form .input label,
+.contents form .form-group label {
+  margin-left: 16px;
+  color: #ffffffab;
+  display: block;
+  padding: 0px 0px 0px 8px;
+  letter-spacing: -0.5px;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+/* 입력 필드 공통 스타일 - Support 페이지용 */
+.contents form input,
+.contents form select,
+.contents form textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 56px;
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1.2px solid rgba(255, 255, 255, 0.07);
+  padding: 16px 48px 16px 16px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 16px;
+  color: rgba(136, 134, 145, 0.64);
+  font-family: Pretendard;
+  transition: all 0.3s ease;
+}
+
+/* 셀렉트와 텍스트영역 특별 스타일 - Support 페이지용 */
+.contents form select {
+  padding: 16px 50px 16px 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M1 4l5 5 5-5' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 12px 12px;
+}
+
+.contents form textarea {
+  height: 300px;
+  resize: vertical;
+}
+
+/* 셀렉트 옵션 스타일 - Support 페이지용 */
+.contents form select option {
+  background-color: #2B293B;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 플레이스홀더 및 입력 상태 스타일 - Support 페이지용 */
+.contents form input::placeholder,
+.contents form textarea::placeholder {
+  color: #767380;
+}
+
+/* 호버, 포커스, 유효성 검사 상태 - Support 페이지용 */
+.contents form input:hover,
+.contents form select:hover,
+.contents form textarea:hover {
+  border: 1.2px solid #93b0f8e1;
+}
+
+.contents form input:focus,
+.contents form select:focus,
+.contents form textarea:focus {
+  border: 1.2px solid #628CF5;
+  background-color: rgba(230, 237, 255, 0.05);
+  color: #f1f1f1;
+}
+
+.contents form input:not(:focus):valid {
+  border: 1.2px solid rgba(255, 255, 255, 0.322);
+  color: #ffffffe8;
+}
+
+.contents form input:not(:focus):not(:placeholder-shown):invalid:not([type="checkbox"]) {
+  border: 1.2px solid #FF8484;
+}
+
+.contents form input:disabled,
+.contents form select:disabled,
+.contents form textarea:disabled {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1.2px solid rgba(255, 255, 255, 0.07);
+  cursor: not-allowed;
+}
+
+/* 체크박스 개선된 스타일 - Support 페이지용 */
+.contents form .checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 12px;
+  color: #ffffffab;
+  margin: 24px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 체크박스 통합 스타일 - Support 페이지용 */
+.contents form div.checkbox-wrapper input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  vertical-align: top;
+}
+
+/* 체크박스 validation 상태 - Support 페이지용 */
+.contents form div.checkbox-wrapper input[type="checkbox"]:invalid,
+.contents form div.checkbox-wrapper input[type="checkbox"]:valid {
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.contents form .checkbox-wrapper input[type="checkbox"]:checked {
+  background-color: #628cf5;
+  border-color: #628cf5;
+  background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3E%3Cpath fill="white" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contents form .checkbox-wrapper label {
+  flex-grow: 1;
+  cursor: pointer;
+  color: #ffffffca;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 0;
+  text-align: left;
+}
+
+/* 검색 필드용 클린 버튼 위치 조정 */
+.input-search .input-clear,
+.input-search .clear-button {
+  right: 36px; /* 검색 아이콘과 겹치지 않게 */
+}
+
+/* Support 페이지용 검색 필드 클린 버튼 */
+.contents form .input-search .input-clear,
+.contents form .input-search .clear-button {
+  right: 52px; /* Support 페이지 검색 아이콘과 겹치지 않게 */
+  top: 46px;
+}
+
+.input-search .icon-search {
+  right: 12px;
+}
+
+/* 기본 컴포넌트 위치 및 패딩 설정 */
+.input-memo {
+  position: relative;
+}
+
+.input input,
+.input textarea {
+  padding-right: 38px;
 } 
