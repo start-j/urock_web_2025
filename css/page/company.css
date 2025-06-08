@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(../../public/images/company/bg-business-header.png);
+  /* background-image: url(../../public/images/company/bg-business-header.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -58,7 +58,7 @@
   position: relative;
   width: 100%;
   min-height: 795px;
-  background-image: url(../../public/images/company/bg-business-body.png);
+  /* background-image: url(../../public/images/company/bg-business-body.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
