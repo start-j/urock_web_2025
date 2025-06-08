@@ -239,7 +239,6 @@
   object-fit: cover;
 }
 
-
 .history .dot-point-icon-2024 {
   top: 300px;
 }
@@ -268,16 +267,11 @@
   bottom: 300px;
 }
 
-
-
-
 .history .bse-bbb {
   letter-spacing: -0.06em;
   line-height: 140%;
   font-weight: 600;
 }
-
-
 
 .history .year {
   align-self: stretch;
@@ -510,7 +504,6 @@
   padding-top: 120px;
 }
 
-
 /* client */
 .client {
   width: 100%;
@@ -560,23 +553,22 @@
   padding: 120px 0;
 }
 
-
 .location .tit-container {
   margin-bottom: 8px;
 }
 
-
 .location .map-area {
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   height: 640px;
   position: relative;
   border-radius: 80px;
   background-color: #fff;
   overflow: hidden;
-  flex-shrink: 0;
   color: #f1f1f1;
   cursor: default;
   user-select: none;
+  margin: 0 auto;
 }
 
 .location .address {
@@ -664,8 +656,6 @@
   height: 16px;
 }
 
-
-
 .location .btn-solution {
   font-size: 18px;
   letter-spacing: -0.5px;
@@ -694,6 +684,385 @@
   background-color: #628CF5;
   box-shadow: 0px 25px 33px 0px rgba(98, 140, 245, 0.12), 0px 7px 10px 0px rgba(98, 140, 245, 0.10), 0px 3px 5px 0px rgba(98, 140, 245, 0.05), 0px 2px 2px 0px rgba(98, 140, 245, 0.02);
   backdrop-filter: blur(20px);
+}
+
+/* =================================== 
+   RESPONSIVE DESIGN - HISTORY & LOCATION
+   =================================== */
+
+/* =================================== 
+   RESPONSIVE DESIGN - HISTORY & LOCATION
+   =================================== */
+
+/* 대형 화면 (1200px 이하) */
+@media (max-width: 1200px) {
+  .location {
+    padding: 100px 40px;
+  }
+  
+  .location .map-area {
+    max-width: 1000px;
+  }
+}
+
+
+
+/* 태블릿 (1024px 이하) */
+@media (max-width: 1024px) {
+  /* History 섹션 */
+  .history {
+    padding: 120px 0;
+    --txt-show-gap: 60px;
+    --start-point: 60px;
+    --height-1: 480px;
+    --height-2: 220px;
+    --height-3: 260px;
+    --height-4: 120px;
+    --height-5: 80px;
+    --height-6: 40px;
+  }
+
+  .history .vertical-line {
+    width: 32px;
+    top: 150px;
+  }
+
+  .history .dot-point-icon-2024,
+  .history .dot-point-icon-2023,
+  .history .dot-point-icon-2022,
+  .history .dot-point-icon-2021,
+  .history .dot-point-icon-2020,
+  .history .dot-point-icon-2019,
+  .history .dot-point-icon-2018 {
+    width: 32px;
+    height: 42px;
+  }
+
+  .history .year {
+    font-size: 32px;
+  }
+
+  .history .month {
+    font-size: 15px;
+  }
+
+  .history .bsetxt {
+    font-size: 14px;
+  }
+
+  .history .txt-group {
+    width: 600px;
+    gap: 20px;
+  }
+
+  .history .txt-show {
+    width: 500px;
+    gap: 40px;
+  }
+
+  .history .txt-show:nth-child(odd) {
+    left: calc(50% + 16px + 30px);
+  }
+
+  .history .txt-show:nth-child(even) {
+    right: calc(50% + 16px + 30px);
+  }
+
+  /* Location 섹션 */
+  .location {
+    padding: 80px 40px;
+  }
+
+  .location .map-area {
+    width: 100%;
+    min-width: 312px;
+    max-width: 900px;
+    height: 480px;
+    border-radius: 60px;
+    margin: 0 auto;
+  }
+
+  .location .address {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .location .btn-solution {
+    max-width: 800px;
+    height: 76px;
+    font-size: 17px;
+  }
+}
+
+/* 모바일 가로 (768px 이하) */
+@media (max-width: 768px) {
+  /* History 섹션 */
+  .history {
+    padding: 80px 0;
+    --txt-show-gap: 50px;
+    --start-point: 50px;
+    --height-1: 380px;
+    --height-2: 180px;
+    --height-3: 200px;
+    --height-4: 100px;
+    --height-5: 70px;
+    --height-6: 30px;
+  }
+
+  .history .vertical-line {
+    width: 28px;
+    top: 120px;
+  }
+
+  .history .dot-point-icon-2024,
+  .history .dot-point-icon-2023,
+  .history .dot-point-icon-2022,
+  .history .dot-point-icon-2021,
+  .history .dot-point-icon-2020,
+  .history .dot-point-icon-2019,
+  .history .dot-point-icon-2018 {
+    width: 28px;
+    height: 38px;
+  }
+
+  .history .year {
+    font-size: 28px;
+  }
+
+  .history .month {
+    font-size: 14px;
+  }
+
+  .history .txt-group {
+    width: 400px;
+    gap: 16px;
+  }
+
+  .history .txt-show {
+    width: 350px;
+    gap: 30px;
+  }
+
+  .history .txt-show:nth-child(odd) {
+    left: calc(50% + 14px + 25px);
+  }
+
+  .history .txt-show:nth-child(even) {
+    right: calc(50% + 14px + 25px);
+  }
+
+  .history .des-group {
+    margin-left: 40px;
+    font-size: 14px;
+  }
+
+  .history .li {
+    gap: 8px;
+  }
+
+  .history .list-left {
+    gap: 8px;
+  }
+
+  /* Location 섹션 */
+  .location {
+    padding: 60px 16px;
+  }
+
+  .location .map-area {
+    width: 100%;
+    height: 360px;
+    border-radius: 40px;
+    margin: 0 auto;
+  }
+
+  .location .address {
+    font-size: 14px;
+    margin-bottom: 24px;
+    padding: 0 8px;
+  }
+
+  .location .btn-solution {
+    height: 64px;
+    font-size: 16px;
+    margin-top: 32px;
+  }
+}
+
+/* 모바일 세로 (480px 이하) */
+@media (max-width: 480px) {
+  /* History 섹션 */
+  .history {
+    padding: 60px 0;
+    --txt-show-gap: 40px;
+    --start-point: 40px;
+    --height-1: 300px;
+    --height-2: 140px;
+    --height-3: 160px;
+    --height-4: 80px;
+    --height-5: 60px;
+    --height-6: 20px;
+  }
+
+  .history .vertical-line {
+    width: 24px;
+    top: 100px;
+  }
+
+  .history .dot-point-icon-2024,
+  .history .dot-point-icon-2023,
+  .history .dot-point-icon-2022,
+  .history .dot-point-icon-2021,
+  .history .dot-point-icon-2020,
+  .history .dot-point-icon-2019,
+  .history .dot-point-icon-2018 {
+    width: 24px;
+    height: 32px;
+  }
+
+  .history .year {
+    font-size: 24px;
+  }
+
+  .history .month {
+    font-size: 14px;
+  }
+
+  .history .txt-group {
+    width: 280px;
+    gap: 12px;
+  }
+
+  .history .txt-show {
+    width: 250px;
+    gap: 20px;
+  }
+
+  .history .txt-show:nth-child(odd) {
+    left: calc(50% + 12px + 20px);
+  }
+
+  .history .txt-show:nth-child(even) {
+    right: calc(50% + 12px + 20px);
+  }
+
+  .history .des-group {
+    margin-left: 30px;
+    font-size: 14px;
+  }
+
+  .history .ul,
+  .history .ul1 {
+    gap: 16px;
+  }
+
+  /* Location 섹션 */
+  .location {
+    padding: 40px 12px;
+  }
+
+  .location .map-area {
+    width: 100%;
+    height: 280px;
+    border-radius: 32px;
+    margin: 0 auto;
+  }
+
+  .location .address {
+    font-size: 14px;
+    line-height: 160%;
+    margin-bottom: 20px;
+  }
+
+  .location .btn-solution {
+    height: 56px;
+    font-size: 15px;
+    margin-top: 24px;
+    padding: 8px 16px;
+  }
+}
+
+/* 최소 사이즈 (360px) */
+@media (max-width: 360px) {
+  /* History 섹션 */
+  .history {
+    padding: 40px 0;
+    --txt-show-gap: 35px;
+    --start-point: 35px;
+    --height-1: 250px;
+    --height-2: 120px;
+    --height-3: 140px;
+    --height-4: 70px;
+    --height-5: 50px;
+    --height-6: 20px;
+  }
+
+  .history .vertical-line {
+    width: 20px;
+    top: 80px;
+  }
+
+  .history .dot-point-icon-2024,
+  .history .dot-point-icon-2023,
+  .history .dot-point-icon-2022,
+  .history .dot-point-icon-2021,
+  .history .dot-point-icon-2020,
+  .history .dot-point-icon-2019,
+  .history .dot-point-icon-2018 {
+    width: 20px;
+    height: 28px;
+  }
+
+  .history .year {
+    font-size: 20px;
+  }
+
+  .history .txt-group {
+    width: 220px;
+    gap: 10px;
+  }
+
+  .history .txt-show {
+    width: 200px;
+    gap: 15px;
+  }
+
+  .history .txt-show:nth-child(odd) {
+    left: calc(50% + 10px + 15px);
+  }
+
+  .history .txt-show:nth-child(even) {
+    right: calc(50% + 10px + 15px);
+  }
+
+  .history .des-group {
+    margin-left: 25px;
+  }
+
+  /* Location 섹션 */
+  .location {
+    padding: 32px 8px;
+  }
+
+  .location .map-area {
+    width: 100%;
+    height: 240px;
+    border-radius: 24px;
+    margin: 0 auto;
+  }
+
+  .location .address {
+    font-size: 14px;
+    line-height: 170%;
+    margin-bottom: 16px;
+  }
+
+  .location .btn-solution {
+    height: 52px;
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 8px 12px;
+  }
 }
 
 
