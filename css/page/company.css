@@ -39,13 +39,11 @@
 }
 
 .business .business-header .logo-icon {
-  position: relative;
   width: 140px;
   height: 45px;
 }
 
 .business .business-header .des {
-  position: relative;
   text-align: center;
   margin: 0;
   font-size: 16px;
@@ -89,7 +87,6 @@
 }
 
 .business .business-body .tit-group > .tit {
-  position: relative;
   letter-spacing: -0.06em;
   line-height: 140%;
   font-weight: 600;
@@ -97,7 +94,6 @@
 
 .business .business-body .tit-group .tit-dot-child {
   width: 8px;
-  position: relative;
   border-radius: 50%;
   background-color: #628cf5;
   height: 8px;
@@ -165,9 +161,8 @@
 }
 
 .business .business-body .cards .card .txt-group .des {
-  position: relative;
   align-self: stretch;
-  left: -10px;
+  margin-left: -10px;
 }
 
 .business .business-body .cards .card .txt-group ul li {
@@ -199,6 +194,7 @@
 .history {
   position: relative;
   width: 100%;
+  height: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--height-5) + var(--height-6) + var(--txt-show-gap) * 6 + 200px + 360px);
   padding: 180px 0;
   background-image: url(../../public/images/company/bg-history.png);
   background-size: cover;
@@ -206,14 +202,15 @@
   background-position: center;
   text-align: left;
   color: #91b1ff;
+  overflow: hidden;
   --txt-show-gap: 80px;
-  --start-point: 140px;
+  --start-point: 88px;
   --height-1: 620px;
-  --height-2: 372px;
-  --height-3: 425px;
-  --height-4: 190px;
-  --height-5: 230px;
-  --height-6: 145px;
+  --height-2: 280px;
+  --height-3: 320px;
+  --height-4: 160px;
+  --height-5: 100px;
+  --height-6: 40px;
   /* --height-7: 128px; */
 }
 
@@ -223,27 +220,67 @@
   left: 50%;
   transform: translateX(-50%);
   width: 42px;
-  height: 3048px;
+  height: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--height-5) + var(--height-6) + var(--txt-show-gap) * 6 + 100px);
   object-fit: contain;
 }
 
+.history .dot-point-icon-2024,
+.history .dot-point-icon-2023,
+.history .dot-point-icon-2022,
+.history .dot-point-icon-2021,
+.history .dot-point-icon-2020,
+.history .dot-point-icon-2019,
+.history .dot-point-icon-2018 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 52px;
+  object-fit: cover;
+}
+
+
+.history .dot-point-icon-2024 {
+  top: 300px;
+}
+
+.history .dot-point-icon-2023 {
+  top: 1000px;
+}
+
+.history .dot-point-icon-2022 {
+  top: 1370px;
+}
+
+.history .dot-point-icon-2021 {
+  bottom: 830px;
+}
+
+.history .dot-point-icon-2020 {
+  bottom: 590px;
+}
+
+.history .dot-point-icon-2019 {
+  bottom: 400px;
+}
+
+.history .dot-point-icon-2018 {
+  bottom: 300px;
+}
+
+
+
+
 .history .bse-bbb {
-  position: relative;
   letter-spacing: -0.06em;
   line-height: 140%;
   font-weight: 600;
 }
 
-.history .dot-point-icon {
-  width: 40px;
-  height: 52px;
-  position: relative;
-  object-fit: cover;
-}
+
 
 .history .year {
   align-self: stretch;
-  position: relative;
   opacity: 0.75;
   font-size: 36px;
   letter-spacing: -3px;
@@ -252,7 +289,6 @@
 }
 
 .history .month {
-  position: relative;
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -264,14 +300,12 @@
 
 .history .divider-column {
   width: 2px;
-  position: relative;
   background-color: rgba(255, 255, 255, 0.35);
   height: 12px;
   opacity: 0.4;
 }
 
 .history .bsetxt {
-  position: relative;
   font-size: 14px;
   letter-spacing: -0.3px;
   line-height: 148%;
@@ -291,7 +325,6 @@
 
 .history .bse {
   flex: 1;
-  position: relative;
   font-size: 14px;
   letter-spacing: -0.3px;
   line-height: 148%;
@@ -373,7 +406,7 @@
 .history .txt-show-group {
   position: relative;
   width: 100%;
-  height: 2680px;
+  height: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--height-5) + var(--height-6) + var(--txt-show-gap) * 6 + 200px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -490,7 +523,6 @@
 }
 
 .partner .tit-group .tit {
-  position: relative;
   letter-spacing: -0.06em;
   line-height: 140%;
   font-weight: 600;
@@ -506,7 +538,6 @@
 
 .partner .tit-group .dot-child {
   width: 8px;
-  position: relative;
   border-radius: 50%;
   background-color: #628cf5;
   height: 8px;
@@ -514,14 +545,12 @@
 
 /* client */
 .client {
-  position: relative;
   width: 100%;
   height: 120px;
   background-color: #1b182a;
 }
 
 .client-logo-wrapper {
-  position: relative;
   width: 100%;
   height: 120px;
   overflow: hidden;
@@ -685,7 +714,6 @@
 
 .location .location-group .icon-arrow {
   width: 16px;
-  position: relative;
   height: 16px;
 }
 
@@ -712,7 +740,6 @@
 }
 
 .location button.btn-blue .btn {
-  position: relative;
   letter-spacing: -0.5px;
   line-height: 136%;
   font-weight: 600;
@@ -721,6 +748,5 @@
 
 .location button.btn-blue .icon-arrow {
   width: 20px;
-  position: relative;
   height: 20px;
 }
