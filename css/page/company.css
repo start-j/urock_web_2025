@@ -712,7 +712,7 @@
   /* History 섹션 */
   .history {
     padding: 120px 0;
-    --txt-show-gap: 60px;
+    --txt-show-gap: 48px;
     --start-point: 60px;
     --height-1: 480px;
     --height-2: 220px;
@@ -794,24 +794,49 @@
   }
 }
 
+/* 모바일 (860px 이하) */
+@media (max-width: 860px) {
+  /* History 섹션 */
+  .history .vertical-line {
+    left: 20%;
+  }
+
+  .history .dot-point-icon-2024,
+  .history .dot-point-icon-2023,
+  .history .dot-point-icon-2022,
+  .history .dot-point-icon-2021,
+  .history .dot-point-icon-2020,
+  .history .dot-point-icon-2019,
+  .history .dot-point-icon-2018 {
+    left: 20%;
+  }
+
+  .history .txt-show:nth-child(odd),
+  .history .txt-show:nth-child(even) {
+    left: calc(20% + 20px + 30px);
+    right: auto;
+  }
+}
+
 /* 모바일 가로 (768px 이하) */
 @media (max-width: 768px) {
   /* History 섹션 */
   .history {
     padding: 80px 0;
-    --txt-show-gap: 50px;
+    --txt-show-gap: 48px;
     --start-point: 50px;
-    --height-1: 380px;
-    --height-2: 180px;
-    --height-3: 200px;
-    --height-4: 100px;
-    --height-5: 70px;
-    --height-6: 30px;
+    --height-1: 900px;
+    --height-2: 600px;
+    --height-3: 650px;
+    --height-4: 400px;
+    --height-5: 350px;
+    --height-6: 250px;
   }
 
   .history .vertical-line {
     width: 28px;
     top: 120px;
+    left: 20%;
   }
 
   .history .dot-point-icon-2024,
@@ -823,6 +848,7 @@
   .history .dot-point-icon-2018 {
     width: 28px;
     height: 38px;
+    left: 20%;
   }
 
   .history .year {
@@ -834,21 +860,19 @@
   }
 
   .history .txt-group {
-    width: 400px;
-    gap: 16px;
+    width: 320px;
+    gap: 12px;
   }
 
   .history .txt-show {
-    width: 350px;
-    gap: 30px;
+    width: 300px;
+    gap: 24px;
   }
 
-  .history .txt-show:nth-child(odd) {
-    left: calc(50% + 14px + 25px);
-  }
-
+  .history .txt-show:nth-child(odd),
   .history .txt-show:nth-child(even) {
-    right: calc(50% + 14px + 25px);
+    left: calc(20% + 14px + 25px);
+    right: auto;
   }
 
   .history .des-group {
@@ -894,19 +918,20 @@
   /* History 섹션 */
   .history {
     padding: 60px 0;
-    --txt-show-gap: 40px;
+    --txt-show-gap: 48px;
     --start-point: 40px;
-    --height-1: 300px;
-    --height-2: 140px;
-    --height-3: 160px;
-    --height-4: 80px;
-    --height-5: 60px;
-    --height-6: 20px;
+    --height-1: 800px;
+    --height-2: 550px;
+    --height-3: 600px;
+    --height-4: 380px;
+    --height-5: 320px;
+    --height-6: 220px;
   }
 
   .history .vertical-line {
     width: 24px;
     top: 100px;
+    left: 15%;
   }
 
   .history .dot-point-icon-2024,
@@ -918,6 +943,7 @@
   .history .dot-point-icon-2018 {
     width: 24px;
     height: 32px;
+    left: 15%;
   }
 
   .history .year {
@@ -929,21 +955,19 @@
   }
 
   .history .txt-group {
-    width: 280px;
-    gap: 12px;
+    width: 240px;
+    gap: 10px;
   }
 
   .history .txt-show {
-    width: 250px;
-    gap: 20px;
+    width: 220px;
+    gap: 16px;
   }
 
-  .history .txt-show:nth-child(odd) {
-    left: calc(50% + 12px + 20px);
-  }
-
+  .history .txt-show:nth-child(odd),
   .history .txt-show:nth-child(even) {
-    right: calc(50% + 12px + 20px);
+    left: calc(15% + 12px + 20px);
+    right: auto;
   }
 
   .history .des-group {
@@ -987,19 +1011,20 @@
   /* History 섹션 */
   .history {
     padding: 40px 0;
-    --txt-show-gap: 35px;
+    --txt-show-gap: 48px;
     --start-point: 35px;
-    --height-1: 250px;
-    --height-2: 120px;
-    --height-3: 140px;
-    --height-4: 70px;
-    --height-5: 50px;
-    --height-6: 20px;
+    --height-1: 700px;
+    --height-2: 500px;
+    --height-3: 550px;
+    --height-4: 350px;
+    --height-5: 280px;
+    --height-6: 180px;
   }
 
   .history .vertical-line {
     width: 20px;
     top: 80px;
+    left: 10%;
   }
 
   .history .dot-point-icon-2024,
@@ -1011,6 +1036,7 @@
   .history .dot-point-icon-2018 {
     width: 20px;
     height: 28px;
+    left: 10%;
   }
 
   .history .year {
@@ -1018,21 +1044,19 @@
   }
 
   .history .txt-group {
-    width: 220px;
-    gap: 10px;
+    width: 180px;
+    gap: 8px;
   }
 
   .history .txt-show {
-    width: 200px;
-    gap: 15px;
+    width: 160px;
+    gap: 12px;
   }
 
-  .history .txt-show:nth-child(odd) {
-    left: calc(50% + 10px + 15px);
-  }
-
+  .history .txt-show:nth-child(odd),
   .history .txt-show:nth-child(even) {
-    right: calc(50% + 10px + 15px);
+    left: calc(10% + 10px + 15px);
+    right: auto;
   }
 
   .history .des-group {
