@@ -297,7 +297,9 @@ input[type="search"]::-webkit-search-decoration {
 
 /* 검색 인풋용 클린 버튼 */
 .contents .input-search .input-clear,
-.contents .input-search .clear-button {
+.contents .input-search .clear-button,
+.contents-news .input-search .input-clear,
+.contents-news .input-search .clear-button {
   right: 0px;
   top: 50%;
   transform: translateY(-50%);
@@ -337,7 +339,11 @@ input[type="search"]::-webkit-search-decoration {
 .contents .input-has-value .input-clear,
 .contents .input-has-value .clear-button,
 .contents .input.input-has-value .input-clear,
-.contents .input.input-has-value .clear-button {
+.contents .input.input-has-value .clear-button,
+.contents-news .input-has-value .input-clear,
+.contents-news .input-has-value .clear-button,
+.contents-news .input.input-has-value .input-clear,
+.contents-news .input.input-has-value .clear-button {
   display: flex;
 }
 
@@ -368,7 +374,9 @@ input[type="search"]::-webkit-search-decoration {
 
 /* 검색 인풋 호버 효과 */
 .contents .input-search .input-clear:hover,
-.contents .input-search .clear-button:hover {
+.contents .input-search .clear-button:hover,
+.contents-news .input-search .input-clear:hover,
+.contents-news .input-search .clear-button:hover {
   transform: translateY(-50%) scale(1.05);
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -404,7 +412,9 @@ input[type="search"]::-webkit-search-decoration {
 
 /* 검색 인풋 액티브 효과 */
 .contents .input-search .input-clear:active,
-.contents .input-search .clear-button:active {
+.contents .input-search .clear-button:active,
+.contents-news .input-search .input-clear:active,
+.contents-news .input-search .clear-button:active {
   transform: translateY(-50%) scale(0.95);
   background-color: rgba(255, 255, 255, 0.2);
 }
