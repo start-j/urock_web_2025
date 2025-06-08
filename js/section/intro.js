@@ -187,7 +187,7 @@ function runIntroComponent() {
         iconWrap.className = "breadcrumb-icon";
         iconWrap.innerHTML = `
           <a href="/">
-            <img class="home-icon" src="/public/icons/icon_home.svg" />
+            <img class="home-icon" src="/public/icons/icon-home.svg" />
             <div class="depth-1">${text}</div>
           </a>
         `;
@@ -195,7 +195,7 @@ function runIntroComponent() {
       } else {
         // 화살표 아이콘
         const arrow = document.createElement("img");
-        arrow.src = "/public/icons/icon_arrow.svg";
+        arrow.src = "/public/icons/icon-arrow-white.svg";
         arrow.className = "arrow-icon";
         $breadcrumb.appendChild(arrow);
 
