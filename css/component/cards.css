@@ -15,6 +15,7 @@
 .section-cards .cards-container {
   display: flex;
   flex-direction: column;
+  background-color: orange;
 }
 
 
@@ -410,53 +411,130 @@
 
 
 
+/* ========== section-certificate 반응형 스타일 ========== */
+
+/* section-certificate 컨테이너 (section-cards 기준으로 통일) */
+.section-certificate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  gap: 140px;
+  padding: 148px 0px;
+}
+
+.section-certificate .section-tit {
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 48px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.section-certificate .cards-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 16vw;
+}
+
+.section-certificate .section-cards,
+.section-certificate .cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+
+
 /* card-certificate */
 .card.card-certificate {
   position: relative;
-  width: 29rem;
-  height: 37.5rem;
+  width: 464px; /* 고정 크기 유지 */
+  height: 600px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   gap: 0px;
-  text-align: left;
-  /* font-size: 16px; */
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(98, 140, 245, 0.2);
+  transition: all 0.3s ease;
+  flex-shrink: 0; /* 크기 축소 방지 */
+}
+
+.card.card-certificate:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(98, 140, 245, 0.15);
+  border-color: rgba(98, 140, 245, 0.4);
 }
 
 .card.card-certificate .card-txt-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 24px 8px 16px 8px;
+  align-items: center;
+  padding: 32px 24px 24px 24px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  width: 100%;
+  gap: 12px;
 }
-
-
 
 .card.card-certificate .card-txt-group .top {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
-.card.card-certificate .card-txt-group .subtit,
-.card.card-certificate .card-txt-group .product-name,
+.card.card-certificate .card-txt-group .subtit {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 12px;
+  background: rgba(32, 29, 48, 0.8);
+  border: 1px solid rgba(98, 140, 245, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card.card-certificate .card-txt-group .product-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 8px 0;
+  text-align: center;
+}
+
 .card.card-certificate .card-txt-group .des {
-  align-self: center;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
 }
-
 
 .card.card-certificate .card-certificate-img {
   position: absolute;
-  top: 1.75rem;
-  width: 16.25rem;
-  height: 23rem;
+  top: 32px;
+  width: 260px;
+  height: 368px;
   object-fit: cover;
+  border-radius: 12px;
 }
 
-
 .card.card-certificate .card-certificate-icon {
-  width: 8rem;
-  height: 8rem;
+  width: 128px;
+  height: 128px;
   z-index: 1;
+  margin-bottom: 16px;
 }
 
 
@@ -594,22 +672,253 @@
 }
 
 
-/* card-certificate */
-.card.card-certificate {
-  width: 29rem;
-  height: 37.5rem;
+/* card-certificate 기본 스타일 (대형 화면) */
+@media (min-width: 1200px) {
+  .card.card-certificate {
+    width: 464px; /* 원래 크기 유지 */
+    height: 600px;
+  }
+
+  .card.card-certificate .card-certificate-img {
+    top: 32px;
+    width: 260px;
+    height: 368px;
+  }
+
+  .card.card-certificate .card-certificate-icon {
+    width: 128px;
+    height: 128px;
+    margin-bottom: 16px;
+  }
+}
 }
 
-.card.card-certificate .card-txt-group {
-  padding: 24px 8px 16px 8px;
+/* ========== section-certificate 반응형 미디어 쿼리 ========== */
+
+/* 태블릿 (768px 이하) - section-cards 기준 */
+@media (max-width: 780px) {
+  .section-certificate {
+    gap: 140px;
+    padding: 88px 0px;
+  }
+
+  .section-certificate .cards-container {
+    width: 100%;
+    padding: 0 10vw;
+  }
+
+  .section-certificate .section-tit {
+    font-size: 32px;
+    margin-bottom: 36px;
+  }
+
+  .section-certificate .section-cards,
+  .section-certificate .cards {
+    gap: 20px;
+  }
+
+  .card.card-certificate {
+    width: 380px; /* 태블릿에서 약간 줄임 */
+    height: 480px;
+    flex-shrink: 0; /* 카드 크기 유지 */
+  }
+
+  .card.card-certificate .card-txt-group {
+    padding: 24px 18px 18px 18px;
+    gap: 8px;
+  }
+
+  .card.card-certificate .card-txt-group .product-name {
+    font-size: 17px;
+    margin: 5px 0;
+  }
+
+  .card.card-certificate .card-txt-group .des {
+    font-size: 15px;
+  }
+
+  .card.card-certificate .card-certificate-img {
+    top: 24px;
+    width: 200px;
+    height: 280px;
+  }
+
+  .card.card-certificate .card-certificate-icon {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 10px;
+  }
 }
 
-.card.card-certificate .card-certificate-img {
-  top: 1.75rem;
-  width: 16.25rem;
-  height: 23rem;
+/* 모바일 (480px 이하) - section-cards 기준 */
+@media (max-width: 480px) {
+  .section-certificate {
+    gap: 80px;
+    padding: 60px 0px;
+  }
+
+  .section-certificate .cards-container {
+    width: 100%;
+    padding: 0 8vw;
+  }
+
+  .section-certificate .section-tit {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+
+  .section-certificate .section-cards,
+  .section-certificate .cards {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .card.card-certificate {
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+  }
+
+  .card.card-certificate .card-txt-group {
+    padding: 20px 16px 16px 16px;
+    gap: 6px;
+  }
+
+  .card.card-certificate .card-txt-group .subtit {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+
+  .card.card-certificate .card-txt-group .product-name {
+    font-size: 16px;
+    margin: 4px 0;
+  }
+
+  .card.card-certificate .card-txt-group .des {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .card.card-certificate .card-certificate-img {
+    top: 20px;
+    width: 160px;
+    height: 240px;
+  }
+
+  .card.card-certificate .card-certificate-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 8px;
+  }
 }
 
+/* 초소형 모바일 (320px 이하) - section-cards 기준 */
+@media (max-width: 320px) {
+  .section-certificate {
+    gap: 60px;
+    padding: 40px 0px;
+  }
+
+  .section-certificate .cards-container {
+    width: 100%;
+    padding: 0 5vw;
+  }
+
+  .section-certificate .section-tit {
+    font-size: 24px;
+    margin-bottom: 28px;
+    line-height: 1.3;
+  }
+
+  .section-certificate .section-cards,
+  .section-certificate .cards {
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .card.card-certificate {
+    width: 100%;
+    max-width: 280px;
+    height: 360px;
+    border-radius: 20px;
+  }
+
+  .card.card-certificate .card-txt-group {
+    padding: 16px 12px 12px 12px;
+    gap: 4px;
+  }
+
+  .card.card-certificate .card-txt-group .subtit {
+    font-size: 14px;
+    padding: 3px 6px;
+  }
+
+  .card.card-certificate .card-txt-group .product-name {
+    font-size: 14px;
+    margin: 3px 0;
+    line-height: 1.4;
+  }
+
+  .card.card-certificate .card-txt-group .des {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .card.card-certificate .card-certificate-img {
+    top: 16px;
+    width: 140px;
+    height: 200px;
+    border-radius: 8px;
+  }
+
+  .card.card-certificate .card-certificate-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .card.card-main-solution {
+    width: 320px;
+    height: 240px;
+  }
+
+  .card.card-main-service {
+    width: 320px;
+    height: 240px;
+  }
+
+  .card.card-main-news {
+    width: 320px;
+    height: 240px;
+  }
+
+  .card.card-company {
+    width: 320px;
+    height: 240px;
+  }
+
+  .card.card-solution-contents {
+    width: 320px;
+    height: 100%;
+  }
+
+  .card.card-solution-number {
+    width: 320px;
+    height: 240px;
+  }
+
+  .card.card-solution-series {
+    width: 320px;
+    height: 240px;
+  }
+
+.card.card-solution-feature {
+  width: 320px;
+  height: 240px;
+}
 
 }
 
