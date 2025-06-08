@@ -123,6 +123,86 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
   position: relative;
 }
 
+/* ========== 검색 Input 통합 스타일 ========== */
+
+/* 검색 Input 컨테이너 */
+.input-search {
+  display: flex;
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* 검색 입력 필드 스타일 */
+.input-search input {
+  border: none;
+  border-radius: 12px 0px 0px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  height: 56px;
+  padding: 16px 60px 16px 16px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.53);
+  transition: color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-search input:focus {
+  color: #93B0F8;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  box-shadow: none;
+}
+
+.input-search input::placeholder {
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  line-height: 148%;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.53);
+}
+
+/* 검색 아이콘 위치 */
+.input-search .icon-search {
+  position: absolute;
+  right: 20px;
+  top: 19px;
+  width: 18px;
+  height: 18px;
+  background: url('/public/icons/icon-search.svg') no-repeat center/contain;
+  pointer-events: none;
+}
+
+/* 검색 필드용 클린 버튼 위치 조정 */
+.input-search .input-clear,
+.input-search .clear-button {
+  position: absolute;
+  right: 44px;
+  top: 17px;
+  width: 22px;
+  height: 22px;
+  background: url('/public/icons/icon-close.svg') no-repeat center/contain;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  z-index: 2;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+/* Support 페이지용 검색 필드 클린 버튼 */
+.contents form .input-search .input-clear,
+.contents form .input-search .clear-button {
+  right: 44px;
+  top: 17px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  z-index: 10;
+  background: url('/public/icons/icon-close.svg') no-repeat center/contain;
+}
+
 /* 클린(X) 버튼 통합 스타일 */
 .input-clear,
 .clear-button {
@@ -454,22 +534,9 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
   text-align: left;
 }
 
-/* 검색 필드용 클린 버튼 위치 조정 */
-.input-search .input-clear,
-.input-search .clear-button {
-  right: 36px; /* 검색 아이콘과 겹치지 않게 */
-}
 
-/* Support 페이지용 검색 필드 클린 버튼 */
-.contents form .input-search .input-clear,
-.contents form .input-search .clear-button {
-  right: 52px; /* Support 페이지 검색 아이콘과 겹치지 않게 */
-  top: 46px;
-}
 
-.input-search .icon-search {
-  right: 12px;
-}
+
 
 /* 기본 컴포넌트 위치 및 패딩 설정 */
 .input-memo {
@@ -479,4 +546,49 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
 .input input,
 .input textarea {
   padding-right: 38px;
+}
+
+/* ========== 검색 컨테이너 폼 스타일 ========== */
+
+/* 검색 컨테이너 폼 */
+.search-container form {
+  display: flex;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  z-index: 1;
+  transition: border 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.search-container form:hover {
+  border: 1px solid #93B0F8;
+}
+
+.search-container form:focus-within {
+  border: 1px solid #93B0F8;
+}
+
+/* 검색 제출 버튼 */
+.search-submit-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 0px 12px 12px 0px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-submit-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-submit-btn img {
+  width: 18px;
+  height: 18px;
 } 
