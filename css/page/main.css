@@ -1870,6 +1870,7 @@
 
 /* client */
 .section-client {
+  position: relative;
   width: 100%;
   height: 920px;
   overflow: hidden;
@@ -1946,10 +1947,10 @@
 .section-client .linear {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
+  left: 0;
+  width: 100%;
   height: 646px;
+  z-index: 1;
   background: linear-gradient(269.92deg,
       #201d30 1.16%,
       rgba(32, 29, 48, 0.8) 24%,

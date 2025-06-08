@@ -806,7 +806,7 @@
   }
 
   .location .map-area {
-    width: 100%;
+  width: 100%;
     min-width: 312px;
     max-width: 900px;
     height: 480px;
@@ -921,10 +921,10 @@
 
   .history .txt-group {
     width: 320px;
-    gap: 12px;
-  }
+  gap: 12px;
+}
 
-  .history .txt-show {
+.history .txt-show {
     width: 300px;
     gap: 24px;
   }
@@ -1025,7 +1025,7 @@
   }
 
   .location .map-area {
-    width: 100%;
+  width: 100%;
     height: 360px;
     border-radius: 40px;
     margin: 0 auto;
@@ -1114,16 +1114,16 @@
   /* Location 섹션 */
   .location {
     padding: 40px 12px;
-  }
+}
 
-  .location .map-area {
+.location .map-area {
     width: 100%;
     height: 280px;
     border-radius: 32px;
     margin: 0 auto;
-  }
+}
 
-  .location .address {
+.location .address {
     font-size: 14px;
     line-height: 160%;
     margin-bottom: 20px;
