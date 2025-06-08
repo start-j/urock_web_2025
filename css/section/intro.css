@@ -40,6 +40,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .intro .tit {
@@ -55,7 +57,7 @@
   line-height: 150%;
   font-weight: 300;
   color: #eaeaeaa2;
-  text-align: left;
+  text-align: center;
 }
 
 .intro .breadcrumb {
@@ -139,4 +141,192 @@
   height: 18px;
   flex-shrink: 0;
   vertical-align: middle;
+}
+
+/* ========== 반응형 미디어 쿼리 ========== */
+
+/* 태블릿 (768px 이하) */
+@media (max-width: 768px) {
+  .intro .breadcrumb {
+    padding: 10px 16px;
+    bottom: 12px;
+    left: 1%;
+    max-width: calc(98% - 32px);
+    gap: 8px;
+  }
+
+  .breadcrumb .breadcrumb-item {
+    gap: 6px;
+  }
+
+  .breadcrumb .breadcrumb-icon {
+    width: 34px;
+    height: 22px;
+  }
+
+  .breadcrumb .home-icon {
+    width: 14px;
+    height: 14px;
+    top: 4px;
+  }
+
+  .breadcrumb .depth-1 {
+    left: 20px;
+    font-size: 14px;
+  }
+
+  .breadcrumb .depth-2,
+  .breadcrumb .depth-3 {
+    font-size: 14px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .breadcrumb .arrow-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* 모바일 (480px 이하) */
+@media (max-width: 480px) {
+  .intro .breadcrumb {
+    padding: 8px 12px;
+    bottom: 8px;
+    left: 0.5%;
+    max-width: calc(99% - 24px);
+    gap: 6px;
+    border-radius: 12px;
+  }
+
+  .breadcrumb .breadcrumb-item {
+    gap: 4px;
+  }
+
+  .breadcrumb .breadcrumb-icon {
+    width: 30px;
+    height: 20px;
+  }
+
+  .breadcrumb .home-icon {
+    width: 12px;
+    height: 12px;
+    top: 4px;
+  }
+
+  .breadcrumb .depth-1 {
+    left: 18px;
+    font-size: 13px;
+  }
+
+  .breadcrumb .depth-2,
+  .breadcrumb .depth-3 {
+    font-size: 13px;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .breadcrumb .arrow-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* 초소형 모바일 (360px 이하) */
+@media (max-width: 360px) {
+  .intro .breadcrumb {
+    padding: 6px 10px;
+    bottom: 6px;
+    left: 0.5%;
+    max-width: calc(99% - 20px);
+    gap: 4px;
+    border-radius: 10px;
+  }
+
+  .breadcrumb .breadcrumb-item {
+    gap: 3px;
+    flex-wrap: nowrap;
+  }
+
+  .breadcrumb .breadcrumb-icon {
+    width: 26px;
+    height: 18px;
+  }
+
+  .breadcrumb .home-icon {
+    width: 10px;
+    height: 10px;
+    top: 4px;
+  }
+
+  .breadcrumb .depth-1 {
+    left: 16px;
+    font-size: 12px;
+  }
+
+  .breadcrumb .depth-2,
+  .breadcrumb .depth-3 {
+    font-size: 12px;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .breadcrumb .arrow-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* 매우 긴 텍스트의 경우 숨김 처리 */
+  .breadcrumb .depth-3 {
+    max-width: 50px;
+  }
+
+  /* 타이틀과 설명 반응형 */
+  .intro .txt-group {
+    top: 140px;
+    padding: 0 15px;
+    font-size: 24px;
+  }
+
+  .intro .des {
+    font-size: 14px;
+    letter-spacing: -0.8px;
+  }
+}
+
+/* ========== 추가 반응형 스타일 (타이틀 및 설명) ========== */
+
+/* 태블릿 (768px 이하) - 타이틀 및 설명 */
+@media (max-width: 768px) {
+  .intro .txt-group {
+    top: 160px;
+    padding: 0 30px;
+    font-size: 28px;
+  }
+
+  .intro .des {
+    font-size: 16px;
+    letter-spacing: -1px;
+  }
+}
+
+/* 모바일 (480px 이하) - 타이틀 및 설명 */
+@media (max-width: 480px) {
+  .intro .txt-group {
+    top: 150px;
+    padding: 0 20px;
+    font-size: 26px;
+  }
+
+  .intro .des {
+    font-size: 15px;
+    letter-spacing: -0.9px;
+  }
+
+  .intro .inner {
+    height: 280px;
+  }
 }
