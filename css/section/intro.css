@@ -15,6 +15,8 @@
   height: 316px;
 }
 
+/* 탭 컨테이너 스타일 제거 - tab.css에서 처리하도록 함 */
+/*
 .intro .tab-container {
   width: 100%;
   display: flex;
@@ -22,11 +24,11 @@
   align-items: center;
   padding: 20px 0px 0px;
   position: absolute;
-  /* top: 315px; */
   bottom: 0;
   left: 0;
   background-color: #201d2f;
 }
+*/
 
 .intro .txt-group {
   position: absolute;
