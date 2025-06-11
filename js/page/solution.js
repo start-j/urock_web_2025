@@ -76,7 +76,7 @@ function createSolutionTabConfig() {
       activeSubTab = pageInfo.id;
     }
   });
-  
+
   // activeSubTab이 설정되지 않은 경우 각 메인탭의 기본값 설정
   if (!activeSubTab) {
     switch (activeMainTab) {

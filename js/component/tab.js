@@ -10,21 +10,21 @@ function createTabComponent(containerId, config) {
     console.error('[Tab] createTabComponent에 유효하지 않은 config가 전달됨:', config);
     return;
   }
-  
+
   // 컨테이너 요소 가져오기
   const container = document.getElementById(containerId);
   if (!container) {
     console.error(`Element with ID "${containerId}" not found.`);
     return;
   }
-  
+
   // 중복 초기화 방지
   if (container.dataset.tabInitialized === 'true') {
     console.log(`[Tab] ${containerId}는 이미 초기화됨, 건너뛰기`);
     return;
   }
   container.dataset.tabInitialized = 'true';
-  
+
   // 컨테이너가 비어있거나 필수 구조가 없는 경우 기본 구조 확인
   if (!container.querySelector('.tab-main') || container.innerHTML.trim() === '') {
     console.log('[Tab] 기본 구조가 없어서 임시 구조 생성');
@@ -152,13 +152,13 @@ function createTabComponent(containerId, config) {
       // 메인 탭 스크롤 설정
       if (mainTabContainer) {
         mainTabContainer.style.scrollBehavior = 'smooth';
-        
+
         // 활성 탭이 보이도록 스크롤 조정
         const activeMainTab = mainTabContainer.querySelector('a.active');
         if (activeMainTab) {
           setTimeout(() => {
-            activeMainTab.scrollIntoView({ 
-              behavior: 'smooth', 
+            activeMainTab.scrollIntoView({
+              behavior: 'smooth',
               inline: 'center',
               block: 'nearest'
             });
@@ -170,13 +170,13 @@ function createTabComponent(containerId, config) {
       subTabGroups.forEach(group => {
         if (group) {
           group.style.scrollBehavior = 'smooth';
-          
+
           // 활성 서브 탭이 보이도록 스크롤 조정
           const activeSubTab = group.querySelector('a.active');
           if (activeSubTab) {
             setTimeout(() => {
-              activeSubTab.scrollIntoView({ 
-                behavior: 'smooth', 
+              activeSubTab.scrollIntoView({
+                behavior: 'smooth',
                 inline: 'center',
                 block: 'nearest'
               });
@@ -198,7 +198,7 @@ function createTabComponent(containerId, config) {
     // 반응형 최소 높이 설정
     let minHeight;
     const screenWidth = window.innerWidth;
-    
+
     if (screenWidth <= 360) {
       minHeight = 100; // 초소형 모바일
     } else if (screenWidth <= 480) {
@@ -255,17 +255,17 @@ function createTabComponent(containerId, config) {
   // 컨텐츠 경로 매핑
   function getContentPath() {
     console.log(`[Tab] 경로 매핑 시도: activeMainTab=${activeMainTab}, activeSubTab=${activeSubTab}`);
-    
+
     // 각 메인 탭별 경로 매핑
     let contentPath = '';
-    
+
     switch (activeMainTab) {
       case 'dfas':
         contentPath = activeSubTab === 'dfas-enterprise'
           ? '/html/detail/detail-solution-02-dfas-ent.html'
           : '/html/detail/detail-solution-01-dfas-pro.html';
         break;
-        
+
       case 'mcq':
         const mcqPaths = {
           'mcq-p': '/html/detail/detail-solution-03-mcq-p.html',
@@ -274,38 +274,38 @@ function createTabComponent(containerId, config) {
         };
         contentPath = mcqPaths[activeSubTab] || mcqPaths['mcq-p']; // 기본값: mcq-p
         break;
-        
+
       case 'gm':
         contentPath = activeSubTab === 'gm-pro'
           ? '/html/detail/detail-solution-07-gm-pro.html'
           : '/html/detail/detail-solution-06-gm.html';
         break;
-        
+
       case 'analysis':
         contentPath = '/html/detail/detail-service-01-analysis.html';
         break;
-        
+
       case 'authentication':
         contentPath = '/html/detail/detail-service-02-authentication.html';
         break;
-        
+
       case 'education':
         contentPath = '/html/detail/detail-service-03-education.html';
         break;
-        
+
       case 'inquiry':
         contentPath = '/html/detail/detail-support-01-inquiry.html';
         break;
-        
+
       case 'news':
         contentPath = '/html/detail/detail-support-02-news.html';
         break;
-        
+
       default:
         console.warn(`[Tab] 알 수 없는 메인 탭: ${activeMainTab}`);
         contentPath = '';
     }
-    
+
     console.log(`[Tab] 매핑된 경로: ${contentPath}`);
     return contentPath;
   }
@@ -387,7 +387,7 @@ function createTabComponent(containerId, config) {
           // 최종 조정 (모든 리소스 로드 완료 후)
           setTimeout(() => {
             adjustTabContentHeight();
-            
+
             // 탭 컨텐츠 로드 완료 이벤트 발생 (입력 필드 초기화용)
             document.dispatchEvent(new CustomEvent('tabContentLoaded', {
               detail: {
@@ -397,7 +397,24 @@ function createTabComponent(containerId, config) {
                 contentElement: selectedTabContent
               }
             }));
-            
+
+            // Swiper 초기화 (교육 서비스 페이지인 경우)
+            if (contentPath && contentPath.includes('service-03-education')) {
+              if (typeof window.safeInitSwiper === 'function') {
+                console.log('[Tab] 안전한 Swiper 갤러리 초기화 시작');
+                setTimeout(async () => {
+                  await window.safeInitSwiper();
+                }, 100);
+              } else if (typeof window.initSwiperGallery === 'function') {
+                console.log('[Tab] 기본 Swiper 갤러리 초기화 시작');
+                setTimeout(async () => {
+                  await window.initSwiperGallery();
+                }, 100);
+              } else {
+                console.warn('[Tab] Swiper 초기화 함수를 찾을 수 없습니다');
+              }
+            }
+
             // 백업: 직접 호출 방식
             if (typeof window.initializeInputFields === 'function') {
               window.initializeInputFields();
@@ -439,7 +456,7 @@ function createTabComponent(containerId, config) {
         if (activeSubTabGroup) {
           activeSubTabGroup.style.display = 'block';
           let activeSubTabLink = activeSubTabGroup.querySelector('.tab-menu a.active');
-          
+
           if (activeSubTabLink) {
             activeSubTab = activeSubTabLink.getAttribute('data-subtab');
           } else {
@@ -494,7 +511,7 @@ function createTabComponent(containerId, config) {
   initializeTabHTML();
   setupEventListeners();
   updateContent();
-  
+
   // 초기 반응형 설정
   setTimeout(() => {
     setupResponsiveTabScroll();
@@ -504,7 +521,7 @@ function createTabComponent(containerId, config) {
 window.createTabComponent = createTabComponent;
 
 // 탭 재초기화 함수
-window.reInitTabComponent = function(containerId = 'tab-container', config = null) {
+window.reInitTabComponent = function (containerId = 'tab-container', config = null) {
   const container = document.getElementById(containerId);
   if (container) {
     // 초기화 플래그 리셋
@@ -519,22 +536,22 @@ console.log('[Tab] 탭 컴포넌트 스크립트 로드 완료');
 // 즉시 실행 탭 초기화 함수 (개선된 버전)
 function immediateTabInit() {
   console.log('[Tab] 즉시 실행 탭 초기화 시작');
-  
+
   const tabContainer = document.getElementById('tab-container');
   if (!tabContainer) {
     console.log('[Tab] tab-container가 아직 없음, 지연 실행 대기');
     return false;
   }
-  
+
   // 이미 초기화되었는지 확인
   if (tabContainer.dataset.tabInitialized === 'true') {
     console.log('[Tab] 이미 초기화된 탭 컨테이너, 건너뛰기');
     return true;
   }
-  
+
   const currentPath = window.location.pathname;
   let config = null;
-  
+
   // 페이지별 설정 결정
   if (currentPath.includes('support')) {
     const activeMainTab = currentPath.includes('support-02-news') ? 'news' : 'inquiry';
@@ -549,7 +566,7 @@ function immediateTabInit() {
   } else if (currentPath.includes('solution')) {
     let activeMainTab = 'dfas';
     let activeSubTab = 'dfas-pro';
-    
+
     if (currentPath.includes('dfas-ent')) {
       activeMainTab = 'dfas';
       activeSubTab = 'dfas-enterprise';
@@ -569,7 +586,7 @@ function immediateTabInit() {
       activeMainTab = 'gm';
       activeSubTab = 'gm';
     }
-    
+
     config = {
       mainTabs: [
         { id: 'dfas', text: 'DFAS', isActive: activeMainTab === 'dfas' },
@@ -597,7 +614,7 @@ function immediateTabInit() {
     let activeMainTab = 'analysis';
     if (currentPath.includes('authentication')) activeMainTab = 'authentication';
     else if (currentPath.includes('education')) activeMainTab = 'education';
-    
+
     config = {
       mainTabs: [
         { id: 'analysis', text: '포렌식 분석 서비스', isActive: activeMainTab === 'analysis' },
@@ -608,7 +625,7 @@ function immediateTabInit() {
     };
     window.serviceTabConfig = config;
   }
-  
+
   if (config) {
     try {
       createTabComponent('tab-container', config);
@@ -619,7 +636,7 @@ function immediateTabInit() {
       return false;
     }
   }
-  
+
   return false;
 }
 
@@ -628,16 +645,16 @@ function multipleAttemptInit() {
   let attempts = 0;
   const maxAttempts = 10;
   const baseDelay = 200;
-  
+
   const attemptInit = () => {
     attempts++;
     console.log(`[Tab] 탭 초기화 시도 ${attempts}/${maxAttempts}`);
-    
+
     if (immediateTabInit()) {
       console.log('[Tab] 탭 초기화 성공!');
       return;
     }
-    
+
     if (attempts < maxAttempts) {
       const delay = baseDelay * attempts; // 점진적 지연
       console.log(`[Tab] ${delay}ms 후 재시도...`);
@@ -646,7 +663,7 @@ function multipleAttemptInit() {
       console.error('[Tab] 최대 시도 횟수 초과, 탭 초기화 포기');
     }
   };
-  
+
   attemptInit();
 }
 
@@ -658,11 +675,11 @@ if (!immediateTabInit()) {
 }
 
 // DOMContentLoaded 백업 초기화
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   console.log('[Tab] DOMContentLoaded 백업 초기화');
   setTimeout(() => {
-    if (!document.getElementById('tab-container') || 
-        document.getElementById('tab-container').dataset.tabInitialized !== 'true') {
+    if (!document.getElementById('tab-container') ||
+      document.getElementById('tab-container').dataset.tabInitialized !== 'true') {
       console.log('[Tab] DOMContentLoaded에서 백업 초기화 실행');
       multipleAttemptInit();
     }
@@ -670,11 +687,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // 모든 컴포넌트 로드 완료 시 백업 초기화
-document.addEventListener('allComponentsLoaded', function() {
+document.addEventListener('allComponentsLoaded', function () {
   console.log('[Tab] allComponentsLoaded 최종 백업 초기화');
   setTimeout(() => {
-    if (!document.getElementById('tab-container') || 
-        document.getElementById('tab-container').dataset.tabInitialized !== 'true') {
+    if (!document.getElementById('tab-container') ||
+      document.getElementById('tab-container').dataset.tabInitialized !== 'true') {
       console.log('[Tab] allComponentsLoaded에서 최종 백업 초기화 실행');
       immediateTabInit();
     }

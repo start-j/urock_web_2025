@@ -35,17 +35,17 @@ function loadComponent(el, includePath) {
             // 탭 컴포넌트 특별 처리
             if (includePath.includes('component/tab.html')) {
                 console.log('[Include] 탭 컴포넌트 특별 처리 시작');
-                
+
                 // 기존 tab-container가 있는지 확인
                 const existingContainer = document.getElementById('tab-container');
                 if (existingContainer) {
                     console.log('[Include] 기존 tab-container 발견, 중복 방지를 위해 제거');
                     existingContainer.remove();
                 }
-                
+
                 // 새로운 탭 컨테이너 삽입
                 el.outerHTML = this.responseText;
-                
+
                 // 컴포넌트 로드 이벤트 발생
                 const event = new CustomEvent('componentLoaded', {
                     detail: {
