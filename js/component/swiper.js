@@ -183,3 +183,5 @@ if (typeof document !== 'undefined') {
     }, 500);
   });
 }
+
+// intro title text edit
