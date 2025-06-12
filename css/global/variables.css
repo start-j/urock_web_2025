@@ -71,7 +71,7 @@
 
   /*Typography */
   --font-h1-family: 'Gmarket Sans';
-  --font-h1-size: clamp(40px, 5vw, 56px);
+  --font-h1-size: clamp(40px, 4.8vw, 56px);
   --font-h1-weight: 500;
   --font-h1-spacing: -0.05em;
   --font-h1-height: 110%;

@@ -87,7 +87,7 @@
 .hero .carousel .list .item .hero-content {
   position: absolute;
   width: 1440px;
-  top: -106px;
+  top: -98px;
   left: 50%;
   transform: translateX(-50%);
   letter-spacing: -0.05em;
@@ -209,7 +209,7 @@
   position: absolute;
   width: 1440px;
   right: calc(50% - 720px);
-  bottom: 100px;
+  bottom: 64px;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -365,21 +365,21 @@
 
 .hero .assets .asset-top-left {
   top: 14px;
-  left: 0px;
+  left: 2px;
   width: 120px;
   height: 80px;
 }
 
 .hero .assets .asset-top-right {
-  top: 0px;
-  right: 1px;
+  top: 37px;
+  left: 1440px;
   width: 11px;
   height: 225px;
 }
 
 .hero .assets .asset-bottom-left {
-  bottom: 0px;
-  left: 24px;
+  bottom: -12px;
+  left: 32px;
   width: 11px;
   height: 88px;
 }
@@ -511,9 +511,10 @@
   }
 
   .hero .assets .asset-bottom-left {
-    top: 420px;
-    width: 9px;
-    height: 190px;
+    top: 410px;
+    left: 32px;
+    width: 11px;
+    height: 88px;
   }
 
 
