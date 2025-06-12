@@ -10,6 +10,7 @@
 /* 믹스인 정의 */
 @import url('./global/reset.css');
 /* 브라우저 기본 스타일 초기화 */
+@import url("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
 
 /* ========== 02. UI 컴포넌트 ========== */
 @import url('./component/inputs.css');
@@ -28,6 +29,8 @@
 /* 배너 컴포넌트 */
 @import url('./component/breadcrumb.css');
 /* 브레드크럼 네비게이션 */
+@import url('./component/swiper.css');
+/* 스와이퍼 컴포넌트 */
 
 /* ========== 03. 섹션별 스타일 ========== */
 /* 레이아웃 컴포넌트 */
