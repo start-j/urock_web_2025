@@ -47,8 +47,123 @@
 }
 
 
+/* 반응형 타이틀 스타일 */
+@media (max-width: 1680px) {
+  .title-component .tit {
+    font-size: 32px;
+  }
+  
+  .title-component {
+    padding: 0px 0px 40px 0px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .title-component .tit {
+    font-size: 30px;
+  }
+  
+  .title-component {
+    padding: 0px 0px 38px 0px;
+  }
+}
+
+@media (max-width: 1240px) {
+  .title-component .tit {
+    font-size: 28px;
+  }
+  
+  .title-component {
+    padding: 0px 0px 35px 0px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .title-component .tit {
+    font-size: 26px;
+  }
+  
+  .title-component {
+    padding: 0px 0px 32px 0px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .title-component .tit {
+    font-size: 24px;
+  }
+  
+  .title-component {
+    padding: 0px 0px 30px 0px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .title-component .tit {
+    font-size: 22px;
+  }
+  
+  .title-component {
+    padding: 0px 0px 28px 0px;
+  }
+}
+
+@media (max-width: 940px) {
+  .title-component .tit {
+    font-size: 22px;
+  }
+  
+  .title-component {
+    padding: 0px 0px 25px 0px;
+  }
+}
+
 @media (max-width: 780px) {
+  .title-component .tit {
+    font-size: 20px;
+  }
+  
+  .title-component {
+    padding: 0px 0px 22px 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title-component .tit {
+    font-size: 18px;
+  }
+  
+  .title-component {
+    padding: 0px 0px 20px 0px;
+  }
+}
+
+@media (max-width: 550px) {
+  .title-component .tit {
+    font-size: 17px;
+  }
+  
   .title-component {
     padding: 0px 0px 18px 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-component .tit {
+    font-size: 16px;
+  }
+  
+  .title-component {
+    padding: 0px 0px 16px 0px;
+  }
+}
+
+@media (max-width: 360px) {
+  .title-component .tit {
+    font-size: 16px;
+  }
+  
+  .title-component {
+    padding: 0px 0px 14px 0px;
   }
 }

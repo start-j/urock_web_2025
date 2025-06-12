@@ -1,9 +1,14 @@
+
+
 /* 인증서 아이콘 */
 .section-certificate .card-certificate-icon-container {
   position: relative;
-  top: 90px;
-  left: 46px;
+  height: 36px;
+  top: 68px;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .section-certificate .card-certificate-icon-container .card-certificate-icon {
@@ -12,16 +17,8 @@
 }
 
 
-/* certificate 카드 컴포넌트 */
-.section-certificate .content-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-}
 
-
-.section-certificate .btn {
+/* .section-certificate .btn {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -37,4 +34,5 @@
   overflow: hidden;
   flex-shrink: 0;
   object-fit: cover;
-}
+} */
+

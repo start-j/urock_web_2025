@@ -22,6 +22,7 @@ import './component/fab.js';        /* 플로팅 액션 버튼 */
 import './component/cards.js';      /* 카드 컴포넌트 */
 import './component/banner.js';     /* 배너 컴포넌트 */
 import './component/breadcrumb.js'; /* 브레드크럼 네비게이션 */
+import './component/swiper.js';     /* 스와이퍼 컴포넌트 */
 
 /* ========== 03. 섹션별 스크립트 ========== */
 /* 레이아웃 컴포넌트 */
@@ -45,7 +46,10 @@ import './section/certificate.js';  /* 인증서 섹션 */
 /* ========== 04. 페이지별 스크립트 ========== */
 import './page/main.js';
 import './page/company.js';
-import './page/solution.js';          /* 솔루션 및 지원 페이지 통합 스크립트 */
+import './page/solution.js';
+import './page/service.js';
+import './page/support.js';
+/* 솔루션 및 지원 페이지 통합 스크립트 */
 /* 서비스 페이지들은 ./page/service.js에서 통합 관리됨 */
 /* 지원 페이지들은 ./page/solution.js에서 통합 관리됨 */
 
