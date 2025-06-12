@@ -1867,10 +1867,14 @@
 
 /* solution header */
 .solution-container {
-  background-image: url("/public/images/main/solution-header.png");
-  background-size: 100% auto;
+  background-image: url("../../public/images/main/solution-container.png");
+  background-size: 100% 400px;
+  /* 세로 고정, 가로 전체 너비 옵션들:
+     background-size: 100% 400px; - 세로 400px 고정 ★ 현재 적용
+     background-size: 100% 500px; - 세로 500px 고정 (더 큰 이미지)
+     background-size: 100% 300px; - 세로 300px 고정 (더 작은 이미지) */
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: center center;
 }
 
 
@@ -1878,10 +1882,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-image: url("../../public/images/main/bg-solution-header.png"); */
+  background-image: url("../../public/images/main/solution-header.png");
+  background-size: 100% 300px;
+  /* 세로 300px 고정, 가로 100% 전체 너비 */
   background-repeat: no-repeat;
   background-position: center;
   padding: 120px 0;
+  margin-bottom: 16px;
+  z-index: 1;
 }
 
 .solution-header .head-tit {
