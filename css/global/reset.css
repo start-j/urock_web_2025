@@ -65,6 +65,18 @@ input {
   outline: none;
 }
 
+/* button reset */
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  color: inherit;
+}
+
 /* 기존 inner */
 /* .inner {
   position: relative;

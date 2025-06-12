@@ -83,26 +83,26 @@
   --font-h2-align: center;
 
   --font-h3-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-h3-size: clamp(24px, 4vw, 36px);
+  --font-h3-size: clamp(24px, 4vw, 30px);
   --font-h3-weight: 600;
-  --font-h3-spacing: -3px;
+  --font-h3-spacing: -1.3px;
   --font-h3-height: 128%;
 
   --font-h4-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-h4-size: clamp(18px, 3.2vw, 24px);
   --font-h4-weight: 500;
-  --font-h4-spacing: -1.3px;
+  --font-h4-spacing: -0.8px;
   --font-h4-height: 140%;
 
   --font-h5-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-h5-size: clamp(14px, 2vw, 16px);
-  --font-h5-weight: 600;
+  --font-h5-weight: 500;
   --font-h5-spacing: -0.3px;
   --font-h5-height: 148%;
 
   --font-h6-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-h6-size: clamp(14px, 1.8vw, 16px);
-  --font-h6-weight: 400;
+  --font-h6-weight: 300;
   --font-h6-spacing: -0.3px;
   --font-h6-height: 148%;
 

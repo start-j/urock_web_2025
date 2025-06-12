@@ -30,17 +30,17 @@ header .inner {
   gap: 0;
   max-width: 1440px;
 }
-
+k
 header .logo-icon {
-  width: 140px;
-  height: 40px;
+  width: 100px;
+  height: 32px;
 }
 
 header .menu {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 36px;
 }
 
 header .menu li {
@@ -53,15 +53,15 @@ header .menu li {
 
 header .menu li a {
   font-size: 18px;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
   line-height: 136%;
-  font-weight: 500;
+  font-weight: 400;
   transition: color 0.3s ease;
 }
 
 header .menu li a.active,
 header .menu li.active a {
-  font-weight: 600;
+  font-weight: 400;
   color: #91b1ff;
 }
 
@@ -76,7 +76,7 @@ header .menu li.active {
 
 .menu li:hover a,
 .menu li:focus-within a {
-  font-weight: 600;
+  font-weight: 400;
   color: #91b1ff;
 }
 
@@ -508,7 +508,7 @@ header .mobile-menu-btn {
 
 .mobile-drawer-title {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .mobile-drawer-close {
