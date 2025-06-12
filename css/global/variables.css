@@ -71,7 +71,7 @@
 
   /*Typography */
   --font-h1-family: 'Gmarket Sans';
-  --font-h1-size: clamp(36px, 6vw, 72px);
+  --font-h1-size: clamp(40px, 5vw, 56px);
   --font-h1-weight: 500;
   --font-h1-spacing: -0.05em;
   --font-h1-height: 110%;
@@ -83,13 +83,13 @@
   --font-h2-align: center;
 
   --font-h3-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-h3-size: clamp(24px, 4vw, 30px);
+  --font-h3-size: clamp(22px, 4vw, 30px);
   --font-h3-weight: 600;
   --font-h3-spacing: -1.3px;
   --font-h3-height: 128%;
 
   --font-h4-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-h4-size: clamp(18px, 3.2vw, 24px);
+  --font-h4-size: clamp(16px, 3vw, 24px);
   --font-h4-weight: 500;
   --font-h4-spacing: -0.8px;
   --font-h4-height: 140%;

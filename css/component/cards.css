@@ -48,7 +48,7 @@
   outline: 1px solid rgba(180, 199, 246, 0.17);
   backdrop-filter: blur(16px);
   overflow: hidden;
-  transition: box-shadow 0.3s, border 0.3s, transform 0.25s;
+  transition: box-shadow 0.3s ease, outline 0.3s ease, transform 0.3s ease-out;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -62,8 +62,10 @@
 .card-frame:hover,
 .card:hover {
   outline: 1px solid rgba(180, 199, 246, 0.781);
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-4px);
+  box-shadow: 0px 32px 48px rgba(22, 20, 33, 0.6), 0px 8px 24px rgba(98, 140, 245, 0.15);
   transition: transform 0.3s ease;
+
 }
 
 
@@ -966,7 +968,7 @@
 
   .card.card-main-solution {
     width: 320px;
-    heightx;
+    height: 240px;
   }
 
   .card.card-main-service {
@@ -1050,6 +1052,7 @@
 .frame.show {
   opacity: 1;
   transform: translateY(0);
+  transition: box-shadow 0.3s ease, outline 0.3s ease, transform 0.3s ease-out;
 }
 
 /* 순차 애니메이션 */
