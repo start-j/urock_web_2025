@@ -2,7 +2,7 @@
 <section class="section-cards-news">
   <div class="cards-container">
     <div class="news-support">
-      <!-- 검색 및 탭 영역 -->
+      <!-- 검색 + 태그 탭 영역 -->
       <div class="contents-news">
         <div class="search-container">
           <div class="search-form">
@@ -14,92 +14,93 @@
               <img src="/public/icons/icon-search.svg" alt="검색 아이콘">
             </button>
           </div>
-          <!-- 탭 영역 -->
-          <div class="option-container">
+          <!-- 태그영역 -->
+          <div id="tag-container">
             <ul class="tag-container">
-              <li><a href="#">UROCK소식</a></li>
-              <li><a href="#">공지사항</a></li>
-              <li><a href="#">사업</a></li>
-              <li><a href="#">교육</a></li>
-              <li><a href="#">자료원</a></li>
+              <li><a href="#" data-tab="news">UROCK소식</a></li>
+              <li><a href="#" data-tab="business">사업</a></li>
+              <li><a href="#" data-tab="education">교육</a></li>
+              <li><a href="#" data-tab="exhibition">전시회</a></li>
+              <li><a href="#" data-tab="notice">공지사항</a></li>
             </ul>
           </div>
         </div>
+        <!-- 비동기 처리 영역 -->
+        <section id="tag-content">
+          <div class="card-wrapper">
+            <div class="cards">
+              <div class="card card-main-news" style="background-image: url('');">
+                <div class="card-asset-area">
+                  <div class="icon-ellipse">
+                    <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
+                  </div>
+                </div>
+                <div class="card-txt-group">
+                  <div class="top">
+                    <div class="subtit">
+                      <h6 class="div">공지사항</h6>
+                    </div>
+                    <h6 class="div">2024-12-05</h6>
+                  </div>
+                  <h4 class="product-name">유락 공지사항</h4>
+                  <h6 class="des">본문 내용</h6>
+                </div>
+              </div>
+              <div class="card card-main-news" style="background-image: url('');">
+                <div class="card-asset-area">
+                  <div class="icon-ellipse">
+                    <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
+                  </div>
+                </div>
+                <div class="card-txt-group">
+                  <div class="top">
+                    <div class="subtit">
+                      <h6 class="div">공지사항</h6>
+                    </div>
+                    <h6 class="div">2024-12-05</h6>
+                  </div>
+                  <h4 class="product-name">유락 공지사항</h4>
+                  <h6 class="des">본문 내용</h6>
+                </div>
+              </div>
+              <div class="card card-main-news" style="background-image: url('/public/images/common/card-bg-img.png');">
+                <div class="card-asset-area">
+                  <div class="icon-ellipse">
+                    <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
+                  </div>
+                </div>
+                <div class="card-txt-group">
+                  <div class="top">
+                    <div class="subtit">
+                      <h6 class="div">공지사항</h6>
+                    </div>
+                    <h6 class="div">2024-12-05</h6>
+                  </div>
+                  <h4 class="product-name">유락 공지사항</h4>
+                  <h6 class="des">본문 내용</h6>
+                </div>
+              </div>
+              <div class="card card-main-news" style="background-image: url('/public/images/common/card-bg-img.png');">
+                <div class="card-asset-area">
+                  <div class="icon-ellipse">
+                    <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
+                  </div>
+                </div>
+                <div class="card-txt-group">
+                  <div class="top">
+                    <div class="subtit">
+                      <h6 class="div">공지사항</h6>
+                    </div>
+                    <h6 class="div">2024-12-05</h6>
+                  </div>
+                  <h4 class="product-name">유락 공지사항</h4>
+                  <h6 class="des">본문 내용</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-      <!-- 카드 영역 -->
-      <div class="card-wrapper">
-        <div class="cards">
-          <div class="card card-main-news" style="background-image: url('');">
-            <div class="card-asset-area">
-              <div class="icon-ellipse">
-                <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
-              </div>
-            </div>
-            <div class="card-txt-group">
-              <div class="top">
-                <div class="subtit">
-                  <h6 class="div">공지사항</h6>
-                </div>
-                <h6 class="div">2024-12-05</h6>
-              </div>
-              <h4 class="product-name">유락 공지사항</h4>
-              <h6 class="des">본문 내용</h6>
-            </div>
-          </div>
-          <div class="card card-main-news" style="background-image: url('');">
-            <div class="card-asset-area">
-              <div class="icon-ellipse">
-                <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
-              </div>
-            </div>
-            <div class="card-txt-group">
-              <div class="top">
-                <div class="subtit">
-                  <h6 class="div">공지사항</h6>
-                </div>
-                <h6 class="div">2024-12-05</h6>
-              </div>
-              <h4 class="product-name">유락 공지사항</h4>
-              <h6 class="des">본문 내용</h6>
-            </div>
-          </div>
-          <div class="card card-main-news" style="background-image: url('/public/images/common/card-bg-img.png');">
-            <div class="card-asset-area">
-              <div class="icon-ellipse">
-                <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
-              </div>
-            </div>
-            <div class="card-txt-group">
-              <div class="top">
-                <div class="subtit">
-                  <h6 class="div">공지사항</h6>
-                </div>
-                <h6 class="div">2024-12-05</h6>
-              </div>
-              <h4 class="product-name">유락 공지사항</h4>
-              <h6 class="des">본문 내용</h6>
-            </div>
-          </div>
-          <div class="card card-main-news" style="background-image: url('/public/images/common/card-bg-img.png');">
-            <div class="card-asset-area">
-              <div class="icon-ellipse">
-                <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
-              </div>
-            </div>
-            <div class="card-txt-group">
-              <div class="top">
-                <div class="subtit">
-                  <h6 class="div">공지사항</h6>
-                </div>
-                <h6 class="div">2024-12-05</h6>
-              </div>
-              <h4 class="product-name">유락 공지사항</h4>
-              <h6 class="des">본문 내용</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 </section>
 
 

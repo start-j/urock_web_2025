@@ -2,7 +2,7 @@
 export function initSupportCheckboxButton() {
   const wrapper = document.querySelector('.checkbox-wrapper');
   if (!wrapper) return;
-  
+
   const checkbox = wrapper.querySelector('input[type="checkbox"]');
   const submitButton = document.querySelector('.submit-button');
   if (!checkbox || !submitButton) return;
@@ -56,7 +56,7 @@ if (typeof window !== 'undefined') {
     initSupportCheckboxButton();
     initEmailJSForm();
   });
-  
+
   // DOM이 로드된 후에도 한번 더 실행
   document.addEventListener('DOMContentLoaded', () => {
     initSupportCheckboxButton();
