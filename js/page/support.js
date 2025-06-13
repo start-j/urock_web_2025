@@ -1,65 +1,83 @@
-// 문의하기 체크박스 활성화/비활성화 함수 (동적으로 폼이 삽입된 후 호출 필요)
-export function initSupportCheckboxButton() {
-  const wrapper = document.querySelector('.checkbox-wrapper');
-  if (!wrapper) return;
+/**
+ * Support 페이지 보조 스크립트
+ * tab.js와 함께 작동하여 support-02-news 페이지의 서브 탭 기능을 지원
+ */
 
-  const checkbox = wrapper.querySelector('input[type="checkbox"]');
-  const submitButton = document.querySelector('.submit-button');
-  if (!checkbox || !submitButton) return;
+console.log('[Support] Support 페이지 스크립트 로드됨');
 
-  // 초기 상태: 체크 안되어 있으면 버튼 비활성화
-  submitButton.disabled = !checkbox.checked;
-  console.log('초기 버튼 활성화 상태:', !submitButton.disabled);
+// Support 페이지 전용 설정
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('[Support] DOMContentLoaded - Support 페이지 초기화');
 
-  function updateButtonState() {
-    submitButton.disabled = !checkbox.checked;
-    console.log('버튼 활성화 상태 변경:', !submitButton.disabled);
-  }
-
-  // change 이벤트와 click 이벤트 모두 처리
-  checkbox.addEventListener('change', updateButtonState);
-  wrapper.addEventListener('click', (e) => {
-    // 체크박스 라벨 영역 클릭 시에도 상태 업데이트
-    if (e.target !== checkbox) {
-      checkbox.checked = !checkbox.checked;
-      updateButtonState();
+  // tab.js가 로드되기를 기다림
+  const waitForTabSystem = () => {
+    if (typeof window.createTabComponent === 'function') {
+      console.log('[Support] Tab 시스템 감지됨, Support 설정 적용');
+      initializeSupportTabs();
+    } else {
+      console.log('[Support] Tab 시스템 대기 중...');
+      setTimeout(waitForTabSystem, 100);
     }
-  });
-}
+  };
 
-// EmailJS 폼 초기화 함수 (동적으로 폼이 삽입된 후 호출 필요)
-export function initEmailJSForm() {
-  if (typeof emailjs === 'undefined') {
-    console.error('emailjs 라이브러리가 로드되지 않았습니다.');
-    return;
+  waitForTabSystem();
+});
+
+function initializeSupportTabs() {
+  const currentPath = window.location.pathname;
+
+  if (currentPath.includes('support-02-news')) {
+    console.log('[Support] News 페이지 감지, 서브 탭 설정 적용');
+
+    // Support-02-News 전용 설정
+    const supportNewsConfig = {
+      mainTabs: [
+        { id: 'inquiry', text: '문의하기', isActive: false },
+        { id: 'news', text: '유락소식', isActive: true }
+      ],
+      subTabs: {
+        news: [
+          { id: 'news', text: 'UROCK소식', isActive: true },
+          { id: 'business', text: '사업', isActive: false },
+          { id: 'education', text: '교육', isActive: false },
+          { id: 'exhibition', text: '전시회', isActive: false },
+          { id: 'notice', text: '공지사항', isActive: false }
+        ]
+      }
+    };
+
+    // 전역 설정 업데이트
+    window.supportTabConfig = supportNewsConfig;
+
+    // 탭 컨테이너가 로드되기를 기다림
+    const waitForContainer = () => {
+      const tabContainer = document.getElementById('tab-container');
+      if (tabContainer && tabContainer.innerHTML.trim() !== '') {
+        console.log('[Support] Tab 컨테이너 로드됨, 재초기화');
+
+        // 기존 초기화 상태 리셋
+        tabContainer.dataset.tabInitialized = 'false';
+
+        // 재초기화
+        if (typeof window.reInitTabComponent === 'function') {
+          window.reInitTabComponent('tab-container', supportNewsConfig);
+        } else {
+          window.createTabComponent('tab-container', supportNewsConfig);
+        }
+      } else {
+        setTimeout(waitForContainer, 200);
+      }
+    };
+
+    waitForContainer();
   }
-  emailjs.init("임시키"); // 실제 Public Key로 변경
-
-  const form = document.querySelector('.contents form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      emailjs.sendForm("service_xxx", "template_xxx", form)
-        .then(function () {
-          alert("메일이 성공적으로 전송되었습니다!");
-          form.reset();
-        }, function (error) {
-          alert("전송 실패: " + JSON.stringify(error));
-        });
-    });
-  }
 }
 
-// allComponentsLoaded 이벤트 발생 시 자동으로 두 함수 호출
-if (typeof window !== 'undefined') {
-  document.addEventListener('allComponentsLoaded', () => {
-    initSupportCheckboxButton();
-    initEmailJSForm();
-  });
+// 탭 컨텐츠 로드 완료 이벤트 리스너
+document.addEventListener('tabContentLoaded', function (event) {
+  console.log('[Support] 탭 컨텐츠 로드 완료:', event.detail);
 
-  // DOM이 로드된 후에도 한번 더 실행
-  document.addEventListener('DOMContentLoaded', () => {
-    initSupportCheckboxButton();
-    initEmailJSForm();
-  });
-}
+  // 추가적인 Support 페이지 전용 처리가 필요한 경우 여기에 추가
+});
+
+console.log('[Support] Support 스크립트 초기화 완료'); 

@@ -1011,7 +1011,7 @@
 
 /* solution header */
 .solution-container {
-  background-image: url("../../public/images/main/solution-container.png");
+  /* background-image: url("../../public/images/main/solution-container.png"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1239,7 +1239,3 @@
     height: 20px;
   }
 }
-
-
-
-

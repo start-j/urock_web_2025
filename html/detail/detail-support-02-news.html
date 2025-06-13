@@ -1,35 +1,55 @@
-<!-- news -->
+<!-- Support-02-News 서브 탭 구조 -->
+<div class="tab-sub" data-main-tab="news">
+  <div class="search-container">
+    <div class="search-form">
+      <div class="input input-search input-search-default">
+        <input type="search" id="inputSearch" placeholder="검색어 입력" />
+        <span class="icon-search"></span>
+      </div>
+      <button type="submit" class="search-submit-btn" aria-label="검색 실행">
+        <img src="/public/icons/icon-search.svg" alt="검색 아이콘">
+      </button>
+    </div>
+  </div>
+
+  <div class="tab-text-group">
+    <div class="tab-menu">
+      <a href="#" data-sub-tab="news" class="active">
+        <span class="tab-text">UROCK소식</span>
+      </a>
+    </div>
+    <div class="tab-menu">
+      <a href="#" data-sub-tab="business">
+        <span class="tab-text">사업</span>
+      </a>
+    </div>
+    <div class="tab-menu">
+      <a href="#" data-sub-tab="education">
+        <span class="tab-text">교육</span>
+      </a>
+    </div>
+    <div class="tab-menu">
+      <a href="#" data-sub-tab="exhibition">
+        <span class="tab-text">전시회</span>
+      </a>
+    </div>
+    <div class="tab-menu">
+      <a href="#" data-sub-tab="notice">
+        <span class="tab-text">공지사항</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- 기본 컨텐츠 (UROCK소식) -->
 <section class="section-cards-news">
   <div class="cards-container">
     <div class="news-support">
-      <!-- 검색 + 태그 탭 영역 -->
       <div class="contents-news">
-        <div class="search-container">
-          <div class="search-form">
-            <div class="input input-search input-search-default">
-              <input type="search" id="inputSearch" placeholder="검색어 입력" />
-              <span class="icon-search"></span>
-            </div>
-            <button type="submit" class="search-submit-btn" aria-label="검색 실행">
-              <img src="/public/icons/icon-search.svg" alt="검색 아이콘">
-            </button>
-          </div>
-          <!-- 태그영역 -->
-          <div id="tag-container">
-            <ul class="tag-container">
-              <li><a href="#" data-tab="news">UROCK소식</a></li>
-              <li><a href="#" data-tab="business">사업</a></li>
-              <li><a href="#" data-tab="education">교육</a></li>
-              <li><a href="#" data-tab="exhibition">전시회</a></li>
-              <li><a href="#" data-tab="notice">공지사항</a></li>
-            </ul>
-          </div>
-        </div>
-        <!-- 비동기 처리 영역 -->
         <section id="tag-content">
           <div class="card-wrapper">
             <div class="cards">
-              <div class="card card-main-news" style="background-image: url('');">
+              <div class="card card-main-news" style="background-image: url('/public/images/common/card-bg-img.png');">
                 <div class="card-asset-area">
                   <div class="icon-ellipse">
                     <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
@@ -38,29 +58,12 @@
                 <div class="card-txt-group">
                   <div class="top">
                     <div class="subtit">
-                      <h6 class="div">공지사항</h6>
+                      <h6 class="div">UROCK소식</h6>
                     </div>
-                    <h6 class="div">2024-12-05</h6>
+                    <h6 class="div">2024-12-13</h6>
                   </div>
-                  <h4 class="product-name">유락 공지사항</h4>
-                  <h6 class="des">본문 내용</h6>
-                </div>
-              </div>
-              <div class="card card-main-news" style="background-image: url('');">
-                <div class="card-asset-area">
-                  <div class="icon-ellipse">
-                    <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
-                  </div>
-                </div>
-                <div class="card-txt-group">
-                  <div class="top">
-                    <div class="subtit">
-                      <h6 class="div">공지사항</h6>
-                    </div>
-                    <h6 class="div">2024-12-05</h6>
-                  </div>
-                  <h4 class="product-name">유락 공지사항</h4>
-                  <h6 class="des">본문 내용</h6>
+                  <h4 class="product-name">유락, 디지털 포렌식 기술 혁신상 수상</h4>
+                  <h6 class="des">유락이 2024년 디지털 포렌식 기술 혁신상을 수상했습니다.</h6>
                 </div>
               </div>
               <div class="card card-main-news" style="background-image: url('/public/images/common/card-bg-img.png');">
@@ -72,12 +75,12 @@
                 <div class="card-txt-group">
                   <div class="top">
                     <div class="subtit">
-                      <h6 class="div">공지사항</h6>
+                      <h6 class="div">UROCK소식</h6>
                     </div>
-                    <h6 class="div">2024-12-05</h6>
+                    <h6 class="div">2024-12-10</h6>
                   </div>
-                  <h4 class="product-name">유락 공지사항</h4>
-                  <h6 class="des">본문 내용</h6>
+                  <h4 class="product-name">신제품 DFAS Pro 2.0 출시</h4>
+                  <h6 class="des">차세대 디지털 포렌식 솔루션 DFAS Pro 2.0이 출시되었습니다.</h6>
                 </div>
               </div>
               <div class="card card-main-news" style="background-image: url('/public/images/common/card-bg-img.png');">
@@ -89,18 +92,37 @@
                 <div class="card-txt-group">
                   <div class="top">
                     <div class="subtit">
-                      <h6 class="div">공지사항</h6>
+                      <h6 class="div">UROCK소식</h6>
+                    </div>
+                    <h6 class="div">2024-12-08</h6>
+                  </div>
+                  <h4 class="product-name">글로벌 파트너십 확대</h4>
+                  <h6 class="des">유락이 해외 주요 기업들과 전략적 파트너십을 체결했습니다.</h6>
+                </div>
+              </div>
+              <div class="card card-main-news" style="background-image: url('/public/images/common/card-bg-img.png');">
+                <div class="card-asset-area">
+                  <div class="icon-ellipse">
+                    <img class="card-asset-area-icon" alt="링크 아이콘" src="/public/icons/icon-arrow-design.svg">
+                  </div>
+                </div>
+                <div class="card-txt-group">
+                  <div class="top">
+                    <div class="subtit">
+                      <h6 class="div">UROCK소식</h6>
                     </div>
                     <h6 class="div">2024-12-05</h6>
                   </div>
-                  <h4 class="product-name">유락 공지사항</h4>
-                  <h6 class="des">본문 내용</h6>
+                  <h4 class="product-name">R&D 센터 확장 이전</h4>
+                  <h6 class="des">연구개발 역량 강화를 위한 새로운 R&D 센터가 개소했습니다.</h6>
                 </div>
               </div>
             </div>
           </div>
         </section>
       </div>
+    </div>
+  </div>
 </section>
 
 

@@ -298,7 +298,21 @@ function createTabComponent(containerId, config) {
         break;
 
       case 'news':
-        contentPath = '/html/detail/detail-support-02-news.html';
+        // news 탭의 서브 탭 처리
+        const newsPaths = {
+          'news': '/html/detail/detail-suppert-news/detail-01-news.html',
+          'business': '/html/detail/detail-suppert-news/detail-02-business.html',
+          'education': '/html/detail/detail-suppert-news/detail-03-education.html',
+          'exhibition': '/html/detail/detail-suppert-news/detail-04-exhibition.html',
+          'notice': '/html/detail/detail-suppert-news/detail-05-notice.html'
+        };
+
+        if (activeSubTab && newsPaths[activeSubTab]) {
+          contentPath = newsPaths[activeSubTab];
+        } else {
+          // 서브 탭이 없거나 기본값인 경우 메인 news 페이지 로드
+          contentPath = '/html/detail/detail-support-02-news.html';
+        }
         break;
 
       default:
@@ -560,7 +574,15 @@ function immediateTabInit() {
         { id: 'inquiry', text: '문의하기', isActive: activeMainTab === 'inquiry' },
         { id: 'news', text: '유락소식', isActive: activeMainTab === 'news' }
       ],
-      subTabs: {}
+      subTabs: {
+        news: [
+          { id: 'news', text: 'UROCK소식', isActive: true },
+          { id: 'business', text: '사업', isActive: false },
+          { id: 'education', text: '교육', isActive: false },
+          { id: 'exhibition', text: '전시회', isActive: false },
+          { id: 'notice', text: '공지사항', isActive: false }
+        ]
+      }
     };
     window.supportTabConfig = config;
   } else if (currentPath.includes('solution')) {

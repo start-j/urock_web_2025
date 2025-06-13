@@ -148,7 +148,7 @@
 }
 
 /* 제출 버튼 */
-.contents form .submit-button {
+.contents form #submit {
   width: 100%;
   border-radius: 12px;
   box-shadow: -1px 3px 4px rgba(98, 140, 245, 0.05), -1px 4px 8px rgba(98, 140, 245, 0.08), -1px 4px 16px rgba(98, 140, 245, 0.12);
@@ -171,19 +171,19 @@
   margin-top: 48px;
 }
 
-.contents form .submit-button:hover:not(:disabled) {
+.contents form #submit:hover:not(:disabled) {
   background-color: #5a7de8;
   transform: translateY(-2px);
   box-shadow: -1px 4px 6px rgba(98, 140, 245, 0.08), -1px 6px 12px rgba(98, 140, 245, 0.12), -1px 8px 24px rgba(98, 140, 245, 0.16);
 }
 
-.contents form .submit-button:active:not(:disabled) {
+.contents form #submit:active:not(:disabled) {
   background-color: #4e6dd1;
   transform: translateY(0);
   box-shadow: -1px 2px 3px rgba(98, 140, 245, 0.05), -1px 3px 6px rgba(98, 140, 245, 0.08), -1px 4px 12px rgba(98, 140, 245, 0.12);
 }
 
-.contents form .submit-button:disabled {
+.contents form #submit:disabled {
   background-color: #3a3a3a;
   color: #888888;
   cursor: not-allowed;
