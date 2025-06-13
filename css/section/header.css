@@ -313,21 +313,6 @@ header .mobile-menu-btn {
     padding: 0;
   }
 
-  header .logo-icon {
-    width: 90px;
-    height: 28px;
-  }
-
-  header .icon-language {
-    width: 24px;
-    height: 24px;
-  }
-
-  header .icon-dropdown {
-    width: 16px;
-    height: 16px;
-  }
-
   header .mobile-menu-btn img {
     width: 24px;
     height: 24px;
@@ -363,20 +348,6 @@ header .mobile-menu-btn {
     margin: 0 24px;
   }
 
-  header .logo-icon {
-    width: 90px;
-    height: 28px;
-  }
-
-  header .icon-language {
-    width: 24px;
-    height: 24px;
-  }
-
-  header .icon-dropdown {
-    width: 16px;
-    height: 16px;
-  }
 
   header .mobile-menu-btn img {
     width: 24px;

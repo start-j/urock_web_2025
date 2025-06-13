@@ -1,3 +1,9 @@
+.intro {
+  background-image: url(/public/images/support/bg-top.png);
+}
+
+
+
 /* 기본 컨테이너 스타일 */
 .contents-news {
   display: flex;
@@ -179,12 +185,12 @@
   .news-support {
     padding: 60px 40px 80px;
   }
-  
+
   .news-support .cards {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
-  
+
   .news-support .card {
     width: 100%;
     max-width: 320px;
@@ -201,29 +207,29 @@
   .news-support {
     padding: 40px 20px 60px;
   }
-  
+
   .news-support h1 {
     font-size: 1.5rem;
     margin-bottom: 16px;
   }
-  
+
   .news-support .tag-container {
     flex-wrap: wrap;
     gap: 12px;
     font-size: 16px;
   }
-  
+
   .news-support .cards {
     grid-template-columns: 1fr;
     gap: 16px;
   }
-  
+
   .news-support .card {
     width: 100%;
     max-width: 100%;
     height: 320px;
   }
-  
+
   .news-support .txt-group {
     padding: 20px 24px 32px;
   }
@@ -233,19 +239,19 @@
   .news-support {
     padding: 32px 16px 48px;
   }
-  
+
   .news-support .tag-container {
     font-size: 14px;
   }
-  
+
   .news-support .card {
     height: 280px;
   }
-  
+
   .news-support .txt-group {
     padding: 16px 20px 24px;
   }
-  
+
   .news-support .card h4 {
     font-size: 16px;
   }
@@ -334,7 +340,7 @@
     margin: 2px;
     padding: 8px 6px;
   }
-  
+
   .pagination__link,
   .pagination__prev,
   .pagination__next {

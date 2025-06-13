@@ -1,5 +1,5 @@
-intro .intro {
-  background-image: url(../../public/images/company/bg-top.png);
+.intro {
+  background-image: url(/public/images/company/bg-top.png);
 }
 
 /* business */
@@ -15,14 +15,14 @@ intro .intro {
 .business .business-header {
   position: relative;
   width: 100%;
-  height: 488px;
+  height: 480px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(../../public/images/company/bg-business-header.png);
+  /* background-image: url(/public/images/company/bg-business-header.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 
 .business .business-header .txt-group {
@@ -55,10 +55,10 @@ intro .intro {
   position: relative;
   width: 100%;
   min-height: 795px;
-  background-image: url(../../public/images/company/bg-business-body.png);
+  /* background-image: url(../../public/images/company/bg-business-body.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
   text-align: center;
   display: flex;
   align-items: center;
