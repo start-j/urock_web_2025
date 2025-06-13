@@ -308,6 +308,12 @@ header .mobile-menu-btn {
     border-radius: 0;
   }
 
+  header .logo-icon {
+    width: 100px;
+    height: 32px;
+  }
+
+
   header .inner {
     width: 100%;
     padding: 0;
@@ -319,6 +325,7 @@ header .mobile-menu-btn {
   }
 
   header .language {
+    width: 80px;
     height: 40px;
     padding: 8px 12px;
   }
@@ -354,7 +361,14 @@ header .mobile-menu-btn {
     height: 24px;
   }
 
+  /* 
+  header .header-actions {
+    gap: 2px;
+  } */
+
+
   header .language {
+    width: 70px;
     height: 40px;
     padding: 8px 8px;
   }
