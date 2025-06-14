@@ -147,16 +147,20 @@
 .card-main-service .card-txt-group,
 .card-solution-number .card-txt-group,
 .card-solution-feature .card-txt-group {
-  padding: 24px 40px 48px;
+  padding: 24px 32px 48px;
+}
+
+.card-main-news .card-txt-group {
+  padding: 24px 32px 32px;
 }
 
 .card-company .card-txt-group,
 .card-solution-series .card-txt-group {
-  padding: 48px 40px 24px;
+  padding: 48px 32px 24px;
 }
 
 .card-solution-series .card-txt-group {
-  padding: 48px 40px 24px;
+  padding: 48px 32px 24px;
 }
 
 .card-solution-series .card-txt-group .des {
@@ -690,7 +694,7 @@
 
   .cards-container {
     width: 100%;
-    padding: 0 4vw;
+    /* padding: 0 4vw; */
   }
 
   .card-asset-area .icon-ellipse {
@@ -789,7 +793,7 @@
 
   .section-certificate .cards-container {
     width: 100%;
-    padding: 0 10vw;
+    /* padding: 0 10vw; */
   }
 
   .section-certificate .section-tit {
@@ -846,7 +850,7 @@
 
   .section-certificate .cards-container {
     width: 100%;
-    padding: 0 8vw;
+    /* padding: 0 8vw; */
   }
 
   .section-certificate .section-tit {
@@ -978,7 +982,7 @@
 
   .card.card-main-news {
     width: 320px;
-    height: 240px;
+    height: 320px;
   }
 
   .card.card-company {

@@ -1,3 +1,7 @@
+.intro {
+  background-image: url(/public/images/solution/bg-top.png);
+}
+
 /* section 공통 */
 .section-process .card,
 .section-comparison .card,

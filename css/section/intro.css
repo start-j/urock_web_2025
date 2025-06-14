@@ -6,8 +6,8 @@
   display: flex;
   justify-content: center;
   background-size: cover;
-  /* background-image: url(../../public/images/service/bg-top.png); */
-  background-color: #201d2f;
+  /* background-image: url(); */
+  /* background-color: #201d2f; */
 }
 
 .intro .inner {
