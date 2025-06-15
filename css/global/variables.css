@@ -83,7 +83,7 @@
   --font-h2-align: center;
 
   --font-h3-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-h3-size: clamp(22px, 4vw, 30px);
+  --font-h3-size: clamp(22px, 4vw, 32px);
   --font-h3-weight: 600;
   --font-h3-spacing: -1.3px;
   --font-h3-height: 128%;
@@ -123,6 +123,12 @@
   --font-nav-weight: 600;
   --font-nav-spacing: -1.5px;
   --font-nav-height: 150%;
+
+  --font-button-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-button-size: clamp(14px, 2vw, 18px);
+  --font-button-weight: 600;
+  --font-button-spacing: -1.5px;
+  --font-button-height: 150%;
 }
 
 /* Typography Components */
@@ -215,4 +221,14 @@ h6 {
   border: var(--card-border);
   background-color: var(--card-background);
   backdrop-filter: var(--card-backdrop-filter);
+}
+
+#submit,
+.btn--filled {
+  font-family: var(--font-button-family);
+  font-size: var(--font-button-size);
+  font-weight: var(--font-button-weight);
+  letter-spacing: var(--font-button-spacing);
+  line-height: var(--font-button-height);
+  margin: 0;
 }
