@@ -1050,5 +1050,15 @@
     padding: 60px 0;
     min-height: 120px;
   }
+
+  .hero .carousel .list .item .hero-content {
+    width:320px;
+    transform: translateX(-50%);
+  }
+
+  .hero .assets {
+    width: 345px;
+  }
+
 }
 
