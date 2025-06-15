@@ -1044,7 +1044,6 @@
   .location .address {
     font-size: 14px;
     margin-bottom: 24px;
-    padding: 0 8px;
   }
 
   .location .btn-solution {
@@ -1060,14 +1059,14 @@
   /* History 섹션 */
   .history {
     padding: 60px 0;
-    --txt-show-gap: 68px;
+    --txt-show-gap: 80px;
     --start-point: 40px;
-    --height-1: 600px;
-    --height-2: 410px;
-    --height-3: 450px;
-    --height-4: 285px;
-    --height-5: 240px;
-    --height-6: 165px;
+    --height-1: 1000px;
+    --height-2: 500px;
+    --height-3: 500px;
+    --height-4: 220px;
+    --height-5: 180px;
+    --height-6: 120px;
   }
 
   .history .vertical-line {
