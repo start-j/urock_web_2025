@@ -389,6 +389,7 @@
   width: 100%;
   height: 88px;
   overflow: hidden;
+  position: relative;
 }
 
 .banner .inner {
@@ -396,17 +397,48 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.banner .leaner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, #201d30 10.83%, rgba(32, 29, 48, 0.76) 18.41%, rgba(32, 29, 48, 0) 30%, rgba(32, 29, 48, 0) 70%, rgba(32, 29, 48, 0.76) 84.15%, #201d30 89.47%);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .banner .logo-set {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* width: 1400px; */
-  gap: 24px;
-  /* height: 100px; */
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+  min-height: 65px;
+  position: relative;
+  z-index: 1;
 }
 
+/* 반응형 대응 */
+@media (max-width: 1200px) {
+  .banner .logo-set {
+    height: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner .logo-set {
+    height: 68px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner .logo-set {
+    height: 65px;
+  }
+}
 
 /* solution header */
 .solution-container {
