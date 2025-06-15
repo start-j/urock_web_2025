@@ -134,39 +134,41 @@ function runIntroComponent() {
   });
 
   // 현재 경로에 맞는 breadcrumb 데이터 선택
+  // 1. 상세 페이지에 숨은 데이터 속성(breadcrumb-key)이 있으면 해당 값을 우선 사용
+  let customBreadcrumbKey = null;
+  const breadcrumbKeyDiv = document.getElementById('breadcrumb-key');
+  if (breadcrumbKeyDiv && breadcrumbKeyDiv.dataset.key) {
+    customBreadcrumbKey = breadcrumbKeyDiv.dataset.key;
+    console.log(`[Intro] 상세페이지 breadcrumb-key 감지: ${customBreadcrumbKey}`);
+  }
+
   const currentPath = location.pathname;
   const currentFileName = getPageFileName(currentPath);
 
-  console.log(`[Intro] 현재 경로: ${currentPath}, 파일명: ${currentFileName}`);
-
-  // breadcrumbMap에서 일치하는 파일명 찾기
   let breadcrumbData = null;
 
-  // 전체 경로로 먼저 시도
-  if (breadcrumbMap[currentPath]) {
+  // 1순위: 상세페이지 breadcrumb-key
+  if (customBreadcrumbKey && breadcrumbMap[customBreadcrumbKey]) {
+    breadcrumbData = breadcrumbMap[customBreadcrumbKey];
+    console.log(`[Intro] 상세페이지 breadcrumb-key로 breadcrumb 데이터 찾음: ${breadcrumbData}`);
+  } else if (breadcrumbMap[currentPath]) {
+    // 2순위: 전체 경로
     breadcrumbData = breadcrumbMap[currentPath];
     console.log(`[Intro] 전체 경로로 breadcrumb 데이터 찾음: ${breadcrumbData}`);
-  }
-  // 파일명으로 찾기
-  else {
-    // 모든 매핑을 순회하면서 파일명 매칭
+  } else {
+    // 3순위: 파일명 매칭
     for (const path in breadcrumbMap) {
       const pathFileName = getPageFileName(path);
-      // 파일명이 같으면 매핑
       if (pathFileName === currentFileName) {
         breadcrumbData = breadcrumbMap[path];
         console.log(`[Intro] 파일명으로 breadcrumb 데이터 찾음: ${breadcrumbData} (경로: ${path})`);
         break;
-      }
-      // 파일명이 현재 URL에 포함되어 있으면 매핑
-      else if (currentPath.includes(pathFileName)) {
+      } else if (currentPath.includes(pathFileName)) {
         breadcrumbData = breadcrumbMap[path];
         console.log(`[Intro] URL 포함 방식으로 breadcrumb 데이터 찾음: ${breadcrumbData} (경로: ${path})`);
         break;
       }
     }
-
-    // 파일명만으로 직접 매핑 시도
     if (!breadcrumbData && breadcrumbMap[currentFileName]) {
       breadcrumbData = breadcrumbMap[currentFileName];
       console.log(`[Intro] 파일명 직접 매핑으로 breadcrumb 데이터 찾음: ${breadcrumbData}`);

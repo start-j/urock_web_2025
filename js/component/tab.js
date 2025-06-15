@@ -433,6 +433,11 @@ function createTabComponent(containerId, config) {
             if (typeof window.initializeInputFields === 'function') {
               window.initializeInputFields();
             }
+
+            // 추가: 초기화 컴포넌트 호출
+            if (typeof window.initIntroComponent === 'function') {
+              window.initIntroComponent();
+            }
           }, 500);
         });
 
@@ -488,6 +493,9 @@ function createTabComponent(containerId, config) {
 
         updateContent();
         setupResponsiveTabScroll(); // 탭 변경 시 스크롤 조정
+        if (typeof window.initIntroComponent === 'function') {
+          window.initIntroComponent();
+        }
       });
     });
 
@@ -505,6 +513,9 @@ function createTabComponent(containerId, config) {
 
         updateContent();
         setupResponsiveTabScroll(); // 서브 탭 변경 시 스크롤 조정
+        if (typeof window.initIntroComponent === 'function') {
+          window.initIntroComponent();
+        }
       });
     });
 
