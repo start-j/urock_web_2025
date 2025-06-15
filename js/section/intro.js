@@ -18,6 +18,10 @@ const breadcrumbMap = {
   "/solution-07-gm-pro.html": ["홈", "솔루션", "Gate Manager Pro"],
   "/support-01-inquiry.html": ["홈", "고객지원", "문의하기"],
   "/support-02-news.html": ["홈", "고객지원", "유락소식"],
+  "/support-02-business.html": ["홈", "고객지원", "사업"],
+  "/support-02-education.html": ["홈", "고객지원", "교육"],
+  "/support-02-exhibition.html": ["홈", "고객지원", "전시회"],
+  "/support-02-notice.html": ["홈", "고객지원", "공지사항"],
 
   // 기존 경로
   "/html/page/company.html": ["홈", "회사소개"],
@@ -47,7 +51,11 @@ const breadcrumbMap = {
   "solution-06-gm.html": ["홈", "솔루션", "Gate Manager"],
   "solution-07-gm-pro.html": ["홈", "솔루션", "Gate Manager Pro"],
   "support-01-inquiry.html": ["홈", "고객지원", "문의하기"],
-  "support-02-news.html": ["홈", "고객지원", "유락소식"]
+  "support-02-news.html": ["홈", "고객지원", "유락소식"],
+  "support-02-business.html": ["홈", "고객지원", "사업"],
+  "support-02-education.html": ["홈", "고객지원", "교육"],
+  "support-02-exhibition.html": ["홈", "고객지원", "전시회"],
+  "support-02-notice.html": ["홈", "고객지원", "공지사항"]
 };
 
 // 파일명만 추출하는 함수
