@@ -27,6 +27,8 @@
   gap: 4px;
   margin-top: 20px;
   color: #ffffff;
+  /* 자연스러운 활성화/비활성화 모션 */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, opacity 0.3s, border 0.3s;
 }
 
 #submit:hover,
@@ -46,6 +48,9 @@
   background-color: #ffffff31;
   color: #a8a8a8;
   border: none;
+  opacity: 0.7;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, opacity 0.3s, border 0.3s;
+  pointer-events: none;
 }
 
 .btn--filled .icon-arrow {
