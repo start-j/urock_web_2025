@@ -514,12 +514,22 @@
 .partner {
   position: relative;
   width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   text-align: center;
   padding-top: 120px;
 }
+
+.partner .partner-icon {
+  background-image: url(/public/images/company/bg-partner.png);
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 702px;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+
 
 /* client */
 .client {
@@ -702,6 +712,27 @@
   background-color: #628CF5;
   box-shadow: 0px 25px 33px 0px rgba(98, 140, 245, 0.12), 0px 7px 10px 0px rgba(98, 140, 245, 0.10), 0px 3px 5px 0px rgba(98, 140, 245, 0.05), 0px 2px 2px 0px rgba(98, 140, 245, 0.02);
   backdrop-filter: blur(20px);
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+.partner .partner-icon {
+  background-image: url(/public/images/company/bg-partner-768.png);
+  height: 480px;
+  width: 100%;
+}
+}
+
+@media (max-width: 480px) {
+  .partner .partner-icon {
+    background-image: url(/public/images/company/bg-partner-360.png);
+    height: 260px;
+    width: 100%;
+  }
 }
 
 /* =================================== 
@@ -1101,7 +1132,7 @@
   }
 
   .history {
-    height: 3260px;
+    height: 3200px;
     padding: 0; 
     --txt-show-gap: 80px;
     --start-point: 40px;
@@ -1194,23 +1225,38 @@
     padding-top: 40px;
   }
 
+  
+  .history .title-component {
+    display: none;  /* 연혁 타이틀 숨김 */
+  }
+
+
 }
 
 /* 최소 사이즈 (360px) */
 @media (max-width: 360px) {
-
-  /* History 섹션 */
-  .history {
-    padding: 40px 0;
-    --txt-show-gap: 68px;
-    --start-point: 35px;
-    --height-1: 525px;
-    --height-2: 375px;
-    --height-3: 410px;
-    --height-4: 260px;
-    --height-5: 210px;
-    --height-6: 135px;
+  .card-company .card-asset-area-icon {
+    width: 90px;
+    height: 90px;
   }
+
+  .history {
+    height: 3800px;
+    --txt-show-gap: 120px;
+    --start-point: 24px;
+    --height-1: 1200px;    /* 2024년 유지 */
+    --height-2: 500px;     /* 2023년 유지 */
+    --height-3: 600px;     /* 2022년 증가 */
+    --height-4: 300px;     /* 2021년 유지 */
+    --height-5: 120px;     /* 2020년 유지 */
+    --height-6: 80px;      /* 2019년 유지 */
+    padding-top: 0;
+  }
+
+  .history .title-component {
+    display: none;
+  }
+
 
   .history .vertical-line {
     width: 20px;
