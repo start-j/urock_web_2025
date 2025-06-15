@@ -1117,25 +1117,13 @@
 
 @media (max-width: 360px) {
 
-  .card.card-main-solution {
-    width: 100%;
-    max-width: 320px;
-    min-width: 280px;
-    height: 280px;
-  }
-
-  .card.card-main-service {
-    width: 100%;
-    max-width: 320px;
-    min-width: 280px;
-    height: 280px;
-  }
-
+  .card.card-main-solution,
+  .card.card-main-service,
   .card.card-main-news {
     width: 100%;
     max-width: 320px;
     min-width: 280px;
-    height: 280px;
+    /* height: 280px; */
   }
 
   .card-main-news .card-txt-group {

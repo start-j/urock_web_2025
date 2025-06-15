@@ -128,42 +128,13 @@
   }
 }
 
-@media (max-width: 600px) {
+
+@media (max-width: 480px) {
   .title-component .tit {
     font-size: 18px;
   }
   
   .title-component {
-    padding: 0px 0px 20px 0px;
-  }
-}
-
-@media (max-width: 550px) {
-  .title-component .tit {
-    font-size: 17px;
-  }
-  
-  .title-component {
-    padding: 0px 0px 18px 0px;
-  }
-}
-
-@media (max-width: 480px) {
-  .title-component .tit {
-    font-size: 16px;
-  }
-  
-  .title-component {
     padding: 0px 0px 16px 0px;
-  }
-}
-
-@media (max-width: 360px) {
-  .title-component .tit {
-    font-size: 16px;
-  }
-  
-  .title-component {
-    padding: 0px 0px 14px 0px;
   }
 }
