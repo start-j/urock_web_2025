@@ -7,11 +7,9 @@
 
 /* 기본 컨테이너 스타일 */
 .contents {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 88px 0 120px 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px 20px;
 }
 
 /* 제목 그룹 스타일 */
@@ -50,12 +48,20 @@
   padding: 0px 0px 12px;
 }
 
-.contents .form-row {
+.form-row {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.input {
+  flex: 1;
+}
+
+.input-text,
+.input-dropdown,
+.input-memo {
+  margin-bottom: 24px;
 }
 
 /* .contents form .form-group, */
@@ -200,9 +206,34 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 760px) {
   .contents {
-    padding: 48px 16px 80px;
+    padding: 60px 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .input-text,
+  .input-dropdown {
+    margin-bottom: 16px;
+  }
+
+  .input-memo {
+    margin-bottom: 24px;
+  }
+
+  /* 마지막 input-dropdown의 마진 조정 */
+  .form-row:last-of-type .input-dropdown:last-child {
+    margin-bottom: 24px;
+  }
+
+  /* 체크박스 영역 위 간격 조정 */
+  .checkbox-wrapper {
+    margin-top: 8px;
   }
 
   .contents .tit-group>.tit {
