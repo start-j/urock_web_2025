@@ -38,9 +38,10 @@
 }
 
 .news-support .card.card-main-news {
-  width: calc((100% - 48px) / 3);  /* 3열 기준, 24px gap 2개 고려 */
-  min-width: 280px;
+  width: calc((100% - 72px) / 4);  /* 4열 기준, 24px gap 3개 고려 */
+  min-width: 260px;
   max-width: none;
+  height: 380px; /* 380px로 수정 */
   margin: 0;
   flex: 0 1 auto;
   position: relative;
@@ -55,6 +56,63 @@
   background-position: top;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-support .card-txt-group {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(150, 178, 248, 0.2);
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 16px 20px 20px;
+  gap: 6px;
+  text-align: left;
+  color: #fff;
+}
+
+.news-support .card-txt-group .top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px; /* 마진 감소 */
+}
+
+.news-support .card-txt-group .product-name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  height: fit-content;
+  max-height: 2.8em; /* 2줄까지만 허용 */
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.news-support .card-txt-group .des {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  height: fit-content;
+  max-height: 2.8em; /* 2줄까지만 허용 */
+  margin: 0;
+  color: rgba(255, 255, 255, 0.53);
+  font-size: 14px;
+  font-weight: 400;
 }
 
 /* Search Container */
@@ -414,6 +472,10 @@
   .news-support .section-cards {
     padding: 0 80px;
   }
+
+  .news-support .card.card-main-news {
+    width: calc((100% - 48px) / 3);  /* 3열 기준 */
+  }
 }
 
 @media (max-width: 1200px) {
@@ -436,8 +498,18 @@
   }
 
   .news-support .card.card-main-news {
-    width: 100%;  /* 1열 */
+    width: 100%;
     max-width: 464px;
+    height: 340px;
+  }
+
+  .news-support .card-txt-group {
+    min-height: 130px;
+    padding: 14px 16px 18px;
+  }
+
+  .news-support .card-txt-group .product-name {
+    font-size: 16px;
   }
 }
 
@@ -452,6 +524,23 @@
 
   .news-support .cards {
     gap: 16px;
+  }
+
+  .news-support .card.card-main-news {
+    height: 320px;
+  }
+
+  .news-support .card-txt-group {
+    min-height: 120px;
+    padding: 12px 12px 16px;
+  }
+
+  .news-support .card-txt-group .product-name {
+    font-size: 15px;
+  }
+
+  .news-support .card-txt-group .des {
+    font-size: 13px;
   }
 }
 
