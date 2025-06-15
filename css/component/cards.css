@@ -305,6 +305,9 @@
   gap: 0px;
 }
 
+.card-main-news .card-txt-group .date {
+  color: #ffffff;
+}
 
 /* card-company */
 .card.card-company {

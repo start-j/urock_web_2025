@@ -300,11 +300,11 @@ function createTabComponent(containerId, config) {
       case 'news':
         // news 탭의 서브 탭 처리
         const newsPaths = {
-          'news': '/html/detail/detail-suppert-news/detail-01-news.html',
-          'business': '/html/detail/detail-suppert-news/detail-02-business.html',
-          'education': '/html/detail/detail-suppert-news/detail-03-education.html',
-          'exhibition': '/html/detail/detail-suppert-news/detail-04-exhibition.html',
-          'notice': '/html/detail/detail-suppert-news/detail-05-notice.html'
+          'news': '/html/detail/detail-support-news/detail-01-news.html',
+          'business': '/html/detail/detail-support-news/detail-02-business.html',
+          'education': '/html/detail/detail-support-news/detail-03-education.html',
+          'exhibition': '/html/detail/detail-support-news/detail-04-exhibition.html',
+          'notice': '/html/detail/detail-support-news/detail-05-notice.html'
         };
 
         if (activeSubTab && newsPaths[activeSubTab]) {

@@ -170,7 +170,15 @@ document.addEventListener('DOMContentLoaded', function () {
               { id: 'inquiry', text: '문의하기', isActive: activeMainTab === 'inquiry' },
               { id: 'news', text: '유락소식', isActive: activeMainTab === 'news' }
             ],
-            subTabs: {}
+            subTabs: {
+              news: [
+                { id: 'news', text: 'UROCK소식', isActive: true },
+                { id: 'business', text: '사업', isActive: false },
+                { id: 'education', text: '교육', isActive: false },
+                { id: 'exhibition', text: '전시회', isActive: false },
+                { id: 'notice', text: '공지사항', isActive: false }
+              ]
+            }
           };
         } else if (currentPath.includes('solution')) {
           let activeMainTab = 'dfas';

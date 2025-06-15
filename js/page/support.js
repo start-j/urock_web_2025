@@ -83,14 +83,19 @@ document.addEventListener('tabContentLoaded', function (event) {
 console.log('[Support] Support 스크립트 초기화 완료'); 
 
 
-// 문의하기 버튼 활성화 처리
+// 문의하기 버튼 활성화 처리 (안전한 null 체크 추가)
 const checkbox = document.querySelector('.checkbox-wrapper input[type="checkbox"]');
 const submit = document.getElementById('submit');
 
-checkbox.addEventListener('change', function () {
-  if (checkbox.checked) {
-    submit.disabled = false;
-  } else {
-    submit.disabled = true;
-  }
-});
+if (checkbox && submit) {
+  console.log('[Support] 문의하기 폼 요소 발견, 이벤트 바인딩 시작');
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      submit.disabled = false;
+    } else {
+      submit.disabled = true;
+    }
+  });
+} else {
+  console.log('[Support] 문의하기 폼 요소 없음, 이벤트 바인딩 건너뛰기');
+}

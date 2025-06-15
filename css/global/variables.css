@@ -89,7 +89,7 @@
   --font-h3-height: 128%;
 
   --font-h4-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-h4-size: clamp(16px, 3vw, 24px);
+  --font-h4-size: clamp(16px, 3vw, 20px);
   --font-h4-weight: 500;
   --font-h4-spacing: -0.8px;
   --font-h4-height: 140%;
