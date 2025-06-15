@@ -1,31 +1,26 @@
 // 문의하기 체크박스 활성화/비활성화 함수 (동적으로 폼이 삽입된 후 호출 필요)
-export function initSupportCheckboxButton() {
-  const wrapper = document.querySelector('.checkbox-wrapper');
-  if (!wrapper) return;
+function initSupportCheckboxButton() {
+  const checkbox = document.querySelector('.checkbox-wrapper input[type="checkbox"]');
+  const label = document.getElementById('checkbox-label');
+  const submitButton = document.getElementById('submit');
+  if (!checkbox || !label || !submitButton) return;
 
-  const checkbox = wrapper.querySelector('input[type="checkbox"]');
-  const submitButton = document.querySelector('#submit');
-  if (!checkbox || !submitButton) return;
-
-  // 초기 상태: 체크 안되어 있으면 버튼 비활성화
+  // 초기 상태
   submitButton.disabled = !checkbox.checked;
-  console.log('초기 버튼 활성화 상태:', !submitButton.disabled);
 
-  function updateButtonState() {
+  // change 이벤트에서만 버튼 활성화/비활성화 처리 (체크박스, label 클릭 모두 반영)
+  checkbox.addEventListener('change', function() {
     submitButton.disabled = !checkbox.checked;
-    console.log('버튼 활성화 상태 변경:', !submitButton.disabled);
-  }
+  });
 
-  // change 이벤트와 click 이벤트 모두 처리
-  checkbox.addEventListener('change', updateButtonState);
-  wrapper.addEventListener('click', (e) => {
-    // 체크박스 라벨 영역 클릭 시에도 상태 업데이트
-    if (e.target !== checkbox) {
-      checkbox.checked = !checkbox.checked;
-      updateButtonState();
-    }
+  // label 클릭 시 버튼 상태 갱신 (브라우저 기본 동작 후 상태 반영)
+  label.addEventListener('click', function() {
+    setTimeout(() => {
+      submitButton.disabled = !checkbox.checked;
+    }, 0);
   });
 }
+window.initSupportCheckboxButton = initSupportCheckboxButton;
 
 // EmailJS 폼 초기화 함수 (동적으로 폼이 삽입된 후 호출 필요)
 export function initEmailJSForm() {
@@ -61,5 +56,10 @@ if (typeof window !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
     initSupportCheckboxButton();
     initEmailJSForm();
+  });
+
+  // 탭 컨텐츠 로드 시마다 체크박스-버튼 활성화 함수 실행
+  document.addEventListener('tabContentLoaded', () => {
+    initSupportCheckboxButton();
   });
 }

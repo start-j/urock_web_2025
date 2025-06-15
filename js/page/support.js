@@ -81,3 +81,16 @@ document.addEventListener('tabContentLoaded', function (event) {
 });
 
 console.log('[Support] Support 스크립트 초기화 완료'); 
+
+
+// 문의하기 버튼 활성화 처리
+const checkbox = document.querySelector('.checkbox-wrapper input[type="checkbox"]');
+const submit = document.getElementById('submit');
+
+checkbox.addEventListener('change', function () {
+  if (checkbox.checked) {
+    submit.disabled = false;
+  } else {
+    submit.disabled = true;
+  }
+});
