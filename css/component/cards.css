@@ -285,8 +285,8 @@
 
 /* card-main-news */
 .card.card-main-news {
-  width: 464px;
-  height: 480px;
+  /* width: 464px;*/
+  /* height: 320px;  */
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
