@@ -535,7 +535,6 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 .contents form input:not(:focus):valid,
-.contents form select:not(:focus):valid,
 .contents form textarea:not(:focus):valid {
   border: 1.2px solid rgba(255, 255, 255, 0.322);
   color: #ffffffe8;
