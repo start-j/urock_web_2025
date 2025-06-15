@@ -33,7 +33,7 @@
 .intro .txt-group {
   position: absolute;
   width: 100%;
-  top: 176px;
+  top: 156px;
   gap: 2px;
   text-align: center;
   font-size: 32px;
@@ -288,7 +288,7 @@
 
   /* 타이틀과 설명 반응형 */
   .intro .txt-group {
-    top: 140px;
+    top: 120px;
     padding: 0 15px;
     font-size: 24px;
   }
@@ -304,7 +304,7 @@
 /* 태블릿 (768px 이하) - 타이틀 및 설명 */
 @media (max-width: 768px) {
   .intro .txt-group {
-    top: 160px;
+    top: 120px;
     padding: 0 30px;
     font-size: 28px;
   }
@@ -318,7 +318,7 @@
 /* 모바일 (480px 이하) - 타이틀 및 설명 */
 @media (max-width: 480px) {
   .intro .txt-group {
-    top: 150px;
+    top: 110px;
     padding: 0 20px;
     font-size: 26px;
   }

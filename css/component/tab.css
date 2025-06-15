@@ -319,7 +319,7 @@ section.intro .tab-container .tab-sub,
   .tab-text-group {
     gap: 32px;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    /* -webkit-overflow-scrolling: touch; */
     padding: 0 20px;
   }
 
@@ -381,12 +381,12 @@ section.intro .tab-container .tab-sub,
 
   .tab-text-group {
     gap: 20px;
-    justify-content: flex-start;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+    /* overflow-x: auto; */
+    /* -webkit-overflow-scrolling: touch; */
     padding: 0 15px;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    /* scrollbar-width: none;
+    -ms-overflow-style: none; */
   }
 
   .tab-text-group::-webkit-scrollbar {

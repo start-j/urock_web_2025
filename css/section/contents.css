@@ -208,7 +208,7 @@
 
   .contents .frame {
     height: 350px;
-    border-radius: 16px;
+    border-radius: 32px;
   }
 
   .contents .btns {
@@ -276,7 +276,7 @@
 
   .contents .frame {
     height: 280px;
-    border-radius: 12px;
+    border-radius: 32px;
   }
 
   .contents .btns {
@@ -348,7 +348,7 @@
 
   .contents .frame {
     height: 240px;
-    border-radius: 10px;
+    border-radius: 32px;
   }
 
   .contents .btns {
