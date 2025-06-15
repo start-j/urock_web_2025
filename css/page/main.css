@@ -659,13 +659,13 @@
   .hero .thumbnail .item .subtit {
     top: 16px;
     left: 14px;
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .hero .thumbnail .item .tit {
     top: 44px;
     left: 14px;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .hero .thumbnail .item .icon-expansion {
@@ -726,17 +726,6 @@
     height: 120px;
   }
 
-  .hero .thumbnail .item .subtit {
-    top: 14px;
-    left: 12px;
-    font-size: 9px;
-  }
-
-  .hero .thumbnail .item .tit {
-    top: 38px;
-    left: 12px;
-    font-size: 12px;
-  }
 
   .hero .thumbnail .item .icon-expansion {
     top: 85px;
@@ -906,8 +895,21 @@
     padding: 80px 0;
     min-height: 120px;
   }
-}
 
+  .hero .carousel .list .item .hero-content {
+    width: 680px;
+    top: -130px;
+  }
+
+  .hero .assets {
+    width: 650px;
+    top: 110px;
+  }
+
+  .hero .assets .asset-top-right {
+    left: 640px;
+}
+}
 
 /* 720px 이하 */
 @media (max-width: 720px) {
@@ -929,8 +931,9 @@
   }
 
   .hero .carousel .list .item .hero-content {
-    width: 650px;
-    top: -58px;
+    width: 680px;
+    top: -160px;
+    transform: translateX(-43%);
   }
 
   .hero .carousel .list .item .hero-content .shape {
@@ -938,22 +941,14 @@
     height: 160px;
   }
 
-  .hero .carousel .list .item .hero-content .title {
-    font-size: 28px;
+  .hero .carousel .list .item .hero-content .title,
+  .hero .carousel .list .item .hero-content .topic {
+    font-size: 36px;
   }
 
-  .hero .carousel .list .item .hero-content .topic {
-    font-size: 16px;
-  }
 
   .hero .carousel .list .item .hero-content .hero-des .tit {
-    font-size: 14px;
-  }
-
-  .hero .thumbnail-group {
-    width: 120px;
-    right: calc(50% - 60px);
-    bottom: 25px;
+    font-size: 16px;
   }
 
   .hero .thumbnail-group .arrows #prev,
@@ -969,30 +964,16 @@
   }
 
   .hero .assets {
-    width: 650px;
+    width: 600px;
     top: 100px;
   }
 
-  .hero .assets .asset-top-gif {
-    width: 70px;
-    height: 42px;
-  }
-
-  .hero .assets .asset-top-left {
-    width: 80px;
-    height: 52px;
-  }
-
   .hero .assets .asset-top-right {
-    left: 650px;
-    width: 8px;
-    height: 160px;
+    left: 580px;
   }
 
   .hero .assets .asset-bottom-left {
-    left: 25px;
-    width: 8px;
-    height: 65px;
+    top: 330px;
   }
 }
 
@@ -1009,184 +990,54 @@
     width: 20px;
     height: 20px;
   }
+
+  .hero .carousel .list .item .hero-content {
+    width:520px;
+    transform: translateX(-45%);
+  }
+
+  .hero .assets {
+    width: 500px;
+    top: 100px;
+  }
+
+  .hero .assets .asset-top-right {
+    left: 475px;
+  }
 }
 
 
 
-/* 560px 이하 */
-@media (max-width: 560px) {
-  .hero {
-    height: 500px;
-  }
 
-  .hero .carousel {
-    height: 500px;
-  }
-
-  .hero .carousel .list .item>img,
-  .hero .carousel .list .item>video {
-    height: 600px;
-  }
-
-  .hero .carousel .bg-front {
-    height: 600px;
-  }
-
+@media (max-width: 480px) {
   .hero .carousel .list .item .hero-content {
-    width: 500px;
-    top: -48px;
+    width:420px;
+    transform: translateX(-48%);
   }
 
-  .hero .carousel .list .item .hero-content .shape {
-    width: 450px;
-    height: 140px;
+  .hero .assets {
+    width: 420px;
+    top: 100px;
   }
 
-  .hero .carousel .list .item .hero-content .title {
-    font-size: 24px;
+  .hero .assets .asset-bottom-left {
+    display: none;
   }
 
+  .hero .assets .asset-top-right {
+    display: none;
+  }
+
+  .hero .carousel .list .item .hero-content .title,
   .hero .carousel .list .item .hero-content .topic {
+    font-size: 32px;
+  }
+
+
+  .hero .carousel .list .item .hero-content .hero-des .tit {
     font-size: 14px;
   }
 
-  .hero .carousel .list .item .hero-content .hero-des .tit {
-    font-size: 12px;
-  }
-
-  .hero .thumbnail-group {
-    width: 100px;
-    right: calc(50% - 50px);
-    bottom: 20px;
-  }
-
-  .hero .thumbnail-group .arrows #prev,
-  .hero .thumbnail-group .arrows #next {
-    width: 44px;
-    height: 44px;
-  }
-
-  .hero .thumbnail-group .arrows #prev svg,
-  .hero .thumbnail-group .arrows #next svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .hero .assets {
-    width: 500px;
-    top: 90px;
-  }
-
-  .hero .assets .asset-top-gif {
-    width: 60px;
-    height: 36px;
-  }
-
-  .hero .assets .asset-top-left {
-    width: 70px;
-    height: 45px;
-  }
-
-  .hero .assets .asset-top-right {
-    left: 500px;
-    width: 7px;
-    height: 140px;
-  }
-
-  .hero .assets .asset-bottom-left {
-    left: 22px;
-    width: 7px;
-    height: 55px;
-  }
-}
-
-/* 480px 이하 - 최대 높이 760px 제한 */
-@media (max-width: 480px) {
-  .hero {
-    height: 450px;
-    max-height: 760px;
-  }
-
-  .hero .carousel {
-    height: 450px;
-    max-height: 760px;
-  }
-
-  .hero .carousel .list .item>img,
-  .hero .carousel .list .item>video {
-    height: 550px;
-  }
-
-  .hero .carousel .bg-front {
-    height: 550px;
-  }
-
-  .hero .carousel .list .item .hero-content {
-    width: 420px;
-    top: -38px;
-  }
-
-  .hero .carousel .list .item .hero-content .shape {
-    width: 380px;
-    height: 120px;
-  }
-
-  .hero .carousel .list .item .hero-content .title {
-    font-size: 20px;
-  }
-
-  .hero .carousel .list .item .hero-content .topic {
-    font-size: 12px;
-  }
-
-  .hero .carousel .list .item .hero-content .hero-des .tit {
-    font-size: 12px;
-  }
-
-  .hero .thumbnail-group {
-    width: 90px;
-    right: calc(50% - 45px);
-    bottom: 15px;
-  }
-
-  .hero .thumbnail-group .arrows #prev,
-  .hero .thumbnail-group .arrows #next {
-    width: 40px;
-    height: 40px;
-  }
-
-  .hero .thumbnail-group .arrows #prev svg,
-  .hero .thumbnail-group .arrows #next svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .hero .assets {
-    width: 420px;
-    top: 80px;
-  }
-
-  .hero .assets .asset-top-gif {
-    width: 50px;
-    height: 30px;
-  }
-
-  .hero .assets .asset-top-left {
-    width: 60px;
-    height: 38px;
-  }
-
-  .hero .assets .asset-top-right {
-    left: 420px;
-    width: 6px;
-    height: 120px;
-  }
-
-  .hero .assets .asset-bottom-left {
-    left: 18px;
-    width: 6px;
-    height: 45px;
-  }
 }
 
 
@@ -1201,94 +1052,3 @@
   }
 }
 
-
-/* 
-@media (max-width: 320px) {
-  .hero {
-    height: 400px;
-    max-height: 760px;
-  }
-
-  .hero .carousel {
-    height: 400px;
-    max-height: 760px;
-  }
-
-  .hero .carousel .list .item>img,
-  .hero .carousel .list .item>video {
-    height: 500px;
-    top: calc(50% - 550px);
-  }
-
-  .hero .carousel .bg-front {
-    height: 500px;
-    top: calc(50% - 550px);
-  }
-
-  .hero .carousel .list .item .hero-content {
-    width: 280px;
-    top: -28px;
-  }
-
-  .hero .carousel .list .item .hero-content .shape {
-    width: 260px;
-    height: 100px;
-  }
-
-  .hero .carousel .list .item .hero-content .title {
-    font-size: 18px;
-  }
-
-  .hero .carousel .list .item .hero-content .topic {
-    font-size: 12px;
-  }
-
-  .hero .carousel .list .item .hero-content .hero-des .tit {
-    font-size: 12px;
-  }
-
-  .hero .thumbnail-group {
-    width: 80px;
-    right: calc(50% - 40px);
-    bottom: 10px;
-  }
-
-  .hero .thumbnail-group .arrows #prev,
-  .hero .thumbnail-group .arrows #next {
-    width: 36px;
-    height: 36px;
-  }
-
-  .hero .thumbnail-group .arrows #prev svg,
-  .hero .thumbnail-group .arrows #next svg {
-    width: 12px;
-    height: 12px;
-  }
-
-  .hero .assets {
-    width: 280px;
-    top: 70px;
-  }
-
-  .hero .assets .asset-top-gif {
-    width: 40px;
-    height: 24px;
-  }
-
-  .hero .assets .asset-top-left {
-    width: 50px;
-    height: 32px;
-  }
-
-  .hero .assets .asset-top-right {
-    left: 280px;
-    width: 5px;
-    height: 100px;
-  }
-
-  .hero .assets .asset-bottom-left {
-    left: 15px;
-    width: 5px;
-    height: 35px;
-  }
-} */
