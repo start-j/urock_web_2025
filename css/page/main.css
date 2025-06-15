@@ -472,7 +472,7 @@
 .section-client {
   position: relative;
   width: 100%;
-  height: 920px;
+  height: 820px;
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: top;
@@ -489,7 +489,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* overflow: hidden; */
 }
 
 .section-client .logo-track {
@@ -499,7 +498,7 @@
 }
 
 .section-client .client-logo {
-  height: 96px;
+  height: 92px;
   width: 50%;
   object-fit: cover;
 }
@@ -839,6 +838,13 @@
     width: 990px;
     height: 180px;
   }
+
+  .section-client {
+    height: 720px;
+  }
+  .section-client .client-logo {
+    height: 88px;
+  }
 }
 
 /* 860px 이하 - 썸네일 숨김, prev/next 버튼만 가운데 배치 */
@@ -1069,7 +1075,6 @@
   .hero .carousel .list .item .hero-content .hero-des .tit {
     font-size: 14px;
   }
-
 }
 
 
