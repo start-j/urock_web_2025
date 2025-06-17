@@ -1,5 +1,5 @@
 .intro {
-  background-image: url(/public/images/company/bg-top.png);
+  background-image: url(../../public/images/company/bg-top.png);
 }
 
 /* business */
@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-image: url(/public/images/company/bg-business.png);
+  background-image: url(../../public/images/company/bg-business.png);
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -519,7 +519,7 @@
 }
 
 .partner .partner-icon {
-  background-image: url(/public/images/company/bg-partner.png);
+  background-image: url(../../public/images/company/bg-partner.png);
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -720,16 +720,16 @@
 
 
 @media (max-width: 768px) {
-.partner .partner-icon {
-  background-image: url(/public/images/company/bg-partner-768.png);
-  height: 480px;
-  width: 100%;
-}
+  .partner .partner-icon {
+    background-image: url(../../public/images/company/bg-partner-768.png);
+    height: 480px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
   .partner .partner-icon {
-    background-image: url(/public/images/company/bg-partner-360.png);
+    background-image: url(../../public/images/company/bg-partner-360.png);
     height: 260px;
     width: 100%;
   }
@@ -1016,7 +1016,7 @@
 @media (max-width: 768px) {
   .business {
     min-height: 768px;
-    background-image: url(/public/images/company/bg-business-768.png);
+    background-image: url(../../public/images/company/bg-business-768.png);
   }
 
   .business .business-header {
@@ -1112,7 +1112,7 @@
 @media (max-width: 600px) {
   .business {
     min-height: 600px;
-    background-image: url(/public/images/company/bg-business-768.png);
+    background-image: url(../../public/images/company/bg-business-768.png);
   }
 
   .business .txt-group {
@@ -1124,7 +1124,7 @@
 /* 모바일 세로 (480px 이하) */
 @media (max-width: 480px) {
   .business {
-    background-image: url(/public/images/company/bg-business-360.png);
+    background-image: url(../../public/images/company/bg-business-360.png);
   }
 
   .business .business-header {
@@ -1133,7 +1133,7 @@
 
   .history {
     height: 3200px;
-    padding: 0; 
+    padding: 0;
     --txt-show-gap: 80px;
     --start-point: 40px;
     --height-1: 1000px;
@@ -1225,9 +1225,10 @@
     padding-top: 40px;
   }
 
-  
+
   .history .title-component {
-    display: none;  /* 연혁 타이틀 숨김 */
+    display: none;
+    /* 연혁 타이틀 숨김 */
   }
 
 
@@ -1244,12 +1245,18 @@
     height: 3700px;
     --txt-show-gap: 120px;
     --start-point: 24px;
-    --height-1: 1200px;    /* 2024년 유지 */
-    --height-2: 500px;     /* 2023년 유지 */
-    --height-3: 600px;     /* 2022년 증가 */
-    --height-4: 300px;     /* 2021년 유지 */
-    --height-5: 120px;     /* 2020년 유지 */
-    --height-6: 80px;      /* 2019년 유지 */
+    --height-1: 1200px;
+    /* 2024년 유지 */
+    --height-2: 500px;
+    /* 2023년 유지 */
+    --height-3: 600px;
+    /* 2022년 증가 */
+    --height-4: 300px;
+    /* 2021년 유지 */
+    --height-5: 120px;
+    /* 2020년 유지 */
+    --height-6: 80px;
+    /* 2019년 유지 */
     padding-top: 0;
   }
 

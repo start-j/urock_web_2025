@@ -1,5 +1,5 @@
 .intro {
-  background-image: url(/public/images/support/bg-top.png);
+  background-image: url(../../public/images/support/bg-top.png);
 }
 
 /* 뉴스 섹션 기본 스타일 */
@@ -38,10 +38,12 @@
 }
 
 .news-support .card.card-main-news {
-  width: calc((100% - 72px) / 4);  /* 4열 기준, 24px gap 3개 고려 */
+  width: calc((100% - 72px) / 4);
+  /* 4열 기준, 24px gap 3개 고려 */
   min-width: 260px;
   max-width: none;
-  height: 380px; /* 380px로 수정 */
+  height: 380px;
+  /* 380px로 수정 */
   margin: 0;
   flex: 0 1 auto;
   position: relative;
@@ -83,7 +85,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2px; /* 마진 감소 */
+  margin-bottom: 2px;
+  /* 마진 감소 */
 }
 
 .news-support .card-txt-group .product-name {
@@ -94,7 +97,8 @@
   text-overflow: ellipsis;
   line-height: 1.4;
   height: fit-content;
-  max-height: 2.8em; /* 2줄까지만 허용 */
+  max-height: 2.8em;
+  /* 2줄까지만 허용 */
   margin: 0;
   font-size: 18px;
   font-weight: 600;
@@ -108,7 +112,8 @@
   text-overflow: ellipsis;
   line-height: 1.4;
   height: fit-content;
-  max-height: 2.8em; /* 2줄까지만 허용 */
+  max-height: 2.8em;
+  /* 2줄까지만 허용 */
   margin: 0;
   color: rgba(255, 255, 255, 0.53);
   font-size: 14px;
@@ -474,7 +479,8 @@
   }
 
   .news-support .card.card-main-news {
-    width: calc((100% - 48px) / 3);  /* 3열 기준 */
+    width: calc((100% - 48px) / 3);
+    /* 3열 기준 */
   }
 }
 
@@ -484,7 +490,8 @@
   }
 
   .news-support .card.card-main-news {
-    width: calc((100% - 24px) / 2);  /* 2열 기준 */
+    width: calc((100% - 24px) / 2);
+    /* 2열 기준 */
   }
 }
 

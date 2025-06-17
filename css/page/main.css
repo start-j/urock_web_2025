@@ -317,7 +317,7 @@
 .hero .thumbnail .item .icon-expansion:hover {
   transform: scale(1.5);
   transition: transform 0.3s ease;
-  content: url(../assets/icon/icon-expansion-hover.svg);
+  content: url(../../public/icons/icon-expansion-hover.svg);
 }
 
 .hero .thumbnail .item.active .icon-expansion {
@@ -739,13 +739,13 @@
     width: 1100px;
     top: -120px;
   }
-  
+
   .hero .carousel .list .item .hero-content .shape {
     width: 900px;
     height: 220px;
   }
 
-  
+
   .hero .thumbnail-group {
     width: 1100px;
     right: calc(50% - 550px);
@@ -785,13 +785,14 @@
   }
 
   .hero .assets .asset-bottom-left {
-    top: 400px; 
+    top: 400px;
   }
 }
 
 
 /* 1200px 이하 */
 @media (max-width: 1200px) {
+
   .hero .carousel .list .item>img,
   .hero .carousel .list .item>video {
     height: 760px;
@@ -801,7 +802,7 @@
     height: 760px;
   }
 
-  
+
   .hero .carousel .list .item .hero-content {
     width: 750px;
     top: -140px;
@@ -833,7 +834,7 @@
     width: 990px;
     top: -140px;
   }
-  
+
   .hero .carousel .list .item .hero-content .shape {
     width: 990px;
     height: 180px;
@@ -842,6 +843,7 @@
   .section-client {
     height: 720px;
   }
+
   .section-client .client-logo {
     height: 88px;
   }
@@ -925,6 +927,7 @@
     background-position: top;
     padding: 100px 0px 148px 0px;
   }
+
   .solution-header {
     background-image: url("../../public/images/main/solution-header-768.png");
     background-size: auto 100%;
@@ -946,7 +949,7 @@
 
   .hero .assets .asset-top-right {
     left: 640px;
-}
+  }
 }
 
 /* 720px 이하 */
@@ -1024,13 +1027,14 @@
     gap: 4px;
     margin-top: 0px;
   }
+
   .btn-main-news .icon-arrow {
     width: 20px;
     height: 20px;
   }
 
   .hero .carousel .list .item .hero-content {
-    width:520px;
+    width: 520px;
     transform: translateX(-45%);
   }
 
@@ -1049,7 +1053,7 @@
 
 @media (max-width: 480px) {
   .hero .carousel .list .item .hero-content {
-    width:420px;
+    width: 420px;
     transform: translateX(-48%);
   }
 
@@ -1089,7 +1093,7 @@
   }
 
   .hero .carousel .list .item .hero-content {
-    width:320px;
+    width: 320px;
     transform: translateX(-50%);
   }
 
@@ -1098,4 +1102,3 @@
   }
 
 }
-

@@ -1,3 +1,5 @@
+import { toRelativePath } from '../global/utils.js';
+
 /**
  * 탭 컴포넌트 생성 함수
  * 주어진 ID의 컨테이너에 탭 컴포넌트를 생성합니다.
@@ -357,7 +359,7 @@ function createTabComponent(containerId, config) {
     }
 
     // 컨텐츠 로드
-    fetch(contentPath)
+    fetch(toRelativePath(contentPath))
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}: ${response.statusText}`);

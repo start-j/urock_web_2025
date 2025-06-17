@@ -228,15 +228,15 @@ footer .copyright {
 
   footer .menu-container {
     display: none;
-}
+  }
 
-footer .divider-row-full {
-  width: 100%;
-}
+  footer .divider-row-full {
+    width: 100%;
+  }
 
-footer .phone-number-group {
-  margin-top: 20px;
-}
+  footer .phone-number-group {
+    margin-top: 20px;
+  }
 }
 
 
@@ -266,20 +266,20 @@ footer .phone-number-group {
     margin-top: 16px;
   }
 
-  
 
-footer .phone-number-group .img-call {
-  width: 32px;
-  height: 32px;
-}
+
+  footer .phone-number-group .img-call {
+    width: 32px;
+    height: 32px;
+  }
 
 
   footer .phone-number-group {
     font-size: 24px;
   }
-  
+
   footer .copyright-container {
-  font-size: 12px;
+    font-size: 12px;
   }
 
 }

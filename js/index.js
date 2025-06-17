@@ -11,6 +11,7 @@ import './global/constants.js';   /* 상수 */
 import './global/utils.js';       /* 유틸리티 함수 */
 import './global/componentManager.js'; /* 컴포넌트 관리자 */
 import './global/email.js';           /* 이메일 관련 */
+import './global/supportTabConfig.js';      /* 지원 탭 설정 */
 
 /* ========== 02. UI 컴포넌트 ========== */
 import './component/buttons.js';    /* 버튼 컴포넌트 */
