@@ -180,39 +180,6 @@ function setupCommonButtons() {
   });
 }
 
-// FAB (Floating Action Button) 설정
-function setupFABButton() {
-  const fabBtn = document.querySelector('.fab-btn');
-  if (!fabBtn) return;
-
-  // 스크롤 위치에 따라 버튼 표시/숨김
-  function handleScroll() {
-    if (window.scrollY > 300) {
-      fabBtn.style.display = 'block';
-    } else {
-      fabBtn.style.display = 'none';
-    }
-  }
-
-  // 버튼 클릭 시 최상단으로 스크롤
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
-
-  // 이벤트 리스너 등록 (중복 방지)
-  if (!fabBtn.dataset.eventAttached) {
-    window.addEventListener('scroll', handleScroll);
-    fabBtn.addEventListener('click', scrollToTop);
-    fabBtn.dataset.eventAttached = 'true';
-  }
-
-  // 초기 상태 설정
-  handleScroll();
-}
-
 // 현재 페이지 타입 감지 (개선된 버전)
 function getCurrentPageType() {
   const currentPath = window.location.pathname;
@@ -665,7 +632,6 @@ function initializePageFeatures(pageInfo) {
     // 기본 기능들은 항상 설정
     try {
       setupCommonButtons();
-      setupFABButton();
     } catch (error) {
       console.error('[Solution] 기본 기능 설정 중 오류:', error);
     }
@@ -678,7 +644,6 @@ function initializePageFeatures(pageInfo) {
   // 공통 기능 설정 (안전한 실행)
   try {
     setupCommonButtons();
-    setupFABButton();
   } catch (error) {
     console.error('[Solution] 공통 기능 설정 중 오류:', error);
   }
