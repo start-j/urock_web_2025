@@ -655,7 +655,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(../images/main/bg-solution-header.png);
+  background-image: url(../../public/images/main/bg-solution-header.png);
   background-size: 100% 498px;
   background-repeat: no-repeat;
   background-position: center;

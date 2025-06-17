@@ -342,6 +342,14 @@ header .mobile-menu-btn {
   header .menu-icon {
     display: block;
   }
+
+
+  header .fab-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+
 }
 
 @media (max-width: 380px) {
@@ -569,7 +577,7 @@ header .mobile-menu-btn {
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: url('/public/icons/icon-arrow-white.svg') center/contain no-repeat;
+  background: url('../../public/icons/icon-arrow-white.svg') center/contain no-repeat;
   transition: all 0.3s ease;
 }
 

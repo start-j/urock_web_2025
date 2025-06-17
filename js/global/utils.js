@@ -47,4 +47,15 @@ export function getQueryParams() {
   });
 
   return params;
-} 
+}
+
+
+
+
+// 상대 경로 변환 (공통 함수 분리)
+export function toRelativePath(absPath) {
+  const current = window.location.pathname;
+  let currentDepth = current.split('/').length - 2;
+  if (currentDepth < 0) currentDepth = 0;
+  return '../../'.repeat(currentDepth) + absPath.replace(/^\//, '');
+}
