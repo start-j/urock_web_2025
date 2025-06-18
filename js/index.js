@@ -3,6 +3,8 @@
  * 모든 JS 파일을 import하는 엔트리 포인트
  */
 
+import '../css/style.css';
+
 /* ========== 01. 글로벌 설정 ========== */
 import './global/events.js';      /* 이벤트 관련 */
 import './global/components.js';  /* 공통 컴포넌트 */

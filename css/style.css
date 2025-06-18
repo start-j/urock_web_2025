@@ -62,8 +62,6 @@
 /* 클라이언트 섹션 */
 @import url('./section/news.css');
 /* 뉴스 섹션 */
-@import url('./section/service.css');
-/* 서비스 섹션 */
 @import url('./section/certificate.css');
 /* 인증서 섹션 */
 @import url('./section/specification.css');

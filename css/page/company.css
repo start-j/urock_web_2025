@@ -1,5 +1,5 @@
 .intro {
-  background-image: url(../../public/images/company/bg-top.png);
+  background-image: url(.././images/company/bg-top.png);
 }
 
 /* business */
@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-image: url(../../public/images/company/bg-business.png);
+  background-image: url(.././images/company/bg-business.png);
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -25,7 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-image: url(/public/images/company/bg-business-header.png);
+  /* background-image: url/images/company/bg-business-header.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; */
@@ -213,7 +213,7 @@
   width: 100%;
   height: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--height-5) + var(--height-6) + var(--txt-show-gap) * 6 + 200px + 360px);
   padding: 180px 0;
-  background-image: url(../../public/images/company/bg-history.png);
+  background-image: url(.././images/company/bg-history.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -519,7 +519,7 @@
 }
 
 .partner .partner-icon {
-  background-image: url(../../public/images/company/bg-partner.png);
+  background-image: url(.././images/company/bg-partner.png);
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -571,7 +571,7 @@
   position: relative;
   width: 100vw;
   overflow: hidden;
-  background-image: url(../../public/images/company/bg-location.png);
+  background-image: url(.././images/company/bg-location.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -670,7 +670,7 @@
   left: 700px;
   width: 390px;
   height: 162px;
-  background-image: url(../../public/images/company/location-group.png);
+  background-image: url(.././images/company/location-group.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -721,7 +721,7 @@
 
 @media (max-width: 768px) {
   .partner .partner-icon {
-    background-image: url(../../public/images/company/bg-partner-768.png);
+    background-image: url(.././images/company/bg-partner-768.png);
     height: 480px;
     width: 100%;
   }
@@ -729,7 +729,7 @@
 
 @media (max-width: 480px) {
   .partner .partner-icon {
-    background-image: url(../../public/images/company/bg-partner-360.png);
+    background-image: url(.././images/company/bg-partner-360.png);
     height: 260px;
     width: 100%;
   }
@@ -1016,7 +1016,7 @@
 @media (max-width: 768px) {
   .business {
     min-height: 768px;
-    background-image: url(../../public/images/company/bg-business-768.png);
+    background-image: url(.././images/company/bg-business-768.png);
   }
 
   .business .business-header {
@@ -1112,7 +1112,7 @@
 @media (max-width: 600px) {
   .business {
     min-height: 600px;
-    background-image: url(../../public/images/company/bg-business-768.png);
+    background-image: url(.././images/company/bg-business-768.png);
   }
 
   .business .txt-group {
@@ -1124,7 +1124,7 @@
 /* 모바일 세로 (480px 이하) */
 @media (max-width: 480px) {
   .business {
-    background-image: url(../../public/images/company/bg-business-360.png);
+    background-image: url(.././images/company/bg-business-360.png);
   }
 
   .business .business-header {

@@ -1,5 +1,5 @@
 .intro {
-  background-image: url(../../public/images/support/bg-top.png);
+  background-image: url(.././images/support/bg-top.png);
 }
 
 /* 뉴스 섹션 기본 스타일 */
@@ -198,7 +198,7 @@
   background-repeat: no-repeat;
   background-position: top;
   text-align: left;
-  background-image: url(../../public/images/customer/img-card-news.png);
+  background-image: url(.././images/customer/img-card-news.png);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 

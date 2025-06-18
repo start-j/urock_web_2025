@@ -17,9 +17,9 @@ button.fab-btn {
 }
 
 button.fab-btn:hover img {
-  content: url(../../public/images/common/fab-hover.png);
+  content: url(.././images/common/fab-hover.png);
 }
 
 button.fab-btn:active img {
-  content: url(../../public/images/common/fab-active.png);
+  content: url(.././images/common/fab-active.png);
 }
