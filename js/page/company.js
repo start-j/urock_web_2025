@@ -16,7 +16,7 @@ if (location && mapArea) {
 
 	// 데스크톱: 마우스 이벤트
 	mapArea.addEventListener('mousedown', hideLocationGroup);
-	
+
 	// 모바일: 터치 이벤트
 	mapArea.addEventListener('touchstart', hideLocationGroup, { passive: true });
 
@@ -28,7 +28,7 @@ if (location && mapArea) {
 	// 모바일에서 지도 상호작용 개선
 	if (window.innerWidth <= 768) {
 		mapArea.style.pointerEvents = 'auto';
-		
+
 		// 터치 시작 시 location-group 숨김
 		mapArea.addEventListener('touchmove', () => {
 			location.style.opacity = '0';
@@ -67,7 +67,7 @@ window.addEventListener('resize', () => {
 	resizeTimer = setTimeout(() => {
 		// observer 재생성
 		txtShowObserver.disconnect();
-		
+
 		const newObserverOptions = {
 			root: null,
 			rootMargin: '0px',
@@ -91,60 +91,34 @@ window.addEventListener('resize', () => {
 	}, 250);
 });
 
-// FAB 버튼 스크롤 동작
-document.addEventListener('DOMContentLoaded', function () {
-	const fabBtn = document.querySelector('.fab-btn');
-
-	// 요소가 존재하는지 확인
-	if (fabBtn) {
-		// 스크롤 위치에 따라 버튼 표시/숨김
-		window.addEventListener('scroll', function () {
-			// 사용자가 상단에서 300px 이상 스크롤하면 버튼 표시
-			if (window.scrollY > 300) {
-				fabBtn.style.display = 'block';
-			} else {
-				fabBtn.style.display = 'none';
-			}
-		});
-
-		// 버튼 클릭 시 최상단으로 스크롤
-		fabBtn.addEventListener('click', function () {
-			window.scrollTo({
-				top: 0,
-				behavior: 'smooth' // 부드러운 스크롤 애니메이션
-			});
-		});
-	}
-});
-
 // 솔루션 문의 버튼 이벤트 (반응형 대응)
 document.addEventListener('DOMContentLoaded', function () {
 	const solutionBtn = document.querySelector('.btn-solution');
-	
+
 	if (solutionBtn) {
-		solutionBtn.addEventListener('click', function() {
+		solutionBtn.addEventListener('click', function () {
 			// 모바일에서 햅틱 피드백 (지원되는 경우)
 			if (navigator.vibrate && window.innerWidth <= 768) {
 				navigator.vibrate(50);
 			}
-			
+
 			// 문의 폼으로 이동 또는 모달 열기 등의 기능 구현
 			console.log('솔루션 문의 버튼 클릭됨');
-			
+
 			// 예시: 문의 페이지로 이동
 			// window.location.href = '/contact';
-			
+
 			// 예시: 이메일 링크
 			// window.location.href = 'mailto:contact@urock.co.kr?subject=솔루션 문의';
 		});
 
 		// 모바일에서 터치 피드백
 		if (window.innerWidth <= 768) {
-			solutionBtn.addEventListener('touchstart', function() {
+			solutionBtn.addEventListener('touchstart', function () {
 				this.style.transform = 'scale(0.98)';
 			}, { passive: true });
 
-			solutionBtn.addEventListener('touchend', function() {
+			solutionBtn.addEventListener('touchend', function () {
 				this.style.transform = 'scale(1)';
 			}, { passive: true });
 		}

@@ -41,7 +41,7 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
 .input select {
   appearance: none;
   -webkit-appearance: none;
-  background: #fafbfc url('../../public/icons/icon-dropdown.svg') no-repeat right 12px center/18px 18px;
+  background: #fafbfc url('.././icons/icon-dropdown.svg') no-repeat right 12px center/18px 18px;
 }
 
 /* ========== Input 상태별 스타일 ========== */
@@ -109,11 +109,11 @@ support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
 }
 
 .icon-search {
-  background: url('../../public/icons/icon-search.svg') no-repeat center/contain;
+  background: url('.././icons/icon-search.svg') no-repeat center/contain;
 }
 
 .icon-dropdown {
-  background: url('../../public/icons/icon-dropdown.svg') no-repeat center/contain;
+  background: url('.././icons/icon-dropdown.svg') no-repeat center/contain;
 }
 
 .input-search,
@@ -247,7 +247,7 @@ input[type="search"]::-webkit-search-decoration {
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  background: url('../../public/icons/icon-close.svg') no-repeat center/contain;
+  background: url('.././icons/icon-close.svg') no-repeat center/contain;
 }
 
 /* 클린 버튼 위치 및 크기 - 일반 인풋 */
@@ -285,7 +285,7 @@ input[type="search"]::-webkit-search-decoration {
   height: 40px;
   border-radius: 50%;
   z-index: 10;
-  background: url('../../public/icons/icon-close.svg') no-repeat center/18px;
+  background: url('.././icons/icon-close.svg') no-repeat center/18px;
   background-size: 18px 18px;
 }
 

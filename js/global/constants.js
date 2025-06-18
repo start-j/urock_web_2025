@@ -14,9 +14,9 @@ export const CONSTANTS = {
 
   // 경로 관련 상수
   PATHS: {
-    IMAGES: '/public/images/',
-    ICONS: '/public/icons/',
-    LOGO: '/public/logo/'
+    IMAGES: '/images/',
+    ICONS: '/icons/',
+    LOGO: '/logo/'
   },
 
   // 색상 관련 상수

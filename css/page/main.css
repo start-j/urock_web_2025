@@ -249,19 +249,19 @@
 }
 
 .hero .thumbnail .item:nth-child(1) {
-  background-image: url("../../public/images/main/bg-main-01.png");
+  background-image: url(".././images/main/bg-main-01.png");
 }
 
 .hero .thumbnail .item:nth-child(2) {
-  background-image: url("../../public/images/main/bg-main-02.png");
+  background-image: url(".././images/main/bg-main-02.png");
 }
 
 .hero .thumbnail .item:nth-child(3) {
-  background-image: url("../../public/images/main/bg-main-03.png");
+  background-image: url(".././images/main/bg-main-03.png");
 }
 
 .hero .thumbnail .item:nth-child(4) {
-  background-image: url("../../public/images/main/bg-main-04.png");
+  background-image: url(".././images/main/bg-main-04.png");
 }
 
 
@@ -317,7 +317,7 @@
 .hero .thumbnail .item .icon-expansion:hover {
   transform: scale(1.5);
   transition: transform 0.3s ease;
-  content: url(../../public/icons/icon-expansion-hover.svg);
+  content: url(.././icons/icon-expansion-hover.svg);
 }
 
 .hero .thumbnail .item.active .icon-expansion {
@@ -442,7 +442,7 @@
 
 /* solution header */
 .solution-container {
-  /* background-image: url("../../public/images/main/solution-container.png"); */
+  /* background-image: url(".././images/main/solution-container.png"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -453,7 +453,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../public/images/main/solution-header.png");
+  background-image: url(".././images/main/solution-header.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -623,7 +623,7 @@
 
 
 .main-service-container {
-  background-image: url("../../public/images/main/bg-service.png");
+  background-image: url(".././images/main/bg-service.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -929,7 +929,7 @@
   }
 
   .solution-header {
-    background-image: url("../../public/images/main/solution-header-768.png");
+    background-image: url(".././images/main/solution-header-768.png");
     background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -1084,7 +1084,7 @@
 
 @media (max-width: 360px) {
   .solution-header {
-    background-image: url("../../public/images/main/solution-header-360.png");
+    background-image: url(".././images/main/solution-header-360.png");
     background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;

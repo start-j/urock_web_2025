@@ -1,8 +1,32 @@
 // header 컴포넌트 초기화
 function initHeaderComponent() {
-  // FAB 버튼 기능
-  setupFabButton();
-
+  // FAB 버튼 스크롤 동작 (모든 페이지에서 한 번만 동작)
+  const fabBtn = document.querySelector('.fab-btn');
+  if (fabBtn) {
+    // 스크롤 위치에 따라 버튼 표시/숨김
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        fabBtn.style.display = 'block';
+      } else {
+        fabBtn.style.display = 'none';
+      }
+    });
+    // 버튼 클릭 시 최상단으로 스크롤
+    fabBtn.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    // 페이지 진입 시 초기 상태 설정
+    if (window.scrollY > 300) {
+      fabBtn.style.display = 'block';
+    } else {
+      fabBtn.style.display = 'none';
+    }
+  } else {
+    console.log('[FAB] FAB 버튼을 찾을 수 없습니다.');
+  }
   // 메뉴 포커스/활성화 처리
   setupMenuActivation();
 
@@ -14,31 +38,6 @@ function initHeaderComponent() {
 
   // 모바일 메뉴 기능
   setupMobileMenu();
-}
-
-// FAB 버튼 설정
-function setupFabButton() {
-  // header 내부와 전역 모두에서 FAB 버튼 찾기
-  const fabBtn = document.querySelector('header .fab-btn') || document.querySelector('.fab-btn');
-
-  if (fabBtn) {
-    // 스크롤 위치에 따라 버튼 표시/숨김
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 300) {
-        fabBtn.style.display = 'block';
-      } else {
-        fabBtn.style.display = 'none';
-      }
-    });
-
-    // 버튼 클릭 시 최상단으로 스크롤
-    fabBtn.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
 }
 
 // 메뉴 활성화 설정
@@ -187,7 +186,7 @@ function setupMobileMenu() {
     });
     return;
   }
-  
+
   console.log('모바일 메뉴 설정 시작');
 
   // 드로워 열기/닫기
@@ -196,7 +195,7 @@ function setupMobileMenu() {
     overlay.classList.add('active');
     menuBtn.classList.add('hide');
     document.body.style.overflow = 'hidden';
-    
+
     // 드로워가 열릴 때 메뉴 아이템들 순차적으로 나타나는 애니메이션
     animateMenuItems();
   }
@@ -205,19 +204,19 @@ function setupMobileMenu() {
     overlay.classList.remove('active');
     menuBtn.classList.remove('hide');
     document.body.style.overflow = '';
-    
+
     // 모든 서브메뉴 닫기
     closeAllSubmenus();
   }
-  
+
   // 메뉴 아이템 애니메이션
   function animateMenuItems() {
     const menuItems = document.querySelectorAll('.mobile-drawer-menu .menu-item');
-    
+
     menuItems.forEach((item, index) => {
       item.style.opacity = '0';
       item.style.transform = 'translateX(20px)';
-      
+
       setTimeout(() => {
         item.style.transition = 'all 0.3s ease';
         item.style.opacity = '1';
@@ -225,40 +224,40 @@ function setupMobileMenu() {
       }, index * 50);
     });
   }
-  
+
   // 모든 서브메뉴 닫기
   function closeAllSubmenus() {
     const allSubmenus = document.querySelectorAll('.mobile-drawer-menu .submenu');
     const allLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
-    
+
     allSubmenus.forEach(submenu => {
       submenu.classList.remove('active');
     });
-    
+
     allLinks.forEach(link => {
       link.classList.remove('active');
     });
   }
-  
+
   // 서브메뉴 토글
   function toggleSubmenu(e) {
     const link = e.currentTarget;
     const targetId = link.getAttribute('data-target');
     const submenu = document.getElementById(targetId);
-    
+
     // 서브메뉴가 없으면 (마지막 뎁스) 링크 이동 허용
     if (!submenu) {
       return; // 기본 링크 동작 허용
     }
-    
+
     // 서브메뉴가 있으면 링크 이동 방지하고 토글
     e.preventDefault();
-    
+
     const isActive = submenu.classList.contains('active');
-    
+
     // 같은 레벨의 다른 서브메뉴들 닫기
     closeSiblingSubmenus(submenu);
-    
+
     if (isActive) {
       // 현재 서브메뉴와 하위 서브메뉴들 닫기
       closeSubmenuAndChildren(submenu);
@@ -269,13 +268,13 @@ function setupMobileMenu() {
       link.classList.add('active');
     }
   }
-  
+
   // 형제 서브메뉴들 닫기
   function closeSiblingSubmenus(currentSubmenu) {
     const parent = currentSubmenu.parentElement.parentElement;
     if (parent) {
       const siblings = parent.querySelectorAll(':scope > .menu-item > .submenu');
-      
+
       siblings.forEach(sibling => {
         if (sibling !== currentSubmenu) {
           closeSubmenuAndChildren(sibling);
@@ -287,11 +286,11 @@ function setupMobileMenu() {
       });
     }
   }
-  
+
   // 서브메뉴와 자식들 닫기
   function closeSubmenuAndChildren(submenu) {
     submenu.classList.remove('active');
-    
+
     // 하위 서브메뉴들도 모두 닫기
     const childSubmenus = submenu.querySelectorAll('.submenu');
     childSubmenus.forEach(child => {
@@ -307,13 +306,13 @@ function setupMobileMenu() {
   menuBtn.addEventListener('click', openDrawer);
   closeBtn.addEventListener('click', closeDrawer);
   overlay.addEventListener('click', closeDrawer);
-  
+
   // 서브메뉴 토글 이벤트 (has-submenu가 있는 것만)
   const menuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
   menuLinks.forEach(link => {
     link.addEventListener('click', toggleSubmenu);
   });
-  
+
   // 마지막 뎁스 링크들 (has-submenu가 없는 것들)
   const finalLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link:not(.has-submenu)');
   finalLinks.forEach(link => {
@@ -332,7 +331,7 @@ function setupMobileMenu() {
       }
     });
   });
-  
+
   // ESC 키로 닫기
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -375,9 +374,9 @@ initHeaderSafely();
 window.reInitHeaderComponent = initHeaderComponent;
 
 // 모바일 메뉴 강제 재초기화 함수 (include.js 완료 후 사용)
-window.reInitMobileMenu = function() {
+window.reInitMobileMenu = function () {
   console.log('모바일 메뉴 강제 재초기화');
-  
+
   // 기존 이벤트 리스너 정리
   const existingMenuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
   existingMenuLinks.forEach(link => {
@@ -385,12 +384,12 @@ window.reInitMobileMenu = function() {
     const newLink = link.cloneNode(true);
     link.parentNode.replaceChild(newLink, link);
   });
-  
+
   // 새로운 이벤트 리스너 설정
   setTimeout(() => {
     const drawer = document.querySelector('.mobile-drawer');
     const menuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
-    
+
     if (drawer && menuLinks.length > 0) {
       console.log('메뉴 재설정:', menuLinks.length, '개 서브메뉴 링크 발견');
       setupMobileMenu();
@@ -422,7 +421,7 @@ function syncMenuIconWithText() {
 window.addEventListener('resize', syncMenuIconWithText);
 window.addEventListener('DOMContentLoaded', syncMenuIconWithText);
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const navItems = document.querySelectorAll('.nav-item');
 
   navItems.forEach(item => {
@@ -431,7 +430,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const arrowIcon = item.querySelector('.arrow-icon');
 
     if (toggleButton && subMenu) {
-      toggleButton.addEventListener('click', function() {
+      toggleButton.addEventListener('click', function () {
         const isOpen = subMenu.classList.contains('open');
 
         // 모든 서브메뉴 닫기
