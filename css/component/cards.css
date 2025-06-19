@@ -35,6 +35,13 @@
   max-width: 1320px;
 }
 
+.cards .img-process {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
 
 
 /* ===== 카드/프레임 공통 스타일 ===== */
