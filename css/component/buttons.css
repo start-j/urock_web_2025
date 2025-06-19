@@ -26,6 +26,7 @@
   padding: 16px 24px;
   gap: 4px;
   margin-top: 20px;
+  margin-bottom: 120px;
   color: #ffffff;
   /* 자연스러운 활성화/비활성화 모션 */
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, opacity 0.3s, border 0.3s;

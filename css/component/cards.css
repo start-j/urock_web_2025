@@ -32,6 +32,7 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
+  max-width: 1320px;
 }
 
 
@@ -39,6 +40,7 @@
 /* ===== 카드/프레임 공통 스타일 ===== */
 .card-frame,
 .card {
+
   display: flex;
   flex-direction: column;
   /* background-color: rgba(255, 255, 255, 0.05); */
@@ -73,7 +75,7 @@
 .card-main-service,
 .card-main-news,
 .card-company,
-/* .card-solution-contents, */
+.card-solution-contents,
 .card-solution-number,
 .card-solution-feature,
 .card-solution-series,

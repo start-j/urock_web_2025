@@ -643,7 +643,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  padding: 88px 0px 48px 0px;
+  padding: 88px 0px 0px 0px;
 }
 
 
@@ -929,7 +929,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
-    padding: 100px 0px 148px 0px;
+    padding: 88px 0px 0px 0px;
   }
 
   .solution-header {

@@ -31,11 +31,9 @@
 }
 
 
-.section-process .card-solution-contents {
+/* .section-process .card-solution-contents {
   width: 100%;
-  /* 1440px to rem */
   height: 41.5rem;
-  /* 664px to rem */
   background-image: url("/images/solution/contents-process-dfas-pro.png");
   background-size: cover;
   background-position: center;
@@ -43,9 +41,7 @@
 
 .section-comparison .card-solution-contents {
   width: 100%;
-  /* 1440px to rem */
   height: 45.5625rem;
-  /* 729px to rem */
   background-image: url("/images/solution/contents-comparison-dfas-pro.png");
   background-size: cover;
   background-position: center;
@@ -53,9 +49,7 @@
 
 .section-utilization .card-solution-contents {
   width: 100%;
-  /* 1440px to rem */
   height: 9.25rem;
-  /* 148px to rem */
   background-size: cover;
   background-position: center;
 }
@@ -70,14 +64,11 @@
 
 .section-effect .card-solution-contents {
   width: 100%;
-  /* 1440px to rem */
   height: 44rem;
-  /* 704px to rem */
   background-image: url("/images/solution/contents-effect-dfas-pro.png");
   background-size: cover;
   background-position: center;
 }
-
 
 
 
@@ -86,13 +77,13 @@
   background-image: url("/images/solution/img-card-dfas-pro.png");
   background-size: cover;
   background-position: center;
-}
+} */
 
 
 
 
 /* 예시: 768px 이하에서 다른 이미지 사용 */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .section-process .card-solution-contents {
     background-image: url("/images/solution/contents-process-dfas-pro-mobile.png");
   }
@@ -100,4 +91,4 @@
   .section-comparison .card-solution-contents {
     background-image: url("/images/solution/contents-comparison-dfas-pro-mobile.png");
   }
-}
+} */
