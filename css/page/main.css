@@ -249,19 +249,19 @@
 }
 
 .hero .thumbnail .item:nth-child(1) {
-  background-image: url(".././images/main/bg-main-01.png");
+  background-image: url("/images/main/bg-main-01.png");
 }
 
 .hero .thumbnail .item:nth-child(2) {
-  background-image: url(".././images/main/bg-main-02.png");
+  background-image: url("/images/main/bg-main-02.png");
 }
 
 .hero .thumbnail .item:nth-child(3) {
-  background-image: url(".././images/main/bg-main-03.png");
+  background-image: url("/images/main/bg-main-03.png");
 }
 
 .hero .thumbnail .item:nth-child(4) {
-  background-image: url(".././images/main/bg-main-04.png");
+  background-image: url("/images/main/bg-main-04.png");
 }
 
 
@@ -317,7 +317,7 @@
 .hero .thumbnail .item .icon-expansion:hover {
   transform: scale(1.5);
   transition: transform 0.3s ease;
-  content: url(.././icons/icon-expansion-hover.svg);
+  content: url(/icons/icon-expansion-hover.svg);
 }
 
 .hero .thumbnail .item.active .icon-expansion {
@@ -442,7 +442,7 @@
 
 /* solution header */
 .solution-container {
-  /* background-image: url(".././images/main/solution-container.png"); */
+  /* background-image: url("/images/main/solution-container.png"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -453,7 +453,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(".././images/main/solution-header.png");
+  background-image: url("/images/main/solution-header.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -472,10 +472,11 @@
 .section-client {
   position: relative;
   width: 100%;
-  height: 820px;
+  height: 720px;
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: top;
+  margin: 60px 0;
 }
 
 .section-client .inner {
@@ -488,26 +489,29 @@
   margin-top: 60px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 90px;
 }
 
 .section-client .logo-track {
   display: flex;
-  gap: 20px;
+  gap: 100px;
   width: 200%;
+  opacity: 0.5;
 }
 
 .section-client .client-logo {
-  height: 92px;
-  width: 50%;
+  height: 56px;
+  width: 100%;
   object-fit: cover;
 }
 
 .section-client .track1 {
+  height: 50px;
   animation: scrollLeft 60s linear infinite;
 }
 
 .section-client .track2 {
+  height: 60px;
   animation: scrollRight 70s linear infinite;
 }
 
@@ -623,7 +627,7 @@
 
 
 .main-service-container {
-  background-image: url(".././images/main/bg-service.png");
+  background-image: url("/images/main/bg-service.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -639,7 +643,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  padding: 100px 0px 148px 0px;
+  padding: 88px 0px 48px 0px;
 }
 
 
@@ -929,7 +933,7 @@
   }
 
   .solution-header {
-    background-image: url(".././images/main/solution-header-768.png");
+    background-image: url("/images/main/solution-header-768.png");
     background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -1084,7 +1088,7 @@
 
 @media (max-width: 360px) {
   .solution-header {
-    background-image: url(".././images/main/solution-header-360.png");
+    background-image: url("/images/main/solution-header-360.png");
     background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
