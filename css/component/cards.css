@@ -1,6 +1,3 @@
-
-
-
 /* 카드 section 구조 */
 .section-cards {
   display: flex;
@@ -76,7 +73,7 @@
 .card-main-service,
 .card-main-news,
 .card-company,
-.card-solution-contents,
+/* .card-solution-contents, */
 .card-solution-number,
 .card-solution-feature,
 .card-solution-series,
@@ -87,10 +84,10 @@
 }
 
 
-.card-solution-contents {
+/* .card-solution-contents {
   min-width: 312px;
   max-width: 1440px;
-}
+} */
 
 .card-solution-series,
 .card-main-solution {
@@ -278,12 +275,12 @@
   border-radius: 48px;
 }
 
-.card.card-solution-contents img {
+/* .card.card-solution-contents img {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
+ */
 
 
 
@@ -667,7 +664,7 @@
     padding: 90px 0px;
   }
 
-  
+
 }
 
 @media (max-width: 1200px) {
@@ -1099,7 +1096,7 @@
   }
 
   .card.card-solution-contents {
-    width: 320px;
+    /* width: 320px; */
     height: 100%;
   }
 
@@ -1184,4 +1181,3 @@
 .frame:nth-child(10) {
   transition-delay: 1.9s;
 }
-
