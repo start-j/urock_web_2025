@@ -1154,6 +1154,7 @@
 
   .section-client .linear {
     height: 400px;
+    /* width: 100%; */
   }
 
 
