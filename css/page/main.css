@@ -501,7 +501,7 @@
   display: flex;
   gap: 100px;
   width: 200%;
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
 .section-client .client-logo {
@@ -524,9 +524,9 @@
   animation: scrollLeft 60s linear infinite;
 }
 
-.section-client .track4 {
+/* .section-client .track4 {
   animation: scrollRight 70s linear infinite;
-}
+} */
 
 @keyframes scrollLeft {
   0% {
@@ -856,6 +856,47 @@
   .section-client .client-logo {
     height: 88px;
   }
+
+
+  /* client */
+  .section-client {
+    height: 360px;
+    margin: 56px 0;
+  }
+
+  .section-client .inner {
+    width: 360px;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+
+  .section-client .client-logo-set {
+    margin-top: 24px;
+    gap: 24px;
+  }
+
+  .section-client .logo-track {
+    gap: 40px;
+  }
+
+  .section-client .logo-track track1 {
+    height: 32px;
+  }
+
+  .section-client .client-logo {
+    height: 36px;
+    width: 100%;
+  }
+
+
+
+  .section-client .linear {
+    height: 400px;
+    /* width: 100%; */
+  }
+
+
 }
 
 /* 860px 이하 - 썸네일 숨김, prev/next 버튼만 가운데 배치 */
@@ -922,19 +963,56 @@
     width: 9px;
     height: 75px;
   }
+
+  /* client */
+  .section-client {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: top;
+    margin: 24px 0;
+  }
+
+  .section-client .inner {
+    width: 360px;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+
+  .section-client .client-logo-set {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .section-client .logo-track {
+    display: flex;
+    gap: 16px;
+  }
+
+  .section-client .client-logo {
+    height: 24px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+
+
+  .section-client .linear {
+    height: 400px;
+    /* width: 100%; */
+  }
+
 }
 
 
 @media (max-width: 780px) {
   .section-cards-news {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    padding: 88px 0px 0px 0px;
+    padding: 48px 0px 48px 0px;
   }
 
   .solution-header {
@@ -1055,6 +1133,7 @@
   .hero .assets .asset-top-right {
     left: 475px;
   }
+
 }
 
 
@@ -1092,6 +1171,11 @@
 
 
 @media (max-width: 360px) {
+  .section-cards-news {
+    padding: 32px 0px 40px 0px;
+  }
+
+
   .solution-header {
     background-image: url("/images/main/solution-header-360.png");
     background-size: auto 100%;
@@ -1111,51 +1195,6 @@
   }
 
 
-
-  /* client */
-  .section-client {
-    position: relative;
-    width: 100%;
-    height: 320px;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-position: top;
-    margin: 24px 0;
-  }
-
-  .section-client .inner {
-    width: 360px;
-    margin: 0 auto;
-    height: 100%;
-  }
-
-
-
-  .section-client .client-logo-set {
-    margin-top: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .section-client .logo-track {
-    display: flex;
-    gap: 16px;
-    opacity: 0.5;
-  }
-
-  .section-client .client-logo {
-    height: 24px;
-    width: 100%;
-    object-fit: cover;
-  }
-
-
-
-  .section-client .linear {
-    height: 400px;
-    /* width: 100%; */
-  }
 
 
 }
