@@ -5,6 +5,9 @@
 
 import '../css/style.css';
 
+/* ========== 00. HTML Include 시스템 ========== */
+import './include.js';         /* HTML 컴포넌트 동적 삽입 */
+
 /* ========== 01. 글로벌 설정 ========== */
 import './global/events.js';      /* 이벤트 관련 */
 import './global/components.js';  /* 공통 컴포넌트 */
@@ -44,7 +47,6 @@ import './section/utilization.js';  /* 활용 섹션 */
 import './section/effect.js';       /* 효과 섹션 */
 import './section/client.js';       /* 클라이언트 섹션 */
 import './section/news.js';         /* 뉴스 섹션 */
-import './page/service.js';         /* 서비스 통합 스크립트 */
 import './section/certificate.js';  /* 인증서 섹션 */
 
 /* ========== 04. 페이지별 스크립트 ========== */
