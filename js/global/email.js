@@ -9,12 +9,12 @@ function initSupportCheckboxButton() {
   submitButton.disabled = !checkbox.checked;
 
   // change 이벤트에서만 버튼 활성화/비활성화 처리 (체크박스, label 클릭 모두 반영)
-  checkbox.addEventListener('change', function() {
+  checkbox.addEventListener('change', function () {
     submitButton.disabled = !checkbox.checked;
   });
 
   // label 클릭 시 버튼 상태 갱신 (브라우저 기본 동작 후 상태 반영)
-  label.addEventListener('click', function() {
+  label.addEventListener('click', function () {
     setTimeout(() => {
       submitButton.disabled = !checkbox.checked;
     }, 0);
@@ -56,7 +56,7 @@ const inquiryOptions = {
 function initInquiryTypeSelection() {
   const type1Select = document.getElementById('inquiry-type-1');
   const type2Select = document.getElementById('inquiry-type-2');
-  
+
   if (!type1Select || !type2Select) return;
 
   // 유형 2 select 초기화 함수
@@ -74,21 +74,21 @@ function initInquiryTypeSelection() {
   }
 
   // 유형 1 변경 시 이벤트 처리
-  type1Select.addEventListener('change', function() {
+  type1Select.addEventListener('change', function () {
     const selectedValue = this.value;
-    
+
     // 유형 1 텍스트 색상 변경
     updateSelectColor(this);
-    
+
     // 유형 2 초기화
     resetType2Select();
-    
+
     if (selectedValue === 'other') {
       // 기타 문의 선택 시
       type2Select.disabled = false;
       type2Select.style.opacity = '';
       type2Select.style.cursor = '';
-      
+
       // 기타 옵션 추가
       inquiryOptions[selectedValue].forEach(option => {
         const optionElement = document.createElement('option');
@@ -101,7 +101,7 @@ function initInquiryTypeSelection() {
       type2Select.disabled = false;
       type2Select.style.opacity = '';
       type2Select.style.cursor = '';
-      
+
       // 해당하는 옵션들 추가
       inquiryOptions[selectedValue].forEach(option => {
         const optionElement = document.createElement('option');
@@ -113,7 +113,7 @@ function initInquiryTypeSelection() {
   });
 
   // 유형 2 변경 시 이벤트 처리
-  type2Select.addEventListener('change', function() {
+  type2Select.addEventListener('change', function () {
     // 유형 2 텍스트 색상 변경
     updateSelectColor(this);
   });

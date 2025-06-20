@@ -1,7 +1,7 @@
 footer {
   position: relative;
   margin: 0 40px;
-  background-image: url(.././images/footer/bg-footer.png);
+  background-image: url(/images/footer/bg-footer.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: plus-darker, normal;

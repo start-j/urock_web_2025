@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/start-j/urock_web_2025#readme",
   "devDependencies": {
-    "vite": "^6.3.5"
+    "glob": "^11.0.3",
+    "vite": "^6.3.5",
+    "vite-plugin-html": "^3.2.2"
   }
 }

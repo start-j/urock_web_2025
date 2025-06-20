@@ -1,6 +1,3 @@
-
-
-
 /* 카드 section 구조 */
 .section-cards {
   display: flex;
@@ -35,6 +32,14 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
+  /* max-width: 1320px; */
+}
+
+.cards .img-process {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 
@@ -42,6 +47,7 @@
 /* ===== 카드/프레임 공통 스타일 ===== */
 .card-frame,
 .card {
+
   display: flex;
   flex-direction: column;
   /* background-color: rgba(255, 255, 255, 0.05); */
@@ -87,10 +93,10 @@
 }
 
 
-.card-solution-contents {
+/* .card-solution-contents {
   min-width: 312px;
   max-width: 1440px;
-}
+} */
 
 .card-solution-series,
 .card-main-solution {
@@ -276,14 +282,15 @@
   flex-direction: column;
   align-items: center;
   border-radius: 48px;
+  max-width: 1320px;
 }
 
-.card.card-solution-contents img {
+/* .card.card-solution-contents img {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
+ */
 
 
 
@@ -506,6 +513,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 
 .section-certificate .section-cards,
@@ -667,7 +677,7 @@
     padding: 90px 0px;
   }
 
-  
+
 }
 
 @media (max-width: 1200px) {
@@ -1099,7 +1109,7 @@
   }
 
   .card.card-solution-contents {
-    width: 320px;
+    /* width: 320px; */
     height: 100%;
   }
 
@@ -1184,4 +1194,3 @@
 .frame:nth-child(10) {
   transition-delay: 1.9s;
 }
-

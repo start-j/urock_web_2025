@@ -69,18 +69,18 @@ section.intro .tab-container,
 }
 
 /* 탭 컨테이너 내부 모든 요소들도 전체 너비 보장 */
-html body section.intro .tab-container > *,
-html body .intro .tab-container > *,
-html section.intro .tab-container > *,
-html .intro .tab-container > *,
-body section.intro .tab-container > *,
-body .intro .tab-container > *,
-section.intro .tab-container > *,
-.intro .tab-container > *,
-.tab-container > * {
+html body section.intro .tab-container>*,
+html body .intro .tab-container>*,
+html section.intro .tab-container>*,
+html .intro .tab-container>*,
+body section.intro .tab-container>*,
+body .intro .tab-container>*,
+section.intro .tab-container>*,
+.intro .tab-container>*,
+.tab-container>* {
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 2px solid #2b293a;
+  /* border-bottom: 2px solid #2b293a; */
 }
 
 /* ========== 탭 메인 배경 래퍼 ========== */
@@ -88,7 +88,7 @@ section.intro .tab-container > *,
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: transparent; 
+  background-color: transparent;
   box-sizing: border-box;
   border-bottom: 2px solid #2b293a;
 }
@@ -293,6 +293,7 @@ section.intro .tab-container .tab-sub,
 
 /* 태블릿 (768px 이하) */
 @media (max-width: 768px) {
+
   /* 메인 탭 태블릿 */
   .tab-main {
     gap: 0;
@@ -349,6 +350,7 @@ section.intro .tab-container .tab-sub,
 
 /* 모바일 (480px 이하) */
 @media (max-width: 480px) {
+
   /* 메인 탭 모바일 - 스크롤 가능 */
   .tab-main {
     justify-content: flex-start;
@@ -424,6 +426,7 @@ section.intro .tab-container .tab-sub,
 
 /* 초소형 모바일 (360px 이하) */
 @media (max-width: 360px) {
+
   /* 메인 탭 초소형 */
   .tab-main {
     padding: 0 5px;
@@ -486,6 +489,7 @@ section.intro .tab-container .tab-sub,
 
 /* ========== 접근성 및 터치 최적화 ========== */
 @media (hover: none) and (pointer: coarse) {
+
   .tab-main a,
   .tab-menu a {
     min-height: 44px;
@@ -493,18 +497,20 @@ section.intro .tab-container .tab-sub,
     align-items: center;
     justify-content: center;
   }
-  
+
   .tab-main a {
     min-width: 44px;
   }
-  
+
   .tab-menu a {
     min-width: 44px;
   }
 }
 
 /* 고밀도 디스플레이 최적화 */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
   .tab-main a,
   .tab-menu a {
     -webkit-font-smoothing: antialiased;
