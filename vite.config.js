@@ -6,7 +6,7 @@ export default defineConfig({
   base: './',
   plugins: [
     createHtmlPlugin({
-      minify: true,
+      minify: false,
     }),
   ],
   build: {

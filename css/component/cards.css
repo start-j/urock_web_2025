@@ -32,7 +32,7 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
-  max-width: 1320px;
+  /* max-width: 1320px; */
 }
 
 .cards .img-process {
@@ -282,6 +282,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 48px;
+  max-width: 1320px;
 }
 
 /* .card.card-solution-contents img {
@@ -512,6 +513,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 
 .section-certificate .section-cards,
