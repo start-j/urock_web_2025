@@ -208,7 +208,7 @@
 
 @media (max-width: 760px) {
   .contents {
-    padding: 60px 20px;
+    padding: 48px 20px;
   }
 
   .form-row {
@@ -236,13 +236,16 @@
     margin-top: 8px;
   }
 
+  .contents .tit-group {
+    margin: 48px 0 24px 0;
+  }
+
   .contents .tit-group>.tit {
     font-size: 28px;
   }
 
   .contents .form-row {
     flex-direction: column;
-    gap: 24px;
   }
 
   .contents form .input,
