@@ -237,6 +237,34 @@ header .mobile-menu-btn {
   margin-right: 0;
 }
 
+/* 1500px 이상 화면에서 언어 아이콘과 중앙 정렬 */
+@media (min-width: 1500px) {
+  .language-tooltip-global {
+    right: calc(50vw - 720px + 40px);
+    left: auto;
+    transform: none;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  
+  .language-tooltip {
+    margin-right: 0;
+    margin-left: 0;
+    transform: translateX(36px);
+  }
+}
+
+/* 더 큰 화면에서의 정밀 조정 */
+@media (min-width: 1600px) {
+  .language-tooltip-global {
+    right: calc(50vw - 720px + 40px);
+  }
+  
+  .language-tooltip {
+    transform: translateX(36px);
+  }
+}
+
 
 
 

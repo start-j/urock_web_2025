@@ -60,6 +60,16 @@ window.ComponentManager = {
       init: function () {
         if (typeof window.reInitButtonsComponent === 'function') window.reInitButtonsComponent();
       }
+    },
+    // 언어 툴팁 컴포넌트 추가
+    'language-tooltip': {
+      init: function () {
+        console.log('[ComponentManager] 언어 툴팁 초기화');
+        // 언어 드롭다운 초기화가 아직 안 된 경우에만 실행
+        if (!window.languageDropdownInitialized && typeof setupLanguageDropdown === 'function') {
+          setupLanguageDropdown();
+        }
+      }
     }
     // 다른 컴포넌트도 필요한 경우 여기에 추가
   },
@@ -176,6 +186,46 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     } else {
       console.log('[ComponentManager] 모바일 드로워를 찾을 수 없음');
+    }
+
+    // 언어 툴팁 초기화 추가
+    const languageSelector = document.querySelector('header .language');
+    if (languageSelector) {
+      console.log('[ComponentManager] 언어 툴팁 초기화 시작');
+      
+      // 다단계 초기화로 안정성 확보
+      const languageInitDelays = [200, 500, 800];
+      
+      languageInitDelays.forEach((delay, index) => {
+        setTimeout(() => {
+          console.log(`[ComponentManager] 언어 툴팁 초기화 시도 ${index + 1}/${languageInitDelays.length}`);
+          
+          // 언어 드롭다운이 아직 초기화되지 않은 경우에만 실행
+          if (!window.languageDropdownInitialized) {
+            if (typeof setupLanguageDropdown === 'function') {
+              setupLanguageDropdown();
+              console.log('[ComponentManager] 언어 툴팁 setupLanguageDropdown 호출');
+            } else {
+              console.warn('[ComponentManager] setupLanguageDropdown 함수를 찾을 수 없음');
+            }
+          } else {
+            console.log('[ComponentManager] 언어 드롭다운이 이미 초기화됨');
+          }
+          
+          // 마지막 시도에서 검증
+          if (index === languageInitDelays.length - 1) {
+            setTimeout(() => {
+              const tooltip = document.querySelector('header .language-tooltip-global');
+              console.log(`[ComponentManager] 언어 툴팁 최종 검증:
+                - 언어 선택기: ${languageSelector ? '✅' : '❌'}
+                - 툴팁 요소: ${tooltip ? '✅' : '❌'}
+                - 초기화 상태: ${window.languageDropdownInitialized ? '✅' : '❌'}`);
+            }, 100);
+          }
+        }, delay);
+      });
+    } else {
+      console.log('[ComponentManager] 언어 선택기를 찾을 수 없음');
     }
 
     // 탭 컴포넌트가 있는 경우 강제 초기화 (개선된 로직)

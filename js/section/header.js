@@ -94,78 +94,139 @@ function setActiveMenuByCurrentPage() {
   });
 }
 
-// 언어 선택 드롭다운 설정 (네이밍 일치 및 위치 보장)
+// 언어 선택 드롭다운 설정 (이벤트 델리게이션 방식으로 개선)
 function setupLanguageDropdown() {
-  const languageSelector = document.querySelector('header .language') || document.querySelector('.language');
-  const tooltipGlobal = document.querySelector('header > .language-tooltip-global');
-
-  if (!languageSelector || !tooltipGlobal) return;
-
-  // SNB가 없으면 생성
-  let snbMenu = languageSelector.querySelector('.language-snb');
-  if (!snbMenu) {
-    snbMenu = document.createElement('ul');
-    snbMenu.className = 'language-snb';
-    snbMenu.innerHTML = `
-      <li data-lang="ko">한국어</li>
-      <li data-lang="en">English</li>
-      <li data-lang="ja">日本語</li>
-    `;
-    languageSelector.appendChild(snbMenu);
+  console.log('🌐 언어 드롭다운 초기화 시작');
+  
+  // 이벤트 델리게이션 방식으로 변경 (페이지 전환에 안전)
+  if (window.languageDropdownInitialized) {
+    console.log('🌐 언어 드롭다운이 이미 초기화됨');
+    return;
   }
 
-  // 자동 닫힘 타이머 변수
-  let tooltipTimer = null;
+  // 자동 닫힘 타이머 변수 (전역으로 관리)
+  window.languageTooltipTimer = null;
 
-  // 언어 선택 토글 이벤트
-  languageSelector.addEventListener('click', function (event) {
-    event.stopPropagation();
-    const isTooltipVisible = tooltipGlobal.classList.contains('show-tooltip');
-    // 토글
-    if (isTooltipVisible) {
-      tooltipGlobal.classList.remove('show-tooltip');
-      if (tooltipTimer) {
-        clearTimeout(tooltipTimer);
-        tooltipTimer = null;
+  // 이벤트 델리게이션으로 언어 아이콘 클릭 처리
+  document.addEventListener('click', function (event) {
+    const languageSelector = event.target.closest('header .language');
+    const tooltip = document.querySelector('header .language-tooltip-global');
+    
+    if (languageSelector && tooltip) {
+      event.stopPropagation();
+      console.log('🌐 언어 아이콘 클릭됨');
+      
+      const isTooltipVisible = tooltip.classList.contains('show-tooltip');
+      
+      // 토글
+      if (isTooltipVisible) {
+        tooltip.classList.remove('show-tooltip');
+        console.log('🌐 툴팁 숨김');
+        if (window.languageTooltipTimer) {
+          clearTimeout(window.languageTooltipTimer);
+          window.languageTooltipTimer = null;
+        }
+      } else {
+        tooltip.classList.add('show-tooltip');
+        console.log('🌐 툴팁 표시');
+        if (window.languageTooltipTimer) {
+          clearTimeout(window.languageTooltipTimer);
+          window.languageTooltipTimer = null;
+        }
+        // 3초 후 자동 닫힘
+        window.languageTooltipTimer = setTimeout(() => {
+          tooltip.classList.remove('show-tooltip');
+          console.log('🌐 툴팁 자동 닫힘 (3초 경과)');
+          window.languageTooltipTimer = null;
+        }, 3000);
       }
-    } else {
-      tooltipGlobal.classList.add('show-tooltip');
-      if (tooltipTimer) {
-        clearTimeout(tooltipTimer);
-        tooltipTimer = null;
+      return;
+    }
+
+    // SNB 메뉴 항목 클릭 처리
+    const langItem = event.target.closest('.language-snb li');
+    if (langItem) {
+      event.stopPropagation();
+      console.log('🌐 언어 선택:', langItem.textContent);
+      
+      // 활성 상태 변경
+      const snbMenu = langItem.closest('.language-snb');
+      if (snbMenu) {
+        snbMenu.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+        langItem.classList.add('active');
       }
-      tooltipTimer = setTimeout(() => {
-        tooltipGlobal.classList.remove('show-tooltip');
-        tooltipTimer = null;
-      }, 3000);
+      
+      // 툴팁 닫기
+      const tooltipForClose = document.querySelector('header .language-tooltip-global');
+      if (tooltipForClose) {
+        tooltipForClose.classList.remove('show-tooltip');
+        if (window.languageTooltipTimer) {
+          clearTimeout(window.languageTooltipTimer);
+          window.languageTooltipTimer = null;
+        }
+      }
+      return;
+    }
+
+    // 외부 클릭 시 툴팁 닫기
+    const tooltipForOutsideClick = document.querySelector('header .language-tooltip-global');
+    if (tooltipForOutsideClick && tooltipForOutsideClick.classList.contains('show-tooltip')) {
+      const languageArea = document.querySelector('header .language');
+      if (!languageArea || !languageArea.contains(event.target)) {
+        tooltipForOutsideClick.classList.remove('show-tooltip');
+        console.log('🌐 외부 클릭으로 툴팁 닫힘');
+        if (window.languageTooltipTimer) {
+          clearTimeout(window.languageTooltipTimer);
+          window.languageTooltipTimer = null;
+        }
+      }
     }
   });
 
-  // 언어 선택 항목 클릭 이벤트
-  const langItems = snbMenu.querySelectorAll('li');
-  langItems.forEach(item => {
-    item.addEventListener('click', function (event) {
-      event.stopPropagation();
-      langItems.forEach(li => li.classList.remove('active'));
-      this.classList.add('active');
-      tooltipGlobal.classList.remove('show-tooltip');
-      if (tooltipTimer) {
-        clearTimeout(tooltipTimer);
-        tooltipTimer = null;
+  // SNB 메뉴 확인 및 생성
+  function ensureLanguageSnbExists() {
+    const languageSelector = document.querySelector('header .language');
+    if (!languageSelector) return;
+
+    let snbMenu = languageSelector.querySelector('.language-snb');
+    if (!snbMenu) {
+      snbMenu = document.createElement('ul');
+      snbMenu.className = 'language-snb';
+      snbMenu.innerHTML = `
+        <li data-lang="ko">한국어</li>
+        <li data-lang="en">English</li>
+        <li data-lang="ja">日본語</li>
+      `;
+      languageSelector.appendChild(snbMenu);
+      console.log('🌐 언어 SNB 메뉴 생성됨');
+    }
+  }
+
+  // 초기 SNB 메뉴 생성
+  ensureLanguageSnbExists();
+
+  // 페이지 변경 시에도 SNB 메뉴 확인
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList') {
+        const headerAdded = Array.from(mutation.addedNodes).some(node => 
+          node.nodeType === 1 && (node.tagName === 'HEADER' || node.querySelector('header'))
+        );
+        if (headerAdded) {
+          setTimeout(ensureLanguageSnbExists, 100);
+        }
       }
     });
   });
 
-  // 외부 클릭 시 드롭다운/툴팁 닫기
-  document.addEventListener('click', function (event) {
-    if (!languageSelector.contains(event.target)) {
-      tooltipGlobal.classList.remove('show-tooltip');
-      if (tooltipTimer) {
-        clearTimeout(tooltipTimer);
-        tooltipTimer = null;
-      }
-    }
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
   });
+
+  // 초기화 완료 표시
+  window.languageDropdownInitialized = true;
+  console.log('🌐 언어 드롭다운 초기화 완료 (이벤트 델리게이션 방식)');
 }
 
 // 모바일 메뉴 설정 (중복 제거 및 최적화)
