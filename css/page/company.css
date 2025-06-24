@@ -547,9 +547,12 @@
 
 .client-logo-wrapper {
   width: 100%;
-  height: 120px;
+  /* height: 100px; */
   overflow: hidden;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .client-logo-track {
@@ -558,8 +561,9 @@
   animation: client-slide-left 30s linear infinite;
 }
 
-.client-logo {
-  height: 120px;
+.client-logo-company {
+  height: 32px;
+  opacity: 0.5;
   display: block;
 }
 
@@ -724,23 +728,6 @@
 
 
 
-
-
-@media (max-width: 768px) {
-  .partner .partner-icon {
-    background-image: url(/images/company/bg-partner-768.png);
-    height: 480px;
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .partner .partner-icon {
-    background-image: url(/images/company/bg-partner-360.png);
-    height: 260px;
-    width: 100%;
-  }
-}
 
 /* =================================== 
    RESPONSIVE DESIGN - HISTORY & LOCATION
@@ -980,12 +967,12 @@
   }
 
   .history .txt-group {
-    width: 320px;
+    /* width: 320px; */
     gap: 12px;
   }
 
   .history .txt-show {
-    width: 300px;
+    /* width: 300px; */
     gap: 24px;
   }
 
@@ -1026,13 +1013,10 @@
     background-image: url(/images/company/bg-business-768.png);
   }
 
-  .business .business-header {
-    height: 320px;
-  }
 
   .history .vertical-line {
     width: 28px;
-    top: 120px;
+    top: 180px;
     left: 20%;
   }
 
@@ -1048,6 +1032,38 @@
     left: 20%;
   }
 
+
+
+  .history .dot-point-icon-2024 {
+    top: 260px;
+  }
+
+  .history .dot-point-icon-2023 {
+    top: 1148px;
+  }
+
+  .history .dot-point-icon-2022 {
+    top: 1600px;
+  }
+
+  .history .dot-point-icon-2021 {
+    bottom: 1020px;
+  }
+
+  .history .dot-point-icon-2020 {
+    bottom: 760px;
+  }
+
+  .history .dot-point-icon-2019 {
+    bottom: 510px;
+  }
+
+  .history .dot-point-icon-2018 {
+    bottom: 320px;
+  }
+
+
+
   .history .year {
     font-size: 28px;
   }
@@ -1057,12 +1073,12 @@
   }
 
   .history .txt-group {
-    width: 320px;
+    /* width: 320px; */
     gap: 12px;
   }
 
   .history .txt-show {
-    width: 300px;
+    /* width: 300px; */
     gap: 24px;
   }
 
@@ -1112,7 +1128,23 @@
     height: 380px;
   }
 
+  .partner .partner-icon {
+    background-image: url(/images/company/bg-partner-768.png);
+    height: 480px;
+    width: 100%;
+  }
+
+  .client {
+    height: 80px;
+  }
+
+  .client-logo-company {
+    height: 22px;
+  }
 }
+
+
+
 
 
 
@@ -1131,6 +1163,7 @@
 /* 모바일 세로 (480px 이하) */
 @media (max-width: 480px) {
   .business {
+    width: 100%;
     background-image: url(/images/company/bg-business-360.png);
   }
 
@@ -1138,22 +1171,27 @@
     height: 280px;
   }
 
+
+  .business .business-header .des {
+    font-size: 14px;
+  }
+  
   .history {
-    height: 3200px;
+    height: 2900px;
     padding: 0;
-    --txt-show-gap: 80px;
-    --start-point: 40px;
-    --height-1: 1000px;
-    --height-2: 500px;
-    --height-3: 500px;
-    --height-4: 220px;
-    --height-5: 180px;
-    --height-6: 120px;
+    --txt-show-gap: 0px;
+    /* --start-point: 40px; */
+    --height-1: 900px;
+    --height-2: 480px;
+    --height-3: 480px;
+    --height-4: 270px;
+    --height-5: 210px;
+    --height-6: 180px;
   }
 
   .history .vertical-line {
     width: 24px;
-    top: 100px;
+    top: 60px;
     left: 15%;
   }
 
@@ -1169,6 +1207,39 @@
     left: 15%;
   }
 
+
+  .history .dot-point-icon-2024 {
+    top: 120px;
+  }
+
+  .history .dot-point-icon-2023 {
+    top: 1020px;
+  }
+
+  .history .dot-point-icon-2022 {
+    top: 1500px;
+  }
+
+  .history .dot-point-icon-2021 {
+    bottom: 890px;
+  }
+
+  .history .dot-point-icon-2020 {
+    bottom: 620px;
+  }
+
+  .history .dot-point-icon-2019 {
+    bottom: 410px;
+  }
+
+  .history .dot-point-icon-2018 {
+    bottom: 230px;
+  }
+
+
+
+
+
   .history .year {
     font-size: 24px;
   }
@@ -1178,12 +1249,12 @@
   }
 
   .history .txt-group {
-    width: 240px;
+    width: 360px;
     gap: 10px;
   }
 
   .history .txt-show {
-    width: 220px;
+    width: 360px;
     gap: 16px;
   }
 
@@ -1238,7 +1309,18 @@
     /* 연혁 타이틀 숨김 */
   }
 
-
+    .partner .partner-icon {
+      background-image: url(/images/company/bg-partner-360.png);
+      height: 260px;
+      width: 100%;
+    }
+    .client {
+      height: 60px;
+    }
+  
+    .client-logo-company {
+      height: 18px;
+    }
 }
 
 /* 최소 사이즈 (360px) */
@@ -1249,20 +1331,19 @@
   }
 
   .history {
-    height: 3700px;
-    --txt-show-gap: 120px;
-    --start-point: 24px;
-    --height-1: 1200px;
+    height: 2700px; /* 전체 높이 줄임 */
+    --txt-show-gap: -58px;
+    --height-1: 1000px; /* 2024년 높이 줄임 */
     /* 2024년 유지 */
     --height-2: 500px;
     /* 2023년 유지 */
-    --height-3: 600px;
+    --height-3: 540px;
     /* 2022년 증가 */
-    --height-4: 300px;
+    --height-4: 280px;
     /* 2021년 유지 */
-    --height-5: 120px;
+    --height-5: 220px;
     /* 2020년 유지 */
-    --height-6: 80px;
+    --height-6: 180px;
     /* 2019년 유지 */
     padding-top: 0;
   }
@@ -1274,7 +1355,7 @@
 
   .history .vertical-line {
     width: 20px;
-    top: 80px;
+    top: 76px;
     left: 10%;
   }
 
@@ -1295,12 +1376,12 @@
   }
 
   .history .txt-group {
-    width: 180px;
+    width: 260px;
     gap: 8px;
   }
 
   .history .txt-show {
-    width: 160px;
+    width: 260px;
     gap: 12px;
   }
 

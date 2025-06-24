@@ -47,8 +47,30 @@ window.addEventListener('load', function () {
             const html = await response.text();
             console.log(`[Include] 파일 로드 완료: ${path}`);
 
-            // 기존 outerHTML 교체 방식 유지
+            // 원본 요소의 데이터 속성 보존
+            const originalDataAttrs = {};
+            for (const attr of el.attributes) {
+                if (attr.name.startsWith('data-') && attr.name !== 'data-include-path') {
+                    originalDataAttrs[attr.name] = attr.value;
+                }
+            }
+
+            // HTML 교체
             el.outerHTML = html;
+
+            // 교체된 요소에 데이터 속성 적용 (intro 섹션의 경우)
+            if (path.includes('intro.html')) {
+                const introSection = document.querySelector('.intro');
+                const txtGroup = introSection?.querySelector('.txt-group');
+                
+                if (txtGroup) {
+                    // 데이터 속성을 txt-group 요소에 적용
+                    Object.entries(originalDataAttrs).forEach(([key, value]) => {
+                        txtGroup.setAttribute(key, value);
+                    });
+                    console.log(`[Include] intro 데이터 속성 전달 완료:`, originalDataAttrs);
+                }
+            }
 
             const componentName = path.split('/').pop().replace('.html', '');
             const event = new CustomEvent('componentLoaded', {

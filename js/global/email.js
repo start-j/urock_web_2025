@@ -122,59 +122,354 @@ function initInquiryTypeSelection() {
   type2Select.disabled = true;
 }
 
+// 폼 유효성 검사 함수
+function validateContactForm(form) {
+  const requiredFields = [
+    { field: form.querySelector('#name'), name: '이름' },
+    { field: form.querySelector('#company'), name: '회사소속' },
+    { field: form.querySelector('#phone'), name: '연락처' },
+    { field: form.querySelector('#email'), name: '이메일' },
+    { field: form.querySelector('#inquiry-type-1'), name: '문의 유형 1' },
+    { field: form.querySelector('#details'), name: '문의 내용' }
+  ];
+
+  for (const { field, name } of requiredFields) {
+    if (!field || !field.value.trim()) {
+      alert(`${name}을(를) 입력해주세요.`);
+      if (field) field.focus();
+      return false;
+    }
+  }
+
+  // 이메일 형식 검증
+  const email = form.querySelector('#email').value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('올바른 이메일 형식을 입력해주세요.');
+    form.querySelector('#email').focus();
+    return false;
+  }
+
+  // 전화번호 형식 검증
+  const phone = form.querySelector('#phone').value;
+  const phoneRegex = /^(010|011|016|017|018|019)-?[0-9]{3,4}-?[0-9]{4}$/;
+  if (!phoneRegex.test(phone.replace(/\s/g, ''))) {
+    alert('올바른 전화번호 형식을 입력해주세요. (예: 010-1234-5678)');
+    form.querySelector('#phone').focus();
+    return false;
+  }
+
+  // 개인정보 동의 확인
+  const checkbox = form.querySelector('input[type="checkbox"]');
+  if (!checkbox || !checkbox.checked) {
+    alert('개인정보 수집 및 이용에 동의해주세요.');
+    return false;
+  }
+
+  return true;
+}
+
+// EmailJS 라이브러리 동적 로딩 함수
+async function loadEmailJSLibrary() {
+  console.log('[EmailJS] 라이브러리 로딩 시작...');
+  
+  // 기존 EmailJS 스크립트 모두 제거 (캐시 문제 해결)
+  document.querySelectorAll('script[src*="emailjs"]').forEach(script => {
+    console.log('[EmailJS] 기존 스크립트 제거:', script.src);
+    script.remove();
+  });
+  
+  // EmailJS 객체 초기화
+  if (window.emailjs) {
+    console.log('[EmailJS] 기존 emailjs 객체 초기화');
+    window.emailjs = undefined;
+  }
+
+  try {
+    // 강제로 새 스크립트 로드
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js?v=' + Date.now(); // 캐시 방지
+    script.type = 'text/javascript';
+    
+    console.log('[EmailJS] 새 스크립트 로드 시작:', script.src);
+    
+    // 스크립트 로딩 Promise
+    const loadPromise = new Promise((resolve, reject) => {
+      script.onload = () => {
+        console.log('[EmailJS] 스크립트 로드 성공');
+        resolve();
+      };
+      script.onerror = (error) => {
+        console.error('[EmailJS] 스크립트 로드 실패:', error);
+        reject(error);
+      };
+    });
+    
+    document.head.appendChild(script);
+    await loadPromise;
+
+    // EmailJS 객체 로딩 대기 (최대 10초)
+    for (let i = 0; i < 100; i++) {
+      if (window.emailjs && typeof window.emailjs.init === 'function') {
+        console.log('[EmailJS] ✅ 라이브러리 로드 완료, 버전:', window.emailjs.version || 'v4+');
+        return window.emailjs;
+      }
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+
+    throw new Error('EmailJS 객체 로딩 타임아웃');
+
+  } catch (error) {
+    console.error('[EmailJS] ❌ 라이브러리 로딩 실패:', error);
+    return null;
+  }
+}
+
 // EmailJS 폼 초기화 함수 (동적으로 폼이 삽입된 후 호출 필요)
-export function initEmailJSForm() {
-  if (typeof emailjs === 'undefined') {
-    console.error('emailjs 라이브러리가 로드되지 않았습니다.');
+export async function initEmailJSForm() {
+  console.log('[EmailJS] 초기화 시작...');
+  
+  // EmailJS 라이브러리 동적 로딩
+  const emailjsLib = await loadEmailJSLibrary();
+  if (!emailjsLib) {
+    console.error('[EmailJS] emailjs 라이브러리 로딩 실패');
     return;
   }
-  emailjs.init("1UO_ymkYuv_ECqtLQ");
+
+  // EmailJS 초기화
+  try {
+    emailjsLib.init("1UO_ymkYuv_ECqtLQ");
+    console.log('[EmailJS] ✅ 초기화 완료');
+  } catch (error) {
+    console.error('[EmailJS] ❌ 초기화 실패:', error);
+    return;
+  }
 
   const form = document.querySelector('.contents form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      emailjs.sendForm("service_x5ixqcx", "template_1ukblmg", form)
-        .then(function () {
-          alert("메일이 성공적으로 전송되었습니다!");
-          form.reset();
-          // 폼 초기화 후 유형 2 select 상태도 초기화
-          const type2Select = document.getElementById('inquiry-type-2');
-          const type1Select = document.getElementById('inquiry-type-1');
-          if (type2Select) {
-            type2Select.disabled = true;
-            type2Select.style.opacity = '';
-            type2Select.style.cursor = '';
-            type2Select.style.color = '';
-          }
-          if (type1Select) {
-            type1Select.style.color = '';
-          }
-        }, function (error) {
-          alert("전송 실패: " + JSON.stringify(error));
-        });
-    });
+  if (!form) {
+    console.warn('[EmailJS] ⚠️ 폼 요소를 찾을 수 없습니다.');
+    return;
   }
+
+  console.log('[EmailJS] 📝 폼 요소 발견, 이벤트 리스너 등록');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    console.log('[EmailJS] 📤 폼 제출 시작...');
+
+    // 폼 유효성 검사
+    if (!validateContactForm(form)) {
+      console.log('[EmailJS] ❌ 폼 유효성 검사 실패');
+      return;
+    }
+
+    // 제출 버튼 비활성화 (중복 제출 방지)
+    const submitButton = form.querySelector('#submit');
+    const originalText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = '전송 중...';
+
+    // 폼 데이터를 객체로 변환 및 로깅
+    const formData = new FormData(form);
+    const templateParams = {};
+    
+    console.log('[EmailJS] 📊 전송 데이터:');
+    for (let [key, value] of formData.entries()) {
+      console.log(`  ${key}: ${value}`);
+      templateParams[key] = value;
+    }
+
+    // EmailJS로 메일 전송 (재시도 로직 포함)
+    async function sendEmailWithRetry(retryCount = 0) {
+      try {
+        const response = await emailjsLib.send("service_x5ixqcx", "template_1ukblmg", templateParams);
+        console.log('[EmailJS] ✅ 메일 전송 성공:', response);
+        alert("문의가 성공적으로 전송되었습니다!\n빠른 시일 내에 답변드리겠습니다.");
+        
+        // 폼 리셋
+        form.reset();
+        
+        // UI 상태 초기화
+        const type2Select = document.getElementById('inquiry-type-2');
+        const type1Select = document.getElementById('inquiry-type-1');
+        if (type2Select) {
+          type2Select.disabled = true;
+          type2Select.style.opacity = '';
+          type2Select.style.cursor = '';
+          type2Select.style.color = '';
+        }
+        if (type1Select) {
+          type1Select.style.color = '';
+        }
+
+        // 체크박스 상태 초기화
+        const checkbox = form.querySelector('input[type="checkbox"]');
+        if (checkbox) {
+          checkbox.checked = false;
+        }
+        
+        // 제출 버튼 상태 복원
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+        
+        // 중복 제출 방지 해제
+        isSubmitting = false;
+      } catch (error) {
+        console.error('[EmailJS] ❌ 메일 전송 실패:', error);
+        
+        // SMTP 연결 시간 초과인 경우 재시도
+        if (error.status === 412 && error.text && error.text.includes('timeout') && retryCount < 2) {
+          console.log(`[EmailJS] 🔄 SMTP 연결 시간 초과, ${3 + retryCount * 2}초 후 재시도... (${retryCount + 1}/3)`);
+          setTimeout(() => {
+            sendEmailWithRetry(retryCount + 1);
+          }, (3 + retryCount * 2) * 1000);
+          return;
+        }
+        
+        // 재시도 횟수 초과 또는 다른 에러
+        let errorMessage = "메일 전송에 실패했습니다.";
+        if (error.status === 412) {
+          errorMessage += "\n서버 연결에 문제가 있습니다. 잠시 후 다시 시도해주세요.";
+        } else if (error.status === 400) {
+          errorMessage += "\n입력 정보를 확인해주세요.";
+        } else if (error.status === 403) {
+          errorMessage += "\n권한 문제가 발생했습니다.";
+        }
+        
+        alert(errorMessage);
+        
+        // 제출 버튼 상태 복원
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+        
+        // 중복 제출 방지 해제
+        isSubmitting = false;
+      }
+    }
+    
+    // 재시도 함수 실행
+    sendEmailWithRetry();
+  });
+
+  console.log('[EmailJS] 🎯 폼 이벤트 리스너 등록 완료');
 }
 
 // allComponentsLoaded 이벤트 발생 시 자동으로 함수들 호출
 if (typeof window !== 'undefined') {
-  document.addEventListener('allComponentsLoaded', () => {
+  document.addEventListener('allComponentsLoaded', async () => {
+    console.log('[EmailJS] 🔄 allComponentsLoaded 이벤트 감지');
     initSupportCheckboxButton();
     initInquiryTypeSelection();
-    initEmailJSForm();
+    await initEmailJSForm();
   });
 
   // DOM이 로드된 후에도 한번 더 실행
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
+    console.log('[EmailJS] 🔄 DOMContentLoaded 이벤트 감지');
     initSupportCheckboxButton();
     initInquiryTypeSelection();
-    initEmailJSForm();
+    await initEmailJSForm();
   });
 
   // 탭 컨텐츠 로드 시마다 초기화 함수들 실행
-  document.addEventListener('tabContentLoaded', () => {
-    initSupportCheckboxButton();
-    initInquiryTypeSelection();
+  document.addEventListener('tabContentLoaded', async () => {
+    console.log('[EmailJS] 🔄 tabContentLoaded 이벤트 감지');
+    setTimeout(async () => {
+      initSupportCheckboxButton();
+      initInquiryTypeSelection();
+      await initEmailJSForm();
+    }, 100);
   });
+
+  // 추가 안전장치: 주기적 체크
+  let emailCheckInterval = setInterval(async () => {
+    const form = document.querySelector('.contents form');
+    if (form && !form.hasAttribute('data-emailjs-initialized')) {
+      console.log('[EmailJS] 🔄 주기적 체크에서 폼 발견, 초기화 시도');
+      form.setAttribute('data-emailjs-initialized', 'true');
+      initSupportCheckboxButton();
+      initInquiryTypeSelection();
+      await initEmailJSForm();
+    }
+  }, 2000);
+
+  // 10초 후 인터벌 정리
+  setTimeout(() => {
+    clearInterval(emailCheckInterval);
+  }, 10000);
+
+  // EmailJS 테스트 함수 (개발/테스트용)
+  let isTestRunning = false;
+  window.testEmailJS = async function() {
+    if (isTestRunning) {
+      console.log('[EmailJS Test] ⚠️ 이미 테스트가 실행 중입니다.');
+      return;
+    }
+    
+    isTestRunning = true;
+    console.log('[EmailJS Test] 🧪 테스트 시작...');
+    
+    // EmailJS 라이브러리 동적 로딩
+    const emailjsLib = await loadEmailJSLibrary();
+    if (!emailjsLib) {
+      console.error('[EmailJS Test] ❌ EmailJS 라이브러리 로딩 실패');
+      alert('❌ EmailJS 라이브러리 로딩 실패');
+      return;
+    }
+
+    // EmailJS 초기화
+    try {
+      emailjsLib.init("1UO_ymkYuv_ECqtLQ");
+    } catch (error) {
+      console.error('[EmailJS Test] ❌ 초기화 실패:', error);
+    }
+
+    // 테스트 데이터
+    const testData = {
+      name: '테스트 사용자',
+      company: '(주)테스트',
+      phone: '010-1234-5678',
+      email: 'test@test.com',
+      'inquiry-type-1': 'solution',
+      'inquiry-type-2': 'dfas-pro',
+      details: '이것은 EmailJS 테스트 메일입니다.'
+    };
+
+    console.log('[EmailJS Test] 📊 테스트 데이터:', testData);
+
+    // EmailJS 직접 호출 테스트
+    try {
+      const response = await emailjsLib.send("service_x5ixqcx", "template_1ukblmg", testData);
+      console.log('[EmailJS Test] ✅ 테스트 메일 전송 성공!', response);
+      alert('✅ EmailJS 테스트 성공!\n테스트 메일이 전송되었습니다.');
+    } catch (error) {
+      console.error('[EmailJS Test] ❌ 테스트 메일 전송 실패:', error);
+      alert('❌ EmailJS 테스트 실패!\n' + JSON.stringify(error));
+    } finally {
+      isTestRunning = false;
+    }
+  };
+
+  // EmailJS 상태 확인 함수
+  window.checkEmailJSStatus = function() {
+    console.log('[EmailJS Status] 📋 상태 확인...');
+    
+    const status = {
+      library: typeof window.emailjs !== 'undefined',
+      form: !!document.querySelector('.contents form'),
+      initialized: !!document.querySelector('.contents form[data-emailjs-initialized]'),
+      checkbox: !!document.querySelector('.checkbox-wrapper input[type="checkbox"]'),
+      submitButton: !!document.getElementById('submit')
+    };
+
+    console.table(status);
+    
+    if (status.library && status.form) {
+      console.log('✅ EmailJS 기본 환경 정상');
+    } else {
+      console.warn('⚠️ EmailJS 환경에 문제가 있습니다.');
+    }
+
+    return status;
+  };
 }

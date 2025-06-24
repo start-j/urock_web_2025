@@ -60,6 +60,16 @@ window.ComponentManager = {
       init: function () {
         if (typeof window.reInitButtonsComponent === 'function') window.reInitButtonsComponent();
       }
+    },
+    // 언어 툴팁 컴포넌트 추가
+    'language-tooltip': {
+      init: function () {
+        console.log('[ComponentManager] 언어 툴팁 초기화');
+        // 언어 드롭다운 초기화가 아직 안 된 경우에만 실행
+        if (!window.languageDropdownInitialized && typeof setupLanguageDropdown === 'function') {
+          setupLanguageDropdown();
+        }
+      }
     }
     // 다른 컴포넌트도 필요한 경우 여기에 추가
   },
@@ -141,14 +151,81 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('allComponentsLoaded', function () {
     console.log('[ComponentManager] 모든 컴포넌트 로드 완료 이벤트 감지');
 
-    // 헤더 컴포넌트가 있는 경우 강제 초기화
-    if (document.querySelector('.mobile-drawer-menu')) {
-      console.log('[ComponentManager] 헤더 컴포넌트 강제 초기화 시작');
-      setTimeout(() => {
-        if (typeof window.reInitHeaderComponent === 'function') {
-          window.reInitHeaderComponent();
-        }
-      }, 100);
+    // 헤더 컴포넌트가 있는 경우 모바일 메뉴만 재초기화
+    const drawer = document.querySelector('.mobile-drawer-menu');
+    if (drawer) {
+      console.log('[ComponentManager] 헤더 모바일 메뉴 재초기화 시작');
+      
+      // 여러 단계로 재초기화 시도
+      const initAttempts = [100, 300, 500];
+      
+      initAttempts.forEach((delay, index) => {
+        setTimeout(() => {
+          console.log(`[ComponentManager] 모바일 메뉴 재초기화 시도 ${index + 1}/${initAttempts.length}`);
+          
+          if (typeof window.reInitMobileMenu === 'function') {
+            window.reInitMobileMenu();
+            
+            // 마지막 시도에서는 검증도 수행
+            if (index === initAttempts.length - 1) {
+              setTimeout(() => {
+                const hasSubmenuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
+                console.log(`[ComponentManager] 최종 검증 - 서브메뉴 링크: ${hasSubmenuLinks.length}개`);
+                
+                if (hasSubmenuLinks.length === 0) {
+                  console.error('[ComponentManager] ❌ 모바일 메뉴 초기화 실패 - 서브메뉴 링크가 없음');
+                } else {
+                  console.log('[ComponentManager] ✅ 모바일 메뉴 초기화 완료');
+                }
+              }, 100);
+            }
+          } else {
+            console.warn('[ComponentManager] reInitMobileMenu 함수를 찾을 수 없음');
+          }
+        }, delay);
+      });
+    } else {
+      console.log('[ComponentManager] 모바일 드로워를 찾을 수 없음');
+    }
+
+    // 언어 툴팁 초기화 추가
+    const languageSelector = document.querySelector('header .language');
+    if (languageSelector) {
+      console.log('[ComponentManager] 언어 툴팁 초기화 시작');
+      
+      // 다단계 초기화로 안정성 확보
+      const languageInitDelays = [200, 500, 800];
+      
+      languageInitDelays.forEach((delay, index) => {
+        setTimeout(() => {
+          console.log(`[ComponentManager] 언어 툴팁 초기화 시도 ${index + 1}/${languageInitDelays.length}`);
+          
+          // 언어 드롭다운이 아직 초기화되지 않은 경우에만 실행
+          if (!window.languageDropdownInitialized) {
+            if (typeof setupLanguageDropdown === 'function') {
+              setupLanguageDropdown();
+              console.log('[ComponentManager] 언어 툴팁 setupLanguageDropdown 호출');
+            } else {
+              console.warn('[ComponentManager] setupLanguageDropdown 함수를 찾을 수 없음');
+            }
+          } else {
+            console.log('[ComponentManager] 언어 드롭다운이 이미 초기화됨');
+          }
+          
+          // 마지막 시도에서 검증
+          if (index === languageInitDelays.length - 1) {
+            setTimeout(() => {
+              const tooltip = document.querySelector('header .language-tooltip-global');
+              console.log(`[ComponentManager] 언어 툴팁 최종 검증:
+                - 언어 선택기: ${languageSelector ? '✅' : '❌'}
+                - 툴팁 요소: ${tooltip ? '✅' : '❌'}
+                - 초기화 상태: ${window.languageDropdownInitialized ? '✅' : '❌'}`);
+            }, 100);
+          }
+        }, delay);
+      });
+    } else {
+      console.log('[ComponentManager] 언어 선택기를 찾을 수 없음');
     }
 
     // 탭 컴포넌트가 있는 경우 강제 초기화 (개선된 로직)

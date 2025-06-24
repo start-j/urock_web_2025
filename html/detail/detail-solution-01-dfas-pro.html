@@ -18,14 +18,14 @@
         <a class="btn-introduction">
           <div class="txt-area">
             <h5>소개 자료 보기</h5>
-            <img class="icon-arrow" alt="icon-arrow" src="./icons/icon-arrow-white.svg">
+            <img class="icon-arrow" alt="icon-arrow" src="/icons/icon-arrow-white.svg">
           </div>
           <img class="img-introduction" alt="img-introduction-icon" src="/images/solution/img-introduction.png">
         </a>
         <a href="#" class="btn-video">
           <div class="txt-area">
             <h5>소개 영상 보기</h5>
-            <img class="icon-arrow" alt="icon-arrow" src="./icons/icon-arrow-white.svg">
+            <img class="icon-arrow" alt="icon-arrow" src="/icons/icon-arrow-white.svg">
           </div>
           <img class="img-video" alt="img-video" src="/images/solution/img-video.png">
         </a>
@@ -126,7 +126,7 @@
 
 
 <!-- process -->
-<section class="section-process" style="background-image: url('/images/solution/contents-process-bg.png');">
+<section class="section-process">
   <div class="section-cards">
     <div class="cards-container">
       <div class="title-component">
@@ -232,60 +232,83 @@
 
 
 
-<!-- certificate 인증서 -->
+<!-- swiper-certificate -->
 <section class="section-certificate">
-  <div class="section-cards">
-    <div class="cards-container">
-      <div class="title-component">
-        <div class="tit-container">
-          <h3 class="tit">특허 및 인증</h3>
-          <div class="dot">
-            <div class="dot-child"></div>
-          </div>
-        </div>
-      </div>
-      <div class="card-wrapper">
-        <div class="card-certificate-icon-container">
-          <img class="card-certificate-icon" alt="" src="/images/solution/certificate-icon.png">
-        </div>
-        <!-- 컨텐츠 정렬 -->
-        <div class="content-container">
-          <img class="prev-area-icon" alt="" src="detail-service-01-analysis.html">
-          <div class="cards">
-            <!-- card-certificate -->
-            <a href="/html/page/solution-06-gm.html">
-              <div class="card card-certificate" style="background-image: url('/images/common/card-bg-img.png');">
-                <img class="card-certificate-img" alt="인증서" src="/images/solution/certificate-dfas-pro-img-01.png">
-                <div class="card-txt-group">
-                  <div class="top">
-                    <div class="subtit">
-                      <h6 class="div">공지사항</h6>
-                    </div>
-                  </div>
-                  <h4 class="product-name">유락 공지사항</h4>
-                  <h6 class="des">본문 내용</h6>
-                </div>
-              </div>
-            </a>
-            <a href="/html/page/solution-02-dfas-ent.html">
-              <div class="card card-certificate" style="background-image: url('/images/common/card-bg-img.png');">
-                <img class="card-certificate-img" alt="인증서" src="/images/solution/certificate-dfas-pro-img-02.png">
-                <div class="card-txt-group">
-                  <div class="top">
-                    <div class="subtit">
-                      <h6 class="div">공지사항</h6>
-                    </div>
-                  </div>
-                  <h4 class="product-name">유락 공지사항</h4>
-                  <h6 class="des">본문 내용</h6>
-                </div>
+<div class="certificate-container">
+  <h1 class="certificate-title">특허 및 인증</h1>
+  
+  <div class="swiper certificate-swiper">
+      <div class="swiper-wrapper">
+          <!-- 슬라이드 1: 특허 인증서 -->
+          <div class="swiper-slide">
+              <img src="/images/solution/certificate-dfas-pro-img-01.png" alt="DFAS Pro 특허 인증서 1">
+              <div class="certificate-slide-content">
+                  <div class="certificate-slide-title">디지털포렌식 분석 솔루션 특허</div>
+                  <div class="certificate-slide-description">고도화된 디지털 증거 분석 기술 특허</div>
               </div>
           </div>
-          </a>
-        </div>
-        <!-- <div class="btn"> -->
-        <!-- <img class="next-area-icon" alt="" src="/images/common/next-area.png"> -->
+          <!-- 슬라이드 2: 기술 인증서 -->
+          <div class="swiper-slide">
+              <img src="/images/solution/certificate-dfas-pro-img-02.png" alt="DFAS Pro 기술 인증서">
+              <div class="certificate-slide-content">
+                  <div class="certificate-slide-title">기술 혁신 인증서</div>
+                  <div class="certificate-slide-description">디지털포렌식 기술 혁신 우수성 인정</div>
+              </div>
+          </div>
+          <!-- 슬라이드 3: 품질 인증 -->
+          <div class="swiper-slide">
+              <img src="/images/solution/certificate-dfas-pro-img-01.png" alt="품질 관리 인증서">
+              <div class="certificate-slide-content">
+                  <div class="certificate-slide-title">ISO 품질 관리 인증</div>
+                  <div class="certificate-slide-description">국제 표준 품질 관리 시스템 인증</div>
+              </div>
+          </div>
+          <!-- 슬라이드 4: 보안 인증 -->
+          <div class="swiper-slide">
+              <img src="/images/solution/certificate-dfas-pro-img-02.png" alt="보안 솔루션 인증서">
+              <div class="certificate-slide-content">
+                  <div class="certificate-slide-title">정보보안 솔루션 인증</div>
+                  <div class="certificate-slide-description">국가 정보보안 솔루션 검증 완료</div>
+              </div>
+          </div>
+          <!-- 슬라이드 5: 기술 우수성 -->
+          <div class="swiper-slide">
+              <img src="/images/solution/certificate-dfas-pro-img-01.png" alt="기술 우수성 인증서">
+              <div class="certificate-slide-content">
+                  <div class="certificate-slide-title">기술 우수성 인정서</div>
+                  <div class="certificate-slide-description">혁신적 디지털포렌식 기술 우수성 인정</div>
+              </div>
+          </div>
       </div>
-    </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
   </div>
 </section>
+<!-- 
+  <div class="certificate-controls">
+      <div class="certificate-control-group">
+          <label for="depth">Depth</label>
+          <input type="number" id="depth" value="100" min="0" max="1000">
+      </div>
+      <div class="certificate-control-group">
+          <label for="modifier">Modifier</label>
+          <input type="number" id="modifier" value="1" min="0" max="10" step="0.1">
+      </div>
+      <div class="certificate-control-group">
+          <label for="rotate">Rotate</label>
+          <input type="number" id="rotate" value="50" min="0" max="180">
+      </div>
+      <div class="certificate-control-group">
+          <label for="scale">Scale</label>
+          <input type="number" id="scale" value="1" min="0" max="2" step="0.1">
+      </div>
+      <div class="certificate-control-group">
+          <label for="stretch">Stretch</label>
+          <input type="number" id="stretch" value="0" min="0" max="200">
+      </div>
+      <div class="certificate-control-group">
+          <label for="slideShadows">Shadows</label>
+          <input type="checkbox" id="slideShadows" checked>
+      </div>
+  </div> -->
