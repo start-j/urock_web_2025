@@ -68,11 +68,26 @@
 /* 스펙 섹션 */
 
 /* ========== 05. 페이지별 스타일 ========== */
-@import url('./page/company.css');
 @import url('./page/main.css');
-@import url('./page/solution-01-dfas-pro.css');
+@import url('./page/company.css');
+
+/* 솔루션 페이지 */
 @import url('./page/solution-common.css');
+@import url('./page/solution-01-dfas-pro.css');
+@import url('./page/solution-02-dfas-ent.css');
+@import url('./page/solution-03-mcq-p.css');
+@import url('./page/solution-04-mcq-s.css');
+@import url('./page/solution-05-mcq-g.css');
+@import url('./page/solution-06-gm.css');
+@import url('./page/solution-07-gm-pro.css');
+
+/* 서비스 페이지 */
 @import url('./page/service-common.css');
+@import url('./page/service-01-analysis.css');
+@import url('./page/service-02-authentication.css');
+@import url('./page/service-03-education.css');
+
+/* 지원 페이지 */
 @import url('./page/support-01-inquiry.css');
 @import url('./page/support-02-news.css');
 

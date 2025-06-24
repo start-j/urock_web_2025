@@ -211,7 +211,7 @@
 /* 모바일 (480px 이하) */
 @media (max-width: 480px) {
   .intro .inner {
-    height: 240px;
+    height: 250px;
   }
 
   .intro .breadcrumb {
