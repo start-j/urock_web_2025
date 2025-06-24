@@ -149,10 +149,14 @@
 
 /* 태블릿 (768px 이하) */
 @media (max-width: 768px) {
+  .intro .inner {
+    height: 280px;
+  }
+
   .intro .breadcrumb {
     padding: 10px 16px;
-    bottom: 12px;
-    left: 1%;
+    bottom: 20px;
+    left: 1.8%;
     max-width: calc(98% - 32px);
     gap: 8px;
   }
@@ -189,10 +193,27 @@
     width: 16px;
     height: 16px;
   }
+
+  .intro .txt-group {
+    top: 120px;
+    padding: 0 30px;
+    font-size: 28px;
+  }
+
+  .intro .des {
+    font-size: 16px;
+    letter-spacing: -1px;
+  }
 }
+
+
 
 /* 모바일 (480px 이하) */
 @media (max-width: 480px) {
+  .intro .inner {
+    height: 240px;
+  }
+
   .intro .breadcrumb {
     padding: 8px 12px;
     bottom: 8px;
@@ -234,6 +255,7 @@
     width: 14px;
     height: 14px;
   }
+
 }
 
 /* 초소형 모바일 (360px 이하) */
@@ -296,39 +318,5 @@
   .intro .des {
     font-size: 14px;
     letter-spacing: -0.8px;
-  }
-}
-
-/* ========== 추가 반응형 스타일 (타이틀 및 설명) ========== */
-
-/* 태블릿 (768px 이하) - 타이틀 및 설명 */
-@media (max-width: 768px) {
-  .intro .txt-group {
-    top: 120px;
-    padding: 0 30px;
-    font-size: 28px;
-  }
-
-  .intro .des {
-    font-size: 16px;
-    letter-spacing: -1px;
-  }
-}
-
-/* 모바일 (480px 이하) - 타이틀 및 설명 */
-@media (max-width: 480px) {
-  .intro .txt-group {
-    top: 110px;
-    padding: 0 20px;
-    font-size: 26px;
-  }
-
-  .intro .des {
-    font-size: 15px;
-    letter-spacing: -0.9px;
-  }
-
-  .intro .inner {
-    height: 280px;
   }
 }
