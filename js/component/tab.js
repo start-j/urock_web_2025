@@ -414,6 +414,36 @@ function createTabComponent(containerId, config) {
               }
             }));
 
+            // 모바일 메뉴 재초기화 (Detail 페이지 로드 시) - 개선된 방식
+            console.log('🔄 탭 컨텐츠 로드 완료, 모바일 메뉴 재초기화 시작');
+            
+            // 약간의 지연을 두고 확실하게 재초기화
+            setTimeout(() => {
+              if (typeof window.reInitMobileMenu === 'function') {
+                console.log('📱 모바일 메뉴 재초기화 호출');
+                window.reInitMobileMenu();
+              } else {
+                console.warn('❌ reInitMobileMenu 함수를 찾을 수 없음');
+              }
+            }, 200);
+
+            // 추가 안전장치: 더 늦은 시점에 한번 더 시도
+            setTimeout(() => {
+              const hasSubmenuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
+              console.log(`🔍 추가 검증 - 서브메뉴 링크: ${hasSubmenuLinks.length}개`);
+              
+              if (hasSubmenuLinks.length > 0 && typeof window.reInitMobileMenu === 'function') {
+                // 이벤트 리스너가 실제로 바인딩되었는지 테스트
+                const testLink = hasSubmenuLinks[0];
+                const hasClickHandler = testLink.onclick || testLink.addEventListener;
+                
+                if (!hasClickHandler) {
+                  console.log('🔧 이벤트 리스너가 없음, 추가 재초기화 실행');
+                  window.reInitMobileMenu();
+                }
+              }
+            }, 500);
+
             // Swiper 초기화 (교육 서비스 페이지인 경우)
             if (contentPath && contentPath.includes('service-03-education')) {
               if (typeof window.safeInitSwiper === 'function') {

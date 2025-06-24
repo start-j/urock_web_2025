@@ -187,74 +187,96 @@ function setupMobileMenu() {
     return;
   }
 
-  console.log('모바일 메뉴 설정 시작');
+  // 이전 이벤트 리스너 완전 제거 (더 안전한 방법)
+  const existingHandlers = drawer.dataset.mobileMenuHandlers;
+  if (existingHandlers) {
+    try {
+      const handlers = JSON.parse(existingHandlers);
+      handlers.forEach(handler => {
+        if (handler.element && handler.event && handler.listener) {
+          const element = document.querySelector(handler.element);
+          if (element) {
+            element.removeEventListener(handler.event, handler.listener);
+          }
+        }
+      });
+    } catch (e) {
+      console.warn('이전 이벤트 핸들러 제거 실패:', e);
+    }
+  }
+
+  // 모든 서브메뉴 리스너 제거
+  const allMenuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link');
+  allMenuLinks.forEach(link => {
+    // 기존 이벤트 리스너를 완전히 제거하기 위해 outerHTML 방식 사용
+    const parent = link.parentNode;
+    const newLink = document.createElement('a');
+    
+    // 모든 속성 복사
+    Array.from(link.attributes).forEach(attr => {
+      newLink.setAttribute(attr.name, attr.value);
+    });
+    newLink.innerHTML = link.innerHTML;
+    
+    parent.replaceChild(newLink, link);
+  });
+
+  console.log('모바일 메뉴 설정 시작 - 새로운 방식');
 
   // 드로워 열기/닫기
   function openDrawer() {
     drawer.classList.add('active');
     overlay.classList.add('active');
-    menuBtn.classList.add('hide');
     document.body.style.overflow = 'hidden';
-
-    // 드로워가 열릴 때 메뉴 아이템들 순차적으로 나타나는 애니메이션
     animateMenuItems();
   }
+
   function closeDrawer() {
     drawer.classList.remove('active');
     overlay.classList.remove('active');
-    menuBtn.classList.remove('hide');
     document.body.style.overflow = '';
-
-    // 모든 서브메뉴 닫기
     closeAllSubmenus();
   }
 
-  // 메뉴 아이템 애니메이션
   function animateMenuItems() {
-    const menuItems = document.querySelectorAll('.mobile-drawer-menu .menu-item');
-
+    const menuItems = drawer.querySelectorAll('.menu-item');
     menuItems.forEach((item, index) => {
       item.style.opacity = '0';
-      item.style.transform = 'translateX(20px)';
-
+      item.style.transform = 'translateX(-20px)';
       setTimeout(() => {
-        item.style.transition = 'all 0.3s ease';
+        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
         item.style.opacity = '1';
         item.style.transform = 'translateX(0)';
       }, index * 50);
     });
   }
 
-  // 모든 서브메뉴 닫기
   function closeAllSubmenus() {
-    const allSubmenus = document.querySelectorAll('.mobile-drawer-menu .submenu');
-    const allLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
-
-    allSubmenus.forEach(submenu => {
-      submenu.classList.remove('active');
-    });
-
-    allLinks.forEach(link => {
-      link.classList.remove('active');
-    });
+    const submenus = drawer.querySelectorAll('.submenu');
+    const hasSubmenuLinks = drawer.querySelectorAll('.menu-link.has-submenu');
+    
+    submenus.forEach(submenu => submenu.classList.remove('active'));
+    hasSubmenuLinks.forEach(link => link.classList.remove('active'));
   }
 
-  // 서브메뉴 토글
   function toggleSubmenu(e) {
+    e.preventDefault();
+    
     const link = e.currentTarget;
     const targetId = link.getAttribute('data-target');
     const submenu = document.getElementById(targetId);
 
-    // 서브메뉴가 없으면 (마지막 뎁스) 링크 이동 허용
+    // 서브메뉴가 없으면 링크 이동 허용
     if (!submenu) {
-      return; // 기본 링크 동작 허용
+      const href = link.getAttribute('href');
+      if (href && href !== '#') {
+        window.location.href = href;
+      }
+      return;
     }
 
-    // 서브메뉴가 있으면 링크 이동 방지하고 토글
-    e.preventDefault();
-
     const isActive = submenu.classList.contains('active');
-
+    
     // 같은 레벨의 다른 서브메뉴들 닫기
     closeSiblingSubmenus(submenu);
 
@@ -302,28 +324,45 @@ function setupMobileMenu() {
     });
   }
 
-  // 이벤트 리스너 등록
-  menuBtn.addEventListener('click', openDrawer);
-  closeBtn.addEventListener('click', closeDrawer);
-  overlay.addEventListener('click', closeDrawer);
+  // 새로운 이벤트 리스너 등록
+  const newMenuBtn = document.querySelector('header .mobile-menu-btn');
+  const newCloseBtn = document.querySelector('.mobile-drawer-close');
+  const newOverlay = document.querySelector('.mobile-drawer-overlay');
 
-  // 서브메뉴 토글 이벤트 (has-submenu가 있는 것만)
+  // 기본 이벤트들
+  if (newMenuBtn) {
+    newMenuBtn.removeEventListener('click', openDrawer); // 중복 방지
+    newMenuBtn.addEventListener('click', openDrawer);
+  }
+  
+  if (newCloseBtn) {
+    newCloseBtn.removeEventListener('click', closeDrawer); // 중복 방지
+    newCloseBtn.addEventListener('click', closeDrawer);
+  }
+  
+  if (newOverlay) {
+    newOverlay.removeEventListener('click', closeDrawer); // 중복 방지
+    newOverlay.addEventListener('click', closeDrawer);
+  }
+
+  // 서브메뉴 토글 이벤트 (새로 생성된 링크들에 대해)
   const menuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
-  menuLinks.forEach(link => {
+  console.log(`발견된 서브메뉴 링크 수: ${menuLinks.length}`);
+  
+  menuLinks.forEach((link, index) => {
+    console.log(`서브메뉴 링크 ${index + 1}: ${link.textContent.trim()}, data-target: ${link.getAttribute('data-target')}`);
     link.addEventListener('click', toggleSubmenu);
   });
 
-  // 마지막 뎁스 링크들 (has-submenu가 없는 것들)
+  // 마지막 뎁스 링크들
   const finalLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link:not(.has-submenu)');
   finalLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      // 실제 링크 주소가 #이 아닌 경우에만 페이지 이동
       const href = link.getAttribute('href');
       if (href && href !== '#') {
-        // 실제 페이지로 이동
-        window.location.href = href;
+        closeDrawer();
+        // 실제 페이지 이동은 기본 동작으로 처리
       } else {
-        // 데모용: 알림으로 어떤 메뉴를 클릭했는지 표시
         e.preventDefault();
         const menuText = link.textContent.trim();
         alert(`"${menuText}" 페이지로 이동합니다!`);
@@ -332,12 +371,19 @@ function setupMobileMenu() {
     });
   });
 
-  // ESC 키로 닫기
-  document.addEventListener('keydown', (e) => {
+  // ESC 키로 닫기 (중복 방지)
+  document.removeEventListener('keydown', handleEscKey);
+  document.addEventListener('keydown', handleEscKey);
+  
+  function handleEscKey(e) {
     if (e.key === 'Escape') {
       closeDrawer();
     }
-  });
+  }
+
+  // 초기화 완료 표시
+  drawer.dataset.mobileMenuInitialized = 'true';
+  console.log('모바일 메뉴 설정 완료');
 }
 
 // 초기화 방식 (로딩 상태에 따라)
@@ -359,12 +405,58 @@ function initHeaderSafely() {
 
 // include.js가 완료된 후에도 호출되도록
 window.addEventListener('load', () => {
-  console.log('Window load 이벤트 발생, header 재초기화');
+  console.log('🌐 Window load 이벤트 발생, header 재초기화');
+  
+  // 완전한 페이지 로드 후 모바일 메뉴 강제 재초기화
   setTimeout(() => {
-    initHeaderComponent();
-    // 추가로 모바일 메뉴 재초기화
-    window.reInitMobileMenu();
-  }, 300);
+    const drawer = document.querySelector('.mobile-drawer');
+    const hasSubmenuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
+    
+    console.log(`🔍 Window load 검사:
+      - 드로워: ${drawer ? '✅' : '❌'}
+      - 서브메뉴 링크: ${hasSubmenuLinks.length}개`);
+    
+    if (drawer && hasSubmenuLinks.length > 0) {
+      // 초기화 플래그 리셋
+      drawer.dataset.mobileMenuInitialized = 'false';
+      delete drawer.dataset.mobileMenuHandlers;
+      
+      console.log('🔄 Window load에서 모바일 메뉴 재초기화 시작');
+      
+      // 확실한 재초기화를 위해 여러 단계로 시도
+      const delays = [100, 300, 600];
+      
+      delays.forEach((delay, index) => {
+        setTimeout(() => {
+          console.log(`🔧 재초기화 단계 ${index + 1}/${delays.length} (${delay}ms 지연)`);
+          
+          if (typeof window.reInitMobileMenu === 'function') {
+            window.reInitMobileMenu();
+          }
+          
+          // 마지막 단계에서 최종 검증
+          if (index === delays.length - 1) {
+            setTimeout(() => {
+              const finalCheck = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
+              const firstSubmenu = finalCheck[0];
+              
+              console.log(`🏁 최종 검증:
+                - 서브메뉴 링크: ${finalCheck.length}개
+                - 첫 번째 링크: ${firstSubmenu ? firstSubmenu.textContent.trim() : '없음'}
+                - 초기화 상태: ${drawer.dataset.mobileMenuInitialized}`);
+                
+              // 실제 클릭 테스트
+              if (firstSubmenu) {
+                console.log('🧪 실제 클릭 이벤트 테스트 준비 완료');
+              }
+            }, 200);
+          }
+        }, delay);
+      });
+    } else {
+      console.warn('⚠️  Window load: 모바일 메뉴 요소를 찾을 수 없음');
+    }
+  }, 500);
 });
 
 // 초기화 실행
@@ -375,29 +467,56 @@ window.reInitHeaderComponent = initHeaderComponent;
 
 // 모바일 메뉴 강제 재초기화 함수 (include.js 완료 후 사용)
 window.reInitMobileMenu = function () {
-  console.log('모바일 메뉴 강제 재초기화');
+  console.log('🔄 모바일 메뉴 강제 재초기화 시작');
 
-  // 기존 이벤트 리스너 정리
-  const existingMenuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
-  existingMenuLinks.forEach(link => {
-    // 기존 이벤트 리스너 제거를 위해 클론 방식 사용
-    const newLink = link.cloneNode(true);
-    link.parentNode.replaceChild(newLink, link);
-  });
+  const drawer = document.querySelector('.mobile-drawer');
+  if (!drawer) {
+    console.log('❌ 모바일 드로워를 찾을 수 없음, 재시도...');
+    setTimeout(window.reInitMobileMenu, 100);
+    return;
+  }
 
-  // 새로운 이벤트 리스너 설정
+  // 초기화 플래그 강제 리셋
+  drawer.dataset.mobileMenuInitialized = 'false';
+  delete drawer.dataset.mobileMenuHandlers;
+
+  // 모든 기존 이벤트 리스너 제거
+  const allElements = [
+    document.querySelector('header .mobile-menu-btn'),
+    document.querySelector('.mobile-drawer-close'),
+    document.querySelector('.mobile-drawer-overlay')
+  ].filter(Boolean);
+
+  // DOM 요소 확인
+  const menuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
+  const allLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link');
+
+  console.log(`📊 요소 상태 확인:
+    - 드로워: ${drawer ? '✅' : '❌'}
+    - 서브메뉴 링크: ${menuLinks.length}개
+    - 전체 링크: ${allLinks.length}개
+    - 기본 버튼들: ${allElements.length}개`);
+
+  if (menuLinks.length === 0) {
+    console.log('⚠️  서브메뉴 링크가 없음, 재시도...');
+    setTimeout(window.reInitMobileMenu, 100);
+    return;
+  }
+
+  // 약간의 지연 후 setupMobileMenu 호출
   setTimeout(() => {
-    const drawer = document.querySelector('.mobile-drawer');
-    const menuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
-
-    if (drawer && menuLinks.length > 0) {
-      console.log('메뉴 재설정:', menuLinks.length, '개 서브메뉴 링크 발견');
-      setupMobileMenu();
-    } else {
-      console.log('메뉴 요소를 찾을 수 없음, 재시도...');
-      setTimeout(window.reInitMobileMenu, 100);
+    console.log('🚀 setupMobileMenu 재실행');
+    setupMobileMenu();
+    
+    // 초기화 검증
+    const newMenuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
+    console.log(`✅ 재초기화 완료 - 서브메뉴 링크: ${newMenuLinks.length}개`);
+    
+    // 테스트용: 첫 번째 서브메뉴 링크 클릭 테스트
+    if (newMenuLinks.length > 0) {
+      console.log(`🧪 첫 번째 서브메뉴 테스트: ${newMenuLinks[0].textContent.trim()}`);
     }
-  }, 200);
+  }, 100);
 };
 
 function syncMenuIconWithText() {

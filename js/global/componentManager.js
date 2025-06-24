@@ -141,14 +141,41 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('allComponentsLoaded', function () {
     console.log('[ComponentManager] 모든 컴포넌트 로드 완료 이벤트 감지');
 
-    // 헤더 컴포넌트가 있는 경우 강제 초기화
-    if (document.querySelector('.mobile-drawer-menu')) {
-      console.log('[ComponentManager] 헤더 컴포넌트 강제 초기화 시작');
-      setTimeout(() => {
-        if (typeof window.reInitHeaderComponent === 'function') {
-          window.reInitHeaderComponent();
-        }
-      }, 100);
+    // 헤더 컴포넌트가 있는 경우 모바일 메뉴만 재초기화
+    const drawer = document.querySelector('.mobile-drawer-menu');
+    if (drawer) {
+      console.log('[ComponentManager] 헤더 모바일 메뉴 재초기화 시작');
+      
+      // 여러 단계로 재초기화 시도
+      const initAttempts = [100, 300, 500];
+      
+      initAttempts.forEach((delay, index) => {
+        setTimeout(() => {
+          console.log(`[ComponentManager] 모바일 메뉴 재초기화 시도 ${index + 1}/${initAttempts.length}`);
+          
+          if (typeof window.reInitMobileMenu === 'function') {
+            window.reInitMobileMenu();
+            
+            // 마지막 시도에서는 검증도 수행
+            if (index === initAttempts.length - 1) {
+              setTimeout(() => {
+                const hasSubmenuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
+                console.log(`[ComponentManager] 최종 검증 - 서브메뉴 링크: ${hasSubmenuLinks.length}개`);
+                
+                if (hasSubmenuLinks.length === 0) {
+                  console.error('[ComponentManager] ❌ 모바일 메뉴 초기화 실패 - 서브메뉴 링크가 없음');
+                } else {
+                  console.log('[ComponentManager] ✅ 모바일 메뉴 초기화 완료');
+                }
+              }, 100);
+            }
+          } else {
+            console.warn('[ComponentManager] reInitMobileMenu 함수를 찾을 수 없음');
+          }
+        }, delay);
+      });
+    } else {
+      console.log('[ComponentManager] 모바일 드로워를 찾을 수 없음');
     }
 
     // 탭 컴포넌트가 있는 경우 강제 초기화 (개선된 로직)

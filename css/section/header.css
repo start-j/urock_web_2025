@@ -564,59 +564,104 @@ header .mobile-menu-btn {
   font-size: 16px;
   transition: all 0.3s ease;
   position: relative;
+  background: transparent;
 }
 
 .mobile-drawer-menu .menu-link:hover {
-  background: rgba(180, 199, 246, 0.1);
+  background: rgba(180, 199, 246, 0.08);
   color: #91b1ff;
   padding-left: 25px;
 }
 
-.mobile-drawer-menu .menu-link.has-submenu::after {
-  content: '';
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  background: url('/icons/icon-arrow-white.svg') center/contain no-repeat;
-  transition: all 0.3s ease;
+/* has-submenu 링크 스타일 - 깔끔한 화살표 */
+.mobile-drawer-menu .menu-link.has-submenu {
+  cursor: pointer;
 }
 
-.mobile-drawer-menu .menu-link.active::after {
-  transform: rotate(90deg);
+.mobile-drawer-menu .menu-link.has-submenu::after {
+  content: '';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease, border-top-color 0.3s ease;
+}
+
+.mobile-drawer-menu .menu-link.has-submenu:hover::after {
+  border-top-color: #91b1ff;
+}
+
+.mobile-drawer-menu .menu-link.has-submenu.active {
+  background: rgba(180, 199, 246, 0.12);
   color: #91b1ff;
 }
 
-/* 서브메뉴 */
+.mobile-drawer-menu .menu-link.has-submenu.active::after {
+  transform: translateY(-50%) rotate(180deg);
+  border-top-color: #91b1ff;
+}
+
+/* 서브메뉴 스타일 - 배경 겹침 해결 */
 .mobile-drawer-menu .submenu {
   max-height: 0;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.2);
-  transition: max-height 0.4s ease;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(135deg, 
+              rgba(32, 29, 48, 0.8), 
+              rgba(24, 21, 36, 0.9));
+  border-radius: 0 0 8px 8px;
+  margin: 0;
+  padding: 0;
 }
 
 .mobile-drawer-menu .submenu.active {
-  max-height: 500px;
+  max-height: 400px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 5px;
 }
 
+/* 서브메뉴 링크 스타일 - 1depth와 동일한 높이 */
 .mobile-drawer-menu .submenu .menu-link {
-  padding-left: 40px;
+  padding: 15px 20px 15px 30px;
   font-size: 14px;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border-bottom: 1px solid rgba(180, 199, 246, 0.05);
 }
 
-.mobile-drawer-menu .submenu .submenu .menu-link {
-  padding-left: 60px;
-  font-size: 13px;
-  color: #bbb;
+.mobile-drawer-menu .submenu .menu-link:last-child {
+  border-bottom: none;
 }
 
 .mobile-drawer-menu .submenu .menu-link:hover {
-  padding-left: 45px;
-  background: rgba(180, 199, 246, 0.05);
+  background: rgba(180, 199, 246, 0.08);
+  color: #91b1ff;
+  padding-left: 35px;
+}
+
+/* 3차 서브메뉴 (중첩 서브메뉴) - 라인 제거, 높이 통일 */
+.mobile-drawer-menu .submenu .submenu {
+  margin-left: 15px;
+  background: rgba(24, 21, 36, 0.6);
+}
+
+.mobile-drawer-menu .submenu .submenu .menu-link {
+  padding: 15px 20px 15px 30px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .mobile-drawer-menu .submenu .submenu .menu-link:hover {
-  padding-left: 65px;
+  color: #91b1ff;
+  padding-left: 35px;
 }
 
 /* 스크롤바 스타일링 */
