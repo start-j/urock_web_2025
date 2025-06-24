@@ -30,6 +30,7 @@ import './component/cards.js';      /* 카드 컴포넌트 */
 import './component/banner.js';     /* 배너 컴포넌트 */
 import './component/breadcrumb.js'; /* 브레드크럼 네비게이션 */
 import './component/swiper.js';     /* 스와이퍼 컴포넌트 */
+import './component/certificate-swiper.js'; /* Certificate 스와이퍼 컴포넌트 */
 
 /* ========== 03. 섹션별 스크립트 ========== */
 /* 레이아웃 컴포넌트 */

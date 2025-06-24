@@ -188,16 +188,16 @@ function setupLanguageDropdown() {
     const languageSelector = document.querySelector('header .language');
     if (!languageSelector) return;
 
-    let snbMenu = languageSelector.querySelector('.language-snb');
-    if (!snbMenu) {
-      snbMenu = document.createElement('ul');
-      snbMenu.className = 'language-snb';
-      snbMenu.innerHTML = `
-        <li data-lang="ko">한국어</li>
-        <li data-lang="en">English</li>
+  let snbMenu = languageSelector.querySelector('.language-snb');
+  if (!snbMenu) {
+    snbMenu = document.createElement('ul');
+    snbMenu.className = 'language-snb';
+    snbMenu.innerHTML = `
+      <li data-lang="ko">한국어</li>
+      <li data-lang="en">English</li>
         <li data-lang="ja">日본語</li>
-      `;
-      languageSelector.appendChild(snbMenu);
+    `;
+    languageSelector.appendChild(snbMenu);
       console.log('🌐 언어 SNB 메뉴 생성됨');
     }
   }
@@ -337,7 +337,7 @@ function setupMobileMenu() {
     }
 
     const isActive = submenu.classList.contains('active');
-    
+
     // 같은 레벨의 다른 서브메뉴들 닫기
     closeSiblingSubmenus(submenu);
 
@@ -492,7 +492,7 @@ window.addEventListener('load', () => {
           console.log(`🔧 재초기화 단계 ${index + 1}/${delays.length} (${delay}ms 지연)`);
           
           if (typeof window.reInitMobileMenu === 'function') {
-            window.reInitMobileMenu();
+    window.reInitMobileMenu();
           }
           
           // 마지막 단계에서 최종 검증

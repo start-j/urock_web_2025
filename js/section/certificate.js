@@ -98,4 +98,253 @@ function initCertificateSection() {
 document.addEventListener('DOMContentLoaded', initCertificateSection);
 
 // 외부에서 접근 가능하도록 노출
-window.initCertificateSection = initCertificateSection; 
+window.initCertificateSection = initCertificateSection;
+
+
+
+// Certificate Swiper 모듈 (네이밍 충돌 방지)
+const CertificateSwiper = {
+    instance: null,
+    
+    // 인증서 스와이퍼 초기화
+    init: function() {
+        console.log('[CertificateSwiper] 초기화 시작');
+        
+        // 기존 인스턴스가 있으면 제거
+        if (this.instance) {
+            this.instance.destroy(true, true);
+            console.log('[CertificateSwiper] 기존 인스턴스 제거');
+        }
+
+        // certificate-swiper 요소 확인
+        const swiperElement = document.querySelector(".certificate-swiper");
+        if (!swiperElement) {
+            console.log('[CertificateSwiper] .certificate-swiper 요소를 찾을 수 없음');
+            return;
+        }
+
+        try {
+            // CSS 변수로 scale 값 설정
+            const scaleValue = this.getControlValue('scale', 1);
+            document.documentElement.style.setProperty('--certificate-scale', scaleValue);
+
+            this.instance = new Swiper(".certificate-swiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        loop: true,
+        coverflowEffect: {
+                    rotate: this.getControlValue('rotate', 50),
+                    stretch: this.getControlValue('stretch', 0),
+                    depth: this.getControlValue('depth', 100),
+                    modifier: this.getControlValue('modifier', 1),
+                    slideShadows: this.getControlValue('slideShadows', true),
+                },
+                initialSlide: 2,
+                speed: 600,
+                spaceBetween: 30,
+        pagination: {
+                    el: ".certificate-swiper .swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+                    nextEl: ".certificate-swiper .swiper-button-next",
+                    prevEl: ".certificate-swiper .swiper-button-prev",
+        },
+        keyboard: {
+            enabled: true,
+        },
+        mousewheel: {
+            thresholdDelta: 70,
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+    });
+            
+            console.log('[CertificateSwiper] 초기화 완료');
+        } catch (error) {
+            console.error('[CertificateSwiper] 초기화 실패:', error);
+        }
+    },
+
+    // 컨트롤 값 가져오기 (안전한 방식)
+    getControlValue: function(id, defaultValue) {
+        const element = document.getElementById(id);
+        if (!element) return defaultValue;
+        
+        if (element.type === 'checkbox') {
+            return element.checked;
+        } else if (element.type === 'number') {
+            return parseFloat(element.value) || defaultValue;
+        }
+        return element.value || defaultValue;
+    },
+
+    // 컨트롤 이벤트 리스너 설정
+    setupControls: function() {
+const controls = ['depth', 'modifier', 'rotate', 'scale', 'stretch', 'slideShadows'];
+
+        controls.forEach(controlId => {
+            const element = document.getElementById(controlId);
+            if (element) {
+    element.addEventListener('input', () => {
+                    console.log(`[CertificateSwiper] ${controlId} 값 변경됨`);
+                    this.init(); // 재초기화
+    });
+            }
+});
+    },
+
+    // 키보드 이벤트 설정
+    setupKeyboardEvents: function() {
+document.addEventListener('keydown', (e) => {
+            if (!this.instance) return;
+            
+            // 인증서 스와이퍼가 활성화된 상태에서만 동작
+            const certificateSection = document.querySelector('.section-certificate');
+            if (!certificateSection || !this.isElementInViewport(certificateSection)) return;
+            
+    if (e.key === 'ArrowLeft') {
+                this.instance.slidePrev();
+    } else if (e.key === 'ArrowRight') {
+                this.instance.slideNext();
+    } else if (e.key === ' ') {
+        e.preventDefault();
+                if (this.instance.autoplay.running) {
+                    this.instance.autoplay.stop();
+        } else {
+                    this.instance.autoplay.start();
+                }
+            }
+        });
+    },
+
+    // 마우스 이벤트 설정
+    setupMouseEvents: function() {
+        const container = document.querySelector('.certificate-swiper');
+        if (container) {
+            container.addEventListener('mouseenter', () => {
+                if (this.instance && this.instance.autoplay) {
+                    this.instance.autoplay.stop();
+                }
+            });
+
+            container.addEventListener('mouseleave', () => {
+                if (this.instance && this.instance.autoplay) {
+                    this.instance.autoplay.start();
+                }
+            });
+        }
+    },
+
+    // 요소가 뷰포트에 있는지 확인
+    isElementInViewport: function(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    },
+
+    // 전체 초기화
+    initAll: function() {
+        this.init();
+        this.setupControls();
+        this.setupKeyboardEvents();
+        this.setupMouseEvents();
+    }
+};
+
+// DOM 로드 후 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('[CertificateSwiper] DOMContentLoaded 이벤트 발생');
+    initSwiperWithRetry();
+});
+
+// 페이지 가시성 변경 시에도 초기화 시도
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+        setTimeout(() => {
+            if (document.querySelector('.certificate-swiper') && !CertificateSwiper.instance) {
+                console.log('[CertificateSwiper] 페이지 포커스 시 재초기화 시도');
+                initSwiperWithRetry();
+            }
+        }, 500);
+    }
+});
+
+// 안전한 초기화 함수
+function initSwiperWithRetry(retries = 5) {
+    console.log(`[CertificateSwiper] 초기화 시도 (남은 횟수: ${retries})`);
+    
+    // Swiper 라이브러리 확인
+    if (!window.Swiper) {
+        console.log('[CertificateSwiper] Swiper 라이브러리 대기 중...');
+        if (retries > 0) {
+            setTimeout(() => initSwiperWithRetry(retries - 1), 200);
+        } else {
+            console.error('[CertificateSwiper] Swiper 라이브러리 로딩 실패');
+        }
+        return;
+    }
+
+    // DOM 요소 확인
+    const swiperElement = document.querySelector('.certificate-swiper');
+    if (!swiperElement) {
+        console.log('[CertificateSwiper] DOM 요소 대기 중...');
+        if (retries > 0) {
+            setTimeout(() => initSwiperWithRetry(retries - 1), 200);
+        } else {
+            console.error('[CertificateSwiper] DOM 요소를 찾을 수 없음');
+        }
+        return;
+    }
+
+    // 슬라이드 요소 확인
+    const slides = swiperElement.querySelectorAll('.swiper-slide');
+    if (slides.length === 0) {
+        console.log('[CertificateSwiper] 슬라이드 요소 대기 중...');
+        if (retries > 0) {
+            setTimeout(() => initSwiperWithRetry(retries - 1), 200);
+        } else {
+            console.error('[CertificateSwiper] 슬라이드 요소를 찾을 수 없음');
+        }
+        return;
+    }
+
+    console.log(`[CertificateSwiper] 모든 조건 만족, 초기화 진행 (슬라이드 ${slides.length}개)`);
+    CertificateSwiper.initAll();
+}
+
+// 외부에서 접근 가능하도록 노출
+window.CertificateSwiper = CertificateSwiper;
+window.initSwiperWithRetry = initSwiperWithRetry;
+
+// 탭 컨텐츠 로드 이벤트 리스너
+document.addEventListener('tabContentLoaded', (event) => {
+    const { contentPath } = event.detail || {};
+    console.log('[CertificateSwiper] 탭 컨텐츠 로드:', contentPath);
+    
+    if (contentPath && contentPath.includes('solution-01-dfas-pro')) {
+        console.log('[CertificateSwiper] DFAS Pro 페이지 감지, 초기화 시작');
+        setTimeout(() => {
+            initSwiperWithRetry();
+        }, 300);
+    }
+});
+
+// allComponentsLoaded 이벤트 리스너
+document.addEventListener('allComponentsLoaded', () => {
+    console.log('[CertificateSwiper] 모든 컴포넌트 로드 완료');
+    setTimeout(() => {
+        if (document.querySelector('.certificate-swiper') && !CertificateSwiper.instance) {
+            console.log('[CertificateSwiper] allComponentsLoaded에서 초기화 시도');
+            initSwiperWithRetry();
+        }
+    }, 500);
+});

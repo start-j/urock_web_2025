@@ -36,3 +36,184 @@
   object-fit: cover;
 } */
 
+/* swiper-certificate */
+
+
+/* 인증서 아이콘 */
+.section-certificate .card-certificate-icon-container {
+  position: relative;
+  height: 36px;
+  top: 68px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-certificate .card-certificate-icon-container .card-certificate-icon {
+  width: 160px;
+  height: 160px;
+}
+
+
+
+/* swiper-certificate */
+
+
+.certificate-container {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  margin: 2rem auto;
+}
+
+.certificate-title {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.certificate-swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.certificate-swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 400px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.certificate-swiper .swiper-slide-active {
+  transform: scale(var(--certificate-scale, 1));
+}
+
+.certificate-swiper .swiper-slide img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.certificate-slide-content {
+  padding: 20px;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.certificate-slide-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.certificate-slide-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.certificate-controls {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.certificate-control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.certificate-control-group label {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.certificate-control-group input {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 80px;
+}
+
+.certificate-control-group input[type="checkbox"] {
+  width: auto;
+  transform: scale(1.2);
+}
+
+/* Certificate Swiper Custom navigation */
+.certificate-swiper .swiper-button-next,
+.certificate-swiper .swiper-button-prev {
+  color: white;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: 0;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.certificate-swiper .swiper-button-next:hover,
+.certificate-swiper .swiper-button-prev:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.1);
+}
+
+.certificate-swiper .swiper-button-next:after,
+.certificate-swiper .swiper-button-prev:after {
+  font-size: 18px;
+}
+
+/* Certificate Swiper Custom pagination */
+.certificate-swiper .swiper-pagination-bullet {
+  background: rgba(255,255,255,0.5);
+  opacity: 1;
+}
+
+.certificate-swiper .swiper-pagination-bullet-active {
+  background: white;
+}
+
+/* Certificate Responsive */
+@media (max-width: 768px) {
+  .certificate-title {
+      font-size: 2rem;
+  }
+  
+  .certificate-swiper .swiper-slide {
+      width: 250px;
+      height: 350px;
+  }
+  
+  .certificate-controls {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+  }
+}

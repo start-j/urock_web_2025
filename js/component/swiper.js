@@ -148,6 +148,8 @@ async function safeInitSwiper(retries = 3) {
   }
 }
 
+
+
 // 전역에서 접근 가능하도록 설정
 if (typeof window !== 'undefined') {
   window.initSwiperGallery = initSwiperGallery;
