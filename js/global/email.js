@@ -399,7 +399,14 @@ if (typeof window !== 'undefined') {
   }, 10000);
 
   // EmailJS 테스트 함수 (개발/테스트용)
+  let isTestRunning = false;
   window.testEmailJS = async function() {
+    if (isTestRunning) {
+      console.log('[EmailJS Test] ⚠️ 이미 테스트가 실행 중입니다.');
+      return;
+    }
+    
+    isTestRunning = true;
     console.log('[EmailJS Test] 🧪 테스트 시작...');
     
     // EmailJS 라이브러리 동적 로딩
@@ -431,15 +438,16 @@ if (typeof window !== 'undefined') {
     console.log('[EmailJS Test] 📊 테스트 데이터:', testData);
 
     // EmailJS 직접 호출 테스트
-    emailjsLib.send("service_x5ixqcx", "template_1ukblmg", testData)
-      .then(function(response) {
-        console.log('[EmailJS Test] ✅ 테스트 메일 전송 성공!', response);
-        alert('✅ EmailJS 테스트 성공!\n테스트 메일이 전송되었습니다.');
-      })
-      .catch(function(error) {
-        console.error('[EmailJS Test] ❌ 테스트 메일 전송 실패:', error);
-        alert('❌ EmailJS 테스트 실패!\n' + JSON.stringify(error));
-      });
+    try {
+      const response = await emailjsLib.send("service_x5ixqcx", "template_1ukblmg", testData);
+      console.log('[EmailJS Test] ✅ 테스트 메일 전송 성공!', response);
+      alert('✅ EmailJS 테스트 성공!\n테스트 메일이 전송되었습니다.');
+    } catch (error) {
+      console.error('[EmailJS Test] ❌ 테스트 메일 전송 실패:', error);
+      alert('❌ EmailJS 테스트 실패!\n' + JSON.stringify(error));
+    } finally {
+      isTestRunning = false;
+    }
   };
 
   // EmailJS 상태 확인 함수
