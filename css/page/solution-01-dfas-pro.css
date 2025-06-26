@@ -2,30 +2,8 @@
   background-image: url(/images/solution/bg-top.png);
 }
 
-/* section-process 배경 이미지 관리 */
-.section-process {
-  background-image: url('/images/solution/contents-process-bg.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 800px; /* 기본 높이값 */
-}
 
-/* 768px 이하 화면 */
-@media (max-width: 768px) {
-  .section-process {
-    background-image: url('/images/solution/contents-process-bg-768.png');
-    min-height: 600px; /* 768px 화면 높이값 */
-  }
-}
 
-/* 360px 이하 화면 */
-@media (max-width: 360px) {
-  .section-process {
-    background-image: url('/images/solution/contents-process-bg-360.png');
-    min-height: 400px; /* 360px 화면 높이값 */
-  }
-}
 
 /* section 공통 */
 .section-process .card,

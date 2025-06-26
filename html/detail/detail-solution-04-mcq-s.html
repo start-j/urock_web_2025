@@ -106,6 +106,7 @@
 
 
 
+
 <!-- effect 기대효과-->
 <section class="section-effect" style="background-color: #1D1A2B;">
   <div class="section-cards">
@@ -113,7 +114,11 @@
       <div class="card-wrapper"></div>
       <div class="cards">
         <div class="card card-solution-contents" style="background-image: url('');">
-          <img src="/images/solution/contents-effect-mcq.png" alt="카드 이미지">
+          <picture>
+            <source srcset="/images/solution/contents-effect-mcq-p-360.png" media="(max-width: 360px)">
+            <source srcset="/images/solution/contents-effect-mcq-p-768.png" media="(max-width: 768px)">
+            <img src="/images/solution/contents-effect-mcq-p.png" alt="카드 이미지">
+          </picture>
         </div>
       </div>
     </div>
@@ -129,7 +134,16 @@
 <!-- swiper-certificate -->
 <section class="section-certificate">
   <div class="certificate-container">
-    <h1 class="certificate-title">특허 및 인증</h1>
+    <h3 class="certificate-title">
+      <div class="title-component">
+        <div class="tit-container">
+          <h3 class="tit">특허 및 인증</h3>
+          <div class="dot">
+            <div class="dot-child"></div>
+          </div>
+        </div>
+      </div>
+    </h3>
     
     <div class="swiper certificate-swiper">
         <div class="swiper-wrapper">

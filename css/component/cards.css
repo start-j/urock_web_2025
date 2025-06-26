@@ -115,9 +115,16 @@
 }
 
 
+picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-
-
+picture {
+  display: block;
+  width: 100%;
+}
 
 
 
