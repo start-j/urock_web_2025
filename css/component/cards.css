@@ -11,6 +11,8 @@
   padding: 160px 0px 260px 0px;
 }
 
+
+
 /* 카드 컨텐츠 영역 + 타이틀 포함*/
 .section-cards .cards-container {
   display: flex;
@@ -18,6 +20,7 @@
   width: 100%;
   padding: 0 4vw;
 }
+
 
 
 .card-wrapper {
@@ -47,7 +50,6 @@
 /* ===== 카드/프레임 공통 스타일 ===== */
 .card-frame,
 .card {
-
   display: flex;
   flex-direction: column;
   /* background-color: rgba(255, 255, 255, 0.05); */
@@ -113,6 +115,7 @@
   min-width: 312px;
   max-width: 464px;
 }
+
 
 
 picture img {
@@ -186,13 +189,11 @@ picture {
   padding: 48px 32px 24px;
 }
 
-.card-solution-series .card-txt-group {
-  padding: 48px 32px 24px;
-}
 
 .card-solution-series .card-txt-group .des {
   margin-top: 24px;
 }
+
 
 
 
@@ -206,6 +207,14 @@ picture {
 
 .card.card-main-solution h6.des {
   text-align: center;
+}
+
+.section-series .card {
+  outline: none;
+}
+
+.section-series .card picture:nth-child(1) {
+  margin-bottom: 24px;
 }
 
 
@@ -1075,8 +1084,8 @@ picture {
   }
 
   .section-cards {
-    gap: 35px;
-    padding: 35px 0px;
+    gap: 32px;
+    padding: 80px 0px;
   }
 
   .card.card-main-solution,
