@@ -44,6 +44,28 @@ async function loadSwiperLibrary() {
   }
 }
 
+// 이미지 로딩 완료 대기 함수
+async function waitForImagesLoaded(container) {
+  const images = container.querySelectorAll('img');
+  const imagePromises = Array.from(images).map(img => {
+    return new Promise((resolve) => {
+      if (img.complete) {
+        resolve();
+      } else {
+        img.addEventListener('load', resolve);
+        img.addEventListener('error', resolve); // 에러 시에도 진행
+      }
+    });
+  });
+
+  try {
+    await Promise.all(imagePromises);
+    console.log('[Swiper] 모든 이미지 로딩 완료');
+  } catch (error) {
+    console.warn('[Swiper] 일부 이미지 로딩 실패, 계속 진행');
+  }
+}
+
 // Swiper 갤러리 초기화 함수
 export async function initSwiperGallery() {
   console.log('[Swiper] 갤러리 초기화 시작');
@@ -66,6 +88,11 @@ export async function initSwiperGallery() {
     galleryThumbsElement.swiper.destroy(true, true);
     console.log('[Swiper] 기존 galleryThumbs 인스턴스 제거');
   }
+
+  // 이미지 로딩 완료 대기
+  console.log('[Swiper] 이미지 로딩 대기 중...');
+  await waitForImagesLoaded(galleryTopElement);
+  await waitForImagesLoaded(galleryThumbsElement);
 
   // Swiper 라이브러리 로딩
   const SwiperClass = await loadSwiperLibrary();
@@ -115,6 +142,14 @@ export async function initSwiperGallery() {
     });
 
     console.log('[Swiper] 메인 갤러리 Swiper 초기화 완료');
+    
+    // 초기화 후 잠깐 대기 후 업데이트 (picture 태그 반응형 처리)
+    setTimeout(() => {
+      galleryTop.update();
+      galleryThumbs.update();
+      console.log('[Swiper] 갤러리 업데이트 완료');
+    }, 100);
+    
     return true;
 
   } catch (error) {
@@ -134,6 +169,9 @@ async function safeInitSwiper(retries = 3) {
     const success = await initSwiperGallery();
     if (success) {
       console.log('[Swiper] 초기화 성공');
+      
+      // 반응형 처리를 위한 리사이즈 이벤트 리스너 추가
+      setupResponsiveHandler();
     } else {
       console.log(`[Swiper] 초기화 실패, ${retries - 1}회 남음`);
       setTimeout(() => {
@@ -146,6 +184,37 @@ async function safeInitSwiper(retries = 3) {
       safeInitSwiper(retries - 1);
     }, 1000);
   }
+}
+
+// 반응형 처리 핸들러 설정
+function setupResponsiveHandler() {
+  let resizeTimeout;
+  
+  const handleResize = () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const galleryTop = document.querySelector('.gallery-top')?.swiper;
+      const galleryThumbs = document.querySelector('.gallery-thumbs')?.swiper;
+      
+      if (galleryTop && galleryThumbs) {
+        console.log('[Swiper] 화면 크기 변경 감지, 갤러리 업데이트');
+        galleryTop.update();
+        galleryThumbs.update();
+        
+        // Picture 태그의 반응형 이미지가 변경될 시간을 기다린 후 한번 더 업데이트
+        setTimeout(() => {
+          galleryTop.update();
+          galleryThumbs.update();
+        }, 200);
+      }
+    }, 300);
+  };
+  
+  // 기존 리스너 제거 (중복 방지)
+  window.removeEventListener('resize', handleResize);
+  window.addEventListener('resize', handleResize);
+  
+  console.log('[Swiper] 반응형 핸들러 설정 완료');
 }
 
 

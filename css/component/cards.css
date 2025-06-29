@@ -1075,6 +1075,13 @@ picture {
     right: 0;
     padding: 16px;
   }
+
+
+
+  .card-solution-number .card-number {
+    padding: 32px;
+  }
+
 }
 
 
