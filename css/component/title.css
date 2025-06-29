@@ -137,4 +137,20 @@
   .title-component {
     padding: 0px 0px 16px 0px;
   }
+
+
+  
+.title-component .tit-container {
+  gap: 4px;
+}
+
+
+.title-component .dot {
+  padding-bottom: 3px;
+}
+
+.title-component .dot-child {
+  width: 6px;
+  height: 6px;
+}
 }

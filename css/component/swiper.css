@@ -27,7 +27,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: px;
+  border-radius: 48px;
 }
 
 .gallery-thumbs {
@@ -35,6 +35,7 @@
   box-sizing: border-box;
   padding: 10px 0;
   margin: 10px auto 120px auto;
+  /* margin: 10px auto 120px auto; */
 }
 
 .gallery-thumbs .swiper-wrapper {
@@ -57,6 +58,34 @@
   height: 100%;
   object-fit: cover;
   border-radius: 16px;
+}
+
+/* Picture 태그 지원 추가 */
+.gallery-thumbs picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.gallery-thumbs picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* 메인 갤러리 Picture 태그 지원 */
+.gallery-top picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.gallery-top picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 48px;
 }
 
 .gallery-thumbs .swiper-slide-thumb-active {
@@ -93,6 +122,7 @@
 
 /* 반응형 스타일 */
 @media (max-width: 768px) {
+
   .swiper {
     max-width: 100%;
     margin: 0 auto 15px auto;
@@ -104,7 +134,8 @@
 
   .gallery-thumbs {
     height: 80px;
-    padding: 8px 0;
+    padding: 8px 24px;
+    margin-bottom: 48px;
   }
 
   .gallery-thumbs .swiper-slide {
@@ -125,13 +156,20 @@
 }
 
 @media (max-width: 480px) {
+  .education-title-container {
+    padding-top: 56px;
+  }
+
   .gallery-top {
-    height: 250px;
+    height: 240px;
+    padding: 0 10px;
   }
 
   .gallery-thumbs {
-    height: 70px;
-    padding: 6px 0;
+    height: 80px;
+    padding: 0px 10px;
+    border-radius: 4px;
+    margin-bottom: 48px;
   }
 
   .gallery-thumbs .swiper-slide {

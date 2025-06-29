@@ -23,7 +23,7 @@
   box-sizing: border-box;
   overflow: hidden;
   flex-shrink: 0;
-  padding: 16px 24px;
+  padding: 16px 20px;
   gap: 4px;
   margin-top: 20px;
   margin-bottom: 120px;
@@ -60,10 +60,12 @@
 }
 
 
-/* button-grow */
-#submit,
-.contents .btn--filled {
-  height: 80px;
-  width: 100%;
-  flex-grow: 1;
+
+
+@media screen and (max-width: 360px) {
+  #submit,
+  .btn--filled {
+    height: 56px;
+    margin-bottom: 100px;
+  }
 }
