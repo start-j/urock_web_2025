@@ -512,7 +512,7 @@ picture {
   background-repeat: no-repeat;
   background-position: top;
   gap: 140px;
-  padding: 148px 0px;
+  padding: 0px 16px;
 }
 
 .section-certificate .section-tit {
@@ -906,7 +906,7 @@ picture {
 
   .section-certificate {
     gap: 140px;
-    padding: 88px 0px;
+    /* padding: 88px 0px; */
   }
 
   .section-certificate .cards-container {
@@ -988,7 +988,7 @@ picture {
 
   .section-certificate {
     gap: 80px;
-    padding: 60px 0px;
+    /* padding: 60px 0px; */
   }
 
   .section-certificate .cards-container {
@@ -1085,7 +1085,7 @@ picture {
 
   .section-cards {
     gap: 32px;
-    padding: 80px 0px;
+    padding: 72px 0px;
   }
 
   .card.card-main-solution,
