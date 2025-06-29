@@ -7,6 +7,79 @@
  * 사용법: <div data-include-path="/path/to/component.html"></div>
  */
 
+/**
+ * 경로를 현재 페이지에서 절대 경로로 변환
+ * @param {string} path - 변환할 경로
+ * @returns {string} - 정규화된 절대 경로
+ */
+function normalizeIncludePath(path) {
+    // 이미 절대 경로인 경우 그대로 반환
+    if (path.startsWith('/')) {
+        return path;
+    }
+    
+    // 현재 페이지의 경로를 분석
+    const currentPath = window.location.pathname;
+    const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+    
+    // 상대 경로 처리
+    let normalizedPath = currentDir + path;
+    
+    // './' 처리
+    normalizedPath = normalizedPath.replace(/\/\.\//g, '/');
+    
+    // '../' 처리
+    while (normalizedPath.includes('../')) {
+        normalizedPath = normalizedPath.replace(/\/[^\/]+\/\.\.\//g, '/');
+    }
+    
+    // 중복 슬래시 제거
+    normalizedPath = normalizedPath.replace(/\/+/g, '/');
+    
+    console.log(`[Include] 경로 정규화: ${path} → ${normalizedPath}`);
+    return normalizedPath;
+}
+
+/**
+ * HTML 내부의 절대 경로를 상대 경로로 변환
+ * @param {string} html - 변환할 HTML 문자열
+ * @param {string} includePath - include된 파일의 원본 경로
+ * @returns {string} - 경로가 수정된 HTML 문자열
+ */
+function convertAbsolutePathsToRelative(html, includePath) {
+    // 현재 페이지의 깊이 계산
+    const currentPath = window.location.pathname;
+    let depth = (currentPath.match(/\//g) || []).length - 1;
+    
+    // 루트 페이지인 경우 depth 조정
+    if (currentPath === '/' || currentPath === '/index.html') {
+        depth = 0;
+    }
+    
+    // 상대 경로 prefix 생성
+    const relativePrefix = depth > 0 ? '../'.repeat(depth) : './';
+    
+    console.log(`[Include] 현재 경로: ${currentPath}, 깊이: ${depth}, prefix: ${relativePrefix}`);
+    
+    // 절대 경로를 상대 경로로 변환
+    let processedHtml = html;
+    
+    // src 속성의 절대 경로 변환
+    processedHtml = processedHtml.replace(/src="\/([^"]+)"/g, `src="${relativePrefix}$1"`);
+    
+    // href 속성의 절대 경로 변환 (CSS, 링크 등)
+    processedHtml = processedHtml.replace(/href="\/([^"]+)"/g, `href="${relativePrefix}$1"`);
+    
+    // CSS background-image의 절대 경로 변환
+    processedHtml = processedHtml.replace(/url\(['"]?\/([^'")]+)['"]?\)/g, `url('${relativePrefix}$1')`);
+    
+    // style 속성 내 background-image 절대 경로 변환
+    processedHtml = processedHtml.replace(/style="([^"]*background-image:\s*url\(['"]?)\/([^'")]+)(['"]?\))([^"]*)"/g, 
+        `style="$1${relativePrefix}$2$3$4"`);
+    
+    return processedHtml;
+}
+
 window.addEventListener('load', function () {
     const includeElements = document.querySelectorAll('[data-include-path]');
     let totalComponents = includeElements.length;
@@ -40,12 +113,18 @@ window.addEventListener('load', function () {
     async function loadComponent(el, path) {
         console.log(`[Include] 요소 로드 시작: ${path}`);
         try {
-            const response = await fetch(path);
+            // 경로 정규화
+            const normalizedPath = normalizeIncludePath(path);
+            
+            const response = await fetch(normalizedPath);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const html = await response.text();
-            console.log(`[Include] 파일 로드 완료: ${path}`);
+            let html = await response.text();
+            console.log(`[Include] 파일 로드 완료: ${normalizedPath}`);
+
+            // 절대 경로를 상대 경로로 변환
+            html = convertAbsolutePathsToRelative(html, path);
 
             // 원본 요소의 데이터 속성 보존
             const originalDataAttrs = {};
@@ -76,7 +155,7 @@ window.addEventListener('load', function () {
             const event = new CustomEvent('componentLoaded', {
                 detail: {
                     component: componentName,
-                    path: path,
+                    path: normalizedPath,
                     element: document.querySelector(`.${componentName}`) // 원본과 유사하게 단순화
                 }
             });
@@ -86,7 +165,7 @@ window.addEventListener('load', function () {
 
         } catch (error) {
             console.error(`[Include] 파일 로드 실패: ${path}`, error);
-            el.innerHTML = `<!-- Failed to load ${path} -->`;
+            el.innerHTML = `<!-- Failed to load ${path}: ${error.message} -->`;
             checkAllComponentsLoaded(); // 실패해도 카운트는 증가시켜서 무한 대기 방지
         }
     }

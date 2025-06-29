@@ -66,12 +66,50 @@ export default defineConfig({
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.');
           const ext = info[info.length - 1];
+          
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
-            return `images/[name].[ext]`;
+            return `images/[name][extname]`;
           }
-          return `assets/[name].[ext]`;
-        }
+          
+          if (/mp4|webm|ogg|mov/i.test(ext)) {
+            return `video/[name][extname]`;
+          }
+          
+          if (/woff2?|eot|ttf|otf/i.test(ext)) {
+            return `fonts/[name][extname]`;
+          }
+          
+          if (ext === 'css') {
+            return `css/[name][extname]`;
+          }
+          
+          return `assets/[name][extname]`;
+        },
+        
+        chunkFileNames: 'js/[name]-[hash].js',
+        entryFileNames: 'js/[name]-[hash].js'
       }
     },
   },
+  
+  server: {
+    port: 3000,
+    open: true,
+    cors: true
+  },
+  
+  preview: {
+    port: 4173,
+    open: true
+  },
+  
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './'),
+      '@public': resolve(__dirname, './public'),
+      '@css': resolve(__dirname, './css'),
+      '@js': resolve(__dirname, './js'),
+      '@html': resolve(__dirname, './html')
+    }
+  }
 }); 
