@@ -1,3 +1,15 @@
 .intro {
   background-image: url(/images/solution/bg-top.png);
 }
+
+
+.line-split {
+  display: inline;
+}
+
+@media screen and (max-width: 360px) {
+  .line-split {
+    display: block;
+  }
+}
+
