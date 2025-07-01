@@ -23,4 +23,4 @@ npm-debug.log*
 .env.production
 
 # Cache
-.cache/ 
+.cache/ node_modules/
