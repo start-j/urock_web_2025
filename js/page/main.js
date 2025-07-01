@@ -1,5 +1,5 @@
 // 메인 페이지에서만 실행되도록 조건 추가
-if (window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+if (window.location.pathname === '/' || window.location.pathname.includes('index.html') || window.location.pathname === '/urock_homepage_bucket/') {
     let nextDom = document.getElementById('next');
     let prevDom = document.getElementById('prev');
     let carouselDom = document.querySelector('.carousel');

@@ -7,6 +7,8 @@ import { toRelativePath } from '../global/utils.js';
  * @param {object} config - 탭 구성 설정 (옵션)
  */
 
+
+
 function createTabComponent(containerId, config) {
   if (!config || !Array.isArray(config.mainTabs)) {
     console.error('[Tab] createTabComponent에 유효하지 않은 config가 전달됨:', config);
@@ -257,46 +259,46 @@ function createTabComponent(containerId, config) {
   // 컨텐츠 경로 매핑
   function getContentPath() {
     console.log(`[Tab] 경로 매핑 시도: activeMainTab=${activeMainTab}, activeSubTab=${activeSubTab}`);
-
+    const isDev = !window.location.href.includes('urock_homepage_bucket');
     // 각 메인 탭별 경로 매핑
-    let contentPath = '';
+    let contentPath = isDev ? '' : '/urock_homepage_bucket';
 
     switch (activeMainTab) {
       case 'dfas':
         contentPath = activeSubTab === 'dfas-enterprise'
-          ? '/html/detail/detail-solution-02-dfas-ent.html'
-          : '/html/detail/detail-solution-01-dfas-pro.html';
+          ? contentPath + '/html/detail/detail-solution-02-dfas-ent.html'
+          : contentPath + '/html/detail/detail-solution-01-dfas-pro.html';
         break;
 
       case 'mcq':
         const mcqPaths = {
-          'mcq-p': '/html/detail/detail-solution-03-mcq-p.html',
-          'mcq-s': '/html/detail/detail-solution-04-mcq-s.html',
-          'mcq-g': '/html/detail/detail-solution-05-mcq-g.html'
+          'mcq-p': contentPath + '/html/detail/detail-solution-03-mcq-p.html',
+          'mcq-s': contentPath + '/html/detail/detail-solution-04-mcq-s.html',
+          'mcq-g': contentPath + '/html/detail/detail-solution-05-mcq-g.html'
         };
         contentPath = mcqPaths[activeSubTab] || mcqPaths['mcq-p']; // 기본값: mcq-p
         break;
 
       case 'gm':
         contentPath = activeSubTab === 'gm-pro'
-          ? '/html/detail/detail-solution-07-gm-pro.html'
-          : '/html/detail/detail-solution-06-gm.html';
+          ? contentPath + '/html/detail/detail-solution-07-gm-pro.html'
+          : contentPath + '/html/detail/detail-solution-06-gm.html';
         break;
 
       case 'analysis':
-        contentPath = '/html/detail/detail-service-01-analysis.html';
+        contentPath = contentPath + '/html/detail/detail-service-01-analysis.html';
         break;
 
       case 'authentication':
-        contentPath = '/html/detail/detail-service-02-authentication.html';
+        contentPath = contentPath + '/html/detail/detail-service-02-authentication.html';
         break;
 
       case 'education':
-        contentPath = '/html/detail/detail-service-03-education.html';
+        contentPath = contentPath + '/html/detail/detail-service-03-education.html';
         break;
 
       case 'inquiry':
-        contentPath = '/html/detail/detail-support-01-inquiry.html';
+        contentPath = contentPath + '/html/detail/detail-support-01-inquiry.html';
         break;
 
       case 'news':
@@ -310,10 +312,10 @@ function createTabComponent(containerId, config) {
         };
 
         if (activeSubTab && newsPaths[activeSubTab]) {
-          contentPath = newsPaths[activeSubTab];
+          contentPath = contentPath + newsPaths[activeSubTab];
         } else {
           // 서브 탭이 없거나 기본값인 경우 메인 news 페이지 로드
-          contentPath = '/html/detail/detail-support-02-news.html';
+          contentPath = contentPath + '/html/detail/detail-support-02-news.html';
         }
         break;
 
@@ -416,7 +418,7 @@ function createTabComponent(containerId, config) {
 
             // 모바일 메뉴 재초기화 (Detail 페이지 로드 시) - 개선된 방식
             console.log('🔄 탭 컨텐츠 로드 완료, 모바일 메뉴 재초기화 시작');
-            
+
             // 약간의 지연을 두고 확실하게 재초기화
             setTimeout(() => {
               if (typeof window.reInitMobileMenu === 'function') {
@@ -431,12 +433,12 @@ function createTabComponent(containerId, config) {
             setTimeout(() => {
               const hasSubmenuLinks = document.querySelectorAll('.mobile-drawer-menu .menu-link.has-submenu');
               console.log(`🔍 추가 검증 - 서브메뉴 링크: ${hasSubmenuLinks.length}개`);
-              
+
               if (hasSubmenuLinks.length > 0 && typeof window.reInitMobileMenu === 'function') {
                 // 이벤트 리스너가 실제로 바인딩되었는지 테스트
                 const testLink = hasSubmenuLinks[0];
                 const hasClickHandler = testLink.onclick || testLink.addEventListener;
-                
+
                 if (!hasClickHandler) {
                   console.log('🔧 이벤트 리스너가 없음, 추가 재초기화 실행');
                   window.reInitMobileMenu();

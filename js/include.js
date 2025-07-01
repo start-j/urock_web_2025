@@ -17,25 +17,25 @@ function normalizeIncludePath(path) {
     if (path.startsWith('/')) {
         return path;
     }
-    
+
     // 현재 페이지의 경로를 분석
     const currentPath = window.location.pathname;
     const currentDir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
-    
+
     // 상대 경로 처리
     let normalizedPath = currentDir + path;
-    
+
     // './' 처리
     normalizedPath = normalizedPath.replace(/\/\.\//g, '/');
-    
+
     // '../' 처리
     while (normalizedPath.includes('../')) {
         normalizedPath = normalizedPath.replace(/\/[^\/]+\/\.\.\//g, '/');
     }
-    
+
     // 중복 슬래시 제거
     normalizedPath = normalizedPath.replace(/\/+/g, '/');
-    
+
     console.log(`[Include] 경로 정규화: ${path} → ${normalizedPath}`);
     return normalizedPath;
 }
@@ -50,38 +50,40 @@ function convertAbsolutePathsToRelative(html, includePath) {
     // 현재 페이지의 깊이 계산
     const currentPath = window.location.pathname;
     let depth = (currentPath.match(/\//g) || []).length - 1;
-    
+
     // 루트 페이지인 경우 depth 조정
     if (currentPath === '/' || currentPath === '/index.html') {
         depth = 0;
     }
-    
+
     // 상대 경로 prefix 생성
     const relativePrefix = depth > 0 ? '../'.repeat(depth) : './';
-    
+
     console.log(`[Include] 현재 경로: ${currentPath}, 깊이: ${depth}, prefix: ${relativePrefix}`);
-    
+
     // 절대 경로를 상대 경로로 변환
     let processedHtml = html;
-    
+
     // src 속성의 절대 경로 변환
     processedHtml = processedHtml.replace(/src="\/([^"]+)"/g, `src="${relativePrefix}$1"`);
-    
+
     // href 속성의 절대 경로 변환 (CSS, 링크 등)
     processedHtml = processedHtml.replace(/href="\/([^"]+)"/g, `href="${relativePrefix}$1"`);
-    
+
     // CSS background-image의 절대 경로 변환
     processedHtml = processedHtml.replace(/url\(['"]?\/([^'")]+)['"]?\)/g, `url('${relativePrefix}$1')`);
-    
+
     // style 속성 내 background-image 절대 경로 변환
-    processedHtml = processedHtml.replace(/style="([^"]*background-image:\s*url\(['"]?)\/([^'")]+)(['"]?\))([^"]*)"/g, 
+    processedHtml = processedHtml.replace(/style="([^"]*background-image:\s*url\(['"]?)\/([^'")]+)(['"]?\))([^"]*)"/g,
         `style="$1${relativePrefix}$2$3$4"`);
-    
+
     return processedHtml;
 }
 
 window.addEventListener('load', function () {
+    const isDev = !this.window.location.href.includes('urock_homepage_bucket');
     const includeElements = document.querySelectorAll('[data-include-path]');
+
     let totalComponents = includeElements.length;
     let loadedComponents = 0;
 
@@ -91,7 +93,7 @@ window.addEventListener('load', function () {
     }
 
     includeElements.forEach(el => {
-        const path = el.dataset.includePath;
+        const path = isDev ? el.dataset.includePath : "/urock_homepage_bucket"+el.dataset.includePath;
         if (path) {
             loadComponent(el, path);
         }
@@ -115,7 +117,7 @@ window.addEventListener('load', function () {
         try {
             // 경로 정규화
             const normalizedPath = normalizeIncludePath(path);
-            
+
             const response = await fetch(normalizedPath);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -141,7 +143,7 @@ window.addEventListener('load', function () {
             if (path.includes('intro.html')) {
                 const introSection = document.querySelector('.intro');
                 const txtGroup = introSection?.querySelector('.txt-group');
-                
+
                 if (txtGroup) {
                     // 데이터 속성을 txt-group 요소에 적용
                     Object.entries(originalDataAttrs).forEach(([key, value]) => {
