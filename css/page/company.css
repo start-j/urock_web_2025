@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-image: url(images/company/bg-business.png);
+  background-image: url(/images/company/bg-business.png);
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -86,7 +86,7 @@
 
 
 
-/* 
+/*
 .business .business-body .tit-group {
   display: flex;
   flex-direction: row;
@@ -119,7 +119,7 @@
 
 
 /* card-company */
-/* 
+/*
 .business .business-body .cards {
   align-self: stretch;
   display: flex;
@@ -729,11 +729,11 @@
 
 
 
-/* =================================== 
+/* ===================================
    RESPONSIVE DESIGN - HISTORY & LOCATION
    =================================== */
 
-/* =================================== 
+/* ===================================
    RESPONSIVE DESIGN - HISTORY & LOCATION
    =================================== */
 
