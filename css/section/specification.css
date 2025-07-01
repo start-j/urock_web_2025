@@ -1,6 +1,6 @@
 /* specification 공통 스타일 */
 .specification {
-  background-image: url(/images/solution/bg-description.png);
+  background-image: url(images/solution/bg-description.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -22,14 +22,14 @@
 /* MCQ-P */
 .specification.mcq-p .frame {
   height: 648px;
-  background-image: url(/images/solution/contents-specification-mcq-p.png);
+  background-image: url(images/solution/contents-specification-mcq-p.png);
   margin: 24px 0 180px 0;
 }
 
 /* MCQ-G */
 .specification.mcq-g .frame {
   height: 648px;
-  background-image: url(/images/solution/contents-specification-mcq-g.png);
+  background-image: url(images/solution/contents-specification-mcq-g.png);
   margin: 24px 0 180px 0;
 }
 

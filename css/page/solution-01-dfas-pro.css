@@ -1,5 +1,5 @@
 .intro {
-  background-image: url(/images/solution/bg-top.png);
+  background-image: url(images/solution/bg-top.png);
 }
 
 
@@ -32,4 +32,3 @@
 .section-certificate .card {
   border-radius: 24px;
 }
-

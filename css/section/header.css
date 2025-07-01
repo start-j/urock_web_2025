@@ -188,11 +188,11 @@ header .fab-btn {
 }
 
 header .fab-btn:hover img {
-  content: url(/images/common/fab-hover.png);
+  content: url(images/common/fab-hover.png);
 }
 
 header .fab-btn:active img {
-  content: url(/images/common/fab-active.png);
+  content: url(images/common/fab-active.png);
 }
 
 header .menu-icon {
@@ -246,7 +246,7 @@ header .mobile-menu-btn {
     justify-content: flex-end;
     align-items: flex-start;
   }
-  
+
   .language-tooltip {
     margin-right: 0;
     margin-left: 0;
@@ -259,7 +259,7 @@ header .mobile-menu-btn {
   .language-tooltip-global {
     right: calc(50vw - 720px + 40px);
   }
-  
+
   .language-tooltip {
     transform: translateX(36px);
   }
@@ -641,9 +641,9 @@ header .mobile-menu-btn {
   opacity: 0;
   transform: translateY(-5px);
   transition: all 0.3s ease-in-out;
-  background: linear-gradient(135deg, 
-              rgba(32, 29, 48, 0.8), 
-              rgba(24, 21, 36, 0.9));
+  background: linear-gradient(135deg,
+      rgba(32, 29, 48, 0.8),
+      rgba(24, 21, 36, 0.9));
   border-radius: 0 0 8px 8px;
   margin: 0;
   padding: 0;
