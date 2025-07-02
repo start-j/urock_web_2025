@@ -282,7 +282,7 @@ export async function initEmailJSForm() {
     // EmailJS로 메일 전송 (재시도 로직 포함)
     async function sendEmailWithRetry(retryCount = 0) {
       try {
-        const response = await emailjsLib.send("service_x5ixqcx", "template_1ukblmg", templateParams);
+        const response = await emailjsLib.send("service_tptbrq7", "template_1ukblmg", templateParams);
         console.log('[EmailJS] ✅ 메일 전송 성공:', response);
         alert("문의가 성공적으로 전송되었습니다!\n빠른 시일 내에 답변드리겠습니다.");
 
@@ -439,7 +439,7 @@ if (typeof window !== 'undefined') {
 
     // EmailJS 직접 호출 테스트
     try {
-      const response = await emailjsLib.send("service_x5ixqcx", "template_1ukblmg", testData);
+      const response = await emailjsLib.send("service_tptbrq7", "template_1ukblmg", testData);
       console.log('[EmailJS Test] ✅ 테스트 메일 전송 성공!', response);
       alert('✅ EmailJS 테스트 성공!\n테스트 메일이 전송되었습니다.');
     } catch (error) {
