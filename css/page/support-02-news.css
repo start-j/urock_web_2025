@@ -175,6 +175,21 @@
   color: #fff;
 }
 
+.news-support .top .subtit {
+  color: #ffffffd8;
+  font-size: 12px;
+}
+
+.news-support .top .date {
+  color: #ffffff94;
+}
+
+.news-support .product-name {
+  color: rgba(255, 255, 255, 0.925);
+  font-weight: 400;
+}
+
+
 /* Cards Grid */
 /* .news-support .cards {
   display: grid;
