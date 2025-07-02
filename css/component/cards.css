@@ -130,6 +130,19 @@ picture {
 }
 
 
+/* .section-series .picture-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.section-series .picture-wrapper picture {
+  width: 342px;
+  height: 228px;
+  display: block;
+  object-fit: cover;
+} */
 
 /* ===== 카드 텍스트 그룹 개별 ===== */
 

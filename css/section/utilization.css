@@ -1,6 +1,6 @@
 /* utilization 공통 스타일
 .utilization {
-  background-image: url(images/solution/bg-description.png);
+  background-image: url(/images/solution/bg-description.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -65,19 +65,19 @@
 
 
 .utilization.dfas-ent .frame:nth-child(1) {
-  background-image: url(images/main/service-01.png);
+  background-image: url(/images/main/service-01.png);
 }
 
 .utilization.dfas-ent .frame:nth-child(2) {
-  background-image: url(images/main/service-02.png);
+  background-image: url(/images/main/service-02.png);
 }
 
 .utilization.dfas-ent .frame:nth-child(3) {
-  background-image: url(images/main/service-01.png);
+  background-image: url(/images/main/service-01.png);
 }
 
 .utilization.dfas-ent .frame:nth-child(4) {
-  background-image: url(images/main/service-02.png);
+  background-image: url(/images/main/service-02.png);
 }*/
 
 
@@ -86,11 +86,11 @@
 
 /* DFAS Pro 페이지 - 2개 카드 
 .utilization.dfas-pro .frame:nth-child(1) {
-  background-image: url(images/solution/contents-utilization-dfas-pro-01.png);
+  background-image: url(/images/solution/contents-utilization-dfas-pro-01.png);
 }
 
 .utilization.dfas-pro .frame:nth-child(2) {
-  background-image: url(images/solution/contents-utilization-dfas-pro-02.png);
+  background-image: url(/images/solution/contents-utilization-dfas-pro-02.png);
 }*/
 
 
@@ -98,19 +98,19 @@
 
 /* 기본 스타일 (메인 페이지용) 
 .utilization .frame:nth-child(1) {
-  background-image: url(images/main/service-01.png);
+  background-image: url(/images/main/service-01.png);
 }
 
 .utilization .frame:nth-child(2) {
-  background-image: url(images/main/service-02.png);
+  background-image: url(/images/main/service-02.png);
 }
 
 .utilization .frame:nth-child(3) {
-  background-image: url(images/main/service-01.png);
+  background-image: url(/images/main/service-01.png);
 }
 
 .utilization .frame:nth-child(4) {
-  background-image: url(images/main/service-02.png);
+  background-image: url(/images/main/service-02.png);
 }*/
 
 
@@ -118,12 +118,12 @@
 
 /* DFAS Pro 
 .utilization.dfas-pro .frame {
-  background-image: url(images/solution/contents-utilization-dfas-pro.png);
+  background-image: url(/images/solution/contents-utilization-dfas-pro.png);
 }*/
 
 
 
 /* DFAS Enterprise 
 .utilization.dfas-ent .frame {
-  background-image: url(images/solution/contents-utilization-dfas-enterprise.png);
+  background-image: url(/images/solution/contents-utilization-dfas-enterprise.png);
 }*/
