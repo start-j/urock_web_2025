@@ -1,8 +1,8 @@
-import {resolve} from 'path';
-import {defineConfig} from 'vite';
-import {createHtmlPlugin} from 'vite-plugin-html';
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import { createHtmlPlugin } from 'vite-plugin-html';
 
-export default defineConfig(({command, mode}) => {
+export default defineConfig(({ command, mode }) => {
     const isDev = mode === 'development';
     return {
         base: isDev ? './' : '/urock_homepage_bucket/',
