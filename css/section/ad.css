@@ -1,0 +1,97 @@
+/* ad */
+.ad {
+    position: relative;
+    height: 1080px;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .ad .txt-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: absolute;
+    top: 64px;
+    left: 43px;
+  }
+  
+  .ad .txt-group .tit {
+    font-size: 32px;
+    letter-spacing: -2px;
+    line-height: 159%;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 72px;
+  }
+  
+  .ad .txt-group .txt {
+    font-size: 16px;
+    letter-spacing: -1px;
+    line-height: 150%;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 8px;
+  }
+  
+  .ad .txt-group .tit-sub {
+    font-size: 16px;
+    letter-spacing: -1px;
+    line-height: 150%;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 24px;
+  }
+  
+  .ad .tit-main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .ad li {
+    margin-bottom: 0px;
+  }
+  
+  .ad ul {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding-left: 21px;
+  }
+  
+  .ad .btn {
+    position: absolute;
+    top: 877px;
+    left: calc(50% - 246.34px);
+    box-shadow: 0px 4px 12px rgba(98, 140, 245, 0.1), 0px 6px 12px rgba(32, 29, 48, 0.15), 0px 8px 16px rgba(32, 29, 48, 0.2), 0px 20px 20px rgba(32, 29, 48, 0.3), 0px 20px 60px rgba(32, 29, 48, 0.4);
+    border-radius: 20px;
+    background-color: #628cf5;
+    border: 2px solid #628cf5;
+    box-sizing: border-box;
+    width: 489px;
+    height: 67px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 28px;
+    gap: 4px;
+    font-size: 18px;
+  }
+  
+  .ad .button {
+    letter-spacing: -0.5px;
+    line-height: 136%;
+    font-weight: 600;
+    text-shadow: 0px 0px 0.9px #628cf5, 0px 0px 12.6px #264deb;
+  }
+  
+  .ad .icon-arrow {
+    width: 24px;
+    height: 24px;
+  }

@@ -1,0 +1,32 @@
+/* description 공통 스타일 */
+.description {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-sizing: border-box;
+}
+
+.description img {
+  width: 240px;
+  height: 30px;
+  margin: 0 auto;
+  margin-bottom: 24px;
+}
+
+.description h5 span {
+  color: #91B1FF;
+}
+
+/* 페이지별 특화 스타일 */
+/* 
+.description.gm-pro {
+  padding: 80px 0;
+  width: 100%;
+  background-image: url(/images/solution/bg-description.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+} */

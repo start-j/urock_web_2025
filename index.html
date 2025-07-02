@@ -1,0 +1,617 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="./" />
+  <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+  <script type="module" src="js/index.js"></script>
+  <title>Urock</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="inner">
+        <a href="index.html">
+          <img class="logo-icon" alt="" src="logo/urock-white.svg">
+        </a>
+        <ul class="menu">
+          <li class="menu-item" data-page="company"><a href="html/page/company.html">회사소개</a></li>
+          <li class="menu-item" data-page="solution"><a href="html/page/solution-01-dfas-pro.html">솔루션소개</a></li>
+          <li class="menu-item" data-page="service"><a href="html/page/service-01-analysis.html">서비스</a></li>
+          <li class="menu-item" data-page="support"><a href="html/page/support-01-inquiry.html">고객지원</a></li>
+        </ul>
+        <div class="header-actions">
+          <div class="language">
+            <img class="icon-language" alt="" src="icons/icon-languege-arrow.svg">
+            <!-- <img class="icon-dropdown" alt="" src=/icons/icon-dropdown.svg"> -->
+          </div>
+          <div class="mobile-menu-btn">
+            <img src="icons/icon-menu.svg" alt="메뉴 아이콘">
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="language-tooltip-global">
+      <div class="language-tooltip">
+        <h6>언어 변경 기능은 현재 준비 중입니다.</h6>
+      </div>
+    </div>
+    <button class="fab-btn">
+      <img src="images/common/fab-default.png" alt="top-move-button">
+    </button>
+
+    <!-- JavaScript는 각 페이지의 index.js에서 모듈로 로드됨 -->
+    <!-- 오버레이 -->
+    <div class="mobile-drawer-overlay" id="overlay"></div>
+
+    <!-- 드로워 -->
+    <div class="mobile-drawer" id="drawer">
+      <div class="mobile-drawer-header">
+        <div class="mobile-drawer-title">메뉴</div>
+        <button class="mobile-drawer-close" id="closeBtn"></button>
+      </div>
+      <ul class="mobile-drawer-menu">
+        <li class="menu-item">
+          <a href="html/page/company.html" class="menu-link">회사소개</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link has-submenu" data-target="solution">솔루션소개</a>
+          <ul class="submenu" id="solution">
+            <li class="menu-item">
+              <a href="#" class="menu-link has-submenu" data-target="dfas">DFAS</a>
+              <ul class="submenu" id="dfas">
+                <li class="menu-item">
+                  <a href="html/page/solution-01-dfas-pro.html" class="menu-link">DFAS Pro</a>
+                </li>
+                <li class="menu-item">
+                  <a href="html/page/solution-02-dfas-ent.html" class="menu-link">DFAS Enterprise</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link has-submenu" data-target="mcq">MCQ</a>
+              <ul class="submenu" id="mcq">
+                <li class="menu-item">
+                  <a href="html/page/solution-03-mcq-p.html" class="menu-link">M-SecuManager P</a>
+                </li>
+                <li class="menu-item">
+                  <a href="html/page/solution-04-mcq-s.html" class="menu-link">M-SecuManager S</a>
+                </li>
+                <li class="menu-item">
+                  <a href="html/page/solution-05-mcq-g.html" class="menu-link">M-SecuManager G</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link has-submenu" data-target="gatemanager">Gate Manager</a>
+              <ul class="submenu" id="gatemanager">
+                <li class="menu-item">
+                  <a href="html/page/solution-06-gm.html" class="menu-link">Gate Manager</a>
+                </li>
+                <li class="menu-item">
+                  <a href="html/page/solution-07-gm-pro.html" class="menu-link">Gate Manager Pro</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link has-submenu" data-target="service">서비스</a>
+          <ul class="submenu" id="service">
+            <li class="menu-item">
+              <a href="html/page/service-01-analysis.html" class="menu-link">포렌식 분석 서비스</a>
+            </li>
+            <li class="menu-item">
+              <a href="html/page/service-02-authentication.html" class="menu-link">국제 표준화 인증</a>
+            </li>
+            <li class="menu-item">
+              <a href="html/page/service-03-education.html" class="menu-link">포렌식 교육</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link has-submenu" data-target="support">고객지원</a>
+          <ul class="submenu" id="support">
+            <li class="menu-item">
+              <a href="html/page/support-01-inquiry.html" class="menu-link">문의하기</a>
+            </li>
+            <li class="menu-item">
+              <a href="html/page/support-02-news.html" class="menu-link">유락소식</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="inner">
+      <!-- carousel -->
+      <div class="carousel">
+        <div class="list">
+          <div class="item">
+            <video src="video/bg-main-01.mp4" autoplay loop muted alt="carousel-1"></video>
+            <div class="bg-front"></div>
+            <div class="hero-content">
+              <h1 class="title">디지털 포렌식 기반의</h1>
+              <h1 class="topic">글로벌 ICT 기업</h1>
+              <h6 class="hero-des">
+                <div class="tit">지속적인 디지털 포렌식 솔루션 연구 개발</div>
+                <!-- <img class="dot-set" alt="dot-set-image" src=images/main/dot-set.png"> -->
+              </h6>
+              <div class="shape"></div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="images/main/main-bg-02.png" alt="carousel-2" />
+            <div class="bg-front"></div>
+            <div class="hero-content">
+              <h1 class="title">디지털포렌식 솔루션</h1>
+              <h1 class="topic"> DFAS Series</h1>
+              <h6 class="hero-des">
+                <!-- <div class="tit">세부설명 세부설명 세부설명</div> -->
+                <!-- <img class="dot-set" alt="dot-set-image" src=images/main/dot-set.png"> -->
+              </h6>
+              <div class="shape"></div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="images/main/main-bg-03.png" alt="carousel-3" />
+            <div class="bg-front"></div>
+            <div class="hero-content">
+              <h1 class="title">스마트기기 불법 촬영 탐지 솔루션</h1>
+              <h1 class="topic"> GateManager Series</h1>
+              <h6 class="hero-des">
+                <!-- <div class="tit">세부설명 세부설명 세부설명</div> -->
+                <!-- <img class="dot-set" alt="dot-set-image" src=images/main/dot-set.png"> -->
+              </h6>
+              <div class="shape"></div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="images/main/main-bg-04.png" alt="carousel-4" />
+            <div class="bg-front"></div>
+            <div class="hero-content">
+              <h1 class="title">스마트 기기 데이터 완전삭제 솔루션</h1>
+              <h1 class="topic"> M-SecuManager Series</h1>
+              <h6 class="hero-des">
+                <!-- <div class="tit">세부설명 세부설명 세부설명</div> -->
+                <!-- <img class="dot-set" alt="dot-set-image" src=images/main/dot-set.png"> -->
+              </h6>
+              <div class="shape"></div>
+            </div>
+          </div>
+        </div>
+        <!-- thumbnail -->
+        <div class="thumbnail-group">
+          <!-- arrows -->
+          <div class="arrows">
+            <button id="prev">
+              <svg viewBox="0 0 27 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                  <path d="M25.2295 10.7734L3.03722 10.7734" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round"></path>
+                  <path
+                    d="M12.4764 20.6094C12.4764 20.6094 10.3259 16.82 8.3794 14.8735C6.43293 12.9271 2.64355 10.7765 2.64355 10.7765C2.64355 10.7765 6.43293 8.62593 8.3794 6.67946C10.3259 4.73298 12.4764 0.943606 12.4764 0.943606"
+                    stroke="currentColor" stroke-width="1.75" stroke-linecap="round"></path>
+                </g>
+              </svg>
+            </button>
+            <button id="next">
+              <svg viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                  <path d="M0.770508 10.7734L22.9628 10.7734" stroke="currentColor" stroke-width="1.4"
+                    stroke-linecap="round"></path>
+                  <path
+                    d="M13.5236 20.6094C13.5236 20.6094 15.6741 16.82 17.6206 14.8735C19.5671 12.9271 23.3564 10.7765 23.3564 10.7765C23.3564 10.7765 19.5671 8.62593 17.6206 6.67945C15.6741 4.73298 13.5236 0.943603 13.5236 0.943603"
+                    stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                </g>
+              </svg>
+            </button>
+          </div>
+          <div class="thumbnail">
+            <!-- thumbnail 01 -->
+            <div class="item">
+              <div class="bg-color-black"></div>
+              <div class="subtit">
+                <img alt="mcq-logo" src="logo/mcq-white.svg">
+              </div>
+              <h6 class="tit"> 디지털 포렌식 기반의 <br>글로벌 ICT 기업 </h6>
+              <img class="icon-expansion" alt="icon-expansion" src="icons/icon-expansion.svg">
+            </div>
+            <!-- thumbnail 02 -->
+            <div class="item">
+              <div class="bg-color-black"></div>
+              <div class="subtit">
+                <img alt="dfas-logo" src="logo/dfas-white.svg">
+              </div>
+              <h6 class="tit"> 디지털 포렌식 솔루션 </h6>
+              <img class="icon-expansion" alt="icon-expansion" src="icons/icon-expansion.svg">
+            </div>
+            <!-- thumbnail 03 -->
+            <div class="item">
+              <div class="bg-color-black"></div>
+              <div class="subtit">
+                <img alt="gm-logo" src="logo/gm-white.svg">
+              </div>
+              <h6 class="tit"> 스마트기기 불법 촬영<br> 탐지 솔루션 </h6>
+              <img class="icon-expansion" alt="icon-expansion" src="icons/icon-expansion.svg">
+            </div>
+            <!-- thumbnail 04 -->
+            <div class="item">
+              <div class="bg-color-black"></div>
+              <div class="subtit">
+                <img alt="mcq-logo" src="logo/mcq-white.svg">
+              </div>
+              <h6 class="tit"> 스마트기기 데이터<br> 완전삭제 솔루션 </h6>
+              <img class="icon-expansion" alt="icon-expansion" src="icons/icon-expansion.svg">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 데코레이션 요소 -->
+      <div class="assets">
+        <!-- <video class="video" src=./asset/video/video-main-asset.mov" autoplay loop muted alt="asset video">/video> -->
+        <img class="asset-top-gif" src="video/video-main-asset.gif" alt="illust">
+        <img class="asset-top-left" src="images/main/asset-top-left.png" alt="illust">
+        <img class="asset-top-right" src="images/main/asset-top-right.png" alt="illust">
+        <img class="asset-bottom-left" src="images/main/asset-bottom-left.png" alt="illust">
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- banner -->
+  <!-- <section class="banner" style="background-color: #201D30;">
+    <div class="inner">
+      <div class="leaner"></div>
+      <img class="logo-set" src="images/main/logos.png" alt="logo-set" />
+    </div>
+  </section> -->
+
+
+
+  <div class="solution-container">
+    <!-- solution header -->
+    <section class="solution-header">
+      <h3 class="head-tit">유락의 디지털 포렌식 솔루션</h3>
+    </section>
+    <!-- solution body -->
+    <section class="section-cards" style="background-image: url('images/main/section-cards.png');">
+      <!-- DFAS -->
+      <div class="cards-container">
+        <div class="title-component">
+          <div class="tit-container">
+            <h3 class="tit">DFAS Series</h3>
+            <div class="dot">
+              <div class="dot-child"></div>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <a href="html/page/solution-01-dfas-pro.html" class="card card-main-solution"
+            style="background-image: url('images/main/card-main-dfas-01.png');">
+            <div class="card-asset-area">
+              <div class="icon-ellipse">
+                <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+              </div>
+            </div>
+            <div class="card-txt-group">
+              <h4 class="product-name">DFAS Pro</h4>
+              <h6 class="des">
+                <span class="text-color-blue">현장용</span> 디지털 포렌식 솔루션
+              </h6>
+            </div>
+          </a>
+          <a href="html/page/solution-02-dfas-ent.html" class="card card-main-solution"
+            style="background-image: url('images/main/card-main-dfas-02.png');">
+            <div class="card-asset-area">
+              <div class="icon-ellipse">
+                <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+              </div>
+            </div>
+            <div class="card-txt-group">
+              <h4 class="product-name">DFAS Enterprise</h4>
+              <h6 class="des">
+                <span class="text-color-blue">원격지</span> 디지털 포렌식 솔루션
+              </h6>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- GateManager -->
+      <div class="cards-container">
+        <div class="title-component">
+          <div class="tit-container">
+            <h3 class="tit">GateManager Series</h3>
+            <div class="dot">
+              <div class="dot-child"></div>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <a href="html/page/solution-06-gm.html" class="card card-main-solution"
+            style="background-image: url('images/main/card-main-gm-01.png');">
+            <div class="card-asset-area">
+              <div class="icon-ellipse">
+                <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+              </div>
+            </div>
+            <div class="card-txt-group">
+              <h4 class="product-name">GateManager</h4>
+              <h6 class="des">스마트기기 불법 촬영 탐지 솔루션</h6>
+            </div>
+          </a>
+          <a href="html/page/solution-07-gm-pro.html" class="card card-main-solution"
+            style="background-image: url('images/main/card-main-gm-02.png');">
+            <div class="card-asset-area">
+              <div class="icon-ellipse">
+                <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+              </div>
+            </div>
+            <div class="card-txt-group">
+              <h4 class="product-name">GateManager Pro</h4>
+              <h6 class="des">
+                <span class="text-color-blue">중앙 관리형</span> 스마트기기 불법 촬영 탐지 솔루션
+              </h6>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- M-SecuManager -->
+      <div class="cards-container">
+        <div class="title-component">
+          <div class="tit-container">
+            <h3 class="tit">M-SecuManager Series</h3>
+            <div class="dot">
+              <div class="dot-child"></div>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <a href="html/page/solution-03-mcq-p.html" class="card card-main-solution"
+            style="background-image: url('images/main/card-main-mcq-01.png');">
+            <div class="card-asset-area">
+              <div class="icon-ellipse">
+                <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+              </div>
+            </div>
+            <div class="card-txt-group">
+              <h4 class="product-name">M-SecuManager P</h4>
+              <h6 class="des">
+                <span class="text-color-blue">휴대형</span> 스마트기기 데이터 완전삭제 솔루션
+              </h6>
+            </div>
+          </a>
+          <a href="html/page/solution-04-mcq-s.html" class="card card-main-solution"
+            style="background-image: url('images/main/card-main-mcq-02.png');">
+            <div class="card-asset-area">
+              <div class="icon-ellipse">
+                <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+              </div>
+            </div>
+            <div class="card-txt-group">
+              <h4 class="product-name">M-SecuManager S</h4>
+              <h6 class="des">
+                <span class="text-color-blue">서비스형</span> 스마트기기 데이터 완전삭제 솔루션
+              </h6>
+            </div>
+          </a>
+          <a href="html/page/solution-05-mcq-g.html" class="card card-main-solution"
+            style="background-image: url('images/main/card-main-mcq-03.png');">
+            <div class="card-asset-area">
+              <div class="icon-ellipse">
+                <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+              </div>
+            </div>
+            <div class="card-txt-group">
+              <h4 class="product-name">M-SecuManager G</h4>
+              <h6 class="des">
+                <span class="text-color-blue">키오스크형</span> 스마트기기 데이터 완전삭제 솔루션
+              </h6>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- service -->
+    <section class="main-service-container">
+      <div class="section-cards">
+        <div class="cards-container">
+          <div class="title-component">
+            <div class="tit-container">
+              <h3 class="tit">서비스</h3>
+              <div class="dot">
+                <div class="dot-child"></div>
+              </div>
+            </div>
+          </div>
+          <div class="cards">
+            <a href="html/page/service-01-analysis.html" class="card card-main-service"
+              style="background-image: url('images/main/card-main-service-01.png');">
+              <div class="card-asset-area">
+                <div class="icon-ellipse">
+                  <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+                </div>
+              </div>
+              <div class="card-txt-group">
+                <h4 class="product-name">디지털포렌식 분석 서비스</h4>
+                <h6 class="des">노하우를 바탕으로 차별화된 최종 보고서 제공</h6>
+              </div>
+            </a>
+            <a href="html/page/service-02-authentication.html" class="card card-main-service"
+              style="background-image: url('images/main/card-main-service-02.png');">
+              <div class="card-asset-area">
+                <div class="icon-ellipse">
+                  <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+                </div>
+              </div>
+              <div class="card-txt-group">
+                <h4 class="product-name">디지털포렌식 교육</h4>
+                <h6 class="des">자격증 및 맞춤형 교육 서비스 제공</h6>
+              </div>
+            </a>
+            <a href="html/page/service-03-education.html" class="card card-main-service"
+              style="background-image: url('images/main/card-main-service-03.png');">
+              <div class="card-asset-area">
+                <div class="icon-ellipse">
+                  <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+                </div>
+              </div>
+              <div class="card-txt-group">
+                <h4 class="product-name">정보보호 컨설팅</h4>
+                <h6 class="des">기업 환경에 맞는 정보 감사<br>
+                  침해사고 진단 및 대응 컨설팅</h6>
+              </div>
+            </a>
+          </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- client -->
+    <section class="section-client">
+      <!-- <div class="inner"> -->
+      <div class="title-component">
+        <div class="tit-container">
+          <h3 class="tit">고객사</h3>
+          <div class="dot">
+            <div class="dot-child"></div>
+          </div>
+        </div>
+      </div>
+      <div class="client-logo-set">
+        <div class="logo-track track1">
+          <img class="client-logo" alt="client-logo" src="images/main/client-logo1.png" />
+          <img class="client-logo" alt="client-logo" src="images/main/client-logo1.png" />
+        </div>
+        <div class="logo-track track2">
+          <img class="client-logo" alt="client-logo" src="images/main/client-logo2.png" />
+          <img class="client-logo" alt="client-logo" src="images/main/client-logo2.png" />
+        </div>
+        <div class="logo-track track3">
+          <img class="client-logo" alt="client-logo" src="images/main/client-logo3.png" />
+          <img class="client-logo" alt="client-logo" src="images/main/client-logo3.png" />
+        </div>
+        <!-- <div class="logo-track track4">
+          <img class="client-logo" alt="client-logo" src="images/main/client-logo4.png" />
+          <img class="client-logo" alt="client-logo" src="images/main/client-logo4.png" />
+        </div> -->
+        <div class="linear"></div>
+      </div>
+    </section>
+
+
+
+
+
+
+    <!-- news -->
+    <section class="section-cards-news" style="background-image: url('images/main/bg-news.png');">
+      <div class="section-cards">
+        <div class="cards-container">
+          <div class="title-component">
+            <div class="tit-container">
+              <h3 class="tit">유락소식</h3>
+              <div class="dot">
+                <div class="dot-child"></div>
+              </div>
+            </div>
+            <h6 class="tit-desc">전시회, 사업, 교육 등 다양한 분야의 최신 소식을 한눈에 만나보세요!</h6>
+          </div>
+          <div class="cards">
+            <a href="html/page/support-02-news.html" class="card card-main-news"
+              style="background-image: url('images/support/card-exhibition-03.png');">
+              <div class="card-asset-area">
+                <div class="icon-ellipse">
+                  <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+                </div>
+              </div>
+              <div class="card-txt-group">
+                <div class="top">
+                  <div class="subtit">
+                    <h6 class="div">전시회</h6>
+                  </div>
+                  <h6 class="date">2025년 2월</h6>
+                </div>
+                <h4 class="product-name">사우디아라비아 전시회 2025 LEAP 참가</h4>
+                <!-- <h6 class="des">본문 내용</h6> -->
+              </div>
+            </a>
+            <a href="html/page/support-02-news.html" class="card card-main-news"
+              style="background-image: url('images/support/card-business-02.png');">
+              <div class="card-asset-area">
+                <div class="icon-ellipse">
+                  <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+                </div>
+              </div>
+              <div class="card-txt-group">
+                <div class="top">
+                  <div class="subtit">
+                    <h6 class="div">사업</h6>
+                  </div>
+                  <h6 class="date">2024년 10월</h6>
+                </div>
+                <h4 class="product-name">모바일 보안 파일 유출 탐지 기술 특허 등록</h4>
+                <!-- <h6 class="des">본문 내용</h6> -->
+              </div>
+            </a>
+            <a href="html/page/support-02-news.html" class="card card-main-news"
+              style="background-image: url('images/support/card-mcq.png');">
+              <div class="card-asset-area">
+                <div class="icon-ellipse">
+                  <img class="card-asset-area-icon" alt="링크 아이콘" src="icons/icon-arrow-design.svg">
+                </div>
+              </div>
+              <div class="card-txt-group">
+                <div class="top">
+                  <div class="subtit">
+                    <h6 class="div">회사소식</h6>
+                  </div>
+                  <h6 class="date">2025년 6월</h6>
+                </div>
+                <h4 class="product-name">안심삭제 서비스 오픈</h4>
+                <!-- <h6 class="des">본문 내용</h6> -->
+              </div>
+            </a>
+
+
+          </div>
+          <div class="btn-main-news-container">
+            <a href="html/page/support-01-inquiry.html" class="btn-main-news">
+              <span class="button">문의하기</span>
+              <img class="icon-arrow" alt="" src="icons/icon-arrow-white.svg" />
+            </a>
+          </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+    <div data-include-path="html/section/footer.html"></div>
+
+
+
+</body>
+
+</html>

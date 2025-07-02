@@ -1,0 +1,89 @@
+/* client */
+.client {
+  position: relative;
+  width: 100%;
+  height: 920px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.client .inner {
+  width: 1520px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.client .client-logo-set {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.client .logo-track {
+  display: flex;
+  gap: 20px;
+  width: 200%;
+}
+
+.client .client-logo {
+  height: 96px;
+  width: 50%;
+  object-fit: cover;
+}
+
+.client .track1 {
+  animation: scrollLeft 60s linear infinite;
+}
+
+.client .track2 {
+  animation: scrollRight 70s linear infinite;
+}
+
+.client .track3 {
+  animation: scrollLeft 60s linear infinite;
+}
+
+.client .track4 {
+  animation: scrollRight 70s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.client .logo-track:hover {
+  animation-play-state: paused;
+}
+
+.client .linear {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 646px;
+  background: linear-gradient(269.92deg,
+      #201d30 1.16%,
+      rgba(32, 29, 48, 0.8) 22.89%,
+      rgba(32, 29, 48, 0) 38.81%,
+      rgba(32, 29, 48, 0) 62.79%,
+      rgba(32, 29, 48, 0.8) 78.82%,
+      #201d30 97.17%);
+}

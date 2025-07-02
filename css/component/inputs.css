@@ -1,0 +1,621 @@
+/* 
+===== 기본 Input 컴포넌트 스타일 =====
+support-01-inquiry.css에서 오버라이드 가능한 기본 스타일 제공
+*/
+
+/* ========== 공통 Input 기본 스타일 ========== */
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.input label {
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.input input,
+.input textarea,
+.input select {
+  font-size: 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #e0e0e0;
+  background: #fafbfc;
+  color: #222;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.input textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.input select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #fafbfc url('/images/icon-dropdown.svg') no-repeat right 12px center/18px 18px;
+}
+
+/* ========== Input 상태별 스타일 ========== */
+
+.input-text-hover input,
+.input-search-hover input,
+.input-memo-hover textarea,
+.input-dropdown-hover select {
+  border-color: #b3b3ff;
+  background-color: #f5f7ff;
+}
+
+.input-text-focus input,
+.input-search-focus input,
+.input-memo-focus textarea {
+  border-color: #628cf5;
+  background-color: #f0f6ff;
+  box-shadow: 0 0 0 2px #c7dbff;
+}
+
+.input-text-typing input,
+.input-search-typing input,
+.input-memo-typing textarea {
+  border-color: #628cf5;
+  background-color: #f0f6ff;
+}
+
+.input-text-filled input,
+.input-search-filled input,
+.input-memo-filled textarea,
+.input-dropdown-filled select {
+  border-color: #e0e0e0;
+  background-color: #fafbfc;
+  color: #222;
+}
+
+.input-text-disable input,
+.input-search-disable input,
+.input-memo-disable textarea,
+.input-dropdown-disable select {
+  border-color: #e0e0e0;
+  background-color: #f5f5f5;
+  color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+.input input:disabled,
+.input textarea:disabled,
+.input select:disabled {
+  background-color: #f5f5f5;
+  color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+/* ========== 아이콘 스타일 ========== */
+
+.icon-search,
+.icon-dropdown {
+  position: absolute;
+  right: 16px;
+  top: 38px;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.icon-search {
+  background: url('/images/icon-search.svg') no-repeat center/contain;
+}
+
+.icon-dropdown {
+  background: url('/images/icon-dropdown.svg') no-repeat center/contain;
+}
+
+.input-search,
+.input-dropdown {
+  position: relative;
+}
+
+/* ========== 검색 Input 통합 스타일 ========== */
+
+.input-search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  margin-bottom: 0;
+  gap: 0;
+  position: relative;
+}
+
+.input-search input {
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  height: 56px;
+  padding: 16px 60px 16px 16px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.53);
+  transition: color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input-search input:focus {
+  color: #93B0F8;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.input-search input::placeholder {
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  line-height: 148%;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.53);
+}
+
+.input-search .icon-search {
+  display: none;
+}
+
+/* ========== 검색 컨테이너 및 폼 스타일 ========== */
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.search-container form,
+.search-form {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin-bottom: 20px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 12px;
+  z-index: 1;
+  transition: border 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+  gap: 0;
+  overflow: hidden;
+  height: 56px;
+  min-height: 56px;
+}
+
+.search-container form:hover,
+.search-form:hover,
+.search-container form:focus-within,
+.search-form:focus-within {
+  border: 1px solid #93B0F8;
+}
+
+.search-submit-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 0px 12px 12px 0px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.search-submit-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-submit-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+/* ========== 클린 버튼 통합 스타일 ========== */
+
+/* 브라우저 네이티브 검색 클린 버튼 숨기기 */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+/* 기본 클린 버튼 공통 스타일 */
+.input-clear,
+.clear-button {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: url('/images/icon-close.svg') no-repeat center/contain;
+}
+
+/* 클린 버튼 위치 및 크기 - 일반 인풋 */
+.input .input-clear,
+.input .clear-button {
+  right: 12px;
+  top: 40px;
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+}
+
+/* 클린 버튼 위치 및 크기 - Support 페이지 일반 인풋 */
+.contents form .input .input-clear,
+.contents form .input .clear-button,
+.contents form .form-group .input-clear,
+.contents form .form-group .clear-button {
+  right: 16px;
+  top: 48px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/* 클린 버튼 위치 및 크기 - 검색 인풋 */
+.contents .input-search .input-clear,
+.contents .input-search .clear-button,
+.contents-news .input-search .input-clear,
+.contents-news .input-search .clear-button {
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 10;
+  background: url('/images/icon-close.svg') no-repeat center/18px;
+  background-size: 18px 18px;
+}
+
+/* 클린 버튼 위치 및 크기 - 텍스트 영역 */
+.input-memo .input-clear,
+.input-memo .clear-button {
+  top: 30px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+  transform: none;
+}
+
+.contents form .input-memo .input-clear,
+.contents form .input-memo .clear-button {
+  right: 16px;
+  top: 50px;
+  width: 24px;
+  height: 24px;
+  z-index: 10;
+}
+
+/* 클린 버튼 표시 조건 */
+.input.input-has-value .input-clear,
+.input.input-has-value .clear-button,
+.contents .input-has-value .input-clear,
+.contents .input-has-value .clear-button,
+.contents .input.input-has-value .input-clear,
+.contents .input.input-has-value .clear-button,
+.contents-news .input-has-value .input-clear,
+.contents-news .input-has-value .clear-button,
+.contents-news .input.input-has-value .input-clear,
+.contents-news .input.input-has-value .clear-button {
+  display: flex;
+}
+
+/* ========== 클린 버튼 상호작용 효과 ========== */
+
+/* 공통 호버/포커스 효과 */
+.input-clear:hover,
+.input-clear:focus,
+.clear-button:hover,
+.clear-button:focus {
+  opacity: 1;
+}
+
+/* 공통 액티브 효과 */
+.input-clear:active,
+.clear-button:active {
+  opacity: 0.9;
+}
+
+/* 일반 인풋 호버/액티브 효과 */
+.input .input-clear:hover,
+.input .clear-button:hover {
+  transform: scale(1.1);
+}
+
+.input .input-clear:active,
+.input .clear-button:active {
+  transform: scale(0.95);
+}
+
+/* Support 페이지 일반 인풋 호버/액티브 효과 */
+.contents form .input:not(.input-search) .input-clear:hover,
+.contents form .input:not(.input-search) .clear-button:hover,
+.contents form .form-group .input-clear:hover,
+.contents form .form-group .clear-button:hover,
+.contents form .input-memo .input-clear:hover,
+.contents form .input-memo .clear-button:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.contents form .input:not(.input-search) .input-clear:active,
+.contents form .input:not(.input-search) .clear-button:active,
+.contents form .form-group .input-clear:active,
+.contents form .form-group .clear-button:active,
+.contents form .input-memo .input-clear:active,
+.contents form .input-memo .clear-button:active {
+  transform: scale(0.95);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 검색 인풋 호버/액티브 효과 */
+.contents .input-search .input-clear:hover,
+.contents .input-search .clear-button:hover,
+.contents-news .input-search .input-clear:hover,
+.contents-news .input-search .clear-button:hover {
+  transform: translateY(-50%) scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.contents .input-search .input-clear:active,
+.contents .input-search .clear-button:active,
+.contents-news .input-search .input-clear:active,
+.contents-news .input-search .clear-button:active {
+  transform: translateY(-50%) scale(0.95);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 텍스트 영역 호버/액티브 효과 */
+.input-memo .input-clear:hover,
+.input-memo .clear-button:hover {
+  transform: scale(1.1);
+}
+
+.input-memo .input-clear:active,
+.input-memo .clear-button:active {
+  transform: scale(0.95);
+}
+
+/* ========== 에러 메시지 스타일 ========== */
+
+.input .error-message,
+.contents form .error-message {
+  color: #FF8484;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  font-weight: 400;
+  line-height: 1.3;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.2s ease;
+}
+
+.input .error-message.show,
+.contents form .error-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== 텍스트 영역 스크롤바 스타일 ========== */
+
+.input-memo textarea {
+  overflow-y: auto;
+  max-height: 300px;
+  resize: vertical;
+  scrollbar-width: thin;
+  scrollbar-color: #c7dbff #f5f7ff;
+}
+
+/* 웹킷 스크롤바 */
+.input-memo textarea::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+.input-memo textarea::-webkit-scrollbar-thumb {
+  background: #c7dbff;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.input-memo textarea::-webkit-scrollbar-thumb:hover,
+.input-memo textarea:focus::-webkit-scrollbar-thumb {
+  background: #628cf5;
+}
+
+.input-memo textarea::-webkit-scrollbar-track {
+  background: #f5f7ff;
+  border-radius: 8px;
+}
+
+/* ========== Support 페이지 전용 Input 스타일 ========== */
+
+/* Support 페이지 라벨 스타일 */
+.contents form .input label,
+.contents form .form-group label {
+  margin-left: 16px;
+  color: #ffffffab;
+  display: block;
+  /* padding: 0px 0px 0px 8px; */
+  letter-spacing: -0.5px;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+/* Support 페이지 입력 필드 공통 스타일 */
+.contents form input,
+.contents form select,
+.contents form textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 56px;
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1.2px solid rgba(255, 255, 255, 0.07);
+  padding: 16px 48px 16px 16px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 16px;
+  color: rgba(136, 134, 145, 0.64);
+  font-family: Pretendard;
+  transition: all 0.3s ease;
+}
+
+/* Support 페이지 셀렉트 특별 스타일 */
+.contents form select {
+  padding: 16px 50px 16px 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M1 4l5 5 5-5' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 12px 12px;
+}
+
+.contents form textarea {
+  height: 300px;
+  resize: vertical;
+}
+
+/* Support 페이지 셀렉트 옵션 스타일 */
+.contents form select option {
+  background-color: #2B293B;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Support 페이지 플레이스홀더 스타일 */
+.contents form input::placeholder,
+.contents form textarea::placeholder {
+  color: #767380;
+}
+
+/* Support 페이지 상태별 스타일 */
+.contents form input:hover,
+.contents form select:hover,
+.contents form textarea:hover {
+  border: 1.2px solid #93b0f8e1;
+}
+
+.contents form input:focus,
+.contents form select:focus,
+.contents form textarea:focus {
+  border: 1.2px solid #628CF5;
+  background-color: rgba(230, 237, 255, 0.05);
+  color: #f1f1f1;
+}
+
+.contents form input:not(:focus):valid,
+.contents form textarea:not(:focus):valid {
+  border: 1.2px solid rgba(255, 255, 255, 0.322);
+  color: #ffffffe8;
+}
+
+.contents form input:not(:focus):not(:placeholder-shown):invalid:not([type="checkbox"]) {
+  border: 1.2px solid #FF8484;
+}
+
+.contents form input:disabled,
+.contents form select:disabled,
+.contents form textarea:disabled {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1.2px solid rgba(255, 255, 255, 0.07);
+  cursor: not-allowed;
+}
+
+/* ========== Support 페이지 체크박스 스타일 ========== */
+
+.contents form .checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 12px;
+  color: #ffffffab;
+  margin: 24px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contents form div.checkbox-wrapper input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  vertical-align: top;
+}
+
+.contents form div.checkbox-wrapper input[type="checkbox"]:invalid,
+.contents form div.checkbox-wrapper input[type="checkbox"]:valid {
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.contents form .checkbox-wrapper input[type="checkbox"]:checked {
+  background-color: #628cf5;
+  border-color: #628cf5;
+  background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3E%3Cpath fill="white" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contents form .checkbox-wrapper label {
+  flex-grow: 1;
+  cursor: pointer;
+  color: #ffffffca;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 0;
+  text-align: left;
+}
+
+/* ========== 기본 컴포넌트 설정 ========== */
+
+.input-memo {
+  position: relative;
+}
+
+/* 클린 버튼을 위한 패딩 조정 */
+.input input,
+.input textarea {
+  padding-right: 38px;
+}
