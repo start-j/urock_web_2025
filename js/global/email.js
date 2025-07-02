@@ -172,13 +172,13 @@ function validateContactForm(form) {
 // EmailJS 라이브러리 동적 로딩 함수
 async function loadEmailJSLibrary() {
   console.log('[EmailJS] 라이브러리 로딩 시작...');
-  
+
   // 기존 EmailJS 스크립트 모두 제거 (캐시 문제 해결)
   document.querySelectorAll('script[src*="emailjs"]').forEach(script => {
     console.log('[EmailJS] 기존 스크립트 제거:', script.src);
     script.remove();
   });
-  
+
   // EmailJS 객체 초기화
   if (window.emailjs) {
     console.log('[EmailJS] 기존 emailjs 객체 초기화');
@@ -190,9 +190,9 @@ async function loadEmailJSLibrary() {
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js?v=' + Date.now(); // 캐시 방지
     script.type = 'text/javascript';
-    
+
     console.log('[EmailJS] 새 스크립트 로드 시작:', script.src);
-    
+
     // 스크립트 로딩 Promise
     const loadPromise = new Promise((resolve, reject) => {
       script.onload = () => {
@@ -204,7 +204,7 @@ async function loadEmailJSLibrary() {
         reject(error);
       };
     });
-    
+
     document.head.appendChild(script);
     await loadPromise;
 
@@ -228,7 +228,7 @@ async function loadEmailJSLibrary() {
 // EmailJS 폼 초기화 함수 (동적으로 폼이 삽입된 후 호출 필요)
 export async function initEmailJSForm() {
   console.log('[EmailJS] 초기화 시작...');
-  
+
   // EmailJS 라이브러리 동적 로딩
   const emailjsLib = await loadEmailJSLibrary();
   if (!emailjsLib) {
@@ -272,7 +272,7 @@ export async function initEmailJSForm() {
     // 폼 데이터를 객체로 변환 및 로깅
     const formData = new FormData(form);
     const templateParams = {};
-    
+
     console.log('[EmailJS] 📊 전송 데이터:');
     for (let [key, value] of formData.entries()) {
       console.log(`  ${key}: ${value}`);
@@ -285,10 +285,10 @@ export async function initEmailJSForm() {
         const response = await emailjsLib.send("service_x5ixqcx", "template_1ukblmg", templateParams);
         console.log('[EmailJS] ✅ 메일 전송 성공:', response);
         alert("문의가 성공적으로 전송되었습니다!\n빠른 시일 내에 답변드리겠습니다.");
-        
+
         // 폼 리셋
         form.reset();
-        
+
         // UI 상태 초기화
         const type2Select = document.getElementById('inquiry-type-2');
         const type1Select = document.getElementById('inquiry-type-1');
@@ -307,16 +307,16 @@ export async function initEmailJSForm() {
         if (checkbox) {
           checkbox.checked = false;
         }
-        
+
         // 제출 버튼 상태 복원
         submitButton.disabled = false;
         submitButton.textContent = originalText;
-        
+
         // 중복 제출 방지 해제
         isSubmitting = false;
       } catch (error) {
         console.error('[EmailJS] ❌ 메일 전송 실패:', error);
-        
+
         // SMTP 연결 시간 초과인 경우 재시도
         if (error.status === 412 && error.text && error.text.includes('timeout') && retryCount < 2) {
           console.log(`[EmailJS] 🔄 SMTP 연결 시간 초과, ${3 + retryCount * 2}초 후 재시도... (${retryCount + 1}/3)`);
@@ -325,7 +325,7 @@ export async function initEmailJSForm() {
           }, (3 + retryCount * 2) * 1000);
           return;
         }
-        
+
         // 재시도 횟수 초과 또는 다른 에러
         let errorMessage = "메일 전송에 실패했습니다.";
         if (error.status === 412) {
@@ -335,18 +335,18 @@ export async function initEmailJSForm() {
         } else if (error.status === 403) {
           errorMessage += "\n권한 문제가 발생했습니다.";
         }
-        
+
         alert(errorMessage);
-        
+
         // 제출 버튼 상태 복원
         submitButton.disabled = false;
         submitButton.textContent = originalText;
-        
+
         // 중복 제출 방지 해제
         isSubmitting = false;
       }
     }
-    
+
     // 재시도 함수 실행
     sendEmailWithRetry();
   });
@@ -400,15 +400,15 @@ if (typeof window !== 'undefined') {
 
   // EmailJS 테스트 함수 (개발/테스트용)
   let isTestRunning = false;
-  window.testEmailJS = async function() {
+  window.testEmailJS = async function () {
     if (isTestRunning) {
       console.log('[EmailJS Test] ⚠️ 이미 테스트가 실행 중입니다.');
       return;
     }
-    
+
     isTestRunning = true;
     console.log('[EmailJS Test] 🧪 테스트 시작...');
-    
+
     // EmailJS 라이브러리 동적 로딩
     const emailjsLib = await loadEmailJSLibrary();
     if (!emailjsLib) {
@@ -451,9 +451,9 @@ if (typeof window !== 'undefined') {
   };
 
   // EmailJS 상태 확인 함수
-  window.checkEmailJSStatus = function() {
+  window.checkEmailJSStatus = function () {
     console.log('[EmailJS Status] 📋 상태 확인...');
-    
+
     const status = {
       library: typeof window.emailjs !== 'undefined',
       form: !!document.querySelector('.contents form'),
@@ -463,7 +463,7 @@ if (typeof window !== 'undefined') {
     };
 
     console.table(status);
-    
+
     if (status.library && status.form) {
       console.log('✅ EmailJS 기본 환경 정상');
     } else {
