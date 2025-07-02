@@ -58,9 +58,7 @@ function initializeInputFields() {
         // 포커스 유지
         $el.focus();
 
-        // 상태 업데이트
-        $wrap.classList.remove('input-has-value');
-        clearBtn.style.display = 'none';
+        // 상태 업데이트 (CSS가 자동으로 클린 버튼 숨김 처리)
         hideError();
         setState('focus');
 
@@ -71,18 +69,7 @@ function initializeInputFields() {
         e.preventDefault();
       });
 
-      // 호버 효과 개선
-      clearBtn.addEventListener('mouseenter', function () {
-        if ($wrap.classList.contains('input-has-value')) {
-          clearBtn.style.display = 'block';
-        }
-      });
-
-      clearBtn.addEventListener('mouseleave', function () {
-        if (!$el.value.trim()) {
-          clearBtn.style.display = 'none';
-        }
-      });
+      // 호버 효과는 CSS :not(:placeholder-shown)가 자동 처리
     }
 
     // 유효성 검사 함수들
@@ -164,29 +151,25 @@ function initializeInputFields() {
     function checkDisable() {
       if ($el.disabled) {
         setState('disable');
-        if (clearBtn) clearBtn.style.display = 'none';
-        $wrap.classList.remove('input-has-value');
+        // disabled 상태에서는 CSS가 자동으로 클린 버튼 숨김 처리
         return true;
       }
       return false;
     }
 
-    // filled 상태 - 개선된 X 버튼 표시 로직
+    // filled 상태 - 간소화된 로직
     function checkFilled() {
       const hasValue = $el.value && $el.value.trim().length > 0;
 
       if (hasValue) {
         setState('filled');
-        $wrap.classList.add('input-has-value');
-
-        // X 버튼 표시 조건: 값이 있으면 항상 표시
-        if (clearBtn) {
-          clearBtn.style.display = 'block';
+        // CSS :not(:placeholder-shown)가 자동 처리하므로 클래스 조작 최소화
+        if (!$el.placeholder || $el.value !== $el.placeholder) {
+          $wrap.classList.add('input-has-value');
         }
         return true;
       } else {
         $wrap.classList.remove('input-has-value');
-        if (clearBtn) clearBtn.style.display = 'none';
       }
       return false;
     }
@@ -194,8 +177,7 @@ function initializeInputFields() {
     // default 상태
     function setDefault() {
       setState('default');
-      $wrap.classList.remove('input-has-value');
-      if (clearBtn) clearBtn.style.display = 'none';
+      // CSS :not(:placeholder-shown)가 자동 처리하므로 클래스 조작 불필요
     }
 
     // hover
@@ -214,17 +196,10 @@ function initializeInputFields() {
       }
     });
 
-    // focus/blur - 개선된 X 버튼 처리
+    // focus/blur - 간소화된 처리
     $el.addEventListener('focus', function () {
       if (checkDisable()) return;
       setState('focus');
-
-      // 포커스 시 값이 있으면 X 버튼 표시
-      if ($el.value && $el.value.trim().length > 0) {
-        $wrap.classList.add('input-has-value');
-        if (clearBtn) clearBtn.style.display = 'block';
-      }
-
       checkFilled();
     });
 
@@ -238,12 +213,11 @@ function initializeInputFields() {
         hideError();
       }
 
-      // 블러 시 상태만 업데이트, 클린 버튼은 값이 있으면 유지
+      // 블러 시 상태만 업데이트
       setTimeout(() => {
         if (clearBtn && !clearBtn.matches(':hover')) {
           if (checkFilled()) {
             setState('filled');
-            // 값이 있으면 클린 버튼 유지
           } else {
             setDefault();
           }
@@ -251,7 +225,7 @@ function initializeInputFields() {
       }, 100);
     });
 
-    // typing - 개선된 실시간 X 버튼 표시
+    // typing - 간소화된 실시간 처리 (CSS가 자동 처리)
     $el.addEventListener('input', function () {
       if (checkDisable()) return;
 
@@ -260,18 +234,12 @@ function initializeInputFields() {
       // 타이핑 중에는 에러 메시지 숨기기
       hideError();
 
+      // 상태만 변경 (클린 버튼은 CSS가 자동 처리)
       if (hasValue) {
         setState('typing');
-        $wrap.classList.add('input-has-value');
-
-        // 입력 중일 때 X 버튼 표시
-        if (clearBtn) {
-          clearBtn.style.display = 'block';
-        }
       } else {
         setState('focus');
-        $wrap.classList.remove('input-has-value');
-        if (clearBtn) clearBtn.style.display = 'none';
+        $wrap.classList.remove('input-has-value'); // 빈 값일 때만 클래스 제거
       }
     });
     $el.addEventListener('change', function () {

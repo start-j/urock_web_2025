@@ -309,7 +309,11 @@ input[type="search"]::-webkit-search-decoration {
   z-index: 10;
 }
 
-/* 클린 버튼 표시 조건 */
+/* 클린 버튼 표시 조건 - CSS만으로 자동 제어 */
+.input input:not(:placeholder-shown):not(:disabled)~.input-clear,
+.input input:not(:placeholder-shown):not(:disabled)~.clear-button,
+.input textarea:not(:placeholder-shown):not(:disabled)~.input-clear,
+.input textarea:not(:placeholder-shown):not(:disabled)~.clear-button,
 .input.input-has-value .input-clear,
 .input.input-has-value .clear-button,
 .contents .input-has-value .input-clear,
@@ -321,6 +325,14 @@ input[type="search"]::-webkit-search-decoration {
 .contents-news .input.input-has-value .input-clear,
 .contents-news .input.input-has-value .clear-button {
   display: flex;
+}
+
+/* disabled 상태에서는 클린 버튼 숨김 */
+.input input:disabled~.input-clear,
+.input input:disabled~.clear-button,
+.input textarea:disabled~.input-clear,
+.input textarea:disabled~.clear-button {
+  display: none;
 }
 
 /* ========== 클린 버튼 상호작용 효과 ========== */
