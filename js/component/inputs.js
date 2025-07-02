@@ -186,7 +186,9 @@ function initializeInputFields() {
         return true;
       } else {
         $wrap.classList.remove('input-has-value');
-        if (clearBtn) clearBtn.style.display = 'none';
+        if (clearBtn) {
+          clearBtn.style.display = 'none';
+        }
       }
       return false;
     }
@@ -296,8 +298,18 @@ function initializeInputFields() {
     });
     observer.observe($el, { attributes: true, attributeFilter: ['disabled'] });
 
-    // 초기 상태 적용
+    // 초기 상태 적용 (개선된 버전)
     if (checkDisable()) return;
+    
+    // 강화된 초기값 체크
+    const hasValue = $el.value && $el.value.trim().length > 0;
+    if (hasValue) {
+      $wrap.classList.add('input-has-value');
+      if (clearBtn) {
+        clearBtn.style.display = 'block';
+      }
+    }
+    
     if ($el === document.activeElement) {
       setState('focus');
       checkFilled();
@@ -319,6 +331,7 @@ document.addEventListener('DOMContentLoaded', setupDOMObserver);
 
 // 탭 컨텐츠 로드 후 재초기화
 document.addEventListener('tabContentLoaded', () => {
+  console.log('[Input] 탭 컨텐츠 로드 완료, 인풋 재초기화');
   initializeInputFields();
 });
 
@@ -395,5 +408,112 @@ function validateForm(formElement) {
 // 전역 접근을 위해 window 객체에 함수 추가
 window.initializeInputFields = initializeInputFields;
 window.validateForm = validateForm;
+
+// 추가: 즉시 인풋 상태 복원 함수 (안전한 버전)
+window.restoreInputStates = function() {
+  console.log('[Input] 인풋 상태 안전 복원 시작');
+  const allInputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea');
+  let restoredCount = 0;
+  
+  allInputs.forEach(input => {
+    const wrapper = input.closest('.input');
+    if (wrapper && input.value && input.value.trim().length > 0) {
+      wrapper.classList.add('input-has-value');
+      const clearBtn = wrapper.querySelector('.input-clear, .clear-button');
+      if (clearBtn) {
+        clearBtn.style.display = 'block';
+        restoredCount++;
+      }
+    }
+  });
+  
+  console.log(`[Input] 인풋 상태 복원 완료: ${restoredCount}개 클리어 버튼 복원`);
+  return restoredCount;
+};
+
+// 추가: 디버깅을 위한 헬퍼 함수들
+window.debugInputs = function() {
+  console.log('=== 인풋 디버깅 정보 ===');
+  const allInputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea');
+  
+  allInputs.forEach((input, index) => {
+    const wrapper = input.closest('.input');
+    const clearBtn = wrapper ? wrapper.querySelector('.input-clear, .clear-button') : null;
+    const hasValueClass = wrapper ? wrapper.classList.contains('input-has-value') : false;
+    
+    console.log(`인풋 ${index + 1}:`, {
+      id: input.id || 'no-id',
+      value: input.value,
+      hasWrapper: !!wrapper,
+      hasClearBtn: !!clearBtn,
+      clearBtnVisible: clearBtn ? clearBtn.style.display !== 'none' : false,
+      hasValueClass: hasValueClass,
+      inputType: input.type || input.tagName.toLowerCase()
+    });
+  });
+};
+
+// 추가: 강제 복구 함수 (모든 안전장치 포함)
+window.forceFixClearButtons = function() {
+  console.log('[Input] 강제 클리어 버튼 복구 시작');
+  
+  // 1단계: 인풋 재초기화
+  if (typeof window.initializeInputFields === 'function') {
+    window.initializeInputFields();
+  }
+  
+  // 2단계: 상태 복원
+  setTimeout(() => {
+    window.restoreInputStates();
+  }, 50);
+  
+  // 3단계: 최종 검증 및 강제 수정
+  setTimeout(() => {
+    const allInputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea');
+    let fixedCount = 0;
+    
+    allInputs.forEach(input => {
+      const wrapper = input.closest('.input');
+      if (wrapper && input.value && input.value.trim().length > 0) {
+        // 클래스 강제 추가
+        wrapper.classList.add('input-has-value');
+        
+        // 클리어 버튼 강제 생성 및 표시
+        let clearBtn = wrapper.querySelector('.input-clear, .clear-button');
+        if (!clearBtn) {
+          clearBtn = document.createElement('button');
+          clearBtn.type = 'button';
+          clearBtn.className = 'input-clear clear-button';
+          clearBtn.style.background = 'url("/images/icon-close.svg") no-repeat center/contain';
+          clearBtn.style.position = 'absolute';
+          clearBtn.style.border = 'none';
+          clearBtn.style.cursor = 'pointer';
+          clearBtn.style.right = '16px';
+          clearBtn.style.top = '48px';
+          clearBtn.style.width = '24px';
+          clearBtn.style.height = '24px';
+          clearBtn.style.zIndex = '10';
+          wrapper.appendChild(clearBtn);
+          
+          // 클릭 이벤트 추가
+          clearBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            input.value = '';
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+            wrapper.classList.remove('input-has-value');
+            clearBtn.style.display = 'none';
+            input.focus();
+          });
+        }
+        
+        clearBtn.style.display = 'block';
+        fixedCount++;
+      }
+    });
+    
+    console.log(`[Input] 강제 복구 완료: ${fixedCount}개 클리어 버튼 수정`);
+    return fixedCount;
+  }, 100);
+};
 
 console.log('[Input] Input Field Manager 초기화 완료');

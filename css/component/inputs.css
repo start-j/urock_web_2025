@@ -247,7 +247,7 @@ input[type="search"]::-webkit-search-decoration {
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  background: url('/images/icon-close.svg') no-repeat center/contain;
+  background: url('/icons/icon-input-delete.svg') no-repeat center/contain;
 }
 
 /* 클린 버튼 위치 및 크기 - 일반 인풋 */
@@ -285,7 +285,7 @@ input[type="search"]::-webkit-search-decoration {
   height: 40px;
   border-radius: 50%;
   z-index: 10;
-  background: url('/images/icon-close.svg') no-repeat center/18px;
+  background: url('/icons/icon-input-delete.svg') no-repeat center/18px;
   background-size: 18px 18px;
 }
 
