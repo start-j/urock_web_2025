@@ -7,8 +7,8 @@ export const APP_VERSION = '1.0.0';
 
 // 페이지 설정
 export const PAGE_CONFIG = {
-  defaultTitle: '유락 - 디지털 포렌식 전문기업',
-  defaultDescription: '디지털 포렌식 솔루션 및 서비스 전문기업',
+  defaultTitle: '유락 - 디지털포렌식 전문기업',
+  defaultDescription: '디지털포렌식 솔루션 및 서비스 전문기업',
   contactEmail: 'hello@urock.kr',
   contactPhone: '070-8670-9016'
 };

@@ -407,7 +407,7 @@ function initInquiryForm() {
       $(".selt002").show().prop('disabled', false);
       $(".selt003").show().prop('disabled', true);
       secondSelect.append('<option value="휴대폰 안심 지우개">휴대폰 안심 지우개</option>');
-      secondSelect.append('<option value="디지털 포렌식">디지털 포렌식</option>');
+      secondSelect.append('<option value="디지털포렌식">디지털포렌식</option>');
       secondSelect.append('<option value="보안 통제 시스템">보안 통제 시스템</option>');
       secondSelect.append('<option value="업무 지원 시스템">업무 지원 시스템</option>');
     }
@@ -417,7 +417,7 @@ function initInquiryForm() {
       $(".selt002").show().prop('disabled', false);
       $(".selt003").show().prop('disabled', true);
       secondSelect.append('<option value="휴대폰 안심 지우개">휴대폰 안심 지우개</option>');
-      secondSelect.append('<option value="디지털 포렌식">디지털 포렌식</option>');
+      secondSelect.append('<option value="디지털포렌식">디지털포렌식</option>');
       secondSelect.append('<option value="보안 통제 시스템">보안 통제 시스템</option>');
       secondSelect.append('<option value="업무 지원 시스템">업무 지원 시스템</option>');
 
@@ -472,7 +472,7 @@ function initInquiryForm() {
       thirdSelect.append('<option value="M-SecuManager G">M-SecuManager G</option>');
     }
 
-    if (selectedValue == '디지털 포렌식') {
+    if (selectedValue == '디지털포렌식') {
       thirdSelect.append('<option value="F-SecuManager">F-SecuManager</option>');
       thirdSelect.append('<option value="DFAS Pro">DFAS Pro</option>');
       thirdSelect.append('<option value="DFAS Enterprise">DFAS Enterprise</option>');
