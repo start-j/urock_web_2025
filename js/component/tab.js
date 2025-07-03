@@ -41,7 +41,7 @@ function createTabComponent(containerId, config) {
     mainTabs: [
       { id: 'dfas', text: 'DFAS', isActive: true },
       { id: 'mcq', text: 'MCQ', isActive: false },
-      { id: 'gm', text: 'Gate Manager', isActive: false }
+      { id: 'gm', text: 'GateManager', isActive: false }
     ],
     subTabs: {
       'dfas': [
@@ -54,8 +54,8 @@ function createTabComponent(containerId, config) {
         { id: 'mcq-g', text: 'M-SecuManager G', isActive: false }
       ],
       'gm': [
-        { id: 'gm-basic', text: 'Gate Manager', isActive: true },
-        { id: 'gm-pro', text: 'Gate Manager Pro', isActive: false }
+        { id: 'gm-basic', text: 'GateManager', isActive: true },
+        { id: 'gm-pro', text: 'GateManager Pro', isActive: false }
       ]
     }
   });
@@ -658,7 +658,7 @@ function immediateTabInit() {
       mainTabs: [
         { id: 'dfas', text: 'DFAS', isActive: activeMainTab === 'dfas' },
         { id: 'mcq', text: 'MCQ', isActive: activeMainTab === 'mcq' },
-        { id: 'gm', text: 'Gate Manager', isActive: activeMainTab === 'gm' }
+        { id: 'gm', text: 'GateManager', isActive: activeMainTab === 'gm' }
       ],
       subTabs: {
         dfas: [
@@ -671,8 +671,8 @@ function immediateTabInit() {
           { id: 'mcq-g', text: 'M-SecuManager G', isActive: activeSubTab === 'mcq-g' }
         ],
         gm: [
-          { id: 'gm', text: 'Gate Manager', isActive: activeSubTab === 'gm' },
-          { id: 'gm-pro', text: 'Gate Manager Pro', isActive: activeSubTab === 'gm-pro' }
+          { id: 'gm', text: 'GateManager', isActive: activeSubTab === 'gm' },
+          { id: 'gm-pro', text: 'GateManager Pro', isActive: activeSubTab === 'gm-pro' }
         ]
       }
     };

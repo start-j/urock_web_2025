@@ -30,8 +30,8 @@ const inquiryOptions = {
     { value: 'msecumanager-p', text: 'M-SecuManager P' },
     { value: 'msecumanager-s', text: 'M-SecuManager S' },
     { value: 'msecumanager-g', text: 'M-SecuManager G' },
-    { value: 'gate-manager', text: 'Gate Manager' },
-    { value: 'gate-manager-pro', text: 'Gate Manager Pro' }
+    { value: 'gate-manager', text: 'GateManager' },
+    { value: 'gate-manager-pro', text: 'GateManager Pro' }
   ],
   technical: [
     { value: 'dfas-pro', text: 'DFAS Pro' },
@@ -39,8 +39,8 @@ const inquiryOptions = {
     { value: 'msecumanager-p', text: 'M-SecuManager P' },
     { value: 'msecumanager-s', text: 'M-SecuManager S' },
     { value: 'msecumanager-g', text: 'M-SecuManager G' },
-    { value: 'gate-manager', text: 'Gate Manager' },
-    { value: 'gate-manager-pro', text: 'Gate Manager Pro' }
+    { value: 'gate-manager', text: 'GateManager' },
+    { value: 'gate-manager-pro', text: 'GateManager Pro' }
   ],
   service: [
     { value: 'forensic-analysis', text: '포렌식 분석 서비스' },

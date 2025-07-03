@@ -7,7 +7,7 @@
 //   mainTabs: [
 //     { id: 'dfas', text: 'DFAS', isActive: true },
 //     { id: 'mcq', text: 'MCQ', isActive: false },
-//     { id: 'gm', text: 'Gate Manager', isActive: false }
+//     { id: 'gm', text: 'GateManager', isActive: false }
 //   ],
 //   subTabs: {
 //     'dfas': [
@@ -20,8 +20,8 @@
 //       { id: 'mcq-g', text: 'M-SecuManager G', isActive: false }
 //     ],
 //     'gm': [
-//       { id: 'gm-basic', text: 'Gate Manager', isActive: true },
-//       { id: 'gm-pro', text: 'Gate Manager Pro', isActive: false }
+//       { id: 'gm-basic', text: 'GateManager', isActive: true },
+//       { id: 'gm-pro', text: 'GateManager Pro', isActive: false }
 //     ]
 //   }
 // };

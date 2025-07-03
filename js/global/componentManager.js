@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mainTabs: [
               { id: 'dfas', text: 'DFAS', isActive: activeMainTab === 'dfas' },
               { id: 'mcq', text: 'MCQ', isActive: activeMainTab === 'mcq' },
-              { id: 'gm', text: 'Gate Manager', isActive: activeMainTab === 'gm' }
+              { id: 'gm', text: 'GateManager', isActive: activeMainTab === 'gm' }
             ],
             subTabs: {
               dfas: [
@@ -299,8 +299,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 { id: 'mcq-g', text: 'M-SecuManager G', isActive: activeSubTab === 'mcq-g' }
               ],
               gm: [
-                { id: 'gm', text: 'Gate Manager', isActive: activeSubTab === 'gm' },
-                { id: 'gm-pro', text: 'Gate Manager Pro', isActive: activeSubTab === 'gm-pro' }
+                { id: 'gm', text: 'GateManager', isActive: activeSubTab === 'gm' },
+                { id: 'gm-pro', text: 'GateManager Pro', isActive: activeSubTab === 'gm-pro' }
               ]
             }
           };

@@ -38,13 +38,13 @@ const SOLUTION_PAGES = {
   'solution-06-gm': {
     id: 'gm',
     mainTab: 'gm',
-    text: 'Gate Manager',
+    text: 'GateManager',
     href: '/html/page/solution-06-gm.html'
   },
   'solution-07-gm-pro': {
     id: 'gm-pro',
     mainTab: 'gm',
-    text: 'Gate Manager Pro',
+    text: 'GateManager Pro',
     href: '/html/page/solution-07-gm-pro.html'
   }
 };
@@ -99,7 +99,7 @@ function createSolutionTabConfig() {
   const mainTabs = [
     { id: 'dfas', text: 'DFAS', isActive: activeMainTab === 'dfas' },
     { id: 'mcq', text: 'MCQ', isActive: activeMainTab === 'mcq' },
-    { id: 'gm', text: 'Gate Manager', isActive: activeMainTab === 'gm' }
+    { id: 'gm', text: 'GateManager', isActive: activeMainTab === 'gm' }
   ];
 
   const subTabs = {
@@ -113,8 +113,8 @@ function createSolutionTabConfig() {
       { id: 'mcq-g', text: 'M-SecuManager G', isActive: activeSubTab === 'mcq-g' }
     ],
     gm: [
-      { id: 'gm', text: 'Gate Manager', isActive: activeSubTab === 'gm' },
-      { id: 'gm-pro', text: 'Gate Manager Pro', isActive: activeSubTab === 'gm-pro' }
+      { id: 'gm', text: 'GateManager', isActive: activeSubTab === 'gm' },
+      { id: 'gm-pro', text: 'GateManager Pro', isActive: activeSubTab === 'gm-pro' }
     ]
   };
 
@@ -479,7 +479,7 @@ function initInquiryForm() {
     }
 
     if (selectedValue == '보안 통제 시스템') {
-      thirdSelect.append('<option value="Gate Manager">Gate Manager</option>');
+      thirdSelect.append('<option value="GateManager">GateManager</option>');
     }
 
     if (selectedValue == '업무 지원 시스템') {
