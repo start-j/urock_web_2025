@@ -179,8 +179,24 @@ footer .contact-group .info .txt {
 }
 
 
-footer .phone-number-group {
+footer .customer-group {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+footer .customer-group .time-txt {
+  color: #bec0c2f9;
+  padding-left: 10px;
+}
+
+footer .customer-group .time-txt span {
+  color: #bec0c234;
+}
+
+
+footer .phone-number-group {
+  display: inline-flex;
   align-items: center;
   gap: 0;
   font-size: 40px;
