@@ -79,41 +79,7 @@
   gap: 60px;
 }
 
-/* history-section: 필요시 유지, flex-direction 주석 제거 */
-.history-section {
-  position: relative;
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* history: height 중복 제거, position 주석 제거, height: auto로 통일 */
-.history {
-  position: relative;
-  width: 100%;
-  height: auto;
-  padding: 160px 0;
-  background-image: url(/images/company/bg-history.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  text-align: left;
-  color: #91b1ff;
-  overflow: hidden;
-  --txt-show-gap: 40px;
-  --start-point: 48px;
-  --height-1: 80px;
-  --height-2: 820px;
-  --height-3: 363px;
-  --height-4: 484px;
-  --height-5: 222px;
-  --height-6: 175px;
-  --height-7: 128px;
-  --height-8: 128px;
-}
-
+/* 
 .history .vertical-line {
   position: absolute;
   top: 360px;
@@ -126,55 +92,78 @@
       var(--height-8) + var(--txt-show-gap) * 8 + 120px
   );
   object-fit: contain;
-}
-/* var(--height-8) + var(--txt-show-gap) * 8 + 200px */
+} */
 
-.history .dot-point-icon-2025,
-.history .dot-point-icon-2024,
-.history .dot-point-icon-2023,
-.history .dot-point-icon-2022,
-.history .dot-point-icon-2021,
-.history .dot-point-icon-2020,
-.history .dot-point-icon-2019,
-.history .dot-point-icon-2018 {
+/* ===== history ===== */
+
+.history {
+  width: 100%;
+  background-image: url(/images/company/bg-history.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: left;
+  color: #91b1ff;
+}
+
+.history .txt-show-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* row group 2025*/
+.history .history-row-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.history .block-group {
+  width: 859px;
+  height: 175px;
+  color: #91b1ff;
+}
+
+.history .history-dot-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.history .history-dot-group .history-dot {
+  width: 28px;
+  height: 36px;
+}
+
+.history .txt-show {
+  width: 100%;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 52px;
-  object-fit: cover;
+  display: flex;
+  align-items: flex-start;
+  gap: 120px;
+  width: 640px;
 }
 
-.history .dot-point-icon-2025 {
-  top: 200px;
+.history .txt-show:nth-child(even) {
+  justify-content: flex-start;
+  /* left: calc(50% + 21px + 40px); */
 }
 
-.history .dot-point-icon-2024 {
-  top: 300px;
+.history .txt-show:nth-child(odd) {
+  justify-content: flex-end;
+  text-align: right;
+  /* right: calc(50% + 21px + 40px); */
 }
 
-.history .dot-point-icon-2023 {
-  top: 1000px;
+.history .txt-show:nth-child(1) {
+  height: 175px;
 }
 
-.history .dot-point-icon-2022 {
-  top: 1370px;
-}
-
-.history .dot-point-icon-2021 {
-  bottom: 830px;
-}
-
-.history .dot-point-icon-2020 {
-  bottom: 590px;
-}
-
-.history .dot-point-icon-2019 {
-  bottom: 400px;
-}
-
-.history .dot-point-icon-2018 {
-  bottom: 300px;
+.history .txt-show:nth-child(2) {
+  height: 820px;
 }
 
 .history .bse-bbb {
@@ -306,7 +295,7 @@
   justify-content: flex-end;
   gap: 12px;
 }
-
+/* 
 .history .txt-show-group {
   position: relative;
   width: 100%;
@@ -389,7 +378,7 @@
       var(--height-4) + var(--height-5) + var(--height-6) + var(--height-7) +
       var(--txt-show-gap) * 7
   );
-}
+} */
 
 /* 텍스트 애니메이션 */
 .txt-show {
@@ -685,43 +674,14 @@
     top: 200px;
   }
 
-  .history .dot-point-icon-2024,
-  .history .dot-point-icon-2023,
-  .history .dot-point-icon-2022,
-  .history .dot-point-icon-2021,
-  .history .dot-point-icon-2020,
-  .history .dot-point-icon-2019,
-  .history .dot-point-icon-2018 {
+  .history .dot-group {
+    position: absolute;
+    margin: 0px 80px;
+  }
+
+  .history .dot-group image.line-dot {
     width: 24px;
     height: 32px;
-  }
-
-  .history .dot-point-icon-2024 {
-    top: 280px;
-  }
-
-  .history .dot-point-icon-2023 {
-    top: 810px;
-  }
-
-  .history .dot-point-icon-2022 {
-    top: 1080px;
-  }
-
-  .history .dot-point-icon-2021 {
-    bottom: 680px;
-  }
-
-  .history .dot-point-icon-2020 {
-    bottom: 510px;
-  }
-
-  .history .dot-point-icon-2019 {
-    bottom: 390px;
-  }
-
-  .history .dot-point-icon-2018 {
-    bottom: 300px;
   }
 
   .history .year {
@@ -801,41 +761,41 @@
     gap: 0px;
   }
 
-  .history .dot-point-icon-2024,
-  .history .dot-point-icon-2023,
-  .history .dot-point-icon-2022,
-  .history .dot-point-icon-2021,
-  .history .dot-point-icon-2020,
-  .history .dot-point-icon-2019,
-  .history .dot-point-icon-2018 {
+  .history .dot-2024,
+  .history .dot-2023,
+  .history .dot-2022,
+  .history .dot-2021,
+  .history .dot-2020,
+  .history .dot-2019,
+  .history .dot-2018 {
     left: 20%;
   }
 
-  .history .dot-point-icon-2024 {
+  .history .dot-2024 {
     top: 285px;
   }
 
-  .history .dot-point-icon-2023 {
+  .history .dot-2023 {
     top: 1170px;
   }
 
-  .history .dot-point-icon-2022 {
+  .history .dot-2022 {
     top: 1620px;
   }
 
-  .history .dot-point-icon-2021 {
+  .history .dot-2021 {
     bottom: 1010px;
   }
 
-  .history .dot-point-icon-2020 {
+  .history .dot-2020 {
     bottom: 740px;
   }
 
-  .history .dot-point-icon-2019 {
+  .history .dot-2019 {
     bottom: 490px;
   }
 
-  .history .dot-point-icon-2018 {
+  .history .dot-2018 {
     bottom: 300px;
   }
 
@@ -918,43 +878,43 @@
     left: 20%;
   }
 
-  .history .dot-point-icon-2024,
-  .history .dot-point-icon-2023,
-  .history .dot-point-icon-2022,
-  .history .dot-point-icon-2021,
-  .history .dot-point-icon-2020,
-  .history .dot-point-icon-2019,
-  .history .dot-point-icon-2018 {
+  .history .dot-2024,
+  .history .dot-2023,
+  .history .dot-2022,
+  .history .dot-2021,
+  .history .dot-2020,
+  .history .dot-2019,
+  .history .dot-2018 {
     width: 28px;
     height: 38px;
     left: 20%;
   }
 
-  .history .dot-point-icon-2024 {
+  .history .dot-2024 {
     top: 260px;
   }
 
-  .history .dot-point-icon-2023 {
+  .history .dot-2023 {
     top: 1148px;
   }
 
-  .history .dot-point-icon-2022 {
+  .history .dot-2022 {
     top: 1600px;
   }
 
-  .history .dot-point-icon-2021 {
+  .history .dot-2021 {
     bottom: 1020px;
   }
 
-  .history .dot-point-icon-2020 {
+  .history .dot-2020 {
     bottom: 760px;
   }
 
-  .history .dot-point-icon-2019 {
+  .history .dot-2019 {
     bottom: 510px;
   }
 
-  .history .dot-point-icon-2018 {
+  .history .dot-2018 {
     bottom: 320px;
   }
 
@@ -1082,43 +1042,43 @@
     left: 15%;
   }
 
-  .history .dot-point-icon-2024,
-  .history .dot-point-icon-2023,
-  .history .dot-point-icon-2022,
-  .history .dot-point-icon-2021,
-  .history .dot-point-icon-2020,
-  .history .dot-point-icon-2019,
-  .history .dot-point-icon-2018 {
+  .history .dot-2024,
+  .history .dot-2023,
+  .history .dot-2022,
+  .history .dot-2021,
+  .history .dot-2020,
+  .history .dot-2019,
+  .history .dot-2018 {
     width: 24px;
     height: 32px;
     left: 15%;
   }
 
-  .history .dot-point-icon-2024 {
+  .history .dot-2024 {
     top: 120px;
   }
 
-  .history .dot-point-icon-2023 {
+  .history .dot-2023 {
     top: 1020px;
   }
 
-  .history .dot-point-icon-2022 {
+  .history .dot-2022 {
     top: 1500px;
   }
 
-  .history .dot-point-icon-2021 {
+  .history .dot-2021 {
     bottom: 890px;
   }
 
-  .history .dot-point-icon-2020 {
+  .history .dot-2020 {
     bottom: 620px;
   }
 
-  .history .dot-point-icon-2019 {
+  .history .dot-2019 {
     bottom: 410px;
   }
 
-  .history .dot-point-icon-2018 {
+  .history .dot-2018 {
     bottom: 230px;
   }
 
@@ -1242,13 +1202,13 @@
     left: 10%;
   }
 
-  .history .dot-point-icon-2024,
-  .history .dot-point-icon-2023,
-  .history .dot-point-icon-2022,
-  .history .dot-point-icon-2021,
-  .history .dot-point-icon-2020,
-  .history .dot-point-icon-2019,
-  .history .dot-point-icon-2018 {
+  .history .dot-2024,
+  .history .dot-2023,
+  .history .dot-2022,
+  .history .dot-2021,
+  .history .dot-2020,
+  .history .dot-2019,
+  .history .dot-2018 {
     width: 20px;
     height: 28px;
     left: 10%;
