@@ -241,6 +241,8 @@
   object-fit: contain;
 }
 
+
+.history .dot-point-icon-2025,
 .history .dot-point-icon-2024,
 .history .dot-point-icon-2023,
 .history .dot-point-icon-2022,
@@ -431,12 +433,12 @@
   width: 640px;
 }
 
-.history .txt-show:nth-child(odd) {
+.history .txt-show:nth-child(even) {
   justify-content: flex-start;
   left: calc(50% + 21px + 40px);
 }
 
-.history .txt-show:nth-child(even) {
+.history .txt-show:nth-child(odd) {
   justify-content: flex-end;
   text-align: right;
   right: calc(50% + 21px + 40px);
