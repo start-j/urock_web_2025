@@ -146,35 +146,35 @@
 }
 
 .history .dot-point-icon-2025 {
-  top: 200px;
+  top: 280px;
 }
 
 .history .dot-point-icon-2024 {
-  top: 300px;
+  top: 392px;
 }
 
 .history .dot-point-icon-2023 {
-  top: 1000px;
+  top: 1252px;
 }
 
 .history .dot-point-icon-2022 {
-  top: 1370px;
+  top: 1646px;
 }
 
 .history .dot-point-icon-2021 {
-  bottom: 830px;
+  bottom: 1266px;
 }
 
 .history .dot-point-icon-2020 {
-  bottom: 590px;
+  bottom: 1013px;
 }
 
 .history .dot-point-icon-2019 {
-  bottom: 400px;
+  bottom: 801px;
 }
 
 .history .dot-point-icon-2018 {
-  bottom: 300px;
+  bottom: 639px;
 }
 
 .history .bse-bbb {
@@ -669,6 +669,10 @@
 /* history 레이아웃 변경 */
 @media (max-width: 1024px) {
   /* History 섹션 */
+  .history {
+    padding: 120px 0 0 0;
+  }
+
   /* .history {
     padding: 120px 0;
     --start-point: 60px;
@@ -695,40 +699,41 @@
   .history .dot-point-icon-2018 {
     width: 24px;
     height: 32px;
-  }
+  }*/
 
   .history .dot-point-icon-2025 {
-    top: 280px;
+    top: 256px;
   }
 
   .history .dot-point-icon-2024 {
-    top: 280px;
+    top: 366px;
   }
 
   .history .dot-point-icon-2023 {
-    top: 810px;
+    top: 1210px;
   }
 
   .history .dot-point-icon-2022 {
-    top: 1080px;
+    top: 1597px;
   }
 
   .history .dot-point-icon-2021 {
-    bottom: 680px;
+    bottom: 1224px;
   }
 
   .history .dot-point-icon-2020 {
-    bottom: 510px;
+    bottom: 980px;
   }
 
   .history .dot-point-icon-2019 {
-    bottom: 390px;
+    bottom: 779px;
   }
 
   .history .dot-point-icon-2018 {
-    bottom: 300px;
+    bottom: 631px;
   }
 
+  /*
   .history .year {
     font-size: 32px;
   }
@@ -818,35 +823,35 @@
   }
 
   .history .dot-point-icon-2025 {
-    top: 285px;
+    top: 251px;
   }
 
   .history .dot-point-icon-2024 {
-    top: 285px;
+    top: 464px;
   }
 
   .history .dot-point-icon-2023 {
-    top: 1170px;
+    top: 1254px;
   }
 
   .history .dot-point-icon-2022 {
-    top: 1620px;
+    top: 1643px;
   }
 
   .history .dot-point-icon-2021 {
-    bottom: 1010px;
+    bottom: 1196px;
   }
 
   .history .dot-point-icon-2020 {
-    bottom: 740px;
+    bottom: 946px;
   }
 
   .history .dot-point-icon-2019 {
-    bottom: 490px;
+    bottom: 747px;
   }
 
   .history .dot-point-icon-2018 {
-    bottom: 300px;
+    bottom: 593px;
   }
 
   /* .history {
@@ -976,27 +981,27 @@
   }
 
   .history .dot-point-icon-2023 {
-    top: 1148px;
+    top: 460px;
   }
 
   .history .dot-point-icon-2022 {
-    top: 1600px;
+    top: 1258px;
   }
 
   .history .dot-point-icon-2021 {
-    bottom: 1020px;
+    bottom: 1650px;
   }
 
   .history .dot-point-icon-2020 {
-    bottom: 760px;
+    bottom: 1200px;
   }
 
   .history .dot-point-icon-2019 {
-    bottom: 510px;
+    bottom: 750px;
   }
 
   .history .dot-point-icon-2018 {
-    bottom: 320px;
+    bottom: 600px;
   }
 
   .history .year {
@@ -1143,35 +1148,35 @@
   }
 
   .history .dot-point-icon-2025 {
-    top: 160px;
+    top: 200px;
   }
 
   .history .dot-point-icon-2024 {
-    top: 120px;
+    top: 416px;
   }
 
   .history .dot-point-icon-2023 {
-    top: 1020px;
+    top: 1213px;
   }
 
   .history .dot-point-icon-2022 {
-    top: 1500px;
+    top: 1600px;
   }
 
   .history .dot-point-icon-2021 {
-    bottom: 890px;
+    bottom: 1200px;
   }
 
   .history .dot-point-icon-2020 {
-    bottom: 620px;
+    bottom: 960px;
   }
 
   .history .dot-point-icon-2019 {
-    bottom: 410px;
+    bottom: 762px;
   }
 
   .history .dot-point-icon-2018 {
-    bottom: 230px;
+    bottom: 609px;
   }
 
   .history .year {
@@ -1190,30 +1195,30 @@
   .history .txt-show {
     width: 360px;
     gap: 16px;
+  } 
+  /* 홀수 번째 요소 (2025년, 2023년, 2021년, 2019년) 좌측 정렬 */
+  .history .txt-show:nth-child(odd) {
+    justify-content: flex-start;
+    text-align: left;
   }
-
+  
   .history .txt-show:nth-child(odd),
   .history .txt-show:nth-child(even) {
-    left: calc(8% + 12px + 16px);
+    left: 8%;
     right: 16px;
     width: auto;
     text-align: left;
     white-space: normal;
     word-wrap: break-word;
     justify-content: flex-start;
-  }
+  } 
 
-  /* 홀수 번째 요소 (2025년, 2023년, 2021년, 2019년) 좌측 정렬 */
-  .history .txt-show:nth-child(odd) {
-    justify-content: flex-start;
-    text-align: left;
-  }
 
   .history .des-group {
-    margin-left: 20px;
+    /* margin-left: 20px; */
     font-size: 14px;
     white-space: normal;
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
     line-height: 1.4;
     text-align: left;
   }
@@ -1221,7 +1226,7 @@
   /* 홀수 번째 요소의 des-group도 좌측 정렬 */
   .history .txt-show:nth-child(odd) .des-group {
     text-align: left;
-    margin-left: 20px;
+    /* margin-left: 20px; */
   }
 
   /* 모든 txt-group 내부 요소들 좌측 정렬 */
@@ -1281,5 +1286,233 @@
 
   .client-logo-company {
     height: 18px;
+  }
+}
+
+/* 420px 이하 - 모바일 최적화 */
+@media (max-width: 420px) {
+  /* 기본 컨테이너 설정 */
+  .history {
+    overflow-x: hidden;
+  }
+  
+  /* 세로선과 점 아이콘 위치 조정 */
+  .history .vertical-line {
+    left: 45px;
+    width: 22px;
+  }
+  
+  .history .dot-point-icon-2025,
+  .history .dot-point-icon-2024,
+  .history .dot-point-icon-2023,
+  .history .dot-point-icon-2022,
+  .history .dot-point-icon-2021,
+  .history .dot-point-icon-2020,
+  .history .dot-point-icon-2019,
+  .history .dot-point-icon-2018 {
+    left: 45px;
+    width: 22px;
+    height: 30px;
+  }
+  
+  /* 모든 txt-show 요소 완전 최적화 */
+  .history .txt-show {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  
+  .history .txt-show:nth-child(odd),
+  .history .txt-show:nth-child(even) {
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  
+  /* txt-group 아이콘 공간 확보 */
+  .history .txt-group {
+    width: 100%;
+    margin-left: 75px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+  
+  /* 년도와 월 폰트 크기 조정 */
+  .history .year {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .history .month {
+    font-size: 12px;
+  }
+  
+  /* 설명 텍스트 최적화 */
+  .history .bsetxt {
+    font-size: 13px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
+  .history .des-group {
+    margin-left: 0;
+    font-size: 12px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
+  .history .bse {
+    font-size: 12px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
+  /* 리스트 요소 간격 조정 */
+  .history .ul,
+  .history .ul1 {
+    gap: 14px;
+  }
+  
+  .history .li {
+    gap: 10px;
+  }
+  
+  /* 홀수 번째 요소도 동일하게 처리 */
+  .history .txt-show:nth-child(odd) {
+    justify-content: flex-start;
+    text-align: left;
+  }
+  
+  .history .txt-show:nth-child(odd) .txt-group {
+    text-align: left;
+    align-items: flex-start;
+    margin-left: 75px;
+  }
+  
+  .history .txt-show:nth-child(odd) .des-group {
+    text-align: left;
+    margin-left: 0;
+  }
+}
+
+/* 360px 이하 - 모바일 퍼스트 완전 최적화 */
+@media (max-width: 360px) {
+  /* 기본 컨테이너 설정 */
+  .history {
+    overflow-x: hidden;
+  }
+  
+  /* 세로선과 점 아이콘 위치 조정 */
+  .history .vertical-line {
+    left: 40px;
+    width: 20px;
+  }
+  
+  .history .dot-point-icon-2025,
+  .history .dot-point-icon-2024,
+  .history .dot-point-icon-2023,
+  .history .dot-point-icon-2022,
+  .history .dot-point-icon-2021,
+  .history .dot-point-icon-2020,
+  .history .dot-point-icon-2019,
+  .history .dot-point-icon-2018 {
+    left: 40px;
+    width: 20px;
+    height: 28px;
+  }
+  
+  /* 모든 txt-show 요소 완전 최적화 */
+  .history .txt-show {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+  
+  .history .txt-show:nth-child(odd),
+  .history .txt-show:nth-child(even) {
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+  
+  /* txt-group 아이콘 공간 확보 */
+  .history .txt-group {
+    width: 100%;
+    margin-left: 70px;
+    padding-right: 12px;
+    box-sizing: border-box;
+  }
+  
+  /* 년도와 월 폰트 크기 조정 */
+  .history .year {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .history .month {
+    font-size: 11px;
+  }
+  
+  /* 설명 텍스트 최적화 */
+  .history .bsetxt {
+    font-size: 12px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
+  .history .des-group {
+    margin-left: 0;
+    font-size: 11px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
+  .history .bse {
+    font-size: 11px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
+  /* 리스트 요소 간격 조정 */
+  .history .ul,
+  .history .ul1 {
+    gap: 12px;
+  }
+  
+  .history .li {
+    gap: 8px;
+  }
+  
+  /* 홀수 번째 요소도 동일하게 처리 */
+  .history .txt-show:nth-child(odd) {
+    justify-content: flex-start;
+    text-align: left;
+  }
+  
+  .history .txt-show:nth-child(odd) .txt-group {
+    text-align: left;
+    align-items: flex-start;
+    margin-left: 70px;
+  }
+  
+  .history .txt-show:nth-child(odd) .des-group {
+    text-align: left;
+    margin-left: 0;
   }
 }
