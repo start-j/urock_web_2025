@@ -1,0 +1,40 @@
+.effect {
+  background-image: url(/mages/solution/bg-effect.png);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 페이지별 frame 배경 이미지는 개별적으로 클래스에서 지정 */
+.effect .frame {
+  height: 704px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 180px 0;
+  border: none;
+  background-color: none;
+}
+
+.effect .frame.dfas-enterprise {
+  background-image: url(/mages/solution/contents-effect-dfas-enterprise.png);
+}
+
+.effect .frame.mcq-s {
+  background-image: url(/mages/solution/contents-effect-mcq-s.png);
+}
+
+.effect .frame.gm-pro {
+  background-image: url(/mages/solution/contents-effect-gm-pro.png);
+}
+
+.effect .frame.gm {
+  background-image: url(/mages/solution/contents-effect-gm.png);
+}
+
+.effect .frame.mcq-g {
+  background-image: url(/mages/solution/contents-effect-mcq-g.png);
+}
+
+.effect .frame.mcq-p {
+  background-image: url(/mages/solution/contents-effect-mcq-p.png);
+}

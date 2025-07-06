@@ -1,0 +1,494 @@
+/* common */
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.navigation a {
+  padding: 10px 20px;
+  background-color: #292841;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.navigation a:hover {
+  background-color: #36354f;
+}
+
+.tab-content {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.tab-des {
+  /* Placeholder for the new .tab-des class */
+}
+
+.tab-card {
+  /* Placeholder for the new .tab-card class */
+}
+
+.tab-cards {
+  /* Placeholder for the new .tab-cards class */
+}
+
+/* ========== 탭 컨테이너 전체 너비 강제 적용 ========== */
+/* 모든 가능한 부모 컨테이너를 무시하고 전체 뷰포트 너비 사용 */
+html body section.intro .tab-container,
+html body .intro .tab-container,
+html section.intro .tab-container,
+html .intro .tab-container,
+body section.intro .tab-container,
+body .intro .tab-container,
+section.intro .tab-container,
+.intro .tab-container,
+.tab-container {
+  width: 100vw;
+  min-height: auto;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  top: auto;
+  bottom: auto;
+  z-index: 10;
+}
+
+/* 탭 컨테이너 내부 모든 요소들도 전체 너비 보장 */
+html body section.intro .tab-container>*,
+html body .intro .tab-container>*,
+html section.intro .tab-container>*,
+html .intro .tab-container>*,
+body section.intro .tab-container>*,
+body .intro .tab-container>*,
+section.intro .tab-container>*,
+.intro .tab-container>*,
+.tab-container>* {
+  width: 100%;
+  box-sizing: border-box;
+  /* border-bottom: 2px solid #2b293a; */
+}
+
+/* ========== 탭 메인 배경 래퍼 ========== */
+.tab-main-bg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  box-sizing: border-box;
+  border-bottom: 2px solid #2b293a;
+}
+
+/* ========== 메인 탭 스타일 ========== */
+html body section.intro .tab-container .tab-main,
+html body .intro .tab-container .tab-main,
+html section.intro .tab-container .tab-main,
+html .intro .tab-container .tab-main,
+body section.intro .tab-container .tab-main,
+body .intro .tab-container .tab-main,
+section.intro .tab-container .tab-main,
+.intro .tab-container .tab-main,
+.tab-container .tab-main,
+.tab-main {
+  display: flex;
+  justify-content: center;
+  width: 556px;
+  margin-top: 8px;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 16px 16px 0 0;
+}
+
+/* 메인 탭 링크 기본 스타일 - 균등한 너비 분배 */
+html body section.intro .tab-container .tab-main a,
+html body .intro .tab-container .tab-main a,
+html section.intro .tab-container .tab-main a,
+html .intro .tab-container .tab-main a,
+body section.intro .tab-container .tab-main a,
+body .intro .tab-container .tab-main a,
+section.intro .tab-container .tab-main a,
+.intro .tab-container .tab-main a,
+.tab-container .tab-main a,
+.tab-main a {
+  padding: 16px 30px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
+  max-width: none;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  border-radius: 16px 16px 0 0;
+  box-sizing: border-box;
+}
+
+/* 메인 탭 호버 상태 */
+html body section.intro .tab-container .tab-main a:hover,
+html body .intro .tab-container .tab-main a:hover,
+html section.intro .tab-container .tab-main a:hover,
+html .intro .tab-container .tab-main a:hover,
+body section.intro .tab-container .tab-main a:hover,
+body .intro .tab-container .tab-main a:hover,
+section.intro .tab-container .tab-main a:hover,
+.intro .tab-container .tab-main a:hover,
+.tab-container .tab-main a:hover,
+.tab-main a:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 메인 탭 활성 상태 - 가장 중요! */
+html body section.intro .tab-container .tab-main a.active,
+html body .intro .tab-container .tab-main a.active,
+html section.intro .tab-container .tab-main a.active,
+html .intro .tab-container .tab-main a.active,
+body section.intro .tab-container .tab-main a.active,
+body .intro .tab-container .tab-main a.active,
+section.intro .tab-container .tab-main a.active,
+.intro .tab-container .tab-main a.active,
+.tab-container .tab-main a.active,
+.tab-main a.active {
+  background-color: #36354f62;
+  color: white;
+}
+
+.tab-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* ========== 서브 탭 스타일 ========== */
+html body section.intro .tab-container .tab-sub,
+html body .intro .tab-container .tab-sub,
+html section.intro .tab-container .tab-sub,
+html .intro .tab-container .tab-sub,
+body section.intro .tab-container .tab-sub,
+body .intro .tab-container .tab-sub,
+section.intro .tab-container .tab-sub,
+.intro .tab-container .tab-sub,
+.tab-container .tab-sub,
+.tab-sub {
+  background-color: #36354f62;
+  position: relative;
+  width: 100%;
+  padding-top: 6px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.tab-text-group {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+.tab-menu {
+  position: relative;
+}
+
+.tab-menu a {
+  display: block;
+  padding: 12px 25px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  position: relative;
+  min-width: 120px;
+  text-align: center;
+}
+
+.tab-menu a:hover {
+  color: white;
+}
+
+.tab-menu a.active {
+  color: #70a1ff;
+}
+
+.tab-menu a.active:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #70a1ff;
+}
+
+/* 포커스 바 */
+.focus-bar {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  background-color: #70a1ff;
+  transition: all 0.3s ease;
+  display: none;
+}
+
+/* ========== 컨텐츠 영역 전체 너비 ========== */
+#selected-tab-content {
+  width: 100%;
+  max-width: 100vw;
+  font-size: 16px;
+  line-height: 1.5;
+  height: auto;
+  min-height: 360px;
+  overflow-x: auto;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+/* 컨텐츠 내부 요소들 전체 너비 적용 */
+.tab-container .contents,
+.tab-container .contents .inner {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* 컨텐츠 내부 텍스트/버튼 영역만 제한 */
+.tab-container .contents .txt-container,
+.tab-container .contents .frame-container,
+.tab-container .contents .btns,
+.tab-container .contents .btn-solution {
+  max-width: 952px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== 로딩 상태 ========== */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: 16px;
+  color: #666;
+  background-color: transparent;
+}
+
+/* ========== 반응형 미디어 쿼리 ========== */
+
+/* 태블릿 (768px 이하) */
+@media (max-width: 768px) {
+
+  /* 메인 탭 태블릿 */
+  .tab-main {
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab-main a {
+    min-width: 120px;
+    padding: 14px 20px;
+    flex-shrink: 0;
+  }
+
+  .tab-text {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  /* 서브 탭 태블릿 */
+  .tab-sub {
+    padding: 10px 0;
+  }
+
+  .tab-text-group {
+    gap: 32px;
+    overflow-x: auto;
+    /* -webkit-overflow-scrolling: touch; */
+    padding: 0 20px;
+  }
+
+  .tab-menu a {
+    min-width: 100px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  /* 컨텐츠 영역 태블릿 */
+  .tab-content {
+    min-height: 300px;
+    padding: 20px 0;
+  }
+
+  #selected-tab-content {
+    min-height: 280px;
+    /* padding: 0 15px; */
+    font-size: 15px;
+  }
+
+  .loading {
+    min-height: 150px;
+    font-size: 15px;
+  }
+}
+
+/* 모바일 (480px 이하) */
+@media (max-width: 480px) {
+
+  /* 메인 탭 모바일 - 스크롤 가능 */
+  .tab-main {
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tab-main::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-main a {
+    min-width: 100px;
+    padding: 12px 0px;
+    flex: none;
+    font-size: 13px;
+  }
+
+  .tab-text {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* 서브 탭 모바일 */
+  .tab-sub {
+    padding: 8px 0;
+  }
+
+  .tab-text-group {
+    gap: 20px;
+    justify-content: flex-start;
+    /* overflow-x: auto; */
+    /* -webkit-overflow-scrolling: touch; */
+    padding: 0 24px;
+    /* scrollbar-width: none;
+    -ms-overflow-style: none; */
+  }
+
+  .tab-text-group::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-menu {
+    flex-shrink: 0;
+  }
+
+  .tab-menu a {
+    min-width: 80px;
+    padding: 8px 0px;
+    font-size: 13px;
+  }
+
+  /* 컨텐츠 영역 모바일 */
+  .tab-content {
+    min-height: 250px;
+    padding: 15px 0;
+}
+
+  #selected-tab-content {
+    min-height: 220px;
+    /* padding: 0 10px; */
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .loading {
+    min-height: 120px;
+    font-size: 14px;
+  }
+}
+
+/* 초소형 모바일 (360px 이하) */
+@media (max-width: 360px) {
+
+
+  .tab-menu a {
+    min-width: 70px;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  /* 컨텐츠 영역 초소형 */
+  .tab-content {
+    min-height: 200px;
+    padding: 10px 0;
+  }
+
+  #selected-tab-content {
+    min-height: 180px;
+    /* padding: 0 8px; */
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .loading {
+    min-height: 100px;
+    font-size: 13px;
+  }
+
+  /* 텍스트 말줄임 처리 */
+  .tab-main a .tab-text,
+  .tab-menu a .tab-text {
+    /* max-width: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+    white-space: nowrap;
+  }
+}
+
+/* ========== 접근성 및 터치 최적화 ========== */
+@media (hover: none) and (pointer: coarse) {
+
+  .tab-main a,
+  .tab-menu a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tab-main a {
+    min-width: 44px;
+  }
+
+  .tab-menu a {
+    min-width: 44px;
+  }
+}
+
+/* 고밀도 디스플레이 최적화 */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
+  .tab-main a,
+  .tab-menu a {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

@@ -1,0 +1,234 @@
+/* Color Variables (Dark Theme) */
+:root {
+  color-scheme: light dark;
+
+  /* Primary */
+  --color-dark-primary-01-light: #628cf5;
+  --color-dark-primary-02: #201d30;
+
+  /* Secondary */
+  --color-dark-secondary-01: #93b0f8;
+  --color-dark-secondary-02: #6de7ef;
+  --color-dark-secondary-03: #11bcc7;
+  --color-dark-secondary-04: #d9dfee;
+
+  /* Text */
+  --color-dark-text-00: rgba(252, 252, 252, 0.1);
+  --color-dark-text-01-disable: rgba(252, 252, 252, 0.5);
+  --color-dark-text-02-row: rgba(252, 252, 252, 0.8);
+  --color-dark-text-03-high: rgba(252, 252, 252, 1);
+  --color-dark-text-04-primary: #4978eb;
+  --color-dark-text-05-dark: #91b1ff;
+  --color-dark-text-success: #0fb1bc;
+  --color-dark-text-error: #f86d6d;
+
+  /* Background */
+  --color-dark-bg-00: #201d30;
+  --color-dark-bg-01: #1d1b2b;
+  --color-dark-bg-02: #171624;
+  --color-dark-bg-03: rgba(255, 255, 255, 0.05);
+  --color-dark-bg-04: rgba(255, 255, 255, 0.1);
+  --color-dark-bg-success: #aef2f6;
+  --color-dark-bg-error: #ffb9b9;
+
+  /* Line */
+  --color-dark-line-00: #f5f5f5;
+  --color-dark-line-01: #ededed;
+  --color-dark-line-02: #e9ebf8;
+  --color-dark-line-03: #93b0f8;
+  --color-dark-line-04-dark: #494b4d;
+  --color-dark-line-05-focus: #050506;
+  --color-dark-line-06-card: linear-gradient(to right, rgba(98, 140, 245, 0.42), rgba(241, 239, 250, 0.03), rgba(241, 239, 250, 0), rgba(98, 140, 245, 0.42)) 1;
+
+  /* Blue Tones */
+  --color-dark-blue-01: #f9fbff;
+  --color-dark-blue-02: #eff4fe;
+  --color-dark-blue-03: #cedbfc;
+  --color-dark-blue-04: #b7cafa;
+  --color-dark-blue-05-icon-sub: #96b2f8;
+  --color-dark-blue-06: #81a3f7;
+  --color-dark-blue-08: #597fdf;
+  --color-dark-blue-09: #4663ae;
+  --color-dark-blue-10: #364d87;
+  --color-dark-blue-11: #293b67;
+  --color-dark-blue-12: #1c2846;
+
+  /* State Colors */
+  --color-dark-state-success: #32d8e3;
+  --color-dark-state-error: #ff8484;
+  --color-dark-state-warning: #ffc60a;
+
+  /* Card Styles */
+  --card-shadow: 0px 26px 40px rgba(22, 20, 33, 0.48);
+  --shadow-card: 0px 26px 40px rgba(22, 20, 33, 0.5);
+  --card-border-radius: 48px;
+  --card-border: 1px solid rgba(180, 199, 246, 0.17);
+  --card-background: rgba(255, 255, 255, 0.05);
+  --card-backdrop-filter: blur(20px);
+
+
+
+
+  /*Typography */
+  --font-h1-family: 'Gmarket Sans';
+  --font-h1-size: clamp(40px, 4.8vw, 56px);
+  --font-h1-weight: 500;
+  --font-h1-spacing: -0.05em;
+  --font-h1-height: 110%;
+
+  --font-h2-family: 'Inter';
+  --font-h2-size: clamp(32px, 5.5vw, 64px);
+  --font-h2-weight: 700;
+  --font-h2-style: italic;
+  --font-h2-align: center;
+
+  --font-h3-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-h3-size: clamp(20px, 3.8vw, 32px);
+  --font-h3-weight: 600;
+  --font-h3-spacing: -1.3px;
+  --font-h3-height: 128%;
+
+  --font-h4-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-h4-size: clamp(16px, 3vw, 20px);
+  --font-h4-weight: 500;
+  --font-h4-spacing: -0.8px;
+  --font-h4-height: 140%;
+
+  --font-h5-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-h5-size: clamp(14px, 2vw, 16px);
+  --font-h5-weight: 500;
+  --font-h5-spacing: -0.3px;
+  --font-h5-height: 148%;
+
+  --font-h6-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-h6-size: clamp(14px, 1.8vw, 16px);
+  --font-h6-weight: 300;
+  --font-h6-spacing: -0.3px;
+  --font-h6-height: 148%;
+
+  --font-tab-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-tab-size: clamp(16px, 2.2vw, 20px);
+  --font-tab-weight: 600;
+  --font-tab-spacing: -0.5px;
+  --font-tab-height: 140%;
+
+  --font-card-number-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-card-number-size: clamp(36px, 6vw, 72px);
+  --font-card-number-weight: 500;
+  --font-card-number-spacing: -1px;
+  --font-card-number-height: 100%;
+
+  --font-nav-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-nav-size: clamp(14px, 2vw, 18px);
+  --font-nav-weight: 600;
+  --font-nav-spacing: -1.5px;
+  --font-nav-height: 150%;
+
+  --font-button-family: 'pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-button-size: clamp(14px, 2vw, 18px);
+  --font-button-weight: 600;
+  --font-button-spacing: -1.5px;
+  --font-button-height: 150%;
+}
+
+/* Typography Components */
+h1 {
+  font-family: var(--font-h1-family);
+  font-size: var(--font-h1-size);
+  font-weight: var(--font-h1-weight);
+  letter-spacing: var(--font-h1-spacing);
+  line-height: var(--font-h1-height);
+  margin: 0;
+}
+
+h2 {
+  font-family: var(--font-h2-family);
+  font-size: var(--font-h2-size);
+  font-weight: var(--font-h2-weight);
+  font-style: var(--font-h2-style);
+  text-align: var(--font-h2-align);
+  margin: 0;
+}
+
+h3 {
+  font-family: var(--font-h3-family);
+  font-size: var(--font-h3-size);
+  font-weight: var(--font-h3-weight);
+  letter-spacing: var(--font-h3-spacing);
+  line-height: var(--font-h3-height);
+  margin: 0;
+}
+
+h4 {
+  font-family: var(--font-h4-family);
+  font-size: var(--font-h4-size);
+  font-weight: var(--font-h4-weight);
+  letter-spacing: var(--font-h4-spacing);
+  line-height: var(--font-h4-height);
+  margin: 0;
+}
+
+h5 {
+  font-family: var(--font-h5-family);
+  font-size: var(--font-h5-size);
+  font-weight: var(--font-h5-weight);
+  letter-spacing: var(--font-h5-spacing);
+  line-height: var(--font-h5-height);
+  margin: 0;
+}
+
+h6 {
+  font-family: var(--font-h6-family);
+  font-size: var(--font-h6-size);
+  font-weight: var(--font-h6-weight);
+  letter-spacing: var(--font-h6-spacing);
+  line-height: var(--font-h6-height);
+  margin: 0;
+}
+
+/* Custom Typography Components */
+.tab-text {
+  font-family: var(--font-tab-family);
+  font-size: var(--font-tab-size);
+  font-weight: var(--font-tab-weight);
+  letter-spacing: var(--font-tab-spacing);
+  line-height: var(--font-tab-height);
+  margin: 0;
+}
+
+.card-number {
+  font-family: var(--font-card-number-family);
+  font-size: var(--font-card-number-size);
+  font-weight: var(--font-card-number-weight);
+  letter-spacing: var(--font-card-number-spacing);
+  line-height: var(--font-card-number-height);
+  margin: 0;
+}
+
+.nav-text {
+  font-family: var(--font-nav-family);
+  font-size: var(--font-nav-size);
+  font-weight: var(--font-nav-weight);
+  letter-spacing: var(--font-nav-spacing);
+  line-height: var(--font-nav-height);
+  margin: 0;
+}
+
+/* Card Component Styles */
+.card-base {
+  box-shadow: var(--card-shadow);
+  border-radius: var(--card-border-radius);
+  border: var(--card-border);
+  background-color: var(--card-background);
+  backdrop-filter: var(--card-backdrop-filter);
+}
+
+#submit,
+.btn--filled {
+  font-family: var(--font-button-family);
+  font-size: var(--font-button-size);
+  font-weight: var(--font-button-weight);
+  letter-spacing: var(--font-button-spacing);
+  line-height: var(--font-button-height);
+  margin: 0;
+}

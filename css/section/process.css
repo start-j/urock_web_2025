@@ -1,0 +1,74 @@
+/* process 공통 스타일 */
+.process {
+  background-image: url(/images/solution/bg-description.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.process .frame {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  border: none;
+  background-color: none;
+}
+
+/* 페이지별 특화 스타일 */
+
+/* DFAS Enterprise */
+.process.dfas-ent {
+  height: 2205px;
+  background-color: #1d1a2b;
+}
+
+.process.dfas-ent .frame {
+  height: 2205px;
+  background-image: url(/images/solution/contents-process-dfas-enterprise.png);
+  margin: 0;
+}
+
+/* DFAS Pro */
+.process.dfas-pro {
+  height: 2205px;
+  background-color: #1d1a2b;
+}
+
+.process.dfas-pro .frame {
+  height: 2205px;
+  background-image: url(/images/solution/contents-process-dfas-pro.png);
+  margin: 0;
+}
+
+/* GM */
+.process.gm {
+  height: 570px;
+}
+
+.process.gm .frame {
+  height: 570px;
+  background-image: url(/images/solution/contents-process-gm.png);
+  margin: 0;
+}
+
+/* GM Pro */
+.process.gm-pro {
+  height: 548px;
+  padding: 80px 0;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.process.gm-pro .frame {
+  width: 1156px;
+  height: 548px;
+  position: relative;
+  background-image: url(/images/solution/contents-process-gm-pro.png);
+  background-position: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}

@@ -1,0 +1,71 @@
+/* button 공통 요소*/
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+/* button filled */
+#submit,
+.btn--filled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 312px;
+  height: 67px;
+  box-shadow: 0px 4px 12px rgba(98, 140, 245, 0.1),
+    0px 6px 12px rgba(32, 29, 48, 0.15), 0px 8px 16px rgba(32, 29, 48, 0.2),
+    0px 20px 20px rgba(32, 29, 48, 0.3), 0px 20px 60px rgba(32, 29, 48, 0.4);
+  border-radius: 16px;
+  background-color: #628cf5;
+  border: 2px solid #628cf5;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  padding: 16px 20px;
+  gap: 4px;
+  margin-top: 20px;
+  margin-bottom: 120px;
+  color: #ffffff;
+  /* 자연스러운 활성화/비활성화 모션 */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, opacity 0.3s, border 0.3s;
+}
+
+#submit:hover,
+.btn--filled:hover {
+  background-color: #93b0f8;
+  border: none;
+}
+
+#submit:active,
+.btn--filled:active {
+  background-color: #4663ae;
+  border: none;
+}
+
+#submit:disabled,
+.btn--disabled {
+  background-color: #ffffff31;
+  color: #a8a8a8;
+  border: none;
+  opacity: 0.7;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, opacity 0.3s, border 0.3s;
+  pointer-events: none;
+}
+
+.btn--filled .icon-arrow {
+  width: 24px;
+  height: 24px;
+}
+
+
+
+
+@media screen and (max-width: 360px) {
+  #submit,
+  .btn--filled {
+    height: 56px;
+    margin-bottom: 100px;
+  }
+}
