@@ -866,6 +866,35 @@
     right: auto;
   }
 
+  /* 2025년과 2024년 사이 간격 110px 추가 */
+  .history .txt-show:nth-child(2) {
+    top: calc(var(--start-point) + var(--height-1) + var(--txt-show-gap) + 110px) !important;
+  }
+
+  .history .txt-show:nth-child(3) {
+    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--txt-show-gap) * 2 + 62px) !important;
+  }
+
+  .history .txt-show:nth-child(4) {
+    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--txt-show-gap) * 3 + 62px) !important;
+  }
+
+  .history .txt-show:nth-child(5) {
+    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--txt-show-gap) * 4 + 38px) !important;
+  }
+
+  .history .txt-show:nth-child(6) {
+    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--height-5) + var(--txt-show-gap) * 5 + 38px) !important;
+  }
+
+  .history .txt-show:nth-child(7) {
+    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--height-5) + var(--height-6) + var(--txt-show-gap) * 6 + 38px) !important;
+  }
+
+  .history .txt-show:nth-child(8) {
+    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--height-5) + var(--height-6) + var(--height-7) + var(--txt-show-gap) * 7 + 38px) !important;
+  }
+
   .history .year {
     font-size: 28px;
     align-self: flex-start;
@@ -1220,105 +1249,5 @@
 
   .client-logo-company {
     height: 18px;
-  }
-}
-
-/* 최소 사이즈 (360px) */
-@media (max-width: 360px) {
-  .card-company .card-asset-area-icon {
-    width: 90px;
-    height: 90px;
-  }
-
-  .history {
-    height: 2700px;
-    /* 전체 높이 줄임 */
-    --height-1: 1000px;
-    /* 2024년 높이 줄임 */
-    /* 2024년 유지 */
-    --height-2: 500px;
-    /* 2023년 유지 */
-    --height-3: 540px;
-    /* 2022년 증가 */
-    --height-4: 280px;
-    /* 2021년 유지 */
-    --height-5: 220px;
-    /* 2020년 유지 */
-    --height-6: 180px;
-    /* 2019년 유지 */
-    padding-top: 0;
-  }
-
-  .history .title-component {
-    display: none;
-  }
-
-  .history .vertical-line {
-    width: 20px;
-    top: 120px;
-    left: 10%;
-  }
-
-  .history .dot-point-icon-2025,
-  .history .dot-point-icon-2024,
-  .history .dot-point-icon-2023,
-  .history .dot-point-icon-2022,
-  .history .dot-point-icon-2021,
-  .history .dot-point-icon-2020,
-  .history .dot-point-icon-2019,
-  .history .dot-point-icon-2018 {
-    width: 20px;
-    height: 28px;
-    left: 10%;
-  }
-
-  .history .year {
-    font-size: 20px;
-  }
-
-  .history .txt-group {
-    width: 260px;
-    gap: 8px;
-  }
-
-  .history .txt-show {
-    width: 260px;
-    gap: 12px;
-  }
-
-  .history .txt-show:nth-child(odd),
-  .history .txt-show:nth-child(even) {
-    left: calc(10% + 10px + 15px);
-    right: auto;
-    text-align: left;
-  }
-
-  .history .des-group {
-    margin-left: 25px;
-  }
-
-  /* Location 섹션 */
-  .location {
-    padding: 32px 8px;
-  }
-
-  .location .map-area {
-    width: 100%;
-    height: 240px;
-    border-radius: 24px;
-    margin: 0 auto;
-  }
-
-  .location .address {
-    font-size: 14px;
-    line-height: 170%;
-    margin-bottom: 16px;
-  }
-
-  .location .btn-solution {
-    height: 52px;
-    font-size: 14px;
-    margin-top: 20px;
-    padding: 8px 12px;
   }
 }
