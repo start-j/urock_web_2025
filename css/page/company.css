@@ -102,7 +102,7 @@
   text-align: left;
   color: #91b1ff;
   overflow: hidden;
-  --txt-show-gap: 40px;
+  --txt-show-gap: max(24px, 2.08vw); /* 최소 24px 보장, 1920px 기준 40px = 2.08vw */
   --start-point: 48px;
   --height-1: 80px;
   --height-2: 820px;
@@ -666,11 +666,11 @@
 }
 
 /* 태블릿 (1024px 이하) */
+/* history 레이아웃 변경 */
 @media (max-width: 1024px) {
   /* History 섹션 */
-  .history {
+  /* .history {
     padding: 120px 0;
-    --txt-show-gap: 48px;
     --start-point: 60px;
     --height-1: 480px;
     --height-2: 220px;
@@ -683,8 +683,9 @@
   .history .vertical-line {
     width: 32px;
     top: 180px;
-  }
-
+  } */
+/* 
+  .history .dot-point-icon-2025,
   .history .dot-point-icon-2024,
   .history .dot-point-icon-2023,
   .history .dot-point-icon-2022,
@@ -694,6 +695,10 @@
   .history .dot-point-icon-2018 {
     width: 24px;
     height: 32px;
+  }
+
+  .history .dot-point-icon-2025 {
+    top: 280px;
   }
 
   .history .dot-point-icon-2024 {
@@ -746,13 +751,12 @@
     gap: 40px;
   }
 
-  .history .txt-show:nth-child(odd) {
-    left: calc(50% + 16px + 30px);
-  }
-
+  .history .txt-show:nth-child(odd),
   .history .txt-show:nth-child(even) {
-    right: calc(50% + 16px + 30px);
-  }
+    left: calc(20% + 16px + 30px);
+    right: auto;
+    text-align: left;
+  } */
 
   /* Location 섹션 */
   .location {
@@ -781,17 +785,17 @@
 }
 
 /* 모바일 (860px 이하) */
+/* history 레이아웃 변경 */
 @media (max-width: 860px) {
   /* History 섹션 */
-  .history {
-    --txt-show-gap: 68px;
+  /* .history {
     --height-1: 820px;
     --height-2: 380px;
     --height-3: 400px;
     --height-4: 200px;
     --height-5: 180px;
     --height-6: 120px;
-  }
+  } */
 
   .history .vertical-line {
     left: 20%;
@@ -802,6 +806,7 @@
     gap: 0px;
   }
 
+  .history .dot-point-icon-2025,
   .history .dot-point-icon-2024,
   .history .dot-point-icon-2023,
   .history .dot-point-icon-2022,
@@ -810,6 +815,10 @@
   .history .dot-point-icon-2019,
   .history .dot-point-icon-2018 {
     left: 20%;
+  }
+
+  .history .dot-point-icon-2025 {
+    top: 285px;
   }
 
   .history .dot-point-icon-2024 {
@@ -842,7 +851,6 @@
 
   /* .history {
     padding: 80px 0;
-    --txt-show-gap: 68px;
     --start-point: 50px;
     --height-1: 675px;
     --height-2: 450px;
@@ -894,15 +902,17 @@
 
   .history .list-left {
     gap: 8px;
+    justify-content: flex-end; /* 우측 정렬 */
+    flex-direction: row-reverse; /* month와 bsetxt 위치 바꾸기 */
   }
 
-  /* 짝수 번째 텍스트 그룹의 month와 bsetxt 위치 바꾸기 */
+  /* 모든 텍스트 그룹을 좌측 정렬로 통일 */
   .history .txt-show:nth-child(even) .li {
-    flex-direction: row-reverse;
+    flex-direction: row;
   }
 
   .history .txt-show:nth-child(even) .list-left {
-    flex-direction: row-reverse;
+    flex-direction: row-reverse; /* list-left도 동일하게 적용 */
   }
 }
 
@@ -919,6 +929,7 @@
     left: 20%;
   }
 
+  .history .dot-point-icon-2025,
   .history .dot-point-icon-2024,
   .history .dot-point-icon-2023,
   .history .dot-point-icon-2022,
@@ -981,6 +992,7 @@
   .history .txt-show:nth-child(even) {
     left: calc(20% + 14px + 25px);
     right: auto;
+    text-align: left;
   }
 
   .history .des-group {
@@ -1064,18 +1076,17 @@
     font-size: 14px;
   }
 
-  .history {
+  /* .history {
     height: 2900px;
     padding: 0;
-    --txt-show-gap: 0px;
-    /* --start-point: 40px; */
+    --start-point: 40px;
     --height-1: 900px;
     --height-2: 480px;
     --height-3: 480px;
     --height-4: 270px;
     --height-5: 210px;
     --height-6: 180px;
-  }
+  } */
 
   .history .vertical-line {
     width: 24px;
@@ -1083,6 +1094,7 @@
     left: 15%;
   }
 
+  .history .dot-point-icon-2025,
   .history .dot-point-icon-2024,
   .history .dot-point-icon-2023,
   .history .dot-point-icon-2022,
@@ -1093,6 +1105,10 @@
     width: 24px;
     height: 32px;
     left: 15%;
+  }
+
+  .history .dot-point-icon-2025 {
+    top: 160px;
   }
 
   .history .dot-point-icon-2024 {
@@ -1145,6 +1161,7 @@
   .history .txt-show:nth-child(even) {
     left: calc(15% + 12px + 20px);
     right: auto;
+    text-align: left;
   }
 
   .history .des-group {
@@ -1216,7 +1233,6 @@
   .history {
     height: 2700px;
     /* 전체 높이 줄임 */
-    --txt-show-gap: -58px;
     --height-1: 1000px;
     /* 2024년 높이 줄임 */
     /* 2024년 유지 */
@@ -1243,6 +1259,7 @@
     left: 10%;
   }
 
+  .history .dot-point-icon-2025,
   .history .dot-point-icon-2024,
   .history .dot-point-icon-2023,
   .history .dot-point-icon-2022,
@@ -1273,6 +1290,7 @@
   .history .txt-show:nth-child(even) {
     left: calc(10% + 10px + 15px);
     right: auto;
+    text-align: left;
   }
 
   .history .des-group {
