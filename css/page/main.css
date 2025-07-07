@@ -433,30 +433,6 @@
   z-index: 1;
 }
 
-/* 반응형 대응 */
-@media (max-width: 1200px) {
-  .banner .logo-set {
-    height: 70px;
-  }
-}
-
-@media (max-width: 768px) {
-  .banner .logo-set {
-    height: 68px;
-  }
-}
-
-@media (max-width: 480px) {
-  .banner {
-    height: 58px;
-  }
-
-  .banner .logo-set {
-    height: 100px;
-    min-height: 100px;
-  }
-}
-
 /* solution header */
 .solution-container {
   /* background-image: url("/images/main/solution-container.webp"); */
@@ -738,68 +714,6 @@
     left: 1300px;
   }
 }
-
-@media (max-width: 1400px) {
-  .hero {
-    height: 660px;
-  }
-
-  .hero .carousel {
-    height: 660px;
-  }
-
-  .hero .carousel .list .item .hero-content {
-    width: 1100px;
-    top: -120px;
-  }
-
-  .hero .carousel .list .item .hero-content .shape {
-    width: 900px;
-    height: 220px;
-  }
-
-  .hero .thumbnail-group {
-    width: 1100px;
-    right: calc(50% - 550px);
-    bottom: 45px;
-  }
-
-  .hero .thumbnail .item {
-    width: 140px;
-    height: 120px;
-  }
-
-  .hero .thumbnail .item .icon-expansion {
-    top: 85px;
-    left: 108px;
-    width: 20px;
-    height: 20px;
-  }
-
-  .hero .assets {
-    width: 1100px;
-    top: 120px;
-  }
-
-  .hero .assets .asset-top-gif {
-    width: 90px;
-    height: 55px;
-  }
-
-  .hero .assets .asset-top-left {
-    width: 100px;
-    height: 65px;
-  }
-
-  .hero .assets .asset-top-right {
-    left: 1100px;
-  }
-
-  .hero .assets .asset-bottom-left {
-    top: 400px;
-  }
-}
-
 /* 1200px 이하 */
 @media (max-width: 1200px) {
   .hero .carousel .list .item > img,
