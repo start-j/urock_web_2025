@@ -300,9 +300,9 @@ function createTabComponent(containerId, config) {
     console.log(
       `[Tab] 경로 매핑 시도: activeMainTab=${activeMainTab}, activeSubTab=${activeSubTab}`
     );
-    const isDev = !window.location.href.includes("urock_homepage_bucket");
+    const isDev = !window.location.href.includes("urock.kr");
     // 각 메인 탭별 경로 매핑
-    let contentPath = isDev ? "" : "/urock_homepage_bucket";
+    let contentPath = isDev ? "" : "/urock.kr";
 
     switch (activeMainTab) {
       case "dfas":

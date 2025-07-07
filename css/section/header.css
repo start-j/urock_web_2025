@@ -190,11 +190,11 @@ header .fab-btn {
 }
 
 header .fab-btn:hover img {
-  content: url(/images/common/fab-hover.webp);
+  content: url(/images/common/fab-hover.png);
 }
 
 header .fab-btn:active img {
-  content: url(/images/common/fab-active.webp);
+  content: url(/images/common/fab-active.png);
 }
 
 header .menu-icon {
