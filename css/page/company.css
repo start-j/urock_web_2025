@@ -1,5 +1,5 @@
 .intro {
-  background-image: url(/images/company/bg-top.png);
+  background-image: url(/images/company/bg-top.webp);
 }
 
 /* business */
@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-image: url(/images/company/bg-business.png);
+  background-image: url(/images/company/bg-business.webp);
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -25,7 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-image: url/images/company/bg-business-header.png);
+  /* background-image: url/images/company/bg-business-header.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; */
@@ -95,14 +95,17 @@
   width: 100%;
   height: auto;
   padding: 160px 0;
-  background-image: url(/images/company/bg-history.png);
+  background-image: url(/images/company/bg-history.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   text-align: left;
   color: #91b1ff;
   overflow: hidden;
-  --txt-show-gap: max(24px, 2.08vw); /* 최소 24px 보장, 1920px 기준 40px = 2.08vw */
+  --txt-show-gap: max(
+    24px,
+    2.08vw
+  ); /* 최소 24px 보장, 1920px 기준 40px = 2.08vw */
   --start-point: 48px;
   --height-1: 80px;
   --height-2: 820px;
@@ -444,7 +447,7 @@
 }
 
 .partner .partner-icon {
-  background-image: url(/images/company/bg-partner.png);
+  background-image: url(/images/company/bg-partner.webp);
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -497,7 +500,7 @@
   position: relative;
   width: 100vw;
   overflow: hidden;
-  background-image: url(/images/company/bg-location.png);
+  background-image: url(/images/company/bg-location.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -596,7 +599,7 @@
   left: 700px;
   width: 390px;
   height: 162px;
-  background-image: url(/images/company/location-group.png);
+  background-image: url(/images/company/location-group.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -688,7 +691,7 @@
     width: 32px;
     top: 180px;
   } */
-/* 
+  /* 
   .history .dot-point-icon-2025,
   .history .dot-point-icon-2024,
   .history .dot-point-icon-2023,
@@ -873,31 +876,53 @@
 
   /* 2025년과 2024년 사이 간격 110px 추가 */
   .history .txt-show:nth-child(2) {
-    top: calc(var(--start-point) + var(--height-1) + var(--txt-show-gap) + 110px) !important;
+    top: calc(
+      var(--start-point) + var(--height-1) + var(--txt-show-gap) + 110px
+    ) !important;
   }
 
   .history .txt-show:nth-child(3) {
-    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--txt-show-gap) * 2 + 62px) !important;
+    top: calc(
+      var(--start-point) + var(--height-1) + var(--height-2) +
+        var(--txt-show-gap) * 2 + 62px
+    ) !important;
   }
 
   .history .txt-show:nth-child(4) {
-    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--txt-show-gap) * 3 + 62px) !important;
+    top: calc(
+      var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) +
+        var(--txt-show-gap) * 3 + 62px
+    ) !important;
   }
 
   .history .txt-show:nth-child(5) {
-    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--txt-show-gap) * 4 + 38px) !important;
+    top: calc(
+      var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) +
+        var(--height-4) + var(--txt-show-gap) * 4 + 38px
+    ) !important;
   }
 
   .history .txt-show:nth-child(6) {
-    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--height-5) + var(--txt-show-gap) * 5 + 38px) !important;
+    top: calc(
+      var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) +
+        var(--height-4) + var(--height-5) + var(--txt-show-gap) * 5 + 38px
+    ) !important;
   }
 
   .history .txt-show:nth-child(7) {
-    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--height-5) + var(--height-6) + var(--txt-show-gap) * 6 + 38px) !important;
+    top: calc(
+      var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) +
+        var(--height-4) + var(--height-5) + var(--height-6) +
+        var(--txt-show-gap) * 6 + 38px
+    ) !important;
   }
 
   .history .txt-show:nth-child(8) {
-    top: calc(var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) + var(--height-4) + var(--height-5) + var(--height-6) + var(--height-7) + var(--txt-show-gap) * 7 + 38px) !important;
+    top: calc(
+      var(--start-point) + var(--height-1) + var(--height-2) + var(--height-3) +
+        var(--height-4) + var(--height-5) + var(--height-6) + var(--height-7) +
+        var(--txt-show-gap) * 7 + 38px
+    ) !important;
   }
 
   .history .year {
@@ -954,7 +979,7 @@
 @media (max-width: 768px) {
   .business {
     min-height: 768px;
-    background-image: url(/images/company/bg-business-768.png);
+    background-image: url(/images/company/bg-business-768.webp);
   }
 
   .history .vertical-line {
@@ -1076,7 +1101,7 @@
   }
 
   .partner .partner-icon {
-    background-image: url(/images/company/bg-partner-768.png);
+    background-image: url(/images/company/bg-partner-768.webp);
     height: 480px;
     width: 100%;
   }
@@ -1093,7 +1118,7 @@
 @media (max-width: 600px) {
   .business {
     min-height: 600px;
-    background-image: url(/images/company/bg-business-768.png);
+    background-image: url(/images/company/bg-business-768.webp);
   }
 
   .business .txt-group {
@@ -1105,7 +1130,7 @@
 @media (max-width: 480px) {
   .business {
     width: 100%;
-    background-image: url(/images/company/bg-business-360.png);
+    background-image: url(/images/company/bg-business-360.webp);
   }
 
   .business .business-header {
@@ -1195,13 +1220,13 @@
   .history .txt-show {
     width: 360px;
     gap: 16px;
-  } 
+  }
   /* 홀수 번째 요소 (2025년, 2023년, 2021년, 2019년) 좌측 정렬 */
   .history .txt-show:nth-child(odd) {
     justify-content: flex-start;
     text-align: left;
   }
-  
+
   .history .txt-show:nth-child(odd),
   .history .txt-show:nth-child(even) {
     left: 8%;
@@ -1211,8 +1236,7 @@
     white-space: normal;
     word-wrap: break-word;
     justify-content: flex-start;
-  } 
-
+  }
 
   .history .des-group {
     /* margin-left: 20px; */
@@ -1275,7 +1299,7 @@
   }
 
   .partner .partner-icon {
-    background-image: url(/images/company/bg-partner-360.png);
+    background-image: url(/images/company/bg-partner-360.webp);
     height: 260px;
     width: 100%;
   }
@@ -1295,13 +1319,13 @@
   .history {
     overflow-x: hidden;
   }
-  
+
   /* 세로선과 점 아이콘 위치 조정 */
   .history .vertical-line {
     left: 45px;
     width: 22px;
   }
-  
+
   .history .dot-point-icon-2025,
   .history .dot-point-icon-2024,
   .history .dot-point-icon-2023,
@@ -1314,7 +1338,7 @@
     width: 22px;
     height: 30px;
   }
-  
+
   /* 모든 txt-show 요소 완전 최적화 */
   .history .txt-show {
     position: absolute;
@@ -1324,7 +1348,7 @@
     padding: 0 16px;
     box-sizing: border-box;
   }
-  
+
   .history .txt-show:nth-child(odd),
   .history .txt-show:nth-child(even) {
     left: 0;
@@ -1333,7 +1357,7 @@
     padding: 0 16px;
     box-sizing: border-box;
   }
-  
+
   /* txt-group 아이콘 공간 확보 */
   .history .txt-group {
     width: 100%;
@@ -1341,17 +1365,17 @@
     padding-right: 16px;
     box-sizing: border-box;
   }
-  
+
   /* 년도와 월 폰트 크기 조정 */
   .history .year {
     font-size: 20px;
     margin-bottom: 10px;
   }
-  
+
   .history .month {
     font-size: 12px;
   }
-  
+
   /* 설명 텍스트 최적화 */
   .history .bsetxt {
     font-size: 13px;
@@ -1359,7 +1383,7 @@
     word-wrap: break-word;
     white-space: normal;
   }
-  
+
   .history .des-group {
     margin-left: 0;
     font-size: 12px;
@@ -1367,36 +1391,36 @@
     word-wrap: break-word;
     white-space: normal;
   }
-  
+
   .history .bse {
     font-size: 12px;
     line-height: 1.3;
     word-wrap: break-word;
     white-space: normal;
   }
-  
+
   /* 리스트 요소 간격 조정 */
   .history .ul,
   .history .ul1 {
     gap: 14px;
   }
-  
+
   .history .li {
     gap: 10px;
   }
-  
+
   /* 홀수 번째 요소도 동일하게 처리 */
   .history .txt-show:nth-child(odd) {
     justify-content: flex-start;
     text-align: left;
   }
-  
+
   .history .txt-show:nth-child(odd) .txt-group {
     text-align: left;
     align-items: flex-start;
     margin-left: 75px;
   }
-  
+
   .history .txt-show:nth-child(odd) .des-group {
     text-align: left;
     margin-left: 0;
@@ -1409,13 +1433,13 @@
   .history {
     overflow-x: hidden;
   }
-  
+
   /* 세로선과 점 아이콘 위치 조정 */
   .history .vertical-line {
     left: 40px;
     width: 20px;
   }
-  
+
   .history .dot-point-icon-2025,
   .history .dot-point-icon-2024,
   .history .dot-point-icon-2023,
@@ -1428,7 +1452,7 @@
     width: 20px;
     height: 28px;
   }
-  
+
   /* 모든 txt-show 요소 완전 최적화 */
   .history .txt-show {
     position: absolute;
@@ -1438,7 +1462,7 @@
     padding: 0 12px;
     box-sizing: border-box;
   }
-  
+
   .history .txt-show:nth-child(odd),
   .history .txt-show:nth-child(even) {
     left: 0;
@@ -1447,7 +1471,7 @@
     padding: 0 12px;
     box-sizing: border-box;
   }
-  
+
   /* txt-group 아이콘 공간 확보 */
   .history .txt-group {
     width: 100%;
@@ -1455,17 +1479,17 @@
     padding-right: 12px;
     box-sizing: border-box;
   }
-  
+
   /* 년도와 월 폰트 크기 조정 */
   .history .year {
     font-size: 18px;
     margin-bottom: 8px;
   }
-  
+
   .history .month {
     font-size: 11px;
   }
-  
+
   /* 설명 텍스트 최적화 */
   .history .bsetxt {
     font-size: 12px;
@@ -1473,7 +1497,7 @@
     word-wrap: break-word;
     white-space: normal;
   }
-  
+
   .history .des-group {
     margin-left: 0;
     font-size: 11px;
@@ -1481,36 +1505,36 @@
     word-wrap: break-word;
     white-space: normal;
   }
-  
+
   .history .bse {
     font-size: 11px;
     line-height: 1.3;
     word-wrap: break-word;
     white-space: normal;
   }
-  
+
   /* 리스트 요소 간격 조정 */
   .history .ul,
   .history .ul1 {
     gap: 12px;
   }
-  
+
   .history .li {
     gap: 8px;
   }
-  
+
   /* 홀수 번째 요소도 동일하게 처리 */
   .history .txt-show:nth-child(odd) {
     justify-content: flex-start;
     text-align: left;
   }
-  
+
   .history .txt-show:nth-child(odd) .txt-group {
     text-align: left;
     align-items: flex-start;
     margin-left: 70px;
   }
-  
+
   .history .txt-show:nth-child(odd) .des-group {
     text-align: left;
     margin-left: 0;

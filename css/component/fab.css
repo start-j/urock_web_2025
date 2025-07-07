@@ -1,9 +1,15 @@
 /* FAB */
 button.fab-btn {
   position: fixed;
-  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.21), 0px 20px 40px rgba(32, 29, 48, 0.46);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.21),
+    0px 20px 40px rgba(32, 29, 48, 0.46);
   backdrop-filter: blur(20px);
-  background: linear-gradient(157.44deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0) 30.54%), rgba(255, 255, 255, 0);
+  background: linear-gradient(
+      157.44deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0) 30.54%
+    ),
+    rgba(255, 255, 255, 0);
   bottom: 6%;
   right: 3%;
   width: 80px;
@@ -17,9 +23,9 @@ button.fab-btn {
 }
 
 button.fab-btn:hover img {
-  content: url(/images/common/fab-hover.png);
+  content: url(/images/common/fab-hover.webp);
 }
 
 button.fab-btn:active img {
-  content: url(/images/common/fab-active.png);
+  content: url(/images/common/fab-active.webp);
 }

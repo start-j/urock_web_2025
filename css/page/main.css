@@ -459,7 +459,7 @@
 
 /* solution header */
 .solution-container {
-  /* background-image: url("/images/main/solution-container.png"); */
+  /* background-image: url("/images/main/solution-container.webp"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -469,7 +469,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/images/main/solution-header.png");
+  background-image: url("/images/main/solution-header.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -641,7 +641,7 @@
 }
 
 .main-service-container {
-  background-image: url("/images/main/bg-service.png");
+  background-image: url("/images/main/bg-service.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -1002,7 +1002,7 @@
   }
 
   .solution-header {
-    background-image: url("/images/main/solution-header-768.png");
+    background-image: url("/images/main/solution-header-768.webp");
     background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -1154,7 +1154,7 @@
   }
 
   .solution-header {
-    background-image: url("/images/main/solution-header-360.png");
+    background-image: url("/images/main/solution-header-360.webp");
     background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;

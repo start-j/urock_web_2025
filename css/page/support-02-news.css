@@ -1,5 +1,5 @@
 .intro {
-  background-image: url(/images/support/bg-top.png);
+  background-image: url(/images/support/bg-top.webp);
 }
 
 /* 뉴스 섹션 기본 스타일 */
@@ -159,14 +159,15 @@
 }
 
 .news-support .tag-container a:hover {
-  border: 1px solid #93B0F8;
-  color: #93B0F8;
+  border: 1px solid #93b0f8;
+  color: #93b0f8;
   cursor: pointer;
 }
 
 .news-support .tag-container li:first-child a,
 .news-support .tag-container a.active {
-  box-shadow: -1px 2px 2px rgba(98, 140, 245, 0.03), -1px 4px 10px rgba(98, 140, 245, 0.06);
+  box-shadow: -1px 2px 2px rgba(98, 140, 245, 0.03),
+    -1px 4px 10px rgba(98, 140, 245, 0.06);
   border-radius: 10px;
   background-color: #628cf5;
   box-sizing: border-box;
@@ -188,7 +189,6 @@
   color: rgba(255, 255, 255, 0.925);
   font-weight: 400;
 }
-
 
 /* Cards Grid */
 /* .news-support .cards {
@@ -213,7 +213,7 @@
   background-repeat: no-repeat;
   background-position: top;
   text-align: left;
-  background-image: url(/mages/customer/img-card-news.png);
+  background-image: url(/mages/customer/img-card-news.webp);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -428,7 +428,7 @@
 
 .pagination-container li:active {
   background-color: #0c0b11;
-  border: 1px solid #93B0F8;
+  border: 1px solid #93b0f8;
 }
 
 .pagination-container li:first-child,
@@ -451,7 +451,7 @@
 .pagination__link:hover,
 .pagination__prev:hover,
 .pagination__next:hover {
-  color: #93B0F8;
+  color: #93b0f8;
   background-color: rgba(147, 176, 248, 0.1);
 }
 

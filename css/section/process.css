@@ -1,6 +1,6 @@
 /* process 공통 스타일 */
 .process {
-  background-image: url(/images/solution/bg-description.png);
+  background-image: url(/images/solution/bg-description.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -27,7 +27,7 @@
 
 .process.dfas-ent .frame {
   height: 2205px;
-  background-image: url(/images/solution/contents-process-dfas-enterprise.png);
+  background-image: url(/images/solution/contents-process-dfas-enterprise.webp);
   margin: 0;
 }
 
@@ -39,7 +39,7 @@
 
 .process.dfas-pro .frame {
   height: 2205px;
-  background-image: url(/images/solution/contents-process-dfas-pro.png);
+  background-image: url(/images/solution/contents-process-dfas-pro.webp);
   margin: 0;
 }
 
@@ -50,7 +50,7 @@
 
 .process.gm .frame {
   height: 570px;
-  background-image: url(/images/solution/contents-process-gm.png);
+  background-image: url(/images/solution/contents-process-gm.webp);
   margin: 0;
 }
 
@@ -67,7 +67,7 @@
   width: 1156px;
   height: 548px;
   position: relative;
-  background-image: url(/images/solution/contents-process-gm-pro.png);
+  background-image: url(/images/solution/contents-process-gm-pro.webp);
   background-position: center;
   overflow: hidden;
   flex-shrink: 0;

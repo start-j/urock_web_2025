@@ -1,9 +1,6 @@
 .intro {
-  background-image: url(images/solution/bg-top.png);
+  background-image: url(images/solution/bg-top.webp);
 }
-
-
-
 
 /* section 공통 */
 .section-process .card,
@@ -15,18 +12,15 @@
   cursor: default;
 }
 
-
 /* section-comparison */
 .section-comparison .section-cards {
   gap: 12px;
 }
 
-
 /* section-utilization */
 .section-utilization .card {
   border-radius: 24px;
 }
-
 
 /* section-certificate */
 .section-certificate .card {

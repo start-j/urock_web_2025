@@ -1,9 +1,8 @@
 /* ========== 개선된 Form Styling ========== */
 
 .intro {
-  background-image: url(/images/support/bg-top.png);
+  background-image: url(/images/support/bg-top.webp);
 }
-
 
 /* 기본 컨테이너 스타일 */
 .contents {
@@ -23,7 +22,7 @@
   margin: 120px 0 48px 0;
 }
 
-.contents .tit-group>.tit {
+.contents .tit-group > .tit {
   position: relative;
   letter-spacing: -0.06em;
   line-height: 140%;
@@ -92,10 +91,6 @@
   flex-grow: 1;
   margin-bottom: 16px;
 }
-
-
-
-
 
 /* 정보 테이블 */
 .contents .info-table {
@@ -197,8 +192,6 @@
   opacity: 0.7;
 } */
 
-
-
 /* 반응형 디자인 */
 @media (max-width: 1200px) {
   .contents {
@@ -240,7 +233,7 @@
     margin: 48px 0 24px 0;
   }
 
-  .contents .tit-group>.tit {
+  .contents .tit-group > .tit {
     font-size: 28px;
   }
 
@@ -282,7 +275,7 @@
     padding: 32px 12px 60px;
   }
 
-  .contents .tit-group>.tit {
+  .contents .tit-group > .tit {
     font-size: 24px;
   }
 

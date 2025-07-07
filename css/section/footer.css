@@ -1,7 +1,7 @@
 footer {
   position: relative;
   margin: 0 40px;
-  background-image: url(images/footer/bg-footer.png);
+  background-image: url(images/footer/bg-footer.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: plus-darker, normal;
@@ -19,7 +19,6 @@ footer .inner {
   flex: 1;
 }
 
-
 footer .menu-container {
   box-sizing: border-box;
   display: flex;
@@ -28,14 +27,12 @@ footer .menu-container {
   color: #fefefe;
 }
 
-
 footer .menu {
   /* width: 100%;
   position: absolute; */
   display: flex;
   justify-content: space-between;
 }
-
 
 footer .menu-group {
   width: 180px;
@@ -62,16 +59,14 @@ footer .menu-group:nth-child(4) {
   width: 88px;
 }
 
-
 footer .menu-group .menu-tit {
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 140%;
   letter-spacing: -0.5px;
-  color: #A7A7A7;
+  color: #a7a7a7;
 }
-
 
 footer .menu-group .divider-row-menu {
   width: 18px;
@@ -98,13 +93,12 @@ footer .li {
   font-weight: 400;
   line-height: 148%;
   letter-spacing: -0.5px;
-  color: #F1F1F1;
+  color: #f1f1f1;
 }
 
 footer .li:hover {
   color: #628cf5;
 }
-
 
 /* 연락처 그룹 */
 
@@ -178,7 +172,6 @@ footer .contact-group .info .txt {
   margin-top: 4px;
 }
 
-
 footer .customer-group {
   display: flex;
   flex-direction: column;
@@ -194,7 +187,6 @@ footer .customer-group .time-txt span {
   color: #bec0c234;
 }
 
-
 footer .phone-number-group {
   display: inline-flex;
   align-items: center;
@@ -203,13 +195,11 @@ footer .phone-number-group {
   color: #f1f1f1cc;
 }
 
-
 footer .phone-number-group .img-call {
   width: 40px;
   height: 40px;
   margin-top: 8px;
 }
-
 
 footer .divider-row-full {
   width: 100%;
@@ -234,7 +224,6 @@ footer .copyright {
   font-weight: 300;
 }
 
-
 @media (max-width: 1440px) {
   footer .inner {
     width: 100%;
@@ -255,13 +244,11 @@ footer .copyright {
   }
 }
 
-
 @media (max-width: 1200px) {
   footer .copyright-container {
     justify-content: flex-start;
   }
 }
-
 
 @media (max-width: 768px) {
   footer {
@@ -270,10 +257,7 @@ footer .copyright {
   }
 }
 
-
 @media (max-width: 560px) {
-
-
   footer .contact-group .info-group {
     display: flex;
     flex-direction: column;
@@ -282,13 +266,10 @@ footer .copyright {
     margin-top: 16px;
   }
 
-
-
   footer .phone-number-group .img-call {
     width: 32px;
     height: 32px;
   }
-
 
   footer .phone-number-group {
     font-size: 24px;
@@ -297,5 +278,4 @@ footer .copyright {
   footer .copyright-container {
     font-size: 12px;
   }
-
 }

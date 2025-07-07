@@ -6,7 +6,6 @@
   overflow: hidden;
 }
 
-
 .hero .inner {
   position: relative;
   width: inherit;
@@ -58,8 +57,8 @@
   z-index: 2;
 }
 
-.hero .carousel .list .item>img,
-.hero .carousel .list .item>video {
+.hero .carousel .list .item > img,
+.hero .carousel .list .item > video {
   position: absolute;
   width: 100vw;
   height: 1080px;
@@ -74,13 +73,17 @@
   position: absolute;
   width: 100vw;
   height: inherit;
-  background: linear-gradient(67.43deg,
+  background: linear-gradient(
+      67.43deg,
       rgba(27, 25, 44, 0.8),
       rgba(27, 25, 44, 0.424) 40%,
-      rgba(27, 25, 44, 0.218) 60%),
-    linear-gradient(177.03deg,
+      rgba(27, 25, 44, 0.218) 60%
+    ),
+    linear-gradient(
+      177.03deg,
       rgba(24, 29, 34, 0) 100%,
-      rgba(24, 29, 34, 0.17) 40%);
+      rgba(24, 29, 34, 0.17) 40%
+    );
   opacity: 0.9;
   z-index: 1;
   transform: translateX(-50%);
@@ -152,7 +155,12 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 300;
-  background: linear-gradient(89.97deg, rgba(250, 245, 250, 0) 38.74%, rgba(98, 140, 245, 0.42)), #fff;
+  background: linear-gradient(
+      89.97deg,
+      rgba(250, 245, 250, 0) 38.74%,
+      rgba(98, 140, 245, 0.42)
+    ),
+    #fff;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: left;
@@ -210,8 +218,6 @@
   transition: transform 0.3s ease;
 }
 
-
-
 /* thumbnail */
 .hero .thumbnail-group {
   position: absolute;
@@ -259,19 +265,19 @@
 }
 
 .hero .thumbnail .item:nth-child(1) {
-  background-image: url(/images/main/bg-main-01.png);
+  background-image: url(/images/main/bg-main-01.webp);
 }
 
 .hero .thumbnail .item:nth-child(2) {
-  background-image: url(/images/main/bg-main-02.png);
+  background-image: url(/images/main/bg-main-02.webp);
 }
 
 .hero .thumbnail .item:nth-child(3) {
-  background-image: url(/images/main/bg-main-03.png);
+  background-image: url(/images/main/bg-main-03.webp);
 }
 
 .hero .thumbnail .item:nth-child(4) {
-  background-image: url(/images/main/bg-main-04.png);
+  background-image: url(/images/main/bg-main-04.webp);
 }
 
 .hero .thumbnail .item .subtit {
@@ -293,7 +299,6 @@
   gap: 4px;
 }
 
-
 .hero .thumbnail .item .thumbnail-tit {
   width: 160px;
   height: 22px;
@@ -305,7 +310,6 @@
   font-weight: 400;
   color: #eeeeee;
 }
-
 
 .hero .thumbnail .item .icon-expansion {
   position: absolute;
