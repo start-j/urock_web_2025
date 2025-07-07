@@ -1217,10 +1217,6 @@
     gap: 10px;
   }
 
-  .history .txt-show {
-    width: 360px;
-    gap: 16px;
-  }
   /* 홀수 번째 요소 (2025년, 2023년, 2021년, 2019년) 좌측 정렬 */
   .history .txt-show:nth-child(odd) {
     justify-content: flex-start;
@@ -1310,6 +1306,10 @@
 
   .client-logo-company {
     height: 18px;
+  }
+
+  .history .txt-show {
+    margin-left: 2px;
   }
 }
 
