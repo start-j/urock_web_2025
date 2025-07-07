@@ -207,8 +207,8 @@ header .mobile-menu-btn {
   display: flex;
 } */
 
-/* 언어 툴팁 (header 자식, fixed) */
-.language-tooltip-global {
+/* 기존 언어 툴팁 주석 처리 */
+/* .language-tooltip-global {
   display: none;
   position: fixed;
   right: 40px;
@@ -236,11 +236,67 @@ header .mobile-menu-btn {
   padding: 24px 26px;
   text-align: center;
   margin-right: 0;
+} */
+
+/* 새로운 언어 드롭다운 스타일 */
+.language-dropdown-global {
+  display: none;
+  position: fixed;
+  right: 40px;
+  top: 110px;
+  z-index: 200;
+  justify-content: flex-end;
+  width: auto;
+  padding: 0;
+}
+
+.language-dropdown-global.show-dropdown {
+  display: flex;
+}
+
+.language-dropdown {
+  width: 280px;
+  box-shadow: 0px 25px 33px rgba(15, 15, 15, 0.03),
+    0px 7px 10px rgba(15, 15, 15, 0.02), 0px 3px 5px rgba(15, 15, 15, 0.01),
+    0px 2px 2px rgba(15, 15, 15, 0.01);
+  backdrop-filter: blur(40px);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(237, 237, 237, 0.05);
+  box-sizing: border-box;
+  padding: 0;
+  margin-right: 0;
+  overflow: hidden;
+}
+
+.language-option {
+  padding: 16px 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  line-height: 148%;
+  border-bottom: 1px solid rgba(237, 237, 237, 0.1);
+}
+
+.language-option:last-child {
+  border-bottom: none;
+}
+
+.language-option:hover {
+  background-color: rgba(145, 177, 255, 0.1);
+  color: #91b1ff;
+}
+
+.language-option:active {
+  background-color: rgba(145, 177, 255, 0.2);
 }
 
 /* 1500px 이상 화면에서 언어 아이콘과 중앙 정렬 */
 @media (min-width: 1500px) {
-  .language-tooltip-global {
+  .language-dropdown-global {
     right: calc(50vw - 720px + 40px);
     left: auto;
     transform: none;
@@ -248,7 +304,7 @@ header .mobile-menu-btn {
     align-items: flex-start;
   }
 
-  .language-tooltip {
+  .language-dropdown {
     margin-right: 0;
     margin-left: 0;
     transform: translateX(36px);
@@ -257,11 +313,11 @@ header .mobile-menu-btn {
 
 /* 더 큰 화면에서의 정밀 조정 */
 @media (min-width: 1600px) {
-  .language-tooltip-global {
+  .language-dropdown-global {
     right: calc(50vw - 720px + 40px);
   }
 
-  .language-tooltip {
+  .language-dropdown {
     transform: translateX(36px);
   }
 }
@@ -310,14 +366,14 @@ header .mobile-menu-btn {
     height: 72px;
   }
 
-  .language-tooltip-container {
+  .language-dropdown-global {
     top: 80px;
-    padding: 0px 16px 0 16px;
+    right: 16px;
   }
 
-  .language-tooltip {
-    padding: 20px 20px;
-    margin-right: 16px;
+  .language-dropdown {
+    width: 240px;
+    margin-right: 0;
   }
 }
 
@@ -401,14 +457,14 @@ header .mobile-menu-btn {
     padding: 8px 8px;
   }
 
-  .language-tooltip-container {
+  .language-dropdown-global {
     top: 80px;
-    padding: 0px 16px 0 16px;
+    right: 12px;
   }
 
-  .language-tooltip {
-    padding: 20px 16px;
-    margin-right: 16px;
+  .language-dropdown {
+    width: 200px;
+    margin-right: 0;
   }
 }
 
