@@ -7,27 +7,91 @@ function initHeaderComponent() {
     // FAB 버튼 스크롤 동작 (480px 초과 화면에서만 동작)
     const fabBtn = document.querySelector(".fab-btn");
     if (fabBtn) {
-      // 스크롤 위치에 따라 버튼 표시/숨김
-      window.addEventListener("scroll", function () {
+      // 기존 이벤트 리스너 제거 (중복 방지)
+      if (window.fabScrollHandler) {
+        window.removeEventListener("scroll", window.fabScrollHandler);
+      }
+      if (window.fabClickHandler) {
+        fabBtn.removeEventListener("click", window.fabClickHandler);
+        fabBtn.removeEventListener("touchend", window.fabClickHandler);
+      }
+
+      // 스크롤 이벤트 핸들러 정의
+      window.fabScrollHandler = function () {
         if (window.scrollY > 300) {
           fabBtn.style.display = "block";
         } else {
           fabBtn.style.display = "none";
         }
-      });
-      // 버튼 클릭 시 최상단으로 스크롤
-      fabBtn.addEventListener("click", function () {
+      };
+
+      // 클릭/터치 이벤트 핸들러 정의 (터치 개선)
+      window.fabClickHandler = function (e) {
+        // 터치 이벤트의 경우 추가 검증
+        if (e.type === "touchend") {
+          // 터치 드래그/스와이프 방지: 터치 시작과 끝 위치 비교
+          if (e.changedTouches && e.changedTouches[0]) {
+            const touch = e.changedTouches[0];
+            const touchStartData = fabBtn.touchStartData;
+
+            if (touchStartData) {
+              const moveDistance = Math.sqrt(
+                Math.pow(touch.clientX - touchStartData.startX, 2) +
+                  Math.pow(touch.clientY - touchStartData.startY, 2)
+              );
+
+              // 10px 이상 움직였으면 클릭으로 인정하지 않음
+              if (moveDistance > 10) {
+                console.log("[FAB] 터치 드래그 감지, 스크롤 취소");
+                return;
+              }
+
+              // 터치 시간이 500ms 이상이면 길게 누른 것으로 간주
+              const touchDuration = Date.now() - touchStartData.startTime;
+              if (touchDuration > 500) {
+                console.log("[FAB] 긴 터치 감지, 스크롤 취소");
+                return;
+              }
+            }
+          }
+        }
+
+        // 실제 스크롤 실행
         window.scrollTo({
           top: 0,
           behavior: "smooth",
         });
-      });
+        console.log("[FAB] top으로 스크롤 실행");
+      };
+
+      // 터치 시작 데이터 저장
+      const touchStartHandler = function (e) {
+        if (e.touches && e.touches[0]) {
+          const touch = e.touches[0];
+          fabBtn.touchStartData = {
+            startX: touch.clientX,
+            startY: touch.clientY,
+            startTime: Date.now(),
+          };
+        }
+      };
+
+      // 이벤트 리스너 등록
+      window.addEventListener("scroll", window.fabScrollHandler);
+      fabBtn.addEventListener("click", window.fabClickHandler); // 데스크톱용
+      fabBtn.addEventListener("touchstart", touchStartHandler, {
+        passive: true,
+      }); // 터치 시작
+      fabBtn.addEventListener("touchend", window.fabClickHandler); // 터치 끝
+
       // 페이지 진입 시 초기 상태 설정
       if (window.scrollY > 300) {
         fabBtn.style.display = "block";
       } else {
         fabBtn.style.display = "none";
       }
+
+      console.log("[FAB] FAB 버튼 이벤트 리스너 등록 완료 (중복 방지)");
     } else {
       console.log("[FAB] FAB button not found");
     }
@@ -63,15 +127,36 @@ function setupFabResizeHandler() {
     if (window.innerWidth <= 480) {
       // 480px 이하: FAB 숨기고 이벤트 제거
       fabBtn.style.display = "none";
+
+      // 모바일에서는 FAB 이벤트 리스너 완전 제거
+      if (window.fabScrollHandler) {
+        window.removeEventListener("scroll", window.fabScrollHandler);
+      }
+      if (window.fabClickHandler) {
+        fabBtn.removeEventListener("click", window.fabClickHandler);
+        fabBtn.removeEventListener("touchend", window.fabClickHandler);
+      }
+
       console.log("[FAB] FAB 기능 비활성화됨 - 모바일 화면");
     } else {
       // 480px 초과: FAB 기능 활성화
       console.log("[FAB] FAB 기능 활성화됨 - 데스크톱 화면");
-      // 스크롤 위치에 따른 초기 상태 설정
-      if (window.scrollY > 300) {
-        fabBtn.style.display = "block";
+
+      // 이벤트 리스너가 없으면 다시 등록
+      if (!window.fabScrollHandler || !window.fabClickHandler) {
+        // FAB 기능 재초기화
+        setTimeout(() => {
+          if (typeof initHeaderComponent === "function") {
+            initHeaderComponent();
+          }
+        }, 100);
       } else {
-        fabBtn.style.display = "none";
+        // 스크롤 위치에 따른 초기 상태 설정
+        if (window.scrollY > 300) {
+          fabBtn.style.display = "block";
+        } else {
+          fabBtn.style.display = "none";
+        }
       }
     }
   };
