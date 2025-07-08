@@ -711,7 +711,7 @@ function immediateTabInit() {
       subTabs: {
         news: [
           { id: "news", text: "UROCK소식", isActive: true },
-          { id: "business", text: "사업", isActive: false },
+          { id: "business", text: "제품 소식", isActive: false },
           { id: "education", text: "교육", isActive: false },
           { id: "exhibition", text: "전시회", isActive: false },
           { id: "notice", text: "공지사항", isActive: false },
