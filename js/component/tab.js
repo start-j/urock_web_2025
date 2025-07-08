@@ -16,11 +16,28 @@ function createTabComponent(containerId, config) {
     return;
   }
 
-  // 컨테이너 요소 가져오기
   const container = document.getElementById(containerId);
   if (!container) {
-    console.error(`Element with ID "${containerId}" not found.`);
+    console.error(`[Tab] 컨테이너를 찾을 수 없습니다: ${containerId}`);
     return;
+  }
+
+  // 사용자 상호작용 감지 플래그 초기화
+  if (typeof window.userInteracted === "undefined") {
+    window.userInteracted = false;
+
+    // 첫 번째 사용자 상호작용 감지
+    const interactionEvents = ["click", "touch", "keydown", "scroll"];
+    const handleFirstInteraction = () => {
+      window.userInteracted = true;
+      interactionEvents.forEach((event) => {
+        document.removeEventListener(event, handleFirstInteraction, true);
+      });
+    };
+
+    interactionEvents.forEach((event) => {
+      document.addEventListener(event, handleFirstInteraction, true);
+    });
   }
 
   // 중복 초기화 방지
@@ -193,9 +210,9 @@ function createTabComponent(containerId, config) {
       if (mainTabContainer) {
         mainTabContainer.style.scrollBehavior = "smooth";
 
-        // 활성 탭이 보이도록 스크롤 조정
+        // 활성 탭이 보이도록 스크롤 조정 (사용자 상호작용 시에만)
         const activeMainTab = mainTabContainer.querySelector("a.active");
-        if (activeMainTab) {
+        if (activeMainTab && window.userInteracted) {
           setTimeout(() => {
             activeMainTab.scrollIntoView({
               behavior: "smooth",
@@ -211,9 +228,9 @@ function createTabComponent(containerId, config) {
         if (group) {
           group.style.scrollBehavior = "smooth";
 
-          // 활성 서브 탭이 보이도록 스크롤 조정
+          // 활성 서브 탭이 보이도록 스크롤 조정 (사용자 상호작용 시에만)
           const activeSubTab = group.querySelector("a.active");
-          if (activeSubTab) {
+          if (activeSubTab && window.userInteracted) {
             setTimeout(() => {
               activeSubTab.scrollIntoView({
                 behavior: "smooth",
@@ -571,6 +588,9 @@ function createTabComponent(containerId, config) {
       tab.addEventListener("click", (e) => {
         e.preventDefault();
 
+        // 사용자 상호작용 플래그 설정
+        window.userInteracted = true;
+
         // 탭 활성화 상태 업데이트
         mainTabs.forEach((t) => t.classList.remove("active"));
         tab.classList.add("active");
@@ -617,6 +637,9 @@ function createTabComponent(containerId, config) {
     subTabLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
+
+        // 사용자 상호작용 플래그 설정
+        window.userInteracted = true;
 
         const currentSubTab = link.closest(".tab-sub");
         const groupLinks = currentSubTab.querySelectorAll(".tab-menu a");

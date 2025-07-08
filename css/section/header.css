@@ -420,8 +420,7 @@ header .mobile-menu-btn {
   }
 
   header .fab-btn {
-    width: 52px;
-    height: 52px;
+    display: none;
   }
 }
 

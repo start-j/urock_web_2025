@@ -29,3 +29,9 @@ button.fab-btn:hover img {
 button.fab-btn:active img {
   content: url(/images/common/fab-active.webp);
 }
+
+@media (min-width: 480px) {
+  button.fab-btn {
+    display: none;
+  }
+}
