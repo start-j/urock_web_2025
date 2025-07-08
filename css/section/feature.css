@@ -7,7 +7,7 @@
 .feature.mcq-g,
 .feature.gm,
 .feature.gm-pro {
-  background-image: url(/images/solution/bg-description.webp);
+  background-image: url(/images/solution/bg-description.png);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -43,14 +43,14 @@
 페이지별 특화 스타일 
 .feature.dfas-pro .frame {
   height: 648px;
-  background-image: url(/images/solution/contents-feature-dfas-pro.webp);
+  background-image: url(/images/solution/contents-feature-dfas-pro.png);
   margin: 24px 0 180px 0;
   box-shadow: none;
 }
 
 .feature.dfas-ent .frame {
   height: 648px;
-  background-image: url(/images/solution/contents-feature-dfas-enterprise.webp);
+  background-image: url(/images/solution/contents-feature-dfas-enterprise.png);
   margin: 24px 0 180px 0;
   box-shadow: none;
 }
@@ -62,7 +62,7 @@
 .feature.mcq-p .frame.card:nth-child(1),
 .feature.mcq-p .frame.card:nth-child(2),
 .feature.mcq-p .frame.card:nth-child(3) {
-  background-image: url(/images/solution/img-example.webp);
+  background-image: url(/images/solution/img-example.png);
 }
 
 .feature.mcq-s .frame.card {
@@ -70,19 +70,19 @@
 }
 
 .feature.mcq-s .frame.card:nth-child(1) {
-  background-image: url(/images/main/service-01.webp);
+  background-image: url(/images/main/service-01.png);
 }
 
 .feature.mcq-s .frame.card:nth-child(2) {
-  background-image: url(/images/main/service-02.webp);
+  background-image: url(/images/main/service-02.png);
 }
 
 .feature.mcq-s .frame.card:nth-child(3) {
-  background-image: url(/images/main/service-01.webp);
+  background-image: url(/images/main/service-01.png);
 }
 
 .feature.mcq-s .frame.card:nth-child(4) {
-  background-image: url(/images/main/service-02.webp);
+  background-image: url(/images/main/service-02.png);
 }
 
 .feature.mcq-g .frame.card {
@@ -92,12 +92,12 @@
 .feature.mcq-g .frame.card:nth-child(1),
 .feature.mcq-g .frame.card:nth-child(2),
 .feature.mcq-g .frame.card:nth-child(3) {
-  background-image: url(/images/solution/img-example.webp);
+  background-image: url(/images/solution/img-example.png);
 }
 
 .feature.gm .frame {
   height: 648px;
-  background-image: url(/images/solution/contents-feature-gm.webp);
+  background-image: url(/images/solution/contents-feature-gm.png);
   margin: 24px 0 180px 0;
   box-shadow: none;
 }
@@ -111,7 +111,7 @@
   width: 1156px;
   height: 820px;
   position: relative;
-  background-image: url(/images/solution/contents-feature-gm-pro.webp);
+  background-image: url(/images/solution/contents-feature-gm-pro.png);
   background-position: center;
   overflow: hidden;
   flex-shrink: 0;

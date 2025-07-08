@@ -1,5 +1,5 @@
 .effect {
-  background-image: url(/mages/solution/bg-effect.webp);
+  background-image: url(/mages/solution/bg-effect.png);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,25 +16,25 @@
 }
 
 .effect .frame.dfas-enterprise {
-  background-image: url(/mages/solution/contents-effect-dfas-enterprise.webp);
+  background-image: url(/mages/solution/contents-effect-dfas-enterprise.png);
 }
 
 .effect .frame.mcq-s {
-  background-image: url(/mages/solution/contents-effect-mcq-s.webp);
+  background-image: url(/mages/solution/contents-effect-mcq-s.png);
 }
 
 .effect .frame.gm-pro {
-  background-image: url(/mages/solution/contents-effect-gm-pro.webp);
+  background-image: url(/mages/solution/contents-effect-gm-pro.png);
 }
 
 .effect .frame.gm {
-  background-image: url(/mages/solution/contents-effect-gm.webp);
+  background-image: url(/mages/solution/contents-effect-gm.png);
 }
 
 .effect .frame.mcq-g {
-  background-image: url(/mages/solution/contents-effect-mcq-g.webp);
+  background-image: url(/mages/solution/contents-effect-mcq-g.png);
 }
 
 .effect .frame.mcq-p {
-  background-image: url(/mages/solution/contents-effect-mcq-p.webp);
+  background-image: url(/mages/solution/contents-effect-mcq-p.png);
 }
