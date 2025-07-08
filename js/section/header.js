@@ -1,32 +1,38 @@
 // header 컴포넌트 초기화
 function initHeaderComponent() {
-  // FAB 버튼 스크롤 동작 (모든 페이지에서 한 번만 동작)
-  const fabBtn = document.querySelector(".fab-btn");
-  if (fabBtn) {
-    // 스크롤 위치에 따라 버튼 표시/숨김
-    window.addEventListener("scroll", function () {
+  // 480px 이하에서는 FAB 기능을 완전히 제거
+  if (window.innerWidth <= 480) {
+    console.log("[FAB] FAB 기능 비활성화 - 모바일 화면 (480px 이하)");
+  } else {
+    // FAB 버튼 스크롤 동작 (480px 초과 화면에서만 동작)
+    const fabBtn = document.querySelector(".fab-btn");
+    if (fabBtn) {
+      // 스크롤 위치에 따라 버튼 표시/숨김
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+          fabBtn.style.display = "block";
+        } else {
+          fabBtn.style.display = "none";
+        }
+      });
+      // 버튼 클릭 시 최상단으로 스크롤
+      fabBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+      // 페이지 진입 시 초기 상태 설정
       if (window.scrollY > 300) {
         fabBtn.style.display = "block";
       } else {
         fabBtn.style.display = "none";
       }
-    });
-    // 버튼 클릭 시 최상단으로 스크롤
-    fabBtn.addEventListener("click", function () {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    });
-    // 페이지 진입 시 초기 상태 설정
-    if (window.scrollY > 300) {
-      fabBtn.style.display = "block";
     } else {
-      fabBtn.style.display = "none";
+      console.log("[FAB] FAB button not found");
     }
-  } else {
-    console.log("[FAB] FAB button not found");
   }
+
   // 메뉴 포커스/활성화 처리
   setupMenuActivation();
 
@@ -38,6 +44,40 @@ function initHeaderComponent() {
 
   // 모바일 메뉴 기능
   setupMobileMenu();
+
+  // 윈도우 리사이즈 시 FAB 기능 재설정
+  setupFabResizeHandler();
+}
+
+// FAB 윈도우 리사이즈 핸들러 설정
+function setupFabResizeHandler() {
+  // 기존 리사이즈 이벤트 리스너 제거 (중복 방지)
+  if (window.fabResizeHandler) {
+    window.removeEventListener("resize", window.fabResizeHandler);
+  }
+
+  window.fabResizeHandler = function () {
+    const fabBtn = document.querySelector(".fab-btn");
+    if (!fabBtn) return;
+
+    if (window.innerWidth <= 480) {
+      // 480px 이하: FAB 숨기고 이벤트 제거
+      fabBtn.style.display = "none";
+      console.log("[FAB] FAB 기능 비활성화됨 - 모바일 화면");
+    } else {
+      // 480px 초과: FAB 기능 활성화
+      console.log("[FAB] FAB 기능 활성화됨 - 데스크톱 화면");
+      // 스크롤 위치에 따른 초기 상태 설정
+      if (window.scrollY > 300) {
+        fabBtn.style.display = "block";
+      } else {
+        fabBtn.style.display = "none";
+      }
+    }
+  };
+
+  // 리사이즈 이벤트 리스너 등록
+  window.addEventListener("resize", window.fabResizeHandler);
 }
 
 // 메뉴 활성화 설정
