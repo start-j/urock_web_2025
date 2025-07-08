@@ -254,19 +254,19 @@
 }
 
 .hero .thumbnail .item:nth-child(1) {
-  background-image: url("/images/main/bg-main-01.png");
+  background-image: url("/images/main/bg-main-01.webp");
 }
 
 .hero .thumbnail .item:nth-child(2) {
-  background-image: url("/images/main/bg-main-02.png");
+  background-image: url("/images/main/bg-main-02.webp");
 }
 
 .hero .thumbnail .item:nth-child(3) {
-  background-image: url("/images/main/bg-main-03.png");
+  background-image: url("/images/main/bg-main-03.webp");
 }
 
 .hero .thumbnail .item:nth-child(4) {
-  background-image: url("/images/main/bg-main-04.png");
+  background-image: url("/images/main/bg-main-04.webp");
 }
 
 /* .hero .thumbnail .item .bg-color-black {
@@ -435,7 +435,7 @@
 
 /* solution header */
 .solution-container {
-  /* background-image: url("/images/main/solution-container.png"); */
+  /* background-image: url("/images/main/solution-container.webp"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -445,7 +445,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/images/main/solution-header.png");
+  background-image: url("/images/main/solution-header.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -617,7 +617,7 @@
 }
 
 .main-service-container {
-  background-image: url("/images/main/bg-service.png");
+  background-image: url("/images/main/bg-service.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -916,7 +916,7 @@
   }
 
   .solution-header {
-    background-image: url("/images/main/solution-header-768.png");
+    background-image: url("/images/main/solution-header-768.webp");
     background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -1068,7 +1068,7 @@
   }
 
   .solution-header {
-    background-image: url("/images/main/solution-header-360.png");
+    background-image: url("/images/main/solution-header-360.webp");
     background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
