@@ -4,92 +4,90 @@
  */
 
 /* ========== 01. 글로벌 설정 ========== */
-@import url('./global/variables.css');
+@import url("./global/variables.css");
 /* 변수 정의 */
-@import url('./global/mixin.css');
+@import url("./global/mixin.css");
 /* 믹스인 정의 */
-@import url('./global/reset.css');
+@import url("./global/reset.css");
 /* 브라우저 기본 스타일 초기화 */
 @import url("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css");
 
 /* ========== 02. UI 컴포넌트 ========== */
-@import url('./component/inputs.css');
+@import url("./component/inputs.css");
 /* 입력 필드 컴포넌트 */
-@import url('./component/buttons.css');
+@import url("./component/buttons.css");
 /* 버튼 스타일 */
-@import url('./component/title.css');
+@import url("./component/title.css");
 /* 제목 스타일 */
-@import url('./component/tab.css');
+@import url("./component/tab.css");
 /* 탭 컴포넌트 */
-@import url('./component/fab.css');
-/* 플로팅 액션 버튼 */
-@import url('./component/cards.css');
+@import url("./component/cards.css");
 /* 카드 컴포넌트 */
-@import url('./component/banner.css');
+@import url("./component/banner.css");
 /* 배너 컴포넌트 */
-@import url('./component/breadcrumb.css');
+@import url("./component/breadcrumb.css");
 /* 브레드크럼 네비게이션 */
-@import url('./component/swiper.css');
+@import url("./component/swiper.css");
 /* 스와이퍼 컴포넌트 */
 
 /* ========== 03. 섹션별 스타일 ========== */
 /* 레이아웃 컴포넌트 */
-@import url('./section/header.css');
+@import url("./section/header.css");
 /* 헤더 레이아웃 */
-@import url('./section/footer.css');
+@import url("./section/footer.css");
 /* 푸터 레이아웃 */
 
 /* 섹션 컴포넌트 */
-@import url('./section/section.css');
+@import url("./section/section.css");
 /* 섹션 공통 스타일 */
-@import url('./section/hero.css');
+@import url("./section/hero.css");
 /* 히어로 섹션 */
-@import url('./section/intro.css');
+@import url("./section/intro.css");
 /* 인트로 섹션 */
-@import url('./section/contents.css');
+@import url("./section/contents.css");
 /* 콘텐츠 섹션 */
-@import url('./section/description.css');
+@import url("./section/description.css");
 /* 설명 섹션 */
-@import url('./section/feature.css');
+@import url("./section/feature.css");
 /* 특징 섹션 */
-@import url('./section/process.css');
+@import url("./section/process.css");
 /* 프로세스 섹션 */
-@import url('./section/utilization.css');
+@import url("./section/utilization.css");
 /* 활용 섹션 */
-@import url('./section/effect.css');
+@import url("./section/effect.css");
 /* 효과 섹션 */
-@import url('./section/client.css');
+@import url("./section/client.css");
 /* 클라이언트 섹션 */
-@import url('./section/news.css');
+@import url("./section/news.css");
 /* 뉴스 섹션 */
-@import url('./section/certificate.css');
+@import url("./section/certificate.css");
 /* 인증서 섹션 */
-@import url('./section/specification.css');
+@import url("./section/specification.css");
 /* 스펙 섹션 */
 
 /* ========== 05. 페이지별 스타일 ========== */
-@import url('./page/main.css');
-@import url('./page/company.css');
+@import url("./page/main.css");
+@import url("./page/company.css");
 
 /* 솔루션 페이지 */
-@import url('./page/solution-common.css');
-@import url('./page/solution-01-dfas-pro.css');
-@import url('./page/solution-02-dfas-ent.css');
-@import url('./page/solution-03-mcq-p.css');
-@import url('./page/solution-04-mcq-s.css');
-@import url('./page/solution-05-mcq-g.css');
-@import url('./page/solution-06-gm.css');
-@import url('./page/solution-07-gm-pro.css');
+@import url("./page/solution-common.css");
+@import url("./page/solution-01-dfas-pro.css");
+@import url("./page/solution-02-dfas-ent.css");
+@import url("./page/solution-03-mcq-p.css");
+@import url("./page/solution-04-mcq-s.css");
+@import url("./page/solution-05-mcq-g.css");
+@import url("./page/solution-06-gm.css");
+@import url("./page/solution-07-gm-pro.css");
 
 /* 서비스 페이지 */
-@import url('./page/service-common.css');
-@import url('./page/service-01-analysis.css');
-@import url('./page/service-02-authentication.css');
-@import url('./page/service-03-education.css');
+@import url("./page/service-common.css");
+@import url("./page/service-01-analysis.css");
+@import url("./page/service-02-authentication.css");
+@import url("./page/service-03-education.css");
 
 /* 지원 페이지 */
-@import url('./page/support-01-inquiry.css');
-@import url('./page/support-02-news.css');
+@import url("./page/support-01-inquiry.css");
+@import url("./page/support-02-news.css");
 
 /* 개별 관리 */
